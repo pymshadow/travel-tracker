@@ -1,0 +1,195 @@
+{
+ "vie-jan27": {
+  "flights_out": [
+   {
+    "price": 151,
+    "airlines": [
+     "Austrian"
+    ],
+    "stops": 0,
+    "dep_hour": 8.0,
+    "depart": "08:00",
+    "arrive": "09:15",
+    "via": "ATH → VIE",
+    "score": 157.0
+   }
+  ],
+  "flights_ret": [
+   {
+    "price": 170,
+    "airlines": [
+     "Aegean"
+    ],
+    "stops": 0,
+    "dep_hour": 18.5,
+    "depart": "18:30",
+    "arrive": "21:35",
+    "via": "VIE → ATH",
+    "score": 165.5
+   }
+  ],
+  "flights_out_url": "https://www.google.com/travel/flights?tfs=GhoSCjIwMjctMDEtMTdqBRIDQVRIcgUSA1ZJRUICAQFIAZgBAg%3D%3D&hl=en&curr=EUR",
+  "flights_ret_url": "https://www.google.com/travel/flights?tfs=GhoSCjIwMjctMDEtMjJqBRIDVklFcgUSA0FUSEICAQFIAZgBAg%3D%3D&hl=en&curr=EUR",
+  "flight_min": 321,
+  "flight_best": 321,
+  "booking": [
+   {
+    "name": "Next to Schönbrunn I 10 min to U4 I Free WiFi",
+    "kind": "apartment",
+    "total": 228.0,
+    "rating": 8.1,
+    "reviews": 46,
+    "center_m": 4900.0,
+    "transit_m": 50,
+    "transit_desc": "~50 μ από στάση (OSM)",
+    "lat": 48.1802572130378,
+    "lon": 16.3228156187349,
+    "url": "https://www.booking.com/hotel/at/next-to-schonbrunn-i-10-min-to-u4-i-free-wifi.en-gb.html?checkin=2027-01-17&checkout=2027-01-22&group_adults=2&selected_currency=EUR"
+   },
+   {
+    "name": "Meidling Apartments I Self Check In I 1 Min to U6",
+    "kind": "apartment",
+    "total": 242.0,
+    "rating": 8.4,
+    "reviews": 11,
+    "center_m": 4300.0,
+    "transit_m": 150.0,
+    "transit_desc": "Niederhofstraße station is within 150 metres",
+    "lat": 48.18110530380244,
+    "lon": 16.332808613613867,
+    "url": "https://www.booking.com/hotel/at/neue-property.en-gb.html?checkin=2027-01-17&checkout=2027-01-22&group_adults=2&selected_currency=EUR"
+   },
+   {
+    "name": "Cozy Studio with AC - 15 min to Center",
+    "kind": "apartment",
+    "total": 254.0,
+    "rating": 9.2,
+    "reviews": 10,
+    "center_m": 3100.0,
+    "transit_m": 350.0,
+    "transit_desc": "Elterleinplatz station is within 350 metres",
+    "lat": 48.22021832098718,
+    "lon": 16.334825421823105,
+    "url": "https://www.booking.com/hotel/at/new-property-placeholder.en-gb.html?checkin=2027-01-17&checkout=2027-01-22&group_adults=2&selected_currency=EUR"
+   },
+   {
+    "name": "Strauss Cozy City Apartment - 15 Min ins Zentrum",
+    "kind": "apartment",
+    "total": 290.0,
+    "rating": 9,
+    "reviews": 1,
+    "center_m": 3800.0,
+    "transit_m": 300.0,
+    "transit_desc": "Reumannplatz station is within 300 metres",
+    "lat": 48.1742239,
+    "lon": 16.3740405,
+    "url": "https://www.booking.com/hotel/at/strauss-cozy-city-apartment-15-min-ins-zentrum.en-gb.html?checkin=2027-01-17&checkout=2027-01-22&group_adults=2&selected_currency=EUR"
+   },
+   {
+    "name": "Vienna Charming Central Apartment",
+    "kind": "apartment",
+    "total": 295.0,
+    "rating": 8.3,
+    "reviews": 20,
+    "center_m": 2900.0,
+    "transit_m": 400.0,
+    "transit_desc": "Reinprechtsdorfer Straße station is within 400 metres",
+    "lat": 48.1875105,
+    "lon": 16.3494089,
+    "url": "https://www.booking.com/hotel/at/vienna-charming-central-apartment.en-gb.html?checkin=2027-01-17&checkout=2027-01-22&group_adults=2&selected_currency=EUR"
+   },
+   {
+    "name": "4 Min to Metro I 12 Min to Inner City I Top Wifi",
+    "kind": "apartment",
+    "total": 296.0,
+    "rating": 9.1,
+    "reviews": 438,
+    "center_m": 4000.0,
+    "transit_m": 200.0,
+    "transit_desc": "Gasometer station is within 200 metres",
+    "lat": 48.185398096243276,
+    "lon": 16.41512429329836,
+    "url": "https://www.booking.com/hotel/at/4-min-to-metro-i-12-min-to-inner-city-i-top-wifi.en-gb.html?checkin=2027-01-17&checkout=2027-01-22&group_adults=2&selected_currency=EUR"
+   },
+   {
+    "name": "Apartments Favoriten",
+    "kind": "apartment",
+    "total": 299.0,
+    "rating": 8,
+    "reviews": 103,
+    "center_m": 4000.0,
+    "transit_m": 450.0,
+    "transit_desc": "Gussriegelstraße station is within 450 metres",
+    "lat": 48.173226548317,
+    "lon": 16.364205206117,
+    "url": "https://www.booking.com/hotel/at/pool-apartments-favoriten.en-gb.html?checkin=2027-01-17&checkout=2027-01-22&group_adults=2&selected_currency=EUR"
+   },
+   {
+    "name": "easy-flat Rokitanskygasse - Apartments near Tram 43 to City Center",
+    "kind": "apartment",
+    "total": 305.0,
+    "rating": 9.1,
+    "reviews": 292,
+    "center_m": 3600.0,
+    "transit_m": 400.0,
+    "transit_desc": "Elterleinplatz station is within 400 metres",
+    "lat": 48.2208372,
+    "lon": 16.3285802,
+    "url": "https://www.booking.com/hotel/at/easy-flat-hernals.en-gb.html?checkin=2027-01-17&checkout=2027-01-22&group_adults=2&selected_currency=EUR"
+   },
+   {
+    "name": "Apartments near Schönbrunn",
+    "kind": "apartment",
+    "total": 308.0,
+    "rating": 8.4,
+    "reviews": 359,
+    "center_m": 3800.0,
+    "transit_m": 500.0,
+    "transit_desc": "Längenfeldgasse station is within 500 metres",
+    "lat": 48.1885263,
+    "lon": 16.3316979,
+    "url": "https://www.booking.com/hotel/at/apartment-near-schonbrunn-with-balcony.en-gb.html?checkin=2027-01-17&checkout=2027-01-22&group_adults=2&selected_currency=EUR"
+   },
+   {
+    "name": "West Living by Lorenz",
+    "kind": "apartment",
+    "total": 315.0,
+    "rating": 10,
+    "reviews": 1,
+    "center_m": 3000.0,
+    "transit_m": 400.0,
+    "transit_desc": "Westbahnhof station is within 400 metres",
+    "lat": 48.199212,
+    "lon": 16.3360886,
+    "url": "https://www.booking.com/hotel/at/west-living-by-lorenz.en-gb.html?checkin=2027-01-17&checkout=2027-01-22&group_adults=2&selected_currency=EUR"
+   },
+   {
+    "name": "Vibrant Design Apartments - Full Kitchen - Wi-Fi - 18 Mins to City Centre",
+    "kind": "apartment",
+    "total": 319.0,
+    "rating": 8.3,
+    "reviews": 49,
+    "center_m": 4600.0,
+    "transit_m": 37,
+    "transit_desc": "~37 μ από στάση (OSM)",
+    "lat": 48.222904242718,
+    "lon": 16.315744544775,
+    "url": "https://www.booking.com/hotel/at/stilvolles-cotton-candy-pink-3zimmer-apartment.en-gb.html?checkin=2027-01-17&checkout=2027-01-22&group_adults=2&selected_currency=EUR"
+   },
+   {
+    "name": "Vienna Shopping Center 6a Apartment",
+    "kind": "apartment",
+    "total": 340.0,
+    "rating": 8.3,
+    "reviews": 208,
+    "center_m": 2900.0,
+    "transit_m": 200.0,
+    "transit_desc": "Burggasse-Stadthalle station is within 200 metres",
+    "lat": 48.2035003,
+    "lon": 16.334850199999998,
+    "url": "https://www.booking.com/hotel/at/vienna-shopping-center-apartment-6a.en-gb.html?checkin=2027-01-17&checkout=2027-01-22&group_adults=2&selected_currency=EUR"
+   }
+  ],
+  "booking_min": 228.0
+ }
+}

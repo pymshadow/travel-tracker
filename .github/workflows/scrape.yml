@@ -1,0 +1,62 @@
+name: Daily Travel Tracker
+
+on:
+  schedule:
+    - cron: '0 8 * * *' # 8:00 AM UTC -> 10:00/11:00 AM Greece
+  workflow_dispatch: # Manual trigger
+
+jobs:
+  scrape-and-deploy:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write # Needed to commit snapshots
+      pages: write    # Needed if deploying to GitHub Pages
+      id-token: write
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.11'
+        cache: 'pip'
+
+    - name: Install Python dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+        playwright install chromium
+
+    - name: Run Tracker
+      run: python travel_tracker.py
+      
+    - name: Set up Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+        
+    - name: Install React Dependencies & Build
+      run: |
+        cd dashboard
+        npm install
+        npm run build
+
+    - name: Commit new snapshot
+      run: |
+        git config --global user.name "github-actions[bot]"
+        git config --global user.email "github-actions[bot]@users.noreply.github.com"
+        git add dashboard/public/snapshot.json dashboard/public/trips.json snapshots/*.json history.csv
+        git commit -m "Auto-update: Daily travel snapshot" || exit 0
+        git push
+
+    # If we want to use GitHub Pages directly (optional)
+    # - name: Upload artifact
+    #   uses: actions/upload-pages-artifact@v3
+    #   with:
+    #     path: 'dashboard/dist'
+    # - name: Deploy to GitHub Pages
+    #   id: deployment
+    #   uses: actions/deploy-pages@v4
