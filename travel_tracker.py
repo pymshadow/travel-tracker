@@ -134,10 +134,12 @@ def _fetch_flight_leg_live(page, direction, dep_date, frm, to, adults, nights=0)
             if any(any(lc in a.lower() for lc in lowcost) for a in o["airlines"]):
                 continue
 
-        if direction == "out" and o["depart"] > "13:00":
-            continue
-        if direction == "ret" and o["depart"] < "16:30":
-            continue
+        if direction == "out":
+            if o["depart"] > ("17:00" if nights >= 6 else "13:00"):
+                continue
+        if direction == "ret":
+            if o["depart"] < ("08:00" if nights >= 6 else "16:30"):
+                continue
 
         key = (o["price"], o["depart"], tuple(o["airlines"]))
         if key not in seen:
@@ -192,10 +194,12 @@ def _fetch_flight_leg(direction, dep_date, frm, to, adults, nights=0):
         
         dh, dm = hm(f.flights[0].departure.time)
         dep_str = f"{dh:02d}:{dm:02d}"
-        if direction == "out" and dep_str > "13:00":
-            continue
-        if direction == "ret" and dep_str < "16:30":
-            continue
+        if direction == "out":
+            if dep_str > ("17:00" if nights >= 6 else "13:00"):
+                continue
+        if direction == "ret":
+            if dep_str < ("08:00" if nights >= 6 else "16:30"):
+                continue
 
         ah, am = hm(f.flights[-1].arrival.time)
         options.append({
@@ -211,13 +215,17 @@ def _fetch_flight_leg(direction, dep_date, frm, to, adults, nights=0):
     return options, search_url
 
 
-def _score_leg(opt, direction):
+def _score_leg(opt, direction, nights=0):
     """Χαμηλότερο score = καλύτερη επιλογή σύμφωνα με τους κανόνες."""
     score = float(opt["price"])
     if direction == "out":
         score += max(0.0, opt["dep_hour"] - 6) * RULES["eur_per_hour_late_departure"]
+        if nights >= 6 and opt["depart"] > "13:00":
+            score += 40.0
     else:
         score += max(0.0, 22 - opt["dep_hour"]) * RULES["eur_per_hour_early_return"]
+        if nights >= 6 and opt["depart"] < "16:30":
+            score += 40.0
     score += opt["stops"] * RULES["eur_per_stop"]
     if any(a for a in opt["airlines"] if "aegean" in a.lower() or "olympic" in a.lower()):
         score -= RULES["aegean_bonus_eur"]
@@ -261,7 +269,7 @@ def fetch_flights(trip, playwright):
             if not options:  # fallback στο στατικό HTML
                 options, search_url = _fetch_flight_leg(direction, d, frm, to, adults, nights)
             for o in options:
-                o["score"] = _score_leg(o, direction)
+                o["score"] = _score_leg(o, direction, nights)
             options.sort(key=lambda o: o["score"])
             result[direction] = options
             result[direction + "_url"] = search_url
@@ -779,7 +787,8 @@ def main():
                 snap["flights_out_url"] = fl.get("out_url", "")
                 snap["flights_ret_url"] = fl.get("ret_url", "")
                 out, ret = fl.get("out", []), fl.get("ret", [])
-                if out:
+                has_return = bool(trip.get("return"))
+                if out and (not has_return or ret):
                     cheapest = min(o["price"] for o in out) + (min(o["price"] for o in ret) if ret else 0)
                     best = out[0]["price"] + (ret[0]["price"] if ret else 0)
                     snap["flight_min"] = cheapest

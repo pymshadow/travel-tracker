@@ -108,3 +108,12 @@ date,trip_id,metric,value
 2026-07-17,barcelona-jan,flight_min,353
 2026-07-17,barcelona-jan,flight_best,353
 2026-07-17,barcelona-jan,booking_min,890.0
+2026-07-17,madrid-jan,flight_min,363
+2026-07-17,madrid-jan,flight_best,387
+2026-07-17,madrid-jan,booking_min,649.0
+2026-07-17,vienna-jan,flight_min,95
+2026-07-17,vienna-jan,flight_best,117
+2026-07-17,vienna-jan,booking_min,283.0
+2026-07-17,barcelona-jan,flight_min,353
+2026-07-17,barcelona-jan,flight_best,353
+2026-07-17,barcelona-jan,booking_min,698.0
