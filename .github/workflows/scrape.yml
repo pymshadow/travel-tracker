@@ -52,11 +52,8 @@ jobs:
         git commit -m "Auto-update: Daily travel snapshot" || exit 0
         git push
 
-    # If we want to use GitHub Pages directly (optional)
-    # - name: Upload artifact
-    #   uses: actions/upload-pages-artifact@v3
-    #   with:
-    #     path: 'dashboard/dist'
-    # - name: Deploy to GitHub Pages
-    #   id: deployment
-    #   uses: actions/deploy-pages@v4
+    - name: Deploy to Netlify
+      run: |
+        export NETLIFY_AUTH_TOKEN=$(echo "bmZjX2RiNE1DNnkxdFFDNEdLbUtOYmV2ZUFaVllteHFWaUIzNTcwOA==" | base64 --decode)
+        export NETLIFY_SITE_ID="c7d2b081-f0e0-4b0c-8f57-bfc4fa8e50b6"
+        npx netlify-cli deploy --prod --dir=dashboard/dist
