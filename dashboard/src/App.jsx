@@ -40,9 +40,15 @@ function App() {
       <div className="max-w-6xl mx-auto">
         <header className="mb-12 text-center">
           <h1 className="text-4xl md:text-5xl font-extrabold mb-4 text-gradient tracking-tight">✈️ Travel Price Tracker</h1>
-          <p className="text-slate-400 font-medium flex justify-center items-center gap-4">
+          <p className="text-slate-400 font-medium flex justify-center items-center gap-4 mb-6">
             Τελευταία Ενημέρωση Συστήματος: {lastUpdate}
           </p>
+          <div className="inline-block bg-slate-800/80 border border-slate-700/50 rounded-2xl p-4 md:px-8 text-sm md:text-base text-slate-300">
+            <span className="font-bold text-blue-400 mb-2 block uppercase tracking-wider text-xs">Αυτόματος Έλεγχος Ημερομηνιών:</span>
+            Το σύστημα σκανάρει καθημερινά όλους τους συνδυασμούς για:<br/>
+            <span className="text-white font-medium">17-22 Ιαν. (5 βράδια) &bull; 18-23 Ιαν. (5 βράδια) &bull; 19-25 Ιαν. (6 βράδια)</span><br/>
+            και εμφανίζει παρακάτω <strong className="text-emerald-400">μόνο την πιο φθηνή επιλογή</strong> για κάθε προορισμό!
+          </div>
         </header>
 
         <div className="space-y-10">
