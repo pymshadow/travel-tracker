@@ -55,15 +55,15 @@ function App() {
               <section key={trip.id} className="glass-card rounded-3xl p-6 md:p-10 overflow-hidden relative hover:border-slate-600/50 transition-colors">
                 <div className="absolute -top-6 -right-6 p-4 opacity-5 text-9xl pointer-events-none">🏢</div>
                 <div className="flex justify-between items-start mb-3">
-                  <h2 className="text-3xl md:text-4xl font-extrabold text-white">{trip.name || trip.id}</h2>
+                  <h2 className="text-3xl md:text-4xl font-extrabold text-white">{data?.name || trip.name || trip.id}</h2>
                   <div className="bg-slate-800 text-blue-300 px-3 py-1 rounded-full text-xs uppercase tracking-widest border border-slate-700/50 mt-2">
-                    19-25 Ιαν. 2027
+                    {data?.depart_str ? `${data.depart_str} / ${data.return_str}` : 'N/A'}
                   </div>
                 </div>
                 
                 <div className="text-slate-400 mb-8 font-medium flex flex-wrap items-center gap-3">
                   <span className="bg-slate-800 text-slate-300 px-3 py-1 rounded-full text-xs uppercase tracking-widest border border-slate-700/50">
-                    {trip.from} &rarr; {trip.to}
+                    {trip.from} &rarr; {data?.to || trip.to}
                   </span>
                   <span className="text-slate-500">&bull;</span>
                   <span>{adults} Άτομα</span>

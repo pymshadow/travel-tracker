@@ -774,55 +774,93 @@ def main():
     snapshot, history_rows = {}, []
 
     from playwright.sync_api import sync_playwright
+    import random
+    
+    # Process surprise pools before looping
+    for t in trips:
+        if "surprise_pool" in t:
+            choice = random.choice(t["surprise_pool"])
+            t["to"] = choice["to"]
+            t["city"] = choice["city"]
+            t["name"] = f"Έκπληξη: {choice['name']}"
+
     for trip in trips:
         with sync_playwright() as pw:
             tid = trip["id"]
-            snap = {}
-            print(f"\n=== {trip.get('name', tid)} ({trip['from']}→{trip['to']}, {trip['depart']}) ===")
+            best_snap = None
+            best_total = float('inf')
+            best_hist = []
+            
+            pairs = trip.get("date_pairs", [{"depart": trip.get("depart"), "return": trip.get("return")}])
+            
+            for pair in pairs:
+                trip["depart"] = pair["depart"]
+                trip["return"] = pair["return"]
+                snap = {}
+                hist = []
+                print(f"\n=== {trip.get('name', tid)} ({trip['from']}→{trip['to']}, {trip['depart']}) ===")
 
-            try:
-                fl = fetch_flights(trip, pw)
-                snap["flights_out"] = fl.get("out", [])[:8]
-                snap["flights_ret"] = fl.get("ret", [])[:8]
-                snap["flights_out_url"] = fl.get("out_url", "")
-                snap["flights_ret_url"] = fl.get("ret_url", "")
-                out, ret = fl.get("out", []), fl.get("ret", [])
-                has_return = bool(trip.get("return"))
-                if out and (not has_return or ret):
-                    cheapest = min(o["price"] for o in out) + (min(o["price"] for o in ret) if ret else 0)
-                    best = out[0]["price"] + (ret[0]["price"] if ret else 0)
-                    snap["flight_min"] = cheapest
-                    snap["flight_best"] = best
-                    history_rows.append([TODAY, tid, "flight_min", cheapest])
-                    history_rows.append([TODAY, tid, "flight_best", best])
-                    pp = cheapest / trip.get("adults", 1)
-                    target = RULES["max_flight_pp_eur"]
-                    mark = "✅ εντός στόχου" if pp <= target else f"πάνω από στόχο κατά {pp - target:.0f}€"
-                    print(f"  Πτήσεις: {pp:.0f}€/άτομο ({mark} {target}€) | φθηνότερο σύνολο {cheapest}€ | καλύτερη επιλογή ⭐ {best}€ "
-                          f"(αναχ. {out[0]['depart']} {','.join(out[0]['airlines'])}"
-                          + (f" / επιστρ. {ret[0]['depart']} {','.join(ret[0]['airlines'])}" if ret else "") + ")")
-            except Exception as e:
-                snap["error"] = f"Πτήσεις: {e}"
-                print(f"  ⚠️ Σφάλμα πτήσεων: {e}")
-                traceback.print_exc()
+                try:
+                    fl = fetch_flights(trip, pw)
+                    snap["flights_out"] = fl.get("out", [])[:8]
+                    snap["flights_ret"] = fl.get("ret", [])[:8]
+                    snap["flights_out_url"] = fl.get("out_url", "")
+                    snap["flights_ret_url"] = fl.get("ret_url", "")
+                    out, ret = fl.get("out", []), fl.get("ret", [])
+                    has_return = bool(trip.get("return"))
+                    if out and (not has_return or ret):
+                        cheapest = min(o["price"] for o in out) + (min(o["price"] for o in ret) if ret else 0)
+                        best = out[0]["price"] + (ret[0]["price"] if ret else 0)
+                        snap["flight_min"] = cheapest
+                        snap["flight_best"] = best
+                        hist.append([TODAY, tid, "flight_min", cheapest])
+                        hist.append([TODAY, tid, "flight_best", best])
+                        pp = cheapest / trip.get("adults", 1)
+                        target = RULES["max_flight_pp_eur"]
+                        mark = "✅ εντός στόχου" if pp <= target else f"πάνω από στόχο κατά {pp - target:.0f}€"
+                        print(f"  Πτήσεις: {pp:.0f}€/άτομο ({mark} {target}€) | φθηνότερο σύνολο {cheapest}€ | καλύτερη επιλογή ⭐ {best}€ "
+                              f"(αναχ. {out[0]['depart']} {','.join(out[0]['airlines'])}"
+                              + (f" / επιστρ. {ret[0]['depart']} {','.join(ret[0]['airlines'])}" if ret else "") + ")")
+                except Exception as e:
+                    snap["error"] = f"Πτήσεις: {e}"
+                    print(f"  ⚠️ Σφάλμα πτήσεων: {e}")
+                    traceback.print_exc()
 
-            try:
-                listings = fetch_booking(trip, pw)
-                snap["booking"] = listings[:12]
-                if listings:
-                    snap["booking_min"] = listings[0]["total"]
-                    history_rows.append([TODAY, tid, "booking_min", listings[0]["total"]])
-                    print(f"  Booking: {len(listings)} εντός κανόνων, από {listings[0]['total']:.0f}€ "
-                          f"({listings[0]['name'][:40]})")
-                else:
-                    print("  Booking: κανένα αποτέλεσμα εντός κανόνων")
-            except Exception as e:
-                snap["error"] = (snap.get("error", "") + f" | Booking: {e}").strip(" |")
-                print(f"  ⚠️ Σφάλμα Booking: {e}")
-                traceback.print_exc()
+                try:
+                    listings = fetch_booking(trip, pw)
+                    snap["booking"] = listings[:12]
+                    if listings:
+                        snap["booking_min"] = listings[0]["total"]
+                        hist.append([TODAY, tid, "booking_min", listings[0]["total"]])
+                        print(f"  Booking: {len(listings)} εντός κανόνων, από {listings[0]['total']:.0f}€ "
+                              f"({listings[0]['name'][:40]})")
+                    else:
+                        print("  Booking: κανένα αποτέλεσμα εντός κανόνων")
+                except Exception as e:
+                    snap["error"] = (snap.get("error", "") + f" | Booking: {e}").strip(" |")
+                    print(f"  ⚠️ Σφάλμα Booking: {e}")
+                    traceback.print_exc()
 
-            snapshot[tid] = snap
-            time.sleep(2)
+                fmin = snap.get("flight_min", float('inf'))
+                bmin = snap.get("booking_min", float('inf'))
+                total = fmin + bmin if fmin != float('inf') and bmin != float('inf') else float('inf')
+                
+                # Keep this snap if it's the cheapest, or if we don't have a best yet
+                if total < best_total or best_snap is None:
+                    if total < best_total:
+                        best_total = total
+                    snap["depart_str"] = pair["depart"]
+                    snap["return_str"] = pair["return"]
+                    snap["name"] = trip.get("name", tid)
+                    snap["to"] = trip.get("to")
+                    best_snap = snap
+                    best_hist = hist
+                
+                time.sleep(2)
+
+            if best_snap:
+                snapshot[tid] = best_snap
+                history_rows.extend(best_hist)
 
     append_history(history_rows)
     with open(os.path.join(SNAPSHOT_DIR, f"{TODAY}.json"), "w", encoding="utf-8") as f:
