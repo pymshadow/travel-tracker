@@ -8,7 +8,8 @@
       "PowerShell(pip install --upgrade \"protobuf>=6.31\" 2>&1)",
       "PowerShell(python -c \"import fast_flights; print\\(fast_flights.__all__ if hasattr\\(fast_flights,'__all__'\\) else [n for n in dir\\(fast_flights\\) if not n.startswith\\('_'\\)]\\)\")",
       "PowerShell(python -c \"import inspect, fast_flights; print\\(inspect.signature\\(fast_flights.get_flights\\)\\); print\\(inspect.signature\\(fast_flights.create_query\\)\\); import fast_flights.querying as q; print\\(inspect.signature\\(q.Query.__init__\\) if hasattr\\(q.Query,'__init__'\\) else ''\\)\")",
-      "PowerShell(python -c \"import inspect; from fast_flights.querying import FlightQuery; print\\(inspect.signature\\(FlightQuery.__init__\\)\\); from fast_flights.parser import ResultList; print\\([n for n in dir\\(ResultList\\) if not n.startswith\\('_'\\)]\\)\")"
+      "PowerShell(python -c \"import inspect; from fast_flights.querying import FlightQuery; print\\(inspect.signature\\(FlightQuery.__init__\\)\\); from fast_flights.parser import ResultList; print\\([n for n in dir\\(ResultList\\) if not n.startswith\\('_'\\)]\\)\")",
+      "PowerShell(Get-Content D:\\\\Travel\\\\.gitignore; Write-Host '---'; git -C D:\\\\Travel remote -v; Write-Host '---'; try { \\(Get-ScheduledTask -TaskName 'Travel Price Tracker' -ErrorAction Stop\\).State } catch { 'no local task' }; Write-Host '---'; git -C D:\\\\Travel log --oneline -3 -- .github/workflows/scrape.yml)"
     ]
   }
 }
