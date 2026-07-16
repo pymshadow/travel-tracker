@@ -1,2 +1,13 @@
+# Μυστικά — ΠΟΤΕ στο git
+.env
+cookies.txt
+
+# Παραγόμενα αρχεία / μεγάλα binaries
+videos/
+__pycache__/
+*.pyc
+tracker.log
+temp_trips.json
+
 # Local Netlify folder
 .netlify

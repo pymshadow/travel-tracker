@@ -12,6 +12,13 @@ const COST_OF_LIVING = {
   "BER": { low: 80, mid: 130, high: 190, desc: "Πολύ φθηνό street food (currywurst, doner), λογικές τιμές στα ποτά." }
 }
 
+const MONTHS_GR = ['', 'Ιαν.', 'Φεβ.', 'Μαρ.', 'Απρ.', 'Μαΐ.', 'Ιουν.', 'Ιουλ.', 'Αυγ.', 'Σεπ.', 'Οκτ.', 'Νοε.', 'Δεκ.']
+const fmtGr = (iso) => {
+  const [, m, d] = iso.split('-')
+  return `${+d} ${MONTHS_GR[+m]}`
+}
+const nightsOf = (a, b) => Math.round((new Date(b) - new Date(a)) / 86400000)
+
 function App() {
   const [tripsData, setTripsData] = useState([])
   const [lastUpdate, setLastUpdate] = useState('')
@@ -56,7 +63,14 @@ function App() {
           <div className="inline-block bg-slate-800/80 border border-slate-700/50 rounded-2xl p-4 md:px-8 text-sm md:text-base text-slate-300">
             <span className="font-bold text-blue-400 mb-2 block uppercase tracking-wider text-xs">Αυτόματος Έλεγχος Ημερομηνιών:</span>
             Το σύστημα σκανάρει καθημερινά όλους τους συνδυασμούς για:<br/>
-            <span className="text-white font-medium">17-22 Ιαν. (5 βράδια) &bull; 18-23 Ιαν. (5 βράδια) &bull; 19-25 Ιαν. (6 βράδια)</span><br/>
+            <span className="text-white font-medium">
+              {[...new Map(
+                tripsData.flatMap(({ trip }) => trip.date_pairs || [])
+                  .map(p => [p.depart + p.return, p])
+              ).values()]
+                .map(p => `${fmtGr(p.depart)} - ${fmtGr(p.return)} (${nightsOf(p.depart, p.return)} βράδια)`)
+                .join(' • ') || '—'}
+            </span><br/>
             και εμφανίζει παρακάτω <strong className="text-emerald-400">μόνο την πιο φθηνή επιλογή</strong> για κάθε προορισμό!
           </div>
         </header>

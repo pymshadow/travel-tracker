@@ -135,3 +135,6 @@ date,trip_id,metric,value
 2026-07-17,surprise-europe,flight_min,389
 2026-07-17,surprise-europe,flight_best,389
 2026-07-17,surprise-europe,booking_min,200.0
+2026-07-17,vienna-jan,flight_min,265
+2026-07-17,vienna-jan,flight_best,287
+2026-07-17,vienna-jan,booking_min,283.0

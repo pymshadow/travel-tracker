@@ -658,7 +658,8 @@ def build_report(trips, snapshot, hist):
             if metric not in snap:
                 continue
             val = snap[metric]
-            prev, alltime = stats_for(hist, tid, metric, val)
+            hkey = snap.get("hist_id", tid)
+            prev, alltime = stats_for(hist, hkey, metric, val)
             
             badge_trend = ""
             if prev is not None:
@@ -692,7 +693,7 @@ def build_report(trips, snapshot, hist):
                             {badge_trend}
                         </div>
                         {budget_html}
-                        <div class="mt-4 opacity-70 filter brightness-110">{sparkline(hist.get(tid, {}).get(metric, []), width=220, height=36)}</div>
+                        <div class="mt-4 opacity-70 filter brightness-110">{sparkline(hist.get(hkey, {}).get(metric, []), width=220, height=36)}</div>
                     </div>""")
         
         parts.append("</div>")
@@ -771,7 +772,14 @@ def main():
 
     os.makedirs(SNAPSHOT_DIR, exist_ok=True)
     hist = load_history()
-    snapshot, history_rows = {}, []
+    history_rows = []
+    # Merge με το τυχόν υπάρχον snapshot της ημέρας, ώστε το --single να μην
+    # σβήνει τα δεδομένα των υπόλοιπων ταξιδιών.
+    snapshot = {}
+    today_snap_path = os.path.join(SNAPSHOT_DIR, f"{TODAY}.json")
+    if os.path.exists(today_snap_path):
+        with open(today_snap_path, encoding="utf-8") as f:
+            snapshot = json.load(f)
 
     from playwright.sync_api import sync_playwright
     import random
@@ -783,10 +791,14 @@ def main():
             t["to"] = choice["to"]
             t["city"] = choice["city"]
             t["name"] = f"Έκπληξη: {choice['name']}"
+            # Το ιστορικό τιμών καταγράφεται ανά πόλη, αλλιώς το γράφημα
+            # θα συνέκρινε διαφορετικές πόλεις μεταξύ τους μέρα με τη μέρα.
+            t["_hist_id"] = f"{t['id']}-{choice['to'].lower()}"
 
     for trip in trips:
         with sync_playwright() as pw:
             tid = trip["id"]
+            hid = trip.get("_hist_id", tid)
             best_snap = None
             best_total = float('inf')
             best_hist = []
@@ -813,8 +825,8 @@ def main():
                         best = out[0]["price"] + (ret[0]["price"] if ret else 0)
                         snap["flight_min"] = cheapest
                         snap["flight_best"] = best
-                        hist.append([TODAY, tid, "flight_min", cheapest])
-                        hist.append([TODAY, tid, "flight_best", best])
+                        hist.append([TODAY, hid, "flight_min", cheapest])
+                        hist.append([TODAY, hid, "flight_best", best])
                         pp = cheapest / trip.get("adults", 1)
                         target = RULES["max_flight_pp_eur"]
                         mark = "✅ εντός στόχου" if pp <= target else f"πάνω από στόχο κατά {pp - target:.0f}€"
@@ -831,7 +843,7 @@ def main():
                     snap["booking"] = listings[:12]
                     if listings:
                         snap["booking_min"] = listings[0]["total"]
-                        hist.append([TODAY, tid, "booking_min", listings[0]["total"]])
+                        hist.append([TODAY, hid, "booking_min", listings[0]["total"]])
                         print(f"  Booking: {len(listings)} εντός κανόνων, από {listings[0]['total']:.0f}€ "
                               f"({listings[0]['name'][:40]})")
                     else:
@@ -859,6 +871,11 @@ def main():
                 time.sleep(2)
 
             if best_snap:
+                best_snap["hist_id"] = hid
+                # Το report πρέπει να δείχνει τις ημερομηνίες του φθηνότερου
+                # συνδυασμού, όχι του τελευταίου που δοκιμάστηκε.
+                trip["depart"] = best_snap.get("depart_str", trip.get("depart"))
+                trip["return"] = best_snap.get("return_str", trip.get("return"))
                 snapshot[tid] = best_snap
                 history_rows.extend(best_hist)
 

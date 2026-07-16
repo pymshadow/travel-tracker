@@ -451,7 +451,8 @@
   "depart_str": "2027-01-19",
   "return_str": "2027-01-25",
   "name": "Βιέννη",
-  "to": "VIE"
+  "to": "VIE",
+  "hist_id": "vienna-jan"
  },
  "surprise-europe": {
   "flights_out": [
