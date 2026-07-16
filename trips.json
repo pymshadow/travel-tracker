@@ -7,8 +7,8 @@
       "from": "ATH",
       "to": "MAD",
       "city": "Madrid",
-      "depart": "2027-01-20",
-      "return": "2027-01-25",
+      "depart": "2027-01-13",
+      "return": "2027-01-18",
       "adults": 2
     },
     {
@@ -18,8 +18,8 @@
       "from": "ATH",
       "to": "VIE",
       "city": "Vienna",
-      "depart": "2027-01-20",
-      "return": "2027-01-25",
+      "depart": "2027-01-13",
+      "return": "2027-01-18",
       "adults": 2
     },
     {
@@ -29,8 +29,8 @@
       "from": "ATH",
       "to": "BCN",
       "city": "Barcelona",
-      "depart": "2027-01-20",
-      "return": "2027-01-25",
+      "depart": "2027-01-13",
+      "return": "2027-01-18",
       "adults": 2
     }
   ]
