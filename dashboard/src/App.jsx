@@ -57,7 +57,7 @@ function App() {
                 <div className="flex justify-between items-start mb-3">
                   <h2 className="text-3xl md:text-4xl font-extrabold text-white">{trip.name || trip.id}</h2>
                   <div className="bg-slate-800 text-blue-300 px-3 py-1 rounded-full text-xs uppercase tracking-widest border border-slate-700/50 mt-2">
-                    17-22 Ιαν. 2027
+                    20-25 Ιαν. 2027
                   </div>
                 </div>
                 
@@ -69,7 +69,7 @@ function App() {
                   <span>{adults} Άτομα</span>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mb-8">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-8">
                   <div className="bg-slate-800/40 p-5 rounded-2xl border border-slate-700/50 hover:border-slate-600/60 transition-colors shadow-inner">
                     <div className="text-slate-400 text-xs uppercase tracking-wider font-semibold mb-2">Φθηνοτερη Πτηση (Καλοι Κανόνες)</div>
                     <div className="text-4xl font-extrabold text-white">{flightMin ? `${flightMin}€` : '-'}</div>
@@ -79,6 +79,14 @@ function App() {
                     <div className="text-slate-400 text-xs uppercase tracking-wider font-semibold mb-2">Φθηνοτερη Διαμονη (Με Δωρεάν Ακύρωση)</div>
                     <div className="text-4xl font-extrabold text-white">{bookingMin ? `${bookingMin}€` : '-'}</div>
                     {data?.error && data.error.includes("Booking") && <div className="text-red-400 text-xs mt-2">{data.error.split("|").pop()}</div>}
+                  </div>
+                  <div className="bg-blue-900/40 p-5 rounded-2xl border border-blue-700/50 hover:border-blue-500/60 transition-colors shadow-inner relative overflow-hidden">
+                    <div className="absolute top-0 right-0 p-3 opacity-10 text-5xl">💶</div>
+                    <div className="text-blue-300 text-xs uppercase tracking-wider font-semibold mb-2">ΣΥΝΟΛΙΚΟ ΚΟΣΤΟΣ (ΑΠΟ)</div>
+                    <div className="text-4xl font-extrabold text-white">
+                      {(flightMin && bookingMin) ? `${flightMin + bookingMin}€` : '-'}
+                    </div>
+                    <div className="text-blue-400/80 text-xs mt-2 font-medium">Για όλα τα άτομα ({adults})</div>
                   </div>
                 </div>
 
