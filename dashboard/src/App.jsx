@@ -57,7 +57,7 @@ function App() {
                 <div className="flex justify-between items-start mb-3">
                   <h2 className="text-3xl md:text-4xl font-extrabold text-white">{trip.name || trip.id}</h2>
                   <div className="bg-slate-800 text-blue-300 px-3 py-1 rounded-full text-xs uppercase tracking-widest border border-slate-700/50 mt-2">
-                    13-18 Ιαν. 2027
+                    19-25 Ιαν. 2027
                   </div>
                 </div>
                 

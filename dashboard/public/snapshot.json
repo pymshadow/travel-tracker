@@ -2,7 +2,7 @@
  "madrid-jan": {
   "flights_out": [
    {
-    "price": 177,
+    "price": 201,
     "airlines": [
      "Aegean"
     ],
@@ -11,19 +11,7 @@
     "depart": "09:15",
     "arrive": "12:05",
     "via": "ATH → MAD",
-    "score": 171.8
-   },
-   {
-    "price": 249,
-    "airlines": [
-     "SKY express"
-    ],
-    "stops": 0,
-    "dep_hour": 10.5,
-    "depart": "10:30",
-    "arrive": "13:20",
-    "via": "ATH → MAD",
-    "score": 262.5
+    "score": 195.8
    }
   ],
   "flights_ret": [
@@ -40,158 +28,15 @@
     "score": 182.2
    }
   ],
-  "flights_out_url": "https://www.google.com/travel/flights?tfs=GhoSCjIwMjctMDEtMjBqBRIDQVRIcgUSA01BREICAQFIAZgBAg%3D%3D&hl=en&curr=EUR",
+  "flights_out_url": "https://www.google.com/travel/flights?tfs=GhoSCjIwMjctMDEtMTlqBRIDQVRIcgUSA01BREICAQFIAZgBAg%3D%3D&hl=en&curr=EUR",
   "flights_ret_url": "https://www.google.com/travel/flights?tfs=GhoSCjIwMjctMDEtMjVqBRIDTUFEcgUSA0FUSEICAQFIAZgBAg%3D%3D&hl=en&curr=EUR",
-  "flight_min": 363,
-  "flight_best": 363,
+  "flight_min": 387,
+  "flight_best": 387,
   "booking": [
-   {
-    "name": "Well connected flat near the centre of Madrid",
-    "kind": "apartment",
-    "total": 479.0,
-    "rating": 8.6,
-    "reviews": 10,
-    "center_m": 3600.0,
-    "transit_m": 100.0,
-    "transit_desc": "Puente de Vallecas station is within 100 metres",
-    "lat": 40.3973137,
-    "lon": -3.6691753,
-    "url": "https://www.booking.com/hotel/es/well-connected-flat-near-the-centre-of-madrid.en-gb.html?checkin=2027-01-20&checkout=2027-01-25&group_adults=2&selected_currency=EUR"
-   },
-   {
-    "name": "DH Estudios Lopez de Hoyos",
-    "kind": "apartment",
-    "total": 557.0,
-    "rating": 8.1,
-    "reviews": 583,
-    "center_m": 3900.0,
-    "transit_m": 450.0,
-    "transit_desc": "Cartagena station is within 450 metres",
-    "lat": 40.443174,
-    "lon": -3.673324,
-    "url": "https://www.booking.com/hotel/es/dh-estudios-lopez-de-hoyos.en-gb.html?checkin=2027-01-20&checkout=2027-01-25&group_adults=2&selected_currency=EUR"
-   },
-   {
-    "name": "Nice studio in Madrid-Fp02",
-    "kind": "apartment",
-    "total": 562.0,
-    "rating": 8,
-    "reviews": 54,
-    "center_m": 2200.0,
-    "transit_m": 149,
-    "transit_desc": "~149 μ από στάση (OSM)",
-    "lat": 40.3973554,
-    "lon": -3.6997821,
-    "url": "https://www.booking.com/hotel/es/nice-studio-in-madrid-fp02.en-gb.html?checkin=2027-01-20&checkout=2027-01-25&group_adults=2&selected_currency=EUR"
-   },
-   {
-    "name": "Una maravilla en el Madrid castizo",
-    "kind": "apartment",
-    "total": 566.0,
-    "rating": 10,
-    "reviews": 1,
-    "center_m": 2400.0,
-    "transit_m": 150.0,
-    "transit_desc": "Marqués de Vadillo station is within 150 metres",
-    "lat": 40.3981393,
-    "lon": -3.7170342,
-    "url": "https://www.booking.com/hotel/es/una-maravilla-en-el-madrid-castizo.en-gb.html?checkin=2027-01-20&checkout=2027-01-25&group_adults=2&selected_currency=EUR"
-   },
-   {
-    "name": "Caterina Madrid Rio",
-    "kind": "apartment",
-    "total": 573.0,
-    "rating": 8.4,
-    "reviews": 439,
-    "center_m": 2000.0,
-    "transit_m": 238,
-    "transit_desc": "~238 μ από στάση (OSM)",
-    "lat": 40.4024342,
-    "lon": -3.7178839,
-    "url": "https://www.booking.com/hotel/es/caterina-madrid-rio.en-gb.html?checkin=2027-01-20&checkout=2027-01-25&group_adults=2&selected_currency=EUR"
-   },
-   {
-    "name": "Dobo Madrid San Diego",
-    "kind": "apartment",
-    "total": 580.0,
-    "rating": 8.1,
-    "reviews": 614,
-    "center_m": 4200.0,
-    "transit_m": 72,
-    "transit_desc": "~72 μ από στάση (OSM)",
-    "lat": 40.3911811,
-    "lon": -3.6670178,
-    "url": "https://www.booking.com/hotel/es/dobohomes-eg13.en-gb.html?checkin=2027-01-20&checkout=2027-01-25&group_adults=2&selected_currency=EUR"
-   },
-   {
-    "name": "Dobo Madrid MA24",
-    "kind": "apartment",
-    "total": 590.0,
-    "rating": 8.7,
-    "reviews": 315,
-    "center_m": 3300.0,
-    "transit_m": 200.0,
-    "transit_desc": "Urgel station is within 200 metres",
-    "lat": 40.3917622,
-    "lon": -3.7234913,
-    "url": "https://www.booking.com/hotel/es/global-home-marquesa.en-gb.html?checkin=2027-01-20&checkout=2027-01-25&group_adults=2&selected_currency=EUR"
-   },
-   {
-    "name": "Retiro City Center Apartment",
-    "kind": "apartment",
-    "total": 593.0,
-    "rating": 8.4,
-    "reviews": 72,
-    "center_m": 2900.0,
-    "transit_m": 200.0,
-    "transit_desc": "Pacífico station is within 200 metres",
-    "lat": 40.4027768,
-    "lon": -3.6744854,
-    "url": "https://www.booking.com/hotel/es/retiro-city-center-apartment.en-gb.html?checkin=2027-01-20&checkout=2027-01-25&group_adults=2&selected_currency=EUR"
-   },
-   {
-    "name": "Cozy studio in Tetuan En 1/6",
-    "kind": "apartment",
-    "total": 598.0,
-    "rating": 9.4,
-    "reviews": 6,
-    "center_m": 4400.0,
-    "transit_m": 350.0,
-    "transit_desc": "Estrecho station is within 350 metres",
-    "lat": 40.455977336605095,
-    "lon": -3.699443408459482,
-    "url": "https://www.booking.com/hotel/es/cozy-studio-in-tetuan-en-1-6.en-gb.html?checkin=2027-01-20&checkout=2027-01-25&group_adults=2&selected_currency=EUR"
-   },
-   {
-    "name": "Accommodation for 4 people in Carabanchel - Inmaculada",
-    "kind": "apartment",
-    "total": 598.0,
-    "rating": 8.9,
-    "reviews": 7,
-    "center_m": 2800.0,
-    "transit_m": 246,
-    "transit_desc": "~246 μ από στάση (OSM)",
-    "lat": 40.3922579,
-    "lon": -3.7124866,
-    "url": "https://www.booking.com/hotel/es/accommodation-for-4-people-in-carabanchel-inmaculada.en-gb.html?checkin=2027-01-20&checkout=2027-01-25&group_adults=2&selected_currency=EUR"
-   },
-   {
-    "name": "Genesis-Loft San Enrique 14",
-    "kind": "apartment",
-    "total": 604.0,
-    "rating": 9.6,
-    "reviews": 34,
-    "center_m": 4400.0,
-    "transit_m": 250.0,
-    "transit_desc": "Estrecho station is within 250 metres",
-    "lat": 40.4560562,
-    "lon": -3.7007826,
-    "url": "https://www.booking.com/hotel/es/genesis-loft-san-enrique-14.en-gb.html?checkin=2027-01-20&checkout=2027-01-25&group_adults=2&selected_currency=EUR"
-   },
    {
     "name": "Genesis-Loft San Enrique 20",
     "kind": "apartment",
-    "total": 609.0,
+    "total": 649.0,
     "rating": 9.5,
     "reviews": 22,
     "center_m": 4400.0,
@@ -199,10 +44,153 @@
     "transit_desc": "Estrecho station is within 300 metres",
     "lat": 40.4559155,
     "lon": -3.6999386,
-    "url": "https://www.booking.com/hotel/es/genesis-loft-san-enrique-20.en-gb.html?checkin=2027-01-20&checkout=2027-01-25&group_adults=2&selected_currency=EUR"
+    "url": "https://www.booking.com/hotel/es/genesis-loft-san-enrique-20.en-gb.html?checkin=2027-01-19&checkout=2027-01-25&group_adults=2&selected_currency=EUR"
+   },
+   {
+    "name": "Nice studio in Madrid-Fp02",
+    "kind": "apartment",
+    "total": 653.0,
+    "rating": 8,
+    "reviews": 54,
+    "center_m": 2200.0,
+    "transit_m": 149,
+    "transit_desc": "~149 μ από στάση (OSM)",
+    "lat": 40.3973554,
+    "lon": -3.6997821,
+    "url": "https://www.booking.com/hotel/es/nice-studio-in-madrid-fp02.en-gb.html?checkin=2027-01-19&checkout=2027-01-25&group_adults=2&selected_currency=EUR"
+   },
+   {
+    "name": "DH Estudios Lopez de Hoyos",
+    "kind": "apartment",
+    "total": 659.0,
+    "rating": 8.1,
+    "reviews": 583,
+    "center_m": 3900.0,
+    "transit_m": 450.0,
+    "transit_desc": "Cartagena station is within 450 metres",
+    "lat": 40.443174,
+    "lon": -3.673324,
+    "url": "https://www.booking.com/hotel/es/dh-estudios-lopez-de-hoyos.en-gb.html?checkin=2027-01-19&checkout=2027-01-25&group_adults=2&selected_currency=EUR"
+   },
+   {
+    "name": "Una maravilla en el Madrid castizo",
+    "kind": "apartment",
+    "total": 664.0,
+    "rating": 10,
+    "reviews": 1,
+    "center_m": 2400.0,
+    "transit_m": 150.0,
+    "transit_desc": "Marqués de Vadillo station is within 150 metres",
+    "lat": 40.3981393,
+    "lon": -3.7170342,
+    "url": "https://www.booking.com/hotel/es/una-maravilla-en-el-madrid-castizo.en-gb.html?checkin=2027-01-19&checkout=2027-01-25&group_adults=2&selected_currency=EUR"
+   },
+   {
+    "name": "Caterina Madrid Rio",
+    "kind": "apartment",
+    "total": 674.0,
+    "rating": 8.4,
+    "reviews": 439,
+    "center_m": 2000.0,
+    "transit_m": 238,
+    "transit_desc": "~238 μ από στάση (OSM)",
+    "lat": 40.4024342,
+    "lon": -3.7178839,
+    "url": "https://www.booking.com/hotel/es/caterina-madrid-rio.en-gb.html?checkin=2027-01-19&checkout=2027-01-25&group_adults=2&selected_currency=EUR"
+   },
+   {
+    "name": "Retiro City Center Apartment",
+    "kind": "apartment",
+    "total": 682.0,
+    "rating": 8.4,
+    "reviews": 72,
+    "center_m": 2900.0,
+    "transit_m": 200.0,
+    "transit_desc": "Pacífico station is within 200 metres",
+    "lat": 40.4027768,
+    "lon": -3.6744854,
+    "url": "https://www.booking.com/hotel/es/retiro-city-center-apartment.en-gb.html?checkin=2027-01-19&checkout=2027-01-25&group_adults=2&selected_currency=EUR"
+   },
+   {
+    "name": "Dobo Madrid San Diego",
+    "kind": "apartment",
+    "total": 682.0,
+    "rating": 8.1,
+    "reviews": 614,
+    "center_m": 4200.0,
+    "transit_m": 72,
+    "transit_desc": "~72 μ από στάση (OSM)",
+    "lat": 40.3911811,
+    "lon": -3.6670178,
+    "url": "https://www.booking.com/hotel/es/dobohomes-eg13.en-gb.html?checkin=2027-01-19&checkout=2027-01-25&group_adults=2&selected_currency=EUR"
+   },
+   {
+    "name": "Dobo Madrid MA24",
+    "kind": "apartment",
+    "total": 693.0,
+    "rating": 8.7,
+    "reviews": 315,
+    "center_m": 3300.0,
+    "transit_m": 200.0,
+    "transit_desc": "Urgel station is within 200 metres",
+    "lat": 40.3917622,
+    "lon": -3.7234913,
+    "url": "https://www.booking.com/hotel/es/global-home-marquesa.en-gb.html?checkin=2027-01-19&checkout=2027-01-25&group_adults=2&selected_currency=EUR"
+   },
+   {
+    "name": "Accommodation for 4 people in Carabanchel - Inmaculada",
+    "kind": "apartment",
+    "total": 694.0,
+    "rating": 8.9,
+    "reviews": 7,
+    "center_m": 2800.0,
+    "transit_m": 246,
+    "transit_desc": "~246 μ από στάση (OSM)",
+    "lat": 40.3922579,
+    "lon": -3.7124866,
+    "url": "https://www.booking.com/hotel/es/accommodation-for-4-people-in-carabanchel-inmaculada.en-gb.html?checkin=2027-01-19&checkout=2027-01-25&group_adults=2&selected_currency=EUR"
+   },
+   {
+    "name": "Cozy studio in Tetuan En 1/6",
+    "kind": "apartment",
+    "total": 695.0,
+    "rating": 9.4,
+    "reviews": 6,
+    "center_m": 4400.0,
+    "transit_m": 350.0,
+    "transit_desc": "Estrecho station is within 350 metres",
+    "lat": 40.455977336605095,
+    "lon": -3.699443408459482,
+    "url": "https://www.booking.com/hotel/es/cozy-studio-in-tetuan-en-1-6.en-gb.html?checkin=2027-01-19&checkout=2027-01-25&group_adults=2&selected_currency=EUR"
+   },
+   {
+    "name": "GuestReady - Modern Studio near Downtown",
+    "kind": "apartment",
+    "total": 697.0,
+    "rating": 8.8,
+    "reviews": 60,
+    "center_m": 4100.0,
+    "transit_m": 500.0,
+    "transit_desc": "Plaza Elíptica station is within 500 metres",
+    "lat": 40.3811452,
+    "lon": -3.7161596,
+    "url": "https://www.booking.com/hotel/es/estudio-nuevo-y-listo-para-entrar.en-gb.html?checkin=2027-01-19&checkout=2027-01-25&group_adults=2&selected_currency=EUR"
+   },
+   {
+    "name": "Dobo Madrid Portugal",
+    "kind": "apartment",
+    "total": 698.0,
+    "rating": 8.6,
+    "reviews": 68,
+    "center_m": 2300.0,
+    "transit_m": 250.0,
+    "transit_desc": "Puerta del Ángel station is within 250 metres",
+    "lat": 40.414053,
+    "lon": -3.7299743,
+    "url": "https://www.booking.com/hotel/es/dobo-madrid-portugal.en-gb.html?checkin=2027-01-19&checkout=2027-01-25&group_adults=2&selected_currency=EUR"
    }
   ],
-  "booking_min": 479.0
+  "booking_min": 649.0
  },
  "vienna-jan": {
   "flights_out": [
@@ -220,7 +208,7 @@
    }
   ],
   "flights_ret": [],
-  "flights_out_url": "https://www.google.com/travel/flights?tfs=GhoSCjIwMjctMDEtMjBqBRIDQVRIcgUSA1ZJRUICAQFIAZgBAg%3D%3D&hl=en&curr=EUR",
+  "flights_out_url": "https://www.google.com/travel/flights?tfs=GhoSCjIwMjctMDEtMTlqBRIDQVRIcgUSA1ZJRUICAQFIAZgBAg%3D%3D&hl=en&curr=EUR",
   "flights_ret_url": "https://www.google.com/travel/flights?tfs=GhoSCjIwMjctMDEtMjVqBRIDVklFcgUSA0FUSEICAQFIAZgBAg%3D%3D&hl=&curr=EUR",
   "flight_min": 117,
   "flight_best": 117,
@@ -228,7 +216,7 @@
    {
     "name": "Next to Schönbrunn I 10 min to U4 I Free WiFi",
     "kind": "apartment",
-    "total": 251.0,
+    "total": 283.0,
     "rating": 8.1,
     "reviews": 46,
     "center_m": 4900.0,
@@ -236,12 +224,12 @@
     "transit_desc": "~50 μ από στάση (OSM)",
     "lat": 48.1802572130378,
     "lon": 16.3228156187349,
-    "url": "https://www.booking.com/hotel/at/next-to-schonbrunn-i-10-min-to-u4-i-free-wifi.en-gb.html?checkin=2027-01-20&checkout=2027-01-25&group_adults=2&selected_currency=EUR"
+    "url": "https://www.booking.com/hotel/at/next-to-schonbrunn-i-10-min-to-u4-i-free-wifi.en-gb.html?checkin=2027-01-19&checkout=2027-01-25&group_adults=2&selected_currency=EUR"
    },
    {
     "name": "Meidling Apartments I Self Check In I 1 Min to U6",
     "kind": "apartment",
-    "total": 263.0,
+    "total": 294.0,
     "rating": 8.4,
     "reviews": 11,
     "center_m": 4300.0,
@@ -249,25 +237,12 @@
     "transit_desc": "Niederhofstraße station is within 150 metres",
     "lat": 48.18110530380244,
     "lon": 16.332808613613867,
-    "url": "https://www.booking.com/hotel/at/neue-property.en-gb.html?checkin=2027-01-20&checkout=2027-01-25&group_adults=2&selected_currency=EUR"
-   },
-   {
-    "name": "Cozy Studio with AC - 15 min to Center",
-    "kind": "apartment",
-    "total": 292.0,
-    "rating": 9.2,
-    "reviews": 10,
-    "center_m": 3100.0,
-    "transit_m": 350.0,
-    "transit_desc": "Elterleinplatz station is within 350 metres",
-    "lat": 48.22021832098718,
-    "lon": 16.334825421823105,
-    "url": "https://www.booking.com/hotel/at/new-property-placeholder.en-gb.html?checkin=2027-01-20&checkout=2027-01-25&group_adults=2&selected_currency=EUR"
+    "url": "https://www.booking.com/hotel/at/neue-property.en-gb.html?checkin=2027-01-19&checkout=2027-01-25&group_adults=2&selected_currency=EUR"
    },
    {
     "name": "Vienna Charming Central Apartment",
     "kind": "apartment",
-    "total": 295.0,
+    "total": 350.0,
     "rating": 8.3,
     "reviews": 20,
     "center_m": 2900.0,
@@ -275,12 +250,12 @@
     "transit_desc": "Reinprechtsdorfer Straße station is within 400 metres",
     "lat": 48.1875105,
     "lon": 16.3494089,
-    "url": "https://www.booking.com/hotel/at/vienna-charming-central-apartment.en-gb.html?checkin=2027-01-20&checkout=2027-01-25&group_adults=2&selected_currency=EUR"
+    "url": "https://www.booking.com/hotel/at/vienna-charming-central-apartment.en-gb.html?checkin=2027-01-19&checkout=2027-01-25&group_adults=2&selected_currency=EUR"
    },
    {
     "name": "Apartments Favoriten",
     "kind": "apartment",
-    "total": 317.0,
+    "total": 365.0,
     "rating": 8,
     "reviews": 103,
     "center_m": 4000.0,
@@ -288,25 +263,12 @@
     "transit_desc": "Gussriegelstraße station is within 450 metres",
     "lat": 48.173226548317,
     "lon": 16.364205206117,
-    "url": "https://www.booking.com/hotel/at/pool-apartments-favoriten.en-gb.html?checkin=2027-01-20&checkout=2027-01-25&group_adults=2&selected_currency=EUR"
-   },
-   {
-    "name": "easy-flat Rokitanskygasse - Apartments near Tram 43 to City Center",
-    "kind": "apartment",
-    "total": 319.0,
-    "rating": 9.1,
-    "reviews": 292,
-    "center_m": 3600.0,
-    "transit_m": 400.0,
-    "transit_desc": "Elterleinplatz station is within 400 metres",
-    "lat": 48.2208372,
-    "lon": 16.3285802,
-    "url": "https://www.booking.com/hotel/at/easy-flat-hernals.en-gb.html?checkin=2027-01-20&checkout=2027-01-25&group_adults=2&selected_currency=EUR"
+    "url": "https://www.booking.com/hotel/at/pool-apartments-favoriten.en-gb.html?checkin=2027-01-19&checkout=2027-01-25&group_adults=2&selected_currency=EUR"
    },
    {
     "name": "4 Min to Metro I 12 Min to Inner City I Top Wifi",
     "kind": "apartment",
-    "total": 331.0,
+    "total": 368.0,
     "rating": 9.1,
     "reviews": 438,
     "center_m": 4000.0,
@@ -314,12 +276,25 @@
     "transit_desc": "Gasometer station is within 200 metres",
     "lat": 48.185398096243276,
     "lon": 16.41512429329836,
-    "url": "https://www.booking.com/hotel/at/4-min-to-metro-i-12-min-to-inner-city-i-top-wifi.en-gb.html?checkin=2027-01-20&checkout=2027-01-25&group_adults=2&selected_currency=EUR"
+    "url": "https://www.booking.com/hotel/at/4-min-to-metro-i-12-min-to-inner-city-i-top-wifi.en-gb.html?checkin=2027-01-19&checkout=2027-01-25&group_adults=2&selected_currency=EUR"
+   },
+   {
+    "name": "easy-flat Rokitanskygasse - Apartments near Tram 43 to City Center",
+    "kind": "apartment",
+    "total": 371.0,
+    "rating": 9.1,
+    "reviews": 292,
+    "center_m": 3600.0,
+    "transit_m": 400.0,
+    "transit_desc": "Elterleinplatz station is within 400 metres",
+    "lat": 48.2208372,
+    "lon": 16.3285802,
+    "url": "https://www.booking.com/hotel/at/easy-flat-hernals.en-gb.html?checkin=2027-01-19&checkout=2027-01-25&group_adults=2&selected_currency=EUR"
    },
    {
     "name": "Apartments near Schönbrunn",
     "kind": "apartment",
-    "total": 331.0,
+    "total": 381.0,
     "rating": 8.4,
     "reviews": 359,
     "center_m": 3800.0,
@@ -327,12 +302,12 @@
     "transit_desc": "Längenfeldgasse station is within 500 metres",
     "lat": 48.1885263,
     "lon": 16.3316979,
-    "url": "https://www.booking.com/hotel/at/apartment-near-schonbrunn-with-balcony.en-gb.html?checkin=2027-01-20&checkout=2027-01-25&group_adults=2&selected_currency=EUR"
+    "url": "https://www.booking.com/hotel/at/apartment-near-schonbrunn-with-balcony.en-gb.html?checkin=2027-01-19&checkout=2027-01-25&group_adults=2&selected_currency=EUR"
    },
    {
     "name": "Strauss Cozy City Apartment - 15 Min ins Zentrum",
     "kind": "apartment",
-    "total": 339.0,
+    "total": 383.0,
     "rating": 9,
     "reviews": 1,
     "center_m": 3800.0,
@@ -340,12 +315,25 @@
     "transit_desc": "Reumannplatz station is within 300 metres",
     "lat": 48.1742239,
     "lon": 16.3740405,
-    "url": "https://www.booking.com/hotel/at/strauss-cozy-city-apartment-15-min-ins-zentrum.en-gb.html?checkin=2027-01-20&checkout=2027-01-25&group_adults=2&selected_currency=EUR"
+    "url": "https://www.booking.com/hotel/at/strauss-cozy-city-apartment-15-min-ins-zentrum.en-gb.html?checkin=2027-01-19&checkout=2027-01-25&group_adults=2&selected_currency=EUR"
+   },
+   {
+    "name": "Vibrant Design Apartments - Full Kitchen - Wi-Fi - 18 Mins to City Centre",
+    "kind": "apartment",
+    "total": 390.0,
+    "rating": 8.3,
+    "reviews": 49,
+    "center_m": 4600.0,
+    "transit_m": 37,
+    "transit_desc": "~37 μ από στάση (OSM)",
+    "lat": 48.222904242718,
+    "lon": 16.315744544775,
+    "url": "https://www.booking.com/hotel/at/stilvolles-cotton-candy-pink-3zimmer-apartment.en-gb.html?checkin=2027-01-19&checkout=2027-01-25&group_adults=2&selected_currency=EUR"
    },
    {
     "name": "Vienna Shopping Center 6a Apartment",
     "kind": "apartment",
-    "total": 340.0,
+    "total": 403.0,
     "rating": 8.3,
     "reviews": 208,
     "center_m": 2900.0,
@@ -353,12 +341,12 @@
     "transit_desc": "Burggasse-Stadthalle station is within 200 metres",
     "lat": 48.2035003,
     "lon": 16.334850199999998,
-    "url": "https://www.booking.com/hotel/at/vienna-shopping-center-apartment-6a.en-gb.html?checkin=2027-01-20&checkout=2027-01-25&group_adults=2&selected_currency=EUR"
+    "url": "https://www.booking.com/hotel/at/vienna-shopping-center-apartment-6a.en-gb.html?checkin=2027-01-19&checkout=2027-01-25&group_adults=2&selected_currency=EUR"
    },
    {
     "name": "Danube Island Apartment 12",
     "kind": "apartment",
-    "total": 340.0,
+    "total": 403.0,
     "rating": 8.8,
     "reviews": 105,
     "center_m": 4600.0,
@@ -366,12 +354,12 @@
     "transit_desc": "Kaisermühlen VIC station is within 450 metres",
     "lat": 48.2345267,
     "lon": 16.4217936,
-    "url": "https://www.booking.com/hotel/at/danube-island-apartment-12.en-gb.html?checkin=2027-01-20&checkout=2027-01-25&group_adults=2&selected_currency=EUR"
+    "url": "https://www.booking.com/hotel/at/danube-island-apartment-12.en-gb.html?checkin=2027-01-19&checkout=2027-01-25&group_adults=2&selected_currency=EUR"
    },
    {
     "name": "Danube Island Apartment 3",
     "kind": "apartment",
-    "total": 340.0,
+    "total": 403.0,
     "rating": 8.1,
     "reviews": 137,
     "center_m": 4600.0,
@@ -379,15 +367,15 @@
     "transit_desc": "Kaisermühlen VIC station is within 450 metres",
     "lat": 48.234629894039,
     "lon": 16.421805900165,
-    "url": "https://www.booking.com/hotel/at/danube-island-apartment-3.en-gb.html?checkin=2027-01-20&checkout=2027-01-25&group_adults=2&selected_currency=EUR"
+    "url": "https://www.booking.com/hotel/at/danube-island-apartment-3.en-gb.html?checkin=2027-01-19&checkout=2027-01-25&group_adults=2&selected_currency=EUR"
    }
   ],
-  "booking_min": 251.0
+  "booking_min": 283.0
  },
  "barcelona-jan": {
   "flights_out": [
    {
-    "price": 223,
+    "price": 185,
     "airlines": [
      "Aegean"
     ],
@@ -396,7 +384,7 @@
     "depart": "08:10",
     "arrive": "10:25",
     "via": "ATH → BCN",
-    "score": 214.5
+    "score": 176.5
    }
   ],
   "flights_ret": [
@@ -413,119 +401,15 @@
     "score": 160.0
    }
   ],
-  "flights_out_url": "https://www.google.com/travel/flights?tfs=GhoSCjIwMjctMDEtMjBqBRIDQVRIcgUSA0JDTkICAQFIAZgBAg%3D%3D&hl=en&curr=EUR",
+  "flights_out_url": "https://www.google.com/travel/flights?tfs=GhoSCjIwMjctMDEtMTlqBRIDQVRIcgUSA0JDTkICAQFIAZgBAg%3D%3D&hl=en&curr=EUR",
   "flights_ret_url": "https://www.google.com/travel/flights?tfs=GhoSCjIwMjctMDEtMjVqBRIDQkNOcgUSA0FUSEICAQFIAZgBAg%3D%3D&hl=en&curr=EUR",
-  "flight_min": 391,
-  "flight_best": 391,
+  "flight_min": 353,
+  "flight_best": 353,
   "booking": [
-   {
-    "name": "Barnapartments Raval",
-    "kind": "apartment",
-    "total": 592.0,
-    "rating": 8.1,
-    "reviews": 558,
-    "center_m": 1000.0,
-    "transit_m": 350.0,
-    "transit_desc": "Drassanes station is within 350 metres",
-    "lat": 41.3780275,
-    "lon": 2.1720325,
-    "url": "https://www.booking.com/hotel/es/barnapartments-raval.en-gb.html?checkin=2027-01-20&checkout=2027-01-25&group_adults=2&selected_currency=EUR"
-   },
-   {
-    "name": "Lugaris Rambla Apartments",
-    "kind": "apartment",
-    "total": 596.0,
-    "rating": 8.9,
-    "reviews": 554,
-    "center_m": 3200.0,
-    "transit_m": 150,
-    "transit_desc": "~150 μ από στάση (OSM)",
-    "lat": 41.398307397726725,
-    "lon": 2.2051721066236496,
-    "url": "https://www.booking.com/hotel/es/lugaris-the-home-concept.en-gb.html?checkin=2027-01-20&checkout=2027-01-25&group_adults=2&selected_currency=EUR"
-   },
-   {
-    "name": "Amazing city views terrace Gràcia - Parc Güell",
-    "kind": "apartment",
-    "total": 600.0,
-    "rating": 8.8,
-    "reviews": 8,
-    "center_m": 3600.0,
-    "transit_m": 150.0,
-    "transit_desc": "Vallcarca station is within 150 metres",
-    "lat": 41.4131421,
-    "lon": 2.1453419,
-    "url": "https://www.booking.com/hotel/es/parc-guell-penthouse.en-gb.html?checkin=2027-01-20&checkout=2027-01-25&group_adults=2&selected_currency=EUR"
-   },
-   {
-    "name": "Apartaments Aragó565",
-    "kind": "apartment",
-    "total": 612.0,
-    "rating": 8.6,
-    "reviews": 1201,
-    "center_m": 2600.0,
-    "transit_m": 250.0,
-    "transit_desc": "Encants station is within 250 metres",
-    "lat": 41.40748753756003,
-    "lon": 2.1850132942199707,
-    "url": "https://www.booking.com/hotel/es/apartaments-arago565.en-gb.html?checkin=2027-01-20&checkout=2027-01-25&group_adults=2&selected_currency=EUR"
-   },
-   {
-    "name": "Apartaments Independencia",
-    "kind": "apartment",
-    "total": 612.0,
-    "rating": 8.4,
-    "reviews": 2463,
-    "center_m": 2600.0,
-    "transit_m": 150.0,
-    "transit_desc": "Encants station is within 150 metres",
-    "lat": 41.40798342535136,
-    "lon": 2.182868868112564,
-    "url": "https://www.booking.com/hotel/es/apartaments-independencia.en-gb.html?checkin=2027-01-20&checkout=2027-01-25&group_adults=2&selected_currency=EUR"
-   },
-   {
-    "name": "Lugaris Beach Apartments",
-    "kind": "apartment",
-    "total": 638.0,
-    "rating": 9,
-    "reviews": 1818,
-    "center_m": 3400.0,
-    "transit_m": 100,
-    "transit_desc": "~100 μ από στάση (OSM)",
-    "lat": 41.398968020996,
-    "lon": 2.207530438899994,
-    "url": "https://www.booking.com/hotel/es/lugaris-sea-the-home-concept.en-gb.html?checkin=2027-01-20&checkout=2027-01-25&group_adults=2&selected_currency=EUR"
-   },
-   {
-    "name": "ENRIQUE GRANADOS",
-    "kind": "apartment",
-    "total": 640.0,
-    "rating": 8.1,
-    "reviews": 213,
-    "center_m": 1200.0,
-    "transit_m": 200.0,
-    "transit_desc": "Provença station is within 200 metres",
-    "lat": 41.391732,
-    "lon": 2.156935,
-    "url": "https://www.booking.com/hotel/es/enrique-granados.en-gb.html?checkin=2027-01-20&checkout=2027-01-25&group_adults=2&selected_currency=EUR"
-   },
-   {
-    "name": "Black & White",
-    "kind": "apartment",
-    "total": 677.0,
-    "rating": 8.9,
-    "reviews": 77,
-    "center_m": 3400.0,
-    "transit_m": 250.0,
-    "transit_desc": "Poblenou station is within 250 metres",
-    "lat": 41.4055053,
-    "lon": 2.2019768,
-    "url": "https://www.booking.com/hotel/es/charm-miro.en-gb.html?checkin=2027-01-20&checkout=2027-01-25&group_adults=2&selected_currency=EUR"
-   },
    {
     "name": "Catalonia Park Putxet",
     "kind": "hotel_breakfast",
-    "total": 677.0,
+    "total": 890.0,
     "rating": 8.5,
     "reviews": 4918,
     "center_m": 3100.0,
@@ -533,38 +417,25 @@
     "transit_desc": "Pàdua station is within 450 metres",
     "lat": 41.40729843533646,
     "lon": 2.14414045214653,
-    "url": "https://www.booking.com/hotel/es/cataloniaparkputxet.en-gb.html?checkin=2027-01-20&checkout=2027-01-25&group_adults=2&selected_currency=EUR"
+    "url": "https://www.booking.com/hotel/es/cataloniaparkputxet.en-gb.html?checkin=2027-01-19&checkout=2027-01-25&group_adults=2&selected_currency=EUR"
    },
    {
-    "name": "Pretty Apartament",
-    "kind": "apartment",
-    "total": 678.0,
+    "name": "Ciutat Vella",
+    "kind": "hotel_breakfast",
+    "total": 908.0,
     "rating": 8,
-    "reviews": 13,
-    "center_m": 1800.0,
-    "transit_m": 300.0,
-    "transit_desc": "Poble Sec station is within 300 metres",
-    "lat": 41.3735716,
-    "lon": 2.1574634,
-    "url": "https://www.booking.com/hotel/es/olivera-barcelona.en-gb.html?checkin=2027-01-20&checkout=2027-01-25&group_adults=2&selected_currency=EUR"
-   },
-   {
-    "name": "Durlet Rambla Mar Apartments",
-    "kind": "apartment",
-    "total": 698.0,
-    "rating": 9.1,
-    "reviews": 501,
-    "center_m": 3200.0,
-    "transit_m": 171,
-    "transit_desc": "~171 μ από στάση (OSM)",
-    "lat": 41.3983795,
-    "lon": 2.2049070000000484,
-    "url": "https://www.booking.com/hotel/es/durlet-apartments.en-gb.html?checkin=2027-01-20&checkout=2027-01-25&group_adults=2&selected_currency=EUR"
+    "reviews": 4095,
+    "center_m": 350.0,
+    "transit_m": 250.0,
+    "transit_desc": "Universitat station is within 250 metres",
+    "lat": 41.38504792487197,
+    "lon": 2.1665918827056885,
+    "url": "https://www.booking.com/hotel/es/ciutat-vella.en-gb.html?checkin=2027-01-19&checkout=2027-01-25&group_adults=2&selected_currency=EUR"
    },
    {
     "name": "Acta Voraport",
     "kind": "hotel_breakfast",
-    "total": 712.0,
+    "total": 910.0,
     "rating": 9,
     "reviews": 12286,
     "center_m": 2900.0,
@@ -572,9 +443,126 @@
     "transit_desc": "Llacuna station is within 300 metres",
     "lat": 41.398656,
     "lon": 2.201095,
-    "url": "https://www.booking.com/hotel/es/acta-voraport.en-gb.html?checkin=2027-01-20&checkout=2027-01-25&group_adults=2&selected_currency=EUR"
+    "url": "https://www.booking.com/hotel/es/acta-voraport.en-gb.html?checkin=2027-01-19&checkout=2027-01-25&group_adults=2&selected_currency=EUR"
+   },
+   {
+    "name": "Hotel Sant Agustí",
+    "kind": "hotel_breakfast",
+    "total": 950.0,
+    "rating": 8.1,
+    "reviews": 4445,
+    "center_m": 700.0,
+    "transit_m": 200.0,
+    "transit_desc": "Liceu station is within 200 metres",
+    "lat": 41.380487626927646,
+    "lon": 2.1715962141752243,
+    "url": "https://www.booking.com/hotel/es/san-agustin.en-gb.html?checkin=2027-01-19&checkout=2027-01-25&group_adults=2&selected_currency=EUR"
+   },
+   {
+    "name": "Hotel Lleó",
+    "kind": "hotel_breakfast",
+    "total": 957.0,
+    "rating": 8.5,
+    "reviews": 7553,
+    "center_m": 350.0,
+    "transit_m": 200.0,
+    "transit_desc": "Universitat station is within 200 metres",
+    "lat": 41.38570195726838,
+    "lon": 2.166425585746765,
+    "url": "https://www.booking.com/hotel/es/lleo.en-gb.html?checkin=2027-01-19&checkout=2027-01-25&group_adults=2&selected_currency=EUR"
+   },
+   {
+    "name": "easyHotel Barcelona La Sagrera",
+    "kind": "hotel_breakfast",
+    "total": 959.0,
+    "rating": 8.5,
+    "reviews": 452,
+    "center_m": 3400.0,
+    "transit_m": 150.0,
+    "transit_desc": "Navas station is within 150 metres",
+    "lat": 41.4149588,
+    "lon": 2.1878967,
+    "url": "https://www.booking.com/hotel/es/easyhotel-barcelona-la-sagrera.en-gb.html?checkin=2027-01-19&checkout=2027-01-25&group_adults=2&selected_currency=EUR"
+   },
+   {
+    "name": "Catalonia Sagrada Familia",
+    "kind": "hotel_breakfast",
+    "total": 966.0,
+    "rating": 8.4,
+    "reviews": 7996,
+    "center_m": 2600.0,
+    "transit_m": 250.0,
+    "transit_desc": "Encants station is within 250 metres",
+    "lat": 41.40791703896991,
+    "lon": 2.1853378415107727,
+    "url": "https://www.booking.com/hotel/es/cataloniaaragon.en-gb.html?checkin=2027-01-19&checkout=2027-01-25&group_adults=2&selected_currency=EUR"
+   },
+   {
+    "name": "Catalonia Castellnou",
+    "kind": "hotel_breakfast",
+    "total": 966.0,
+    "rating": 8.3,
+    "reviews": 2075,
+    "center_m": 3600.0,
+    "transit_m": 250.0,
+    "transit_desc": "les Tres Torres station is within 250 metres",
+    "lat": 41.39645028866745,
+    "lon": 2.128615826368332,
+    "url": "https://www.booking.com/hotel/es/cataloniacastellnou.en-gb.html?checkin=2027-01-19&checkout=2027-01-25&group_adults=2&selected_currency=EUR"
+   },
+   {
+    "name": "Catalonia Mikado",
+    "kind": "hotel_breakfast",
+    "total": 986.0,
+    "rating": 8.3,
+    "reviews": 2544,
+    "center_m": 4000.0,
+    "transit_m": 35,
+    "transit_desc": "~35 μ από στάση (OSM)",
+    "lat": 41.40322757477043,
+    "lon": 2.1270883083343506,
+    "url": "https://www.booking.com/hotel/es/cataloniamikado.en-gb.html?checkin=2027-01-19&checkout=2027-01-25&group_adults=2&selected_currency=EUR"
+   },
+   {
+    "name": "Silken Sant Gervasi",
+    "kind": "hotel_breakfast",
+    "total": 1018.0,
+    "rating": 8.6,
+    "reviews": 1990,
+    "center_m": 3200.0,
+    "transit_m": 100.0,
+    "transit_desc": "el Putxet station is within 100 metres",
+    "lat": 41.40468112356997,
+    "lon": 2.138884663581848,
+    "url": "https://www.booking.com/hotel/es/stgervasi.en-gb.html?checkin=2027-01-19&checkout=2027-01-25&group_adults=2&selected_currency=EUR"
+   },
+   {
+    "name": "Gaudi Hotel",
+    "kind": "hotel_breakfast",
+    "total": 1031.0,
+    "rating": 8.4,
+    "reviews": 7588,
+    "center_m": 1000.0,
+    "transit_m": 300.0,
+    "transit_desc": "Drassanes station is within 300 metres",
+    "lat": 41.37894196353604,
+    "lon": 2.1740444004535675,
+    "url": "https://www.booking.com/hotel/es/gaudi-barcelona.en-gb.html?checkin=2027-01-19&checkout=2027-01-25&group_adults=2&selected_currency=EUR"
+   },
+   {
+    "name": "Hotel Best Aranea",
+    "kind": "hotel_breakfast",
+    "total": 1058.0,
+    "rating": 8.2,
+    "reviews": 1775,
+    "center_m": 1300.0,
+    "transit_m": 400.0,
+    "transit_desc": "Tetuan station is within 400 metres",
+    "lat": 41.39838888396208,
+    "lon": 2.175714075565338,
+    "url": "https://www.booking.com/hotel/es/hotelaranea.en-gb.html?checkin=2027-01-19&checkout=2027-01-25&group_adults=2&selected_currency=EUR"
    }
   ],
-  "booking_min": 592.0
+  "booking_min": 890.0
  }
 }
