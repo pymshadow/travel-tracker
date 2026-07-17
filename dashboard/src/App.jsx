@@ -76,9 +76,6 @@ function App() {
             const cityCode = data?.to || trip.to
             const cost = costOfLiving[cityCode]
             const nights = (data?.depart_str && data?.return_str) ? nightsOf(data.depart_str, data.return_str) : 0
-            // Κανόνες ωρών πτήσεων: χαλαρώνουν στα ταξίδια 6+ νυχτών
-            const outLimit = nights >= 6 ? '17:00' : '13:00'
-            const retLimit = nights >= 6 ? '08:00' : '16:30'
             
             return (
               <section key={trip.id} className="glass-card rounded-3xl p-6 md:p-10 overflow-hidden relative hover:border-slate-600/50 transition-colors">
@@ -148,7 +145,7 @@ function App() {
 
                 {data?.flights_out && (
                   <div className="mb-8">
-                    <h3 className="text-lg font-bold text-white mb-4">Top Αναχωρήσεις <span className="text-slate-500 text-sm font-normal">(κανόνας: έως {outLimit}{nights >= 6 ? ' — χαλαρωμένο λόγω 6+ νυχτών' : ''})</span></h3>
+                    <h3 className="text-lg font-bold text-white mb-4">Top Αναχωρήσεις <span className="text-slate-500 text-sm font-normal">(κανόνας: έως 13:00)</span></h3>
                     <div className="overflow-x-auto"><table className="w-full text-left text-sm"><tbody className="text-slate-300">
                       {data.flights_out.slice(0,3).map((f, i) => (
                         <tr key={i} className="border-b border-slate-800/50">
@@ -164,7 +161,7 @@ function App() {
                 
                 {data?.flights_ret && (
                   <div className="mb-8">
-                    <h3 className="text-lg font-bold text-white mb-4">Top Επιστροφές <span className="text-slate-500 text-sm font-normal">(κανόνας: από {retLimit}{nights >= 6 ? ' — χαλαρωμένο λόγω 6+ νυχτών' : ''})</span></h3>
+                    <h3 className="text-lg font-bold text-white mb-4">Top Επιστροφές <span className="text-slate-500 text-sm font-normal">(κανόνας: από 16:30)</span></h3>
                     <div className="overflow-x-auto"><table className="w-full text-left text-sm"><tbody className="text-slate-300">
                       {data.flights_ret.slice(0,3).map((f, i) => (
                         <tr key={i} className="border-b border-slate-800/50">

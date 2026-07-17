@@ -85,7 +85,7 @@
    {
     "name": "Dobo Madrid Portugal",
     "kind": "apartment",
-    "total": 476.0,
+    "total": 478.0,
     "rating": 8.6,
     "reviews": 68,
     "center_m": 2300.0,
@@ -109,11 +109,24 @@
     "url": "https://www.booking.com/hotel/es/genesis-loft-san-enrique-14.en-gb.html?checkin=2027-01-17&checkout=2027-01-22&group_adults=2&selected_currency=EUR"
    },
    {
+    "name": "Dobo Madrid MA24",
+    "kind": "apartment",
+    "total": 483.0,
+    "rating": 8.7,
+    "reviews": 316,
+    "center_m": 3300.0,
+    "transit_m": 200.0,
+    "transit_desc": "Urgel station is within 200 metres",
+    "lat": 40.3917622,
+    "lon": -3.7234913,
+    "url": "https://www.booking.com/hotel/es/global-home-marquesa.en-gb.html?checkin=2027-01-17&checkout=2027-01-22&group_adults=2&selected_currency=EUR"
+   },
+   {
     "name": "Retiro City Center Apartment",
     "kind": "apartment",
     "total": 491.0,
     "rating": 8.4,
-    "reviews": 72,
+    "reviews": 73,
     "center_m": 2900.0,
     "transit_m": 200.0,
     "transit_desc": "Pacífico station is within 200 metres",
@@ -122,22 +135,9 @@
     "url": "https://www.booking.com/hotel/es/retiro-city-center-apartment.en-gb.html?checkin=2027-01-17&checkout=2027-01-22&group_adults=2&selected_currency=EUR"
    },
    {
-    "name": "DH Estudios Lopez de Hoyos",
-    "kind": "apartment",
-    "total": 505.0,
-    "rating": 8.1,
-    "reviews": 583,
-    "center_m": 3900.0,
-    "transit_m": 450.0,
-    "transit_desc": "Cartagena station is within 450 metres",
-    "lat": 40.443174,
-    "lon": -3.673324,
-    "url": "https://www.booking.com/hotel/es/dh-estudios-lopez-de-hoyos.en-gb.html?checkin=2027-01-17&checkout=2027-01-22&group_adults=2&selected_currency=EUR"
-   },
-   {
     "name": "Dobo Madrid San Diego",
     "kind": "apartment",
-    "total": 505.0,
+    "total": 504.0,
     "rating": 8.1,
     "reviews": 614,
     "center_m": 4200.0,
@@ -146,6 +146,19 @@
     "lat": 40.3911811,
     "lon": -3.6670178,
     "url": "https://www.booking.com/hotel/es/dobohomes-eg13.en-gb.html?checkin=2027-01-17&checkout=2027-01-22&group_adults=2&selected_currency=EUR"
+   },
+   {
+    "name": "DH Estudios Lopez de Hoyos",
+    "kind": "apartment",
+    "total": 506.0,
+    "rating": 8.1,
+    "reviews": 584,
+    "center_m": 3900.0,
+    "transit_m": 450.0,
+    "transit_desc": "Cartagena station is within 450 metres",
+    "lat": 40.443174,
+    "lon": -3.673324,
+    "url": "https://www.booking.com/hotel/es/dh-estudios-lopez-de-hoyos.en-gb.html?checkin=2027-01-17&checkout=2027-01-22&group_adults=2&selected_currency=EUR"
    },
    {
     "name": "ABC Apartments Estación Sur",
@@ -202,61 +215,37 @@
    {
     "name": "Caterina Madrid Rio",
     "kind": "apartment",
-    "total": 519.0,
+    "total": 517.0,
     "rating": 8.4,
-    "reviews": 439,
+    "reviews": 441,
     "center_m": 2000.0,
     "transit_m": 238,
     "transit_desc": "~238 μ από στάση (OSM)",
     "lat": 40.4024342,
     "lon": -3.7178839,
     "url": "https://www.booking.com/hotel/es/caterina-madrid-rio.en-gb.html?checkin=2027-01-17&checkout=2027-01-22&group_adults=2&selected_currency=EUR"
-   },
-   {
-    "name": "Magnífico apartamento en pleno centro de Madrid,",
-    "kind": "apartment",
-    "total": 520.0,
-    "rating": 10,
-    "reviews": 3,
-    "center_m": 3100.0,
-    "transit_m": 350.0,
-    "transit_desc": "Lista station is within 350 metres",
-    "lat": 40.4307575,
-    "lon": -3.6722668,
-    "url": "https://www.booking.com/hotel/es/magnifico-apartamento-en-pleno-centro-de-madrid.en-gb.html?checkin=2027-01-17&checkout=2027-01-22&group_adults=2&selected_currency=EUR"
    }
   ],
   "booking_min": 444.0,
   "depart_str": "2027-01-17",
   "return_str": "2027-01-22",
   "name": "Μαδρίτη",
-  "to": "MAD"
+  "to": "MAD",
+  "hist_id": "madrid-jan"
  },
  "vienna-jan": {
   "flights_out": [
    {
-    "price": 117,
+    "price": 151,
     "airlines": [
-     "Aegean"
+     "Austrian"
     ],
     "stops": 0,
-    "dep_hour": 8.67,
-    "depart": "08:40",
-    "arrive": "10:00",
+    "dep_hour": 8.0,
+    "depart": "08:00",
+    "arrive": "09:15",
     "via": "ATH → VIE",
-    "score": 110.0
-   },
-   {
-    "price": 95,
-    "airlines": [
-     "SKY express"
-    ],
-    "stops": 0,
-    "dep_hour": 16.5,
-    "depart": "16:30",
-    "arrive": "17:50",
-    "via": "ATH → VIE",
-    "score": 166.5
+    "score": 157.0
    }
   ],
   "flights_ret": [
@@ -266,34 +255,22 @@
      "Aegean"
     ],
     "stops": 0,
-    "dep_hour": 10.92,
-    "depart": "10:55",
-    "arrive": "14:05",
+    "dep_hour": 18.5,
+    "depart": "18:30",
+    "arrive": "21:35",
     "via": "VIE → ATH",
-    "score": 228.2
-   },
-   {
-    "price": 204,
-    "airlines": [
-     "Austrian"
-    ],
-    "stops": 0,
-    "dep_hour": 9.5,
-    "depart": "09:30",
-    "arrive": "12:40",
-    "via": "VIE → ATH",
-    "score": 281.5
+    "score": 165.5
    }
   ],
-  "flights_out_url": "https://www.google.com/travel/flights?tfs=GhoSCjIwMjctMDEtMTlqBRIDQVRIcgUSA1ZJRUICAQFIAZgBAg%3D%3D&hl=en&curr=EUR",
-  "flights_ret_url": "https://www.google.com/travel/flights?tfs=GhoSCjIwMjctMDEtMjVqBRIDVklFcgUSA0FUSEICAQFIAZgBAg%3D%3D&hl=en&curr=EUR",
-  "flight_min": 265,
-  "flight_best": 287,
+  "flights_out_url": "https://www.google.com/travel/flights?tfs=GhoSCjIwMjctMDEtMTdqBRIDQVRIcgUSA1ZJRUICAQFIAZgBAg%3D%3D&hl=en&curr=EUR",
+  "flights_ret_url": "https://www.google.com/travel/flights?tfs=GhoSCjIwMjctMDEtMjJqBRIDVklFcgUSA0FUSEICAQFIAZgBAg%3D%3D&hl=en&curr=EUR",
+  "flight_min": 321,
+  "flight_best": 321,
   "booking": [
    {
     "name": "Next to Schönbrunn I 10 min to U4 I Free WiFi",
     "kind": "apartment",
-    "total": 283.0,
+    "total": 228.0,
     "rating": 8.1,
     "reviews": 46,
     "center_m": 4900.0,
@@ -301,12 +278,12 @@
     "transit_desc": "~50 μ από στάση (OSM)",
     "lat": 48.1802572130378,
     "lon": 16.3228156187349,
-    "url": "https://www.booking.com/hotel/at/next-to-schonbrunn-i-10-min-to-u4-i-free-wifi.en-gb.html?checkin=2027-01-19&checkout=2027-01-25&group_adults=2&selected_currency=EUR"
+    "url": "https://www.booking.com/hotel/at/next-to-schonbrunn-i-10-min-to-u4-i-free-wifi.en-gb.html?checkin=2027-01-17&checkout=2027-01-22&group_adults=2&selected_currency=EUR"
    },
    {
     "name": "Meidling Apartments I Self Check In I 1 Min to U6",
     "kind": "apartment",
-    "total": 294.0,
+    "total": 241.0,
     "rating": 8.4,
     "reviews": 11,
     "center_m": 4300.0,
@@ -314,12 +291,12 @@
     "transit_desc": "Niederhofstraße station is within 150 metres",
     "lat": 48.18110530380244,
     "lon": 16.332808613613867,
-    "url": "https://www.booking.com/hotel/at/neue-property.en-gb.html?checkin=2027-01-19&checkout=2027-01-25&group_adults=2&selected_currency=EUR"
+    "url": "https://www.booking.com/hotel/at/neue-property.en-gb.html?checkin=2027-01-17&checkout=2027-01-22&group_adults=2&selected_currency=EUR"
    },
    {
     "name": "Cozy Studio with AC - 15 min to Center",
     "kind": "apartment",
-    "total": 325.0,
+    "total": 252.0,
     "rating": 9.2,
     "reviews": 10,
     "center_m": 3100.0,
@@ -327,77 +304,12 @@
     "transit_desc": "Elterleinplatz station is within 350 metres",
     "lat": 48.22021832098718,
     "lon": 16.334825421823105,
-    "url": "https://www.booking.com/hotel/at/new-property-placeholder.en-gb.html?checkin=2027-01-19&checkout=2027-01-25&group_adults=2&selected_currency=EUR"
-   },
-   {
-    "name": "Vienna Charming Central Apartment",
-    "kind": "apartment",
-    "total": 350.0,
-    "rating": 8.3,
-    "reviews": 20,
-    "center_m": 2900.0,
-    "transit_m": 400.0,
-    "transit_desc": "Reinprechtsdorfer Straße station is within 400 metres",
-    "lat": 48.1875105,
-    "lon": 16.3494089,
-    "url": "https://www.booking.com/hotel/at/vienna-charming-central-apartment.en-gb.html?checkin=2027-01-19&checkout=2027-01-25&group_adults=2&selected_currency=EUR"
-   },
-   {
-    "name": "Apartments Favoriten",
-    "kind": "apartment",
-    "total": 365.0,
-    "rating": 8,
-    "reviews": 103,
-    "center_m": 4000.0,
-    "transit_m": 450.0,
-    "transit_desc": "Gussriegelstraße station is within 450 metres",
-    "lat": 48.173226548317,
-    "lon": 16.364205206117,
-    "url": "https://www.booking.com/hotel/at/pool-apartments-favoriten.en-gb.html?checkin=2027-01-19&checkout=2027-01-25&group_adults=2&selected_currency=EUR"
-   },
-   {
-    "name": "4 Min to Metro I 12 Min to Inner City I Top Wifi",
-    "kind": "apartment",
-    "total": 368.0,
-    "rating": 9.1,
-    "reviews": 438,
-    "center_m": 4000.0,
-    "transit_m": 200.0,
-    "transit_desc": "Gasometer station is within 200 metres",
-    "lat": 48.185398096243276,
-    "lon": 16.41512429329836,
-    "url": "https://www.booking.com/hotel/at/4-min-to-metro-i-12-min-to-inner-city-i-top-wifi.en-gb.html?checkin=2027-01-19&checkout=2027-01-25&group_adults=2&selected_currency=EUR"
-   },
-   {
-    "name": "easy-flat Rokitanskygasse - Apartments near Tram 43 to City Center",
-    "kind": "apartment",
-    "total": 371.0,
-    "rating": 9.1,
-    "reviews": 292,
-    "center_m": 3600.0,
-    "transit_m": 400.0,
-    "transit_desc": "Elterleinplatz station is within 400 metres",
-    "lat": 48.2208372,
-    "lon": 16.3285802,
-    "url": "https://www.booking.com/hotel/at/easy-flat-hernals.en-gb.html?checkin=2027-01-19&checkout=2027-01-25&group_adults=2&selected_currency=EUR"
-   },
-   {
-    "name": "Apartments near Schönbrunn",
-    "kind": "apartment",
-    "total": 381.0,
-    "rating": 8.4,
-    "reviews": 359,
-    "center_m": 3800.0,
-    "transit_m": 500.0,
-    "transit_desc": "Längenfeldgasse station is within 500 metres",
-    "lat": 48.1885263,
-    "lon": 16.3316979,
-    "url": "https://www.booking.com/hotel/at/apartment-near-schonbrunn-with-balcony.en-gb.html?checkin=2027-01-19&checkout=2027-01-25&group_adults=2&selected_currency=EUR"
+    "url": "https://www.booking.com/hotel/at/new-property-placeholder.en-gb.html?checkin=2027-01-17&checkout=2027-01-22&group_adults=2&selected_currency=EUR"
    },
    {
     "name": "Strauss Cozy City Apartment - 15 Min ins Zentrum",
     "kind": "apartment",
-    "total": 383.0,
+    "total": 290.0,
     "rating": 9,
     "reviews": 1,
     "center_m": 3800.0,
@@ -405,12 +317,90 @@
     "transit_desc": "Reumannplatz station is within 300 metres",
     "lat": 48.1742239,
     "lon": 16.3740405,
-    "url": "https://www.booking.com/hotel/at/strauss-cozy-city-apartment-15-min-ins-zentrum.en-gb.html?checkin=2027-01-19&checkout=2027-01-25&group_adults=2&selected_currency=EUR"
+    "url": "https://www.booking.com/hotel/at/strauss-cozy-city-apartment-15-min-ins-zentrum.en-gb.html?checkin=2027-01-17&checkout=2027-01-22&group_adults=2&selected_currency=EUR"
+   },
+   {
+    "name": "Vienna Charming Central Apartment",
+    "kind": "apartment",
+    "total": 295.0,
+    "rating": 8.3,
+    "reviews": 20,
+    "center_m": 2900.0,
+    "transit_m": 400.0,
+    "transit_desc": "Reinprechtsdorfer Straße station is within 400 metres",
+    "lat": 48.1875105,
+    "lon": 16.3494089,
+    "url": "https://www.booking.com/hotel/at/vienna-charming-central-apartment.en-gb.html?checkin=2027-01-17&checkout=2027-01-22&group_adults=2&selected_currency=EUR"
+   },
+   {
+    "name": "4 Min to Metro I 12 Min to Inner City I Top Wifi",
+    "kind": "apartment",
+    "total": 297.0,
+    "rating": 9.1,
+    "reviews": 438,
+    "center_m": 4000.0,
+    "transit_m": 200.0,
+    "transit_desc": "Gasometer station is within 200 metres",
+    "lat": 48.185398096243276,
+    "lon": 16.41512429329836,
+    "url": "https://www.booking.com/hotel/at/4-min-to-metro-i-12-min-to-inner-city-i-top-wifi.en-gb.html?checkin=2027-01-17&checkout=2027-01-22&group_adults=2&selected_currency=EUR"
+   },
+   {
+    "name": "Apartments Favoriten",
+    "kind": "apartment",
+    "total": 299.0,
+    "rating": 8,
+    "reviews": 103,
+    "center_m": 4000.0,
+    "transit_m": 450.0,
+    "transit_desc": "Gussriegelstraße station is within 450 metres",
+    "lat": 48.173226548317,
+    "lon": 16.364205206117,
+    "url": "https://www.booking.com/hotel/at/pool-apartments-favoriten.en-gb.html?checkin=2027-01-17&checkout=2027-01-22&group_adults=2&selected_currency=EUR"
+   },
+   {
+    "name": "easy-flat Rokitanskygasse - Apartments near Tram 43 to City Center",
+    "kind": "apartment",
+    "total": 305.0,
+    "rating": 9.1,
+    "reviews": 292,
+    "center_m": 3600.0,
+    "transit_m": 400.0,
+    "transit_desc": "Elterleinplatz station is within 400 metres",
+    "lat": 48.2208372,
+    "lon": 16.3285802,
+    "url": "https://www.booking.com/hotel/at/easy-flat-hernals.en-gb.html?checkin=2027-01-17&checkout=2027-01-22&group_adults=2&selected_currency=EUR"
+   },
+   {
+    "name": "Apartments near Schönbrunn",
+    "kind": "apartment",
+    "total": 308.0,
+    "rating": 8.4,
+    "reviews": 359,
+    "center_m": 3800.0,
+    "transit_m": 500.0,
+    "transit_desc": "Längenfeldgasse station is within 500 metres",
+    "lat": 48.1885263,
+    "lon": 16.3316979,
+    "url": "https://www.booking.com/hotel/at/apartment-near-schonbrunn-with-balcony.en-gb.html?checkin=2027-01-17&checkout=2027-01-22&group_adults=2&selected_currency=EUR"
+   },
+   {
+    "name": "West Living by Lorenz",
+    "kind": "apartment",
+    "total": 315.0,
+    "rating": 10,
+    "reviews": 1,
+    "center_m": 3000.0,
+    "transit_m": 400.0,
+    "transit_desc": "Westbahnhof station is within 400 metres",
+    "lat": 48.199212,
+    "lon": 16.3360886,
+    "url": "https://www.booking.com/hotel/at/west-living-by-lorenz.en-gb.html?checkin=2027-01-17&checkout=2027-01-22&group_adults=2&selected_currency=EUR"
    },
    {
     "name": "Vibrant Design Apartments - Full Kitchen - Wi-Fi - 18 Mins to City Centre",
     "kind": "apartment",
-    "total": 390.0,
+    "total": 319.0,
     "rating": 8.3,
     "reviews": 49,
     "center_m": 4600.0,
@@ -418,38 +408,25 @@
     "transit_desc": "~37 μ από στάση (OSM)",
     "lat": 48.222904242718,
     "lon": 16.315744544775,
-    "url": "https://www.booking.com/hotel/at/stilvolles-cotton-candy-pink-3zimmer-apartment.en-gb.html?checkin=2027-01-19&checkout=2027-01-25&group_adults=2&selected_currency=EUR"
+    "url": "https://www.booking.com/hotel/at/stilvolles-cotton-candy-pink-3zimmer-apartment.en-gb.html?checkin=2027-01-17&checkout=2027-01-22&group_adults=2&selected_currency=EUR"
    },
    {
     "name": "Vienna Shopping Center 6a Apartment",
     "kind": "apartment",
-    "total": 403.0,
+    "total": 340.0,
     "rating": 8.3,
-    "reviews": 208,
+    "reviews": 210,
     "center_m": 2900.0,
     "transit_m": 200.0,
     "transit_desc": "Burggasse-Stadthalle station is within 200 metres",
     "lat": 48.2035003,
     "lon": 16.334850199999998,
-    "url": "https://www.booking.com/hotel/at/vienna-shopping-center-apartment-6a.en-gb.html?checkin=2027-01-19&checkout=2027-01-25&group_adults=2&selected_currency=EUR"
-   },
-   {
-    "name": "Danube Island Apartment 12",
-    "kind": "apartment",
-    "total": 403.0,
-    "rating": 8.8,
-    "reviews": 105,
-    "center_m": 4600.0,
-    "transit_m": 450.0,
-    "transit_desc": "Kaisermühlen VIC station is within 450 metres",
-    "lat": 48.2345267,
-    "lon": 16.4217936,
-    "url": "https://www.booking.com/hotel/at/danube-island-apartment-12.en-gb.html?checkin=2027-01-19&checkout=2027-01-25&group_adults=2&selected_currency=EUR"
+    "url": "https://www.booking.com/hotel/at/vienna-shopping-center-apartment-6a.en-gb.html?checkin=2027-01-17&checkout=2027-01-22&group_adults=2&selected_currency=EUR"
    }
   ],
-  "booking_min": 283.0,
-  "depart_str": "2027-01-19",
-  "return_str": "2027-01-25",
+  "booking_min": 228.0,
+  "depart_str": "2027-01-17",
+  "return_str": "2027-01-22",
   "name": "Βιέννη",
   "to": "VIE",
   "hist_id": "vienna-jan"
@@ -457,198 +434,199 @@
  "surprise-europe": {
   "flights_out": [
    {
-    "price": 159,
-    "airlines": [
-     "SKY express"
-    ],
-    "stops": 0,
-    "dep_hour": 10.58,
-    "depart": "10:35",
-    "arrive": "12:15",
-    "via": "ATH → PRG",
-    "score": 172.7
-   }
-  ],
-  "flights_ret": [
-   {
-    "price": 230,
+    "price": 158,
     "airlines": [
      "Aegean"
     ],
     "stops": 0,
-    "dep_hour": 19.83,
-    "depart": "19:50",
-    "arrive": "23:15",
-    "via": "PRG → ATH",
-    "score": 221.5
+    "dep_hour": 8.5,
+    "depart": "08:30",
+    "arrive": "10:25",
+    "via": "ATH → BER",
+    "score": 150.5
    }
   ],
-  "flights_out_url": "https://www.google.com/travel/flights?tfs=GhoSCjIwMjctMDEtMTdqBRIDQVRIcgUSA1BSR0ICAQFIAZgBAg%3D%3D&hl=en&curr=EUR",
-  "flights_ret_url": "https://www.google.com/travel/flights?tfs=GhoSCjIwMjctMDEtMjJqBRIDUFJHcgUSA0FUSEICAQFIAZgBAg%3D%3D&hl=en&curr=EUR",
-  "flight_min": 389,
-  "flight_best": 389,
+  "flights_ret": [
+   {
+    "price": 135,
+    "airlines": [
+     "Aegean"
+    ],
+    "stops": 0,
+    "dep_hour": 19.25,
+    "depart": "19:15",
+    "arrive": "23:00",
+    "via": "BER → ATH",
+    "score": 128.2
+   }
+  ],
+  "flights_out_url": "https://www.google.com/travel/flights?tfs=GhoSCjIwMjctMDEtMTlqBRIDQVRIcgUSA0JFUkICAQFIAZgBAg%3D%3D&hl=en&curr=EUR",
+  "flights_ret_url": "https://www.google.com/travel/flights?tfs=GhoSCjIwMjctMDEtMjVqBRIDQkVScgUSA0FUSEICAQFIAZgBAg%3D%3D&hl=en&curr=EUR",
+  "flight_min": 293,
+  "flight_best": 293,
   "booking": [
    {
-    "name": "Central Station Studios",
+    "name": "Homaris K48 Studios",
     "kind": "apartment",
-    "total": 200.0,
+    "total": 477.0,
     "rating": 8.7,
-    "reviews": 590,
-    "center_m": 1400.0,
-    "transit_m": 197,
-    "transit_desc": "~197 μ από στάση (OSM)",
-    "lat": 50.0858307,
-    "lon": 14.440382199999931,
-    "url": "https://www.booking.com/hotel/cz/daily-rentals-prague-pragha.en-gb.html?checkin=2027-01-17&checkout=2027-01-22&group_adults=2&selected_currency=EUR"
+    "reviews": 19,
+    "center_m": 3200.0,
+    "transit_m": 113,
+    "transit_desc": "~113 μ από στάση (OSM)",
+    "lat": 52.5093552,
+    "lon": 13.4232861,
+    "url": "https://www.booking.com/hotel/de/homaris-k48-studios.en-gb.html?checkin=2027-01-19&checkout=2027-01-25&group_adults=2&selected_currency=EUR"
    },
    {
-    "name": "Central Studios",
-    "kind": "apartment",
-    "total": 200.0,
-    "rating": 8.5,
-    "reviews": 330,
-    "center_m": 2000.0,
-    "transit_m": 263,
-    "transit_desc": "~263 μ από στάση (OSM)",
-    "lat": 50.084985,
-    "lon": 14.449348999999984,
-    "url": "https://www.booking.com/hotel/cz/central-station-studios.en-gb.html?checkin=2027-01-17&checkout=2027-01-22&group_adults=2&selected_currency=EUR"
-   },
-   {
-    "name": "Flat in a calm neighbourhood 2",
-    "kind": "apartment",
-    "total": 201.0,
-    "rating": 9,
-    "reviews": 1,
-    "center_m": 3100.0,
-    "transit_m": 261,
-    "transit_desc": "~261 μ από στάση (OSM)",
-    "lat": 50.08712999999999,
-    "lon": 14.4644688,
-    "url": "https://www.booking.com/hotel/cz/flat-in-a-calm-neighbourhood-2.en-gb.html?checkin=2027-01-17&checkout=2027-01-22&group_adults=2&selected_currency=EUR"
-   },
-   {
-    "name": "Flat Near Prague Castle Stylish & Prime Location 1",
-    "kind": "apartment",
-    "total": 219.0,
-    "rating": 8.3,
-    "reviews": 3,
-    "center_m": 2000.0,
-    "transit_m": 250.0,
-    "transit_desc": "Anděl station is within 250 metres",
-    "lat": 50.0718125,
-    "lon": 14.4060113,
-    "url": "https://www.booking.com/hotel/cz/flat-near-prague-castle-stylish-amp-prime-location-1-hlavni-mesto-praha.en-gb.html?checkin=2027-01-17&checkout=2027-01-22&group_adults=2&selected_currency=EUR"
-   },
-   {
-    "name": "Flat with Bathtub & Balcony, only 12min Centrum, 200Mb WIFI",
-    "kind": "apartment",
-    "total": 227.0,
-    "rating": 9,
-    "reviews": 23,
-    "center_m": 3400.0,
-    "transit_m": 109,
-    "transit_desc": "~109 μ από στάση (OSM)",
-    "lat": 50.0700096,
-    "lon": 14.3815451,
-    "url": "https://www.booking.com/hotel/cz/flat-with-bathtub-amp-balcony-only-12min-centrum-200mb-wifi.en-gb.html?checkin=2027-01-17&checkout=2027-01-22&group_adults=2&selected_currency=EUR"
-   },
-   {
-    "name": "Rašínovo nábřeží - Riverside Residence",
-    "kind": "apartment",
-    "total": 228.0,
-    "rating": 8.8,
-    "reviews": 2582,
-    "center_m": 1800.0,
-    "transit_m": 400.0,
-    "transit_desc": "Karlovo náměstí station is within 400 metres",
-    "lat": 50.0713956,
-    "lon": 14.4142097,
-    "url": "https://www.booking.com/hotel/cz/rasinovo-nabrezi-riverside-residence.en-gb.html?checkin=2027-01-17&checkout=2027-01-22&group_adults=2&selected_currency=EUR"
-   },
-   {
-    "name": "TurnKey I Main Bus Station Apartments",
-    "kind": "apartment",
-    "total": 239.0,
-    "rating": 9.1,
-    "reviews": 155,
-    "center_m": 1600.0,
-    "transit_m": 400.0,
-    "transit_desc": "Florenc station is within 400 metres",
-    "lat": 50.0917539,
-    "lon": 14.4425186,
-    "url": "https://www.booking.com/hotel/cz/turnkey-apartment-train-station.en-gb.html?checkin=2027-01-17&checkout=2027-01-22&group_adults=2&selected_currency=EUR"
-   },
-   {
-    "name": "Residence Tabor",
+    "name": "Hotel Lützow",
     "kind": "hotel_breakfast",
-    "total": 241.0,
-    "rating": 8.4,
-    "reviews": 2253,
-    "center_m": 2400.0,
-    "transit_m": 19,
-    "transit_desc": "~19 μ από στάση (OSM)",
-    "lat": 50.08368357649202,
-    "lon": 14.453737735748291,
-    "url": "https://www.booking.com/hotel/cz/residence-tabor.en-gb.html?checkin=2027-01-17&checkout=2027-01-22&group_adults=2&selected_currency=EUR"
+    "total": 522.0,
+    "rating": 8,
+    "reviews": 3032,
+    "center_m": 2200.0,
+    "transit_m": 120,
+    "transit_desc": "~120 μ από στάση (OSM)",
+    "lat": 52.50655051156386,
+    "lon": 13.347916603088379,
+    "url": "https://www.booking.com/hotel/de/la1-4tzow.en-gb.html?checkin=2027-01-19&checkout=2027-01-25&group_adults=2&selected_currency=EUR"
    },
    {
-    "name": "TurnKey I Karlín Square Apartments",
+    "name": "Locke at East Side Gallery",
     "kind": "apartment",
-    "total": 246.0,
-    "rating": 9.1,
-    "reviews": 296,
-    "center_m": 1800.0,
+    "total": 542.0,
+    "rating": 9,
+    "reviews": 3463,
+    "center_m": 4200.0,
+    "transit_m": 44,
+    "transit_desc": "~44 μ από στάση (OSM)",
+    "lat": 52.5069651,
+    "lon": 13.4370896,
+    "url": "https://www.booking.com/hotel/de/locke-at-east-side-gallery.en-gb.html?checkin=2027-01-19&checkout=2027-01-25&group_adults=2&selected_currency=EUR"
+   },
+   {
+    "name": "Steps-Hotel",
+    "kind": "hotel_breakfast",
+    "total": 564.0,
+    "rating": 8,
+    "reviews": 2802,
+    "center_m": 4100.0,
+    "transit_m": 450.0,
+    "transit_desc": "U Nauener Platz station is within 450 metres",
+    "lat": 52.55202376607654,
+    "lon": 13.360568583011627,
+    "url": "https://www.booking.com/hotel/de/steps.en-gb.html?checkin=2027-01-19&checkout=2027-01-25&group_adults=2&selected_currency=EUR"
+   },
+   {
+    "name": "Hampton by Hilton Berlin City Centre Alexanderplatz",
+    "kind": "hotel_breakfast",
+    "total": 564.0,
+    "rating": 8.2,
+    "reviews": 10748,
+    "center_m": 3000.0,
     "transit_m": 500.0,
-    "transit_desc": "Křižíkova station is within 500 metres",
-    "lat": 50.0923013,
-    "lon": 14.4444657,
-    "url": "https://www.booking.com/hotel/cz/turnkey-i-karlin-square-apartments.en-gb.html?checkin=2027-01-17&checkout=2027-01-22&group_adults=2&selected_currency=EUR"
+    "transit_desc": "U Schillingstraße station is within 500 metres",
+    "lat": 52.525,
+    "lon": 13.418693,
+    "url": "https://www.booking.com/hotel/de/hampton-by-hilton-berlin-city-centre-alexanderplatz.en-gb.html?checkin=2027-01-19&checkout=2027-01-25&group_adults=2&selected_currency=EUR"
    },
    {
-    "name": "TurnKey I National Museum Apartments",
+    "name": "Beautiful City Apartment Charlottenburg Berlin",
     "kind": "apartment",
-    "total": 248.0,
-    "rating": 8.7,
-    "reviews": 413,
-    "center_m": 1300.0,
+    "total": 566.0,
+    "rating": 8.1,
+    "reviews": 8,
+    "center_m": 4700.0,
+    "transit_m": 150.0,
+    "transit_desc": "U Bismarckstraße station is within 150 metres",
+    "lat": 52.5122519,
+    "lon": 13.3070561,
+    "url": "https://www.booking.com/hotel/de/beautiful-city-apartment-charlottenburg-berlin.en-gb.html?checkin=2027-01-19&checkout=2027-01-25&group_adults=2&selected_currency=EUR"
+   },
+   {
+    "name": "M101 Rooms",
+    "kind": "apartment",
+    "total": 566.0,
+    "rating": 8.5,
+    "reviews": 52,
+    "center_m": 3200.0,
+    "transit_m": 200.0,
+    "transit_desc": "U Platz der Luftbrücke station is within 200 metres",
+    "lat": 52.4877924704607,
+    "lon": 13.386830228836,
+    "url": "https://www.booking.com/hotel/de/m101-rooms-berlin.en-gb.html?checkin=2027-01-19&checkout=2027-01-25&group_adults=2&selected_currency=EUR"
+   },
+   {
+    "name": "MEININGER Hotel Berlin Tiergarten",
+    "kind": "hotel_breakfast",
+    "total": 584.0,
+    "rating": 8.1,
+    "reviews": 7354,
+    "center_m": 2400.0,
     "transit_m": 250.0,
-    "transit_desc": "Muzeum station is within 250 metres",
-    "lat": 50.07756249579,
-    "lon": 14.429947538437,
-    "url": "https://www.booking.com/hotel/cz/turnkey-national-museum-apartments.en-gb.html?checkin=2027-01-17&checkout=2027-01-22&group_adults=2&selected_currency=EUR"
+    "transit_desc": "U Turmstraße station is within 250 metres",
+    "lat": 52.52641,
+    "lon": 13.344846,
+    "url": "https://www.booking.com/hotel/de/meininger-berlin-tiergarten.en-gb.html?checkin=2027-01-19&checkout=2027-01-25&group_adults=2&selected_currency=EUR"
    },
    {
-    "name": "TurnKey I Letná Park Apartments",
+    "name": "Ferienwohnung Tiergarten",
     "kind": "apartment",
-    "total": 249.0,
-    "rating": 8.8,
-    "reviews": 390,
-    "center_m": 1600.0,
-    "transit_m": 126,
-    "transit_desc": "~126 μ από στάση (OSM)",
-    "lat": 50.1011258,
-    "lon": 14.4240308,
-    "url": "https://www.booking.com/hotel/cz/turnkey-ovenia-apartments.en-gb.html?checkin=2027-01-17&checkout=2027-01-22&group_adults=2&selected_currency=EUR"
+    "total": 613.0,
+    "rating": 8.3,
+    "reviews": 134,
+    "center_m": 2200.0,
+    "transit_m": 500.0,
+    "transit_desc": "U Hansaplatz station is within 500 metres",
+    "lat": 52.5215271041443,
+    "lon": 13.3458781242371,
+    "url": "https://www.booking.com/hotel/de/ferienwohnung-tiergarten-berlin.en-gb.html?checkin=2027-01-19&checkout=2027-01-25&group_adults=2&selected_currency=EUR"
    },
    {
-    "name": "Centre Prague Retreat Residence",
+    "name": "Candlewood Suites Berlin Charlottenburg by IHG",
     "kind": "apartment",
-    "total": 250.0,
-    "rating": 8.4,
-    "reviews": 1191,
-    "center_m": 1700.0,
-    "transit_m": 350.0,
-    "transit_desc": "Karlovo náměstí station is within 350 metres",
-    "lat": 50.0718477,
-    "lon": 14.418572,
-    "url": "https://www.booking.com/hotel/cz/centre-prague-retreat-residence.en-gb.html?checkin=2027-01-17&checkout=2027-01-22&group_adults=2&selected_currency=EUR"
+    "total": 617.0,
+    "rating": 8.2,
+    "reviews": 1094,
+    "center_m": 3400.0,
+    "transit_m": 266,
+    "transit_desc": "~266 μ από στάση (OSM)",
+    "lat": 52.5197024,
+    "lon": 13.3263855,
+    "url": "https://www.booking.com/hotel/de/candlewood-suites-berlincharlottenburg.en-gb.html?checkin=2027-01-19&checkout=2027-01-25&group_adults=2&selected_currency=EUR"
+   },
+   {
+    "name": "ibis budget Berlin Alexanderplatz",
+    "kind": "hotel_breakfast",
+    "total": 625.0,
+    "rating": 8,
+    "reviews": 5680,
+    "center_m": 3200.0,
+    "transit_m": 500.0,
+    "transit_desc": "U Schillingstraße station is within 500 metres",
+    "lat": 52.52507,
+    "lon": 13.42116,
+    "url": "https://www.booking.com/hotel/de/ibis-budget-berlin-alexanderplatz.en-gb.html?checkin=2027-01-19&checkout=2027-01-25&group_adults=2&selected_currency=EUR"
+   },
+   {
+    "name": "Aparthotel Adagio Berlin Kurfürstendamm",
+    "kind": "apartment",
+    "total": 644.0,
+    "rating": 8.6,
+    "reviews": 2369,
+    "center_m": 4200.0,
+    "transit_m": 500.0,
+    "transit_desc": "U Uhlandstraße station is within 500 metres",
+    "lat": 52.49968006920683,
+    "lon": 13.321775794029236,
+    "url": "https://www.booking.com/hotel/de/adagio-city-aparthotel-berlin-kurfurstendamm.en-gb.html?checkin=2027-01-19&checkout=2027-01-25&group_adults=2&selected_currency=EUR"
    }
   ],
-  "booking_min": 200.0,
-  "depart_str": "2027-01-17",
-  "return_str": "2027-01-22",
-  "name": "Έκπληξη: Πράγα",
-  "to": "PRG"
+  "booking_min": 477.0,
+  "depart_str": "2027-01-19",
+  "return_str": "2027-01-25",
+  "name": "Έκπληξη: Βερολίνο",
+  "to": "BER",
+  "hist_id": "surprise-europe-ber"
  }
 }

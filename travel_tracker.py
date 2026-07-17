@@ -134,12 +134,12 @@ def _fetch_flight_leg_live(page, direction, dep_date, frm, to, adults, nights=0)
             if any(any(lc in a.lower() for lc in lowcost) for a in o["airlines"]):
                 continue
 
-        if direction == "out":
-            if o["depart"] > ("17:00" if nights >= 6 else "13:00"):
-                continue
-        if direction == "ret":
-            if o["depart"] < ("08:00" if nights >= 6 else "16:30"):
-                continue
+        # Αυστηροί κανόνες ωρών (απόφαση χρήστη 2026-07-17): ισχύουν για ΟΛΑ
+        # τα ταξίδια, ανεξαρτήτως διάρκειας — καμία χαλάρωση για 6+ νύχτες.
+        if direction == "out" and o["depart"] > "13:00":
+            continue
+        if direction == "ret" and o["depart"] < "16:30":
+            continue
 
         key = (o["price"], o["depart"], tuple(o["airlines"]))
         if key not in seen:
@@ -194,12 +194,10 @@ def _fetch_flight_leg(direction, dep_date, frm, to, adults, nights=0):
         
         dh, dm = hm(f.flights[0].departure.time)
         dep_str = f"{dh:02d}:{dm:02d}"
-        if direction == "out":
-            if dep_str > ("17:00" if nights >= 6 else "13:00"):
-                continue
-        if direction == "ret":
-            if dep_str < ("08:00" if nights >= 6 else "16:30"):
-                continue
+        if direction == "out" and dep_str > "13:00":
+            continue
+        if direction == "ret" and dep_str < "16:30":
+            continue
 
         ah, am = hm(f.flights[-1].arrival.time)
         legs = f.flights
@@ -221,12 +219,8 @@ def _score_leg(opt, direction, nights=0):
     score = float(opt["price"])
     if direction == "out":
         score += max(0.0, opt["dep_hour"] - 6) * RULES["eur_per_hour_late_departure"]
-        if nights >= 6 and opt["depart"] > "13:00":
-            score += 40.0
     else:
         score += max(0.0, 22 - opt["dep_hour"]) * RULES["eur_per_hour_early_return"]
-        if nights >= 6 and opt["depart"] < "16:30":
-            score += 40.0
     score += opt["stops"] * RULES["eur_per_stop"]
     if any(a for a in opt["airlines"] if "aegean" in a.lower() or "olympic" in a.lower()):
         score -= RULES["aegean_bonus_eur"]

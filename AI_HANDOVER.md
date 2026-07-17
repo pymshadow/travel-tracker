@@ -26,10 +26,8 @@ Instead of scanning a single fixed date per trip, `travel_tracker.py` checks all
 ### Surprise City Logic
 In `trips.json`, there is a trip entry with ID `surprise-europe`. It contains a `surprise_pool` array. When `travel_tracker.py` runs, it randomly picks one dictionary from this pool and assigns its `to`, `city`, and `name` attributes to the trip before execution.
 
-### Scoring Penalties
-In `travel_tracker.py`, the `_score_leg` function calculates the quality of a flight based on price and hours.
-- There is a `+40` EUR penalty for bad flight hours.
-- For trips lasting **6 or more nights**, the hour restrictions are heavily relaxed (e.g., departure can be as late as 17:00, return as early as 08:00) before applying the penalty, because an extra night makes up for lost time.
+### Flight-hour rules (STRICT — user decision 2026-07-17)
+Hard filters at fetch time, for ALL trips regardless of duration: outbound departures must be **≤ 13:00**, return departures must be **≥ 16:30**. The former "6+ nights relaxation" (departure up to 17:00, return from 08:00) was removed at the user's explicit request — do NOT reintroduce it. `_score_leg` then ranks the surviving options by price + per-hour preferences (earlier departure / later return) + per-stop penalty − small Aegean/Olympic bonus.
 
 ## 3. Automation and Deployment
 - **Hosting: GitHub Pages** at https://pymshadow.github.io/travel-tracker/ (migrated from Netlify on 2026-07-17 after the Netlify team ran out of credits). The repo was made public for this (GitHub Free requires public repos for Pages). Deployment method: push `dashboard/dist/` to the `gh-pages` branch via `peaceiris/actions-gh-pages@v4` with the default `GITHUB_TOKEN` — do NOT use `actions/configure-pages` with `enablement: true`, it fails (GITHUB_TOKEN cannot enable Pages).
