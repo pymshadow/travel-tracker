@@ -850,72 +850,59 @@ def main():
     from playwright.sync_api import sync_playwright
     import random
     
-    # Process surprise pools before looping
+    # Ποια ήταν η χθεσινή πόλη-Έκπληξη; (για να μην ξαναβγεί η ίδια)
     for t in trips:
         if "surprise_pool" in t:
-            # Απόκλεισε την πόλη του προηγούμενου τρεξίματος ώστε η Έκπληξη
-            # να αλλάζει εγγυημένα κάθε μέρα (η τυχαία επιλογή μπορούσε να
-            # ξαναφέρει την ίδια — 1 στις 5).
-            prev_to = None
             prev_files = sorted(glob_module.glob(os.path.join(SNAPSHOT_DIR, "*.json")))
             if prev_files:
                 try:
                     with open(prev_files[-1], encoding="utf-8") as pf:
-                        prev_to = (json.load(pf).get(t["id"]) or {}).get("to")
+                        t["_prev_to"] = (json.load(pf).get(t["id"]) or {}).get("to")
                 except Exception:
                     pass
-            pool = [c for c in t["surprise_pool"] if c["to"] != prev_to] or t["surprise_pool"]
-            choice = random.choice(pool)
-            t["to"] = choice["to"]
-            t["city"] = choice["city"]
-            t["name"] = f"Έκπληξη: {choice['name']}"
-            # Το ιστορικό τιμών καταγράφεται ανά πόλη, αλλιώς το γράφημα
-            # θα συνέκρινε διαφορετικές πόλεις μεταξύ τους μέρα με τη μέρα.
-            t["_hist_id"] = f"{t['id']}-{choice['to'].lower()}"
 
-    for trip in trips:
-        with sync_playwright() as pw:
-            tid = trip["id"]
-            hid = trip.get("_hist_id", tid)
-            best_snap = None
-            best_total = float('inf')
-            best_hist = []
-            
-            pairs = trip.get("date_pairs", [{"depart": trip.get("depart"), "return": trip.get("return")}])
-            
-            for pair in pairs:
-                trip["depart"] = pair["depart"]
-                trip["return"] = pair["return"]
-                snap = {}
-                hist = []
-                print(f"\n=== {trip.get('name', tid)} ({trip['from']}→{trip['to']}, {trip['depart']}) ===")
+    def process_trip(trip, pw, hid, skip_booking_if_no_flights=False):
+        """Σκανάρει όλα τα date_pairs ενός ταξιδιού, επιστρέφει (best_snap, best_hist)."""
+        tid = trip["id"]
+        best_snap, best_total, best_hist = None, float('inf'), []
+        pairs = trip.get("date_pairs", [{"depart": trip.get("depart"), "return": trip.get("return")}])
 
-                try:
-                    fl = fetch_flights(trip, pw)
-                    snap["flights_out"] = fl.get("out", [])[:8]
-                    snap["flights_ret"] = fl.get("ret", [])[:8]
-                    snap["flights_out_url"] = fl.get("out_url", "")
-                    snap["flights_ret_url"] = fl.get("ret_url", "")
-                    out, ret = fl.get("out", []), fl.get("ret", [])
-                    has_return = bool(trip.get("return"))
-                    if out and (not has_return or ret):
-                        cheapest = min(o["price"] for o in out) + (min(o["price"] for o in ret) if ret else 0)
-                        best = out[0]["price"] + (ret[0]["price"] if ret else 0)
-                        snap["flight_min"] = cheapest
-                        snap["flight_best"] = best
-                        hist.append([TODAY, hid, "flight_min", cheapest])
-                        hist.append([TODAY, hid, "flight_best", best])
-                        pp = cheapest / trip.get("adults", 1)
-                        target = RULES["max_flight_pp_eur"]
-                        mark = "✅ εντός στόχου" if pp <= target else f"πάνω από στόχο κατά {pp - target:.0f}€"
-                        print(f"  Πτήσεις: {pp:.0f}€/άτομο ({mark} {target}€) | φθηνότερο σύνολο {cheapest}€ | καλύτερη επιλογή ⭐ {best}€ "
-                              f"(αναχ. {out[0]['depart']} {','.join(out[0]['airlines'])}"
-                              + (f" / επιστρ. {ret[0]['depart']} {','.join(ret[0]['airlines'])}" if ret else "") + ")")
-                except Exception as e:
-                    snap["error"] = f"Πτήσεις: {e}"
-                    print(f"  ⚠️ Σφάλμα πτήσεων: {e}")
-                    traceback.print_exc()
+        for pair in pairs:
+            trip["depart"] = pair["depart"]
+            trip["return"] = pair["return"]
+            snap = {}
+            hist = []
+            print(f"\n=== {trip.get('name', tid)} ({trip['from']}→{trip['to']}, {trip['depart']}) ===")
 
+            try:
+                fl = fetch_flights(trip, pw)
+                snap["flights_out"] = fl.get("out", [])[:8]
+                snap["flights_ret"] = fl.get("ret", [])[:8]
+                snap["flights_out_url"] = fl.get("out_url", "")
+                snap["flights_ret_url"] = fl.get("ret_url", "")
+                out, ret = fl.get("out", []), fl.get("ret", [])
+                has_return = bool(trip.get("return"))
+                if out and (not has_return or ret):
+                    cheapest = min(o["price"] for o in out) + (min(o["price"] for o in ret) if ret else 0)
+                    best = out[0]["price"] + (ret[0]["price"] if ret else 0)
+                    snap["flight_min"] = cheapest
+                    snap["flight_best"] = best
+                    hist.append([TODAY, hid, "flight_min", cheapest])
+                    hist.append([TODAY, hid, "flight_best", best])
+                    pp = cheapest / trip.get("adults", 1)
+                    target = RULES["max_flight_pp_eur"]
+                    mark = "✅ εντός στόχου" if pp <= target else f"πάνω από στόχο κατά {pp - target:.0f}€"
+                    print(f"  Πτήσεις: {pp:.0f}€/άτομο ({mark} {target}€) | φθηνότερο σύνολο {cheapest}€ | καλύτερη επιλογή ⭐ {best}€ "
+                          f"(αναχ. {out[0]['depart']} {','.join(out[0]['airlines'])}"
+                          + (f" / επιστρ. {ret[0]['depart']} {','.join(ret[0]['airlines'])}" if ret else "") + ")")
+            except Exception as e:
+                snap["error"] = f"Πτήσεις: {e}"
+                print(f"  ⚠️ Σφάλμα πτήσεων: {e}")
+                traceback.print_exc()
+
+            if skip_booking_if_no_flights and "flight_min" not in snap:
+                print("  (χωρίς έγκυρες πτήσεις — παράλειψη Booking για εξοικονόμηση χρόνου)")
+            else:
                 try:
                     listings = fetch_booking(trip, pw)
                     snap["booking"] = listings[:12]
@@ -931,22 +918,51 @@ def main():
                     print(f"  ⚠️ Σφάλμα Booking: {e}")
                     traceback.print_exc()
 
-                fmin = snap.get("flight_min", float('inf'))
-                bmin = snap.get("booking_min", float('inf'))
-                total = fmin + bmin if fmin != float('inf') and bmin != float('inf') else float('inf')
-                
-                # Keep this snap if it's the cheapest, or if we don't have a best yet
-                if total < best_total or best_snap is None:
-                    if total < best_total:
-                        best_total = total
-                    snap["depart_str"] = pair["depart"]
-                    snap["return_str"] = pair["return"]
-                    snap["name"] = trip.get("name", tid)
-                    snap["to"] = trip.get("to")
-                    best_snap = snap
-                    best_hist = hist
-                
-                time.sleep(2)
+            fmin = snap.get("flight_min", float('inf'))
+            bmin = snap.get("booking_min", float('inf'))
+            total = fmin + bmin if fmin != float('inf') and bmin != float('inf') else float('inf')
+
+            # Keep this snap if it's the cheapest, or if we don't have a best yet
+            if total < best_total or best_snap is None:
+                if total < best_total:
+                    best_total = total
+                snap["depart_str"] = pair["depart"]
+                snap["return_str"] = pair["return"]
+                snap["name"] = trip.get("name", tid)
+                snap["to"] = trip.get("to")
+                best_snap = snap
+                best_hist = hist
+
+            time.sleep(2)
+
+        return best_snap, best_hist
+
+    for trip in trips:
+        with sync_playwright() as pw:
+            tid = trip["id"]
+
+            if "surprise_pool" in trip:
+                # Κλήρωση με ξανακλήρωση: αν η πόλη δεν έχει πτήσεις εντός
+                # κανόνων σε κανένα σετ ημερομηνιών, δοκιμάζεται η επόμενη.
+                candidates = [c for c in trip["surprise_pool"] if c["to"] != trip.get("_prev_to")]
+                random.shuffle(candidates)
+                if not candidates:
+                    candidates = list(trip["surprise_pool"])
+                best_snap, best_hist, hid = None, [], tid
+                for i, choice in enumerate(candidates):
+                    trip["to"] = choice["to"]
+                    trip["city"] = choice["city"]
+                    trip["name"] = f"Έκπληξη: {choice['name']}"
+                    hid = f"{tid}-{choice['to'].lower()}"
+                    best_snap, best_hist = process_trip(trip, pw, hid,
+                                                        skip_booking_if_no_flights=True)
+                    if best_snap and best_snap.get("flight_min"):
+                        break
+                    if i < len(candidates) - 1:
+                        print(f"\n🔁 Η Έκπληξη «{choice['name']}» δεν έχει πτήσεις εντός κανόνων — ξανακλήρωση…")
+            else:
+                hid = trip.get("_hist_id", tid)
+                best_snap, best_hist = process_trip(trip, pw, hid)
 
             if best_snap:
                 best_snap["hist_id"] = hid
