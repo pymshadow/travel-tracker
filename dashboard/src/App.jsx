@@ -79,6 +79,9 @@ function App() {
             const cityCode = data?.to || trip.to
             const cost = costOfLiving[cityCode]
             const nights = (data?.depart_str && data?.return_str) ? nightsOf(data.depart_str, data.return_str) : 0
+            const fullBudget = (flightMin && bookingMin && cost && nights > 0) ? flightMin + bookingMin + (cost.mid * adults * nights) : null
+            const isSuperDeal = fullBudget && fullBudget <= 1200
+            
             const hasFlights = Boolean(flightMin)
             const outCount = data?.flights_out?.length || 0
             const retCount = data?.flights_ret?.length || 0
@@ -154,14 +157,16 @@ function App() {
                     </div>
                     <p className="text-sm text-slate-400 mb-2">{cost.desc}</p>
                     
-                    {(flightMin && bookingMin && nights > 0) && (
-                      <div className="mt-4 pt-4 border-t border-slate-700/50 flex flex-col md:flex-row justify-between items-start md:items-center bg-slate-900/50 p-4 rounded-xl border border-slate-700/30">
+                    {fullBudget && (
+                      <div className={`mt-4 pt-4 border-t border-slate-700/50 flex flex-col md:flex-row justify-between items-start md:items-center p-4 rounded-xl border transition-colors ${isSuperDeal ? 'bg-amber-900/30 border-amber-500/50 shadow-[0_0_20px_rgba(245,158,11,0.2)]' : 'bg-slate-900/50 border-slate-700/30'}`}>
                          <div className="text-sm font-medium text-slate-300 mb-2 md:mb-0">
-                            <strong className="text-base text-blue-300">Πλήρες Ενδεικτικό Budget Ταξιδιού</strong><br/>
+                            <strong className="text-base text-blue-300">Πλήρες Ενδεικτικό Budget Ταξιδιού</strong>
+                            {isSuperDeal && <span className="ml-3 inline-flex animate-pulse items-center px-2.5 py-0.5 rounded-full text-xs font-bold bg-amber-500 text-amber-950">🔥 SUPER DEAL</span>}
+                            <br/>
                             <span className="text-xs text-slate-500">(Πτήσεις + Ξενοδοχείο + {nights} ημέρες "Κανονικά" έξοδα διαβίωσης)</span>
                          </div>
-                         <div className="text-2xl md:text-3xl font-extrabold text-emerald-400">
-                            {flightMin + bookingMin + (cost.mid * adults * nights)}€
+                         <div className={`text-2xl md:text-3xl font-extrabold ${isSuperDeal ? 'text-amber-400 animate-pulse' : 'text-emerald-400'}`}>
+                            {fullBudget}€
                          </div>
                       </div>
                     )}
@@ -254,8 +259,11 @@ function App() {
                     const n = nightsOf(d.depart, d.return)
                     const cost = costOfLiving[d.to]
                     const adults = d.adults || 2
+                    const fullBudget = cost && n > 0 ? d.total + (cost.mid * adults * n) : null
+                    const isSuperDeal = fullBudget && fullBudget <= 1200
+                    
                     return (
-                      <tr key={d.to} className="border-b border-slate-800/50 hover:bg-slate-800/30 transition-colors">
+                      <tr key={d.to} className={`border-b border-slate-800/50 transition-colors ${isSuperDeal ? 'bg-amber-900/10 hover:bg-amber-900/20' : 'hover:bg-slate-800/30'}`}>
                         <td className="py-4 font-bold text-white text-base">{d.city}</td>
                         <td className="py-4 text-slate-400 whitespace-nowrap">
                           {fmtGr(d.depart)} – {fmtGr(d.return)} <span className="text-slate-600">· {n}🌙</span>
@@ -263,11 +271,11 @@ function App() {
                         <td className="py-4">{d.flight_min}€</td>
                         <td className="py-4">{d.booking_min}€</td>
                         <td className="py-4">
-                          <span className="font-extrabold text-amber-400 text-base">{d.total}€</span>
+                          <span className={`font-extrabold text-base ${isSuperDeal ? 'text-amber-500' : 'text-amber-400'}`}>{d.total}€</span>
                           <span className="text-slate-500 text-xs"> (~{d.per_person}€/άτομο)</span>
-                          {cost && n > 0 && (
-                            <div className="text-emerald-400 text-xs mt-1 font-semibold" title={`Πτήσεις + Ξενοδοχείο + ${n} ημέρες "Κανονικά" έξοδα (${cost.mid * adults * n}€)`}>
-                              Πλήρες: {d.total + (cost.mid * adults * n)}€
+                          {fullBudget && (
+                            <div className={`text-xs mt-1 font-semibold ${isSuperDeal ? 'text-amber-400 animate-pulse' : 'text-emerald-400'}`} title={`Πτήσεις + Ξενοδοχείο + ${n} ημέρες "Κανονικά" έξοδα (${cost.mid * adults * n}€)`}>
+                              Πλήρες: {fullBudget}€ {isSuperDeal && '🔥'}
                             </div>
                           )}
                         </td>
