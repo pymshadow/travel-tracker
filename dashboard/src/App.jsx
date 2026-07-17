@@ -79,8 +79,8 @@ function App() {
             const hasFlights = Boolean(flightMin)
             const outCount = data?.flights_out?.length || 0
             const retCount = data?.flights_ret?.length || 0
-            const missingLeg = !outCount && !retCount ? 'ούτε αναχώρηση ούτε επιστροφή'
-              : !outCount ? 'πτήση ΑΝΑΧΩΡΗΣΗΣ' : 'πτήση ΕΠΙΣΤΡΟΦΗΣ'
+            const missingLeg = !outCount && !retCount ? 'δεν βρέθηκε ούτε πτήση αναχώρησης ούτε επιστροφής'
+              : !outCount ? 'λείπει η πτήση ΑΝΑΧΩΡΗΣΗΣ' : 'λείπει η πτήση ΕΠΙΣΤΡΟΦΗΣ'
             
             return (
               <section key={trip.id} className="glass-card rounded-3xl p-6 md:p-10 overflow-hidden relative hover:border-slate-600/50 transition-colors">
@@ -110,7 +110,7 @@ function App() {
                     <div className="font-bold text-base mb-1">⚠️ ΔΕΝ ΒΡΕΘΗΚΑΝ ΠΤΗΣΕΙΣ ΕΝΤΟΣ ΚΑΝΟΝΩΝ</div>
                     <p className="text-sm text-rose-300/90">
                       Σε κανένα από τα σετ ημερομηνιών δεν υπάρχει έγκυρος συνδυασμός
-                      (απευθείας, αναχώρηση έως 13:00 & επιστροφή από 16:30) — λείπει {missingLeg}.
+                      (απευθείας, αναχώρηση έως 13:00 & επιστροφή από 16:30) — {missingLeg}.
                       Οι τιμές διαμονής παρακάτω είναι μόνο ενημερωτικές· <strong>το ταξίδι δεν βγαίνει</strong> με τους τρέχοντες κανόνες.
                     </p>
                   </div>
