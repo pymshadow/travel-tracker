@@ -32,15 +32,16 @@ In `travel_tracker.py`, the `_score_leg` function calculates the quality of a fl
 - For trips lasting **6 or more nights**, the hour restrictions are heavily relaxed (e.g., departure can be as late as 17:00, return as early as 08:00) before applying the penalty, because an extra night makes up for lost time.
 
 ## 3. Automation and Deployment
+- **Hosting: GitHub Pages** at https://pymshadow.github.io/travel-tracker/ (migrated from Netlify on 2026-07-17 after the Netlify team ran out of credits). The repo was made public for this (GitHub Free requires public repos for Pages). Deployment method: push `dashboard/dist/` to the `gh-pages` branch via `peaceiris/actions-gh-pages@v4` with the default `GITHUB_TOKEN` — do NOT use `actions/configure-pages` with `enablement: true`, it fails (GITHUB_TOKEN cannot enable Pages).
 - **GitHub Actions (`.github/workflows/scrape.yml`):** Runs daily at 08:00 UTC (10:00/11:00 AM Greece time).
   - Runs the Python scraper.
-  - Builds the React app (Node 20, `npm ci`).
+  - Builds the React app (Node 20, `npm ci`; Vite `base: '/travel-tracker/'`).
   - Commits the new JSON data, does `git pull --rebase` and pushes to GitHub.
-  - Deploys `dashboard/dist/` to Netlify **only if** the `NETLIFY_AUTH_TOKEN` repo secret is set (Settings → Secrets and variables → Actions). If the secret is missing, the step is skipped with a warning — deployment then relies on Netlify's GitHub integration (auto-deploy on push), if enabled.
-- **Security (2026-07-17):** The Netlify token was previously hardcoded (base64) in the workflow and still exists in old git history — it should be considered compromised and rotated in the Netlify UI. Never commit tokens; `.gitignore` now blocks `.env` and `cookies.txt`.
+  - Deploys `dashboard/dist/` to the `gh-pages` branch.
+- **`.github/workflows/deploy-pages.yml`:** Builds + deploys on pushes touching `dashboard/**` (needed because pushes made with `GITHUB_TOKEN` by scrape.yml don't trigger other workflows) and via manual dispatch.
+- **Netlify is no longer used.** The old Netlify token that was hardcoded in workflow history is revoked. A `NETLIFY_AUTH_TOKEN` repo secret may still exist — unused, safe to delete.
+- **Security:** Never commit tokens; `.gitignore` blocks `.env` and `cookies.txt`. The repo is public — treat everything committed as world-readable.
 - **Local Windows scheduled task** "Travel Price Tracker" is **Disabled** (was double-scraping alongside the Action). Re-enable with `Enable-ScheduledTask -TaskName "Travel Price Tracker"` only if the Action is turned off.
-
-*Note: Sometimes the free Netlify API rate limits block the CLI deployment (`JSONHTTPError: Forbidden`). In such cases, the data is still pushed to GitHub, and deployment can be retried later or triggered automatically by Netlify's GitHub integration.*
 
 ## 3b. History semantics
 - `history.csv` rows are keyed by `hist_id`: equal to the trip id, except for surprise trips where it is `<trip_id>-<airport code>` (e.g. `surprise-europe-prg`) so price history is per-city. Snapshots carry `hist_id` for the report's sparklines. Rows written before 2026-07-17 under plain `surprise-europe` are legacy/mixed and ignored.
