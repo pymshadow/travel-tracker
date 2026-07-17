@@ -12,17 +12,20 @@ const nightsOf = (a, b) => Math.round((new Date(b) - new Date(a)) / 86400000)
 function App() {
   const [tripsData, setTripsData] = useState([])
   const [costOfLiving, setCostOfLiving] = useState({})
+  const [topDeals, setTopDeals] = useState([])
   const [lastUpdate, setLastUpdate] = useState('')
 
   const loadStaticData = async () => {
     try {
       // Σε περιβάλλον παραγωγής θα διαβάζει τα αρχεία που ανέβηκαν στο public/
-      const [tripsRes, snapRes, costRes] = await Promise.all([
+      const [tripsRes, snapRes, costRes, dealsRes] = await Promise.all([
         axios.get(import.meta.env.BASE_URL + 'trips.json?v=' + new Date().getTime()),
         axios.get(import.meta.env.BASE_URL + 'snapshot.json?v=' + new Date().getTime()).catch(() => ({ data: {} })),
-        axios.get(import.meta.env.BASE_URL + 'cost_of_living.json?v=' + new Date().getTime()).catch(() => ({ data: {} }))
+        axios.get(import.meta.env.BASE_URL + 'cost_of_living.json?v=' + new Date().getTime()).catch(() => ({ data: {} })),
+        axios.get(import.meta.env.BASE_URL + 'top_deals.json?v=' + new Date().getTime()).catch(() => ({ data: {} }))
       ])
       setCostOfLiving(costRes.data || {})
+      setTopDeals(Object.values(dealsRes.data || {}).sort((a, b) => a.total - b.total))
       
       const trips = tripsRes.data.trips || []
       const snapshot = snapRes.data || {}
@@ -210,6 +213,60 @@ function App() {
             )
           })}
         </div>
+
+        {topDeals.length > 0 && (
+          <section className="glass-card rounded-3xl p-6 md:p-10 mt-10 overflow-hidden relative border border-amber-500/20">
+            <div className="absolute -top-6 -right-6 p-4 opacity-5 text-9xl pointer-events-none">🏆</div>
+            <h2 className="text-3xl font-extrabold text-white mb-2">🏆 Top Προσφορές</h2>
+            <p className="text-slate-400 text-sm mb-6">
+              Οι καλύτερες ολοκληρωμένες προσφορές (πτήσεις + διαμονή) που έχει πετύχει το σύστημα τις τελευταίες 14 μέρες —
+              μένουν εδώ ακόμα κι όταν η «Έκπληξη» αλλάξει πόλη. Οι παλιότερες τιμές μπορεί να έχουν αλλάξει· τσέκαρε με τα links.
+            </p>
+            <div className="overflow-x-auto">
+              <table className="w-full text-left text-sm">
+                <thead>
+                  <tr className="border-b border-slate-700 text-slate-400">
+                    <th className="pb-3 font-medium">Πόλη</th>
+                    <th className="pb-3 font-medium">Ημερομηνίες</th>
+                    <th className="pb-3 font-medium">Πτήσεις</th>
+                    <th className="pb-3 font-medium">Διαμονή</th>
+                    <th className="pb-3 font-medium">Σύνολο</th>
+                    <th className="pb-3 font-medium">Βρέθηκε</th>
+                    <th className="pb-3"></th>
+                  </tr>
+                </thead>
+                <tbody className="text-slate-300">
+                  {topDeals.map((d) => {
+                    const isToday = d.found === new Date().toISOString().slice(0, 10)
+                    return (
+                      <tr key={d.to} className="border-b border-slate-800/50 hover:bg-slate-800/30 transition-colors">
+                        <td className="py-4 font-bold text-white text-base">{d.city}</td>
+                        <td className="py-4 text-slate-400 whitespace-nowrap">
+                          {fmtGr(d.depart)} – {fmtGr(d.return)} <span className="text-slate-600">· {nightsOf(d.depart, d.return)}🌙</span>
+                        </td>
+                        <td className="py-4">{d.flight_min}€</td>
+                        <td className="py-4">{d.booking_min}€</td>
+                        <td className="py-4">
+                          <span className="font-extrabold text-amber-400 text-base">{d.total}€</span>
+                          <span className="text-slate-500 text-xs"> (~{d.per_person}€/άτομο)</span>
+                        </td>
+                        <td className="py-4">
+                          {isToday
+                            ? <span className="px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300 text-xs font-bold uppercase">Σήμερα</span>
+                            : <span className="text-slate-500 text-xs">{fmtGr(d.found)}</span>}
+                        </td>
+                        <td className="py-4 text-right whitespace-nowrap">
+                          {d.flights_out_url && <a href={d.flights_out_url} target="_blank" rel="noreferrer" className="text-blue-400 hover:text-blue-300 text-xs mr-3">Πτήσεις ↗</a>}
+                          {d.booking_url && <a href={d.booking_url} target="_blank" rel="noreferrer" className="text-blue-400 hover:text-blue-300 text-xs">Διαμονή ↗</a>}
+                        </td>
+                      </tr>
+                    )
+                  })}
+                </tbody>
+              </table>
+            </div>
+          </section>
+        )}
       </div>
     </div>
   )

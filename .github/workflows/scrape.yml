@@ -52,7 +52,7 @@ jobs:
       run: |
         git config --global user.name "github-actions[bot]"
         git config --global user.email "github-actions[bot]@users.noreply.github.com"
-        git add dashboard/public/snapshot.json dashboard/public/trips.json snapshots/*.json history.csv
+        git add dashboard/public/snapshot.json dashboard/public/trips.json dashboard/public/top_deals.json top_deals.json snapshots/*.json history.csv
         git commit -m "Auto-update: Daily travel snapshot" || exit 0
         git pull --rebase origin main
         git push

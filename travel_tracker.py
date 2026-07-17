@@ -745,6 +745,76 @@ def build_report(trips, snapshot, hist):
         f.write("\n".join(parts))
 
 
+# --------------------------------------------------------------- top deals ---
+
+TOP_DEALS_FILE = os.path.join(BASE, "top_deals.json")
+
+
+def update_top_deals(snapshot, trips_file, public_dir):
+    """Κρατά την καλύτερη ολοκληρωμένη προσφορά (πτήσεις+διαμονή) ανά πόλη.
+
+    Έτσι όταν η «Έκπληξη» αλλάζει πόλη την επόμενη μέρα, μια καλή χθεσινή
+    προσφορά δεν χάνεται — μένει στη λίστα Top Προσφορών έως 14 μέρες.
+    Μια εγγραφή αντικαθίσταται όταν βρεθεί φθηνότερη για την ίδια πόλη,
+    ή όταν είναι πάνω από 7 ημερών (ανανέωση με φρέσκες τιμές).
+    """
+    from datetime import timedelta
+    import shutil
+
+    deals = {}
+    if os.path.exists(TOP_DEALS_FILE):
+        try:
+            with open(TOP_DEALS_FILE, encoding="utf-8") as f:
+                deals = json.load(f)
+        except Exception:
+            deals = {}
+
+    adults_by_id = {}
+    try:
+        with open(trips_file, encoding="utf-8") as f:
+            adults_by_id = {t["id"]: t.get("adults", 2) for t in json.load(f)["trips"]}
+    except Exception:
+        pass
+
+    today = date.today()
+    for tid, snap in snapshot.items():
+        if not snap.get("flight_min") or not snap.get("booking_min"):
+            continue  # μόνο ολοκληρωμένα deals (και πτήση και διαμονή)
+        adults = adults_by_id.get(tid, 2)
+        total = round(snap["flight_min"] + snap["booking_min"])
+        city_key = snap.get("to") or tid
+        entry = {
+            "city": (snap.get("name") or tid).replace("Έκπληξη: ", ""),
+            "to": city_key,
+            "depart": snap.get("depart_str"),
+            "return": snap.get("return_str"),
+            "flight_min": round(snap["flight_min"]),
+            "booking_min": round(snap["booking_min"]),
+            "total": total,
+            "adults": adults,
+            "per_person": round(total / adults),
+            "found": TODAY,
+            "flights_out_url": snap.get("flights_out_url", ""),
+            "flights_ret_url": snap.get("flights_ret_url", ""),
+            "booking_url": ((snap.get("booking") or [{}])[0]).get("url", ""),
+            "booking_name": ((snap.get("booking") or [{}])[0]).get("name", ""),
+        }
+        old = deals.get(city_key)
+        if (old is None or total <= old.get("total", 1e9)
+                or date.fromisoformat(old.get("found", "2000-01-01")) < today - timedelta(days=7)):
+            deals[city_key] = entry
+
+    # πέτα ό,τι είναι πάνω από 14 ημερών — οι τιμές έχουν πια αλλάξει σίγουρα
+    deals = {k: v for k, v in deals.items()
+             if date.fromisoformat(v.get("found", "2000-01-01")) >= today - timedelta(days=14)}
+
+    with open(TOP_DEALS_FILE, "w", encoding="utf-8") as f:
+        json.dump(deals, f, ensure_ascii=False, indent=1)
+    shutil.copy2(TOP_DEALS_FILE, os.path.join(public_dir, "top_deals.json"))
+    print(f"🏆 Top προσφορές: {len(deals)} πόλεις στη λίστα")
+    return deals
+
+
 # ------------------------------------------------------------------- main ---
 
 def main():
@@ -890,7 +960,7 @@ def main():
     append_history(history_rows)
     with open(os.path.join(SNAPSHOT_DIR, f"{TODAY}.json"), "w", encoding="utf-8") as f:
         json.dump(snapshot, f, ensure_ascii=False, indent=1)
-        
+
     import shutil
     public_dir = os.path.join(BASE, "dashboard", "public")
     os.makedirs(public_dir, exist_ok=True)
@@ -898,6 +968,8 @@ def main():
         json.dump(snapshot, f, ensure_ascii=False, indent=1)
     if os.path.exists(args.file):
         shutil.copy2(args.file, os.path.join(public_dir, "trips.json"))
+
+    update_top_deals(snapshot, args.file, public_dir)
 
     build_report(trips, snapshot, load_history())
     print(f"\n✅ Report: {REPORT_FILE}")
