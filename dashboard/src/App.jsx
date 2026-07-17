@@ -2,16 +2,6 @@ import { useState, useEffect } from 'react'
 import axios from 'axios'
 import './index.css'
 
-const COST_OF_LIVING = {
-  "VIE": { low: 100, mid: 150, high: 220, desc: "Αρκετά ακριβή πόλη (κυρίως φαγητό/καφέ). Συμφέρει το street food (λουκάνικα)." },
-  "MAD": { low: 80, mid: 120, high: 180, desc: "Πολύ προσιτή! Φθηνά tapas & μπύρες, τεράστιες μερίδες." },
-  "FCO": { low: 90, mid: 140, high: 200, desc: "Προσιτό street food (πίτσα/πάστα), αλλά ακριβά εστιατόρια στο κέντρο." },
-  "PRG": { low: 60, mid: 100, high: 150, desc: "Εξαιρετικά φθηνή πόλη (ειδικά για μπύρα και τοπικό φαγητό)." },
-  "BUD": { low: 50, mid: 90, high: 140, desc: "Ίσως η πιο φθηνή της λίστας! Τεράστια αξία για τα χρήματά σας." },
-  "MXP": { low: 110, mid: 170, high: 250, desc: "Από τις πιο ακριβές επιλογές. Ακριβό φαγητό, αλλά φθηνό aperitivo." },
-  "BER": { low: 80, mid: 130, high: 190, desc: "Πολύ φθηνό street food (currywurst, doner), λογικές τιμές στα ποτά." }
-}
-
 const MONTHS_GR = ['', 'Ιαν.', 'Φεβ.', 'Μαρ.', 'Απρ.', 'Μαΐ.', 'Ιουν.', 'Ιουλ.', 'Αυγ.', 'Σεπ.', 'Οκτ.', 'Νοε.', 'Δεκ.']
 const fmtGr = (iso) => {
   const [, m, d] = iso.split('-')
@@ -21,15 +11,18 @@ const nightsOf = (a, b) => Math.round((new Date(b) - new Date(a)) / 86400000)
 
 function App() {
   const [tripsData, setTripsData] = useState([])
+  const [costOfLiving, setCostOfLiving] = useState({})
   const [lastUpdate, setLastUpdate] = useState('')
 
   const loadStaticData = async () => {
     try {
       // Σε περιβάλλον παραγωγής θα διαβάζει τα αρχεία που ανέβηκαν στο public/
-      const [tripsRes, snapRes] = await Promise.all([
+      const [tripsRes, snapRes, costRes] = await Promise.all([
         axios.get(import.meta.env.BASE_URL + 'trips.json?v=' + new Date().getTime()),
-        axios.get(import.meta.env.BASE_URL + 'snapshot.json?v=' + new Date().getTime()).catch(() => ({ data: {} }))
+        axios.get(import.meta.env.BASE_URL + 'snapshot.json?v=' + new Date().getTime()).catch(() => ({ data: {} })),
+        axios.get(import.meta.env.BASE_URL + 'cost_of_living.json?v=' + new Date().getTime()).catch(() => ({ data: {} }))
       ])
+      setCostOfLiving(costRes.data || {})
       
       const trips = tripsRes.data.trips || []
       const snapshot = snapRes.data || {}
@@ -81,7 +74,7 @@ function App() {
             const flightMin = data?.flight_min
             const bookingMin = data?.booking_min
             const cityCode = data?.to || trip.to
-            const cost = COST_OF_LIVING[cityCode]
+            const cost = costOfLiving[cityCode]
             
             return (
               <section key={trip.id} className="glass-card rounded-3xl p-6 md:p-10 overflow-hidden relative hover:border-slate-600/50 transition-colors">
@@ -124,16 +117,23 @@ function App() {
 
                 {cost && (
                   <div className="bg-slate-800/60 rounded-2xl p-4 md:p-5 mb-8 border border-slate-700/50 shadow-inner">
-                    <div className="flex items-center gap-2 mb-3">
+                    <div className="flex items-center gap-2 mb-1">
                       <span className="text-xl">💳</span>
-                      <h3 className="text-sm uppercase tracking-wider font-bold text-slate-300">Εκτιμώμενο Ημερήσιο Κόστος Ζωής (Για {adults} Άτομα)</h3>
+                      <h3 className="text-sm uppercase tracking-wider font-bold text-slate-300">Εκτιμώμενο Ημερήσιο Κόστος Ζωής για {adults} Άτομα</h3>
                     </div>
+                    <p className="text-xs text-slate-500 mb-3">Φαγητό, μετακινήσεις & δραστηριότητες — <strong>χωρίς τη διαμονή</strong> (υπολογίζεται ξεχωριστά παραπάνω)</p>
                     <div className="flex flex-wrap gap-3 mb-3">
-                      <span className="px-3 py-1 bg-green-900/40 text-green-400 rounded-full text-sm font-bold border border-green-800/50">Low: {cost.low}€</span>
-                      <span className="px-3 py-1 bg-blue-900/40 text-blue-400 rounded-full text-sm font-bold border border-blue-800/50">Mid: {cost.mid}€</span>
-                      <span className="px-3 py-1 bg-purple-900/40 text-purple-400 rounded-full text-sm font-bold border border-purple-800/50">High: {cost.high}€+</span>
+                      <span className="px-3 py-1 bg-green-900/40 text-green-400 rounded-full text-sm font-bold border border-green-800/50">Οικονομικά: {cost.low * adults}€</span>
+                      <span className="px-3 py-1 bg-blue-900/40 text-blue-400 rounded-full text-sm font-bold border border-blue-800/50">Κανονικά: {cost.mid * adults}€</span>
+                      <span className="px-3 py-1 bg-purple-900/40 text-purple-400 rounded-full text-sm font-bold border border-purple-800/50">Άνετα: {cost.high * adults}€+</span>
                     </div>
                     <p className="text-sm text-slate-400">{cost.desc}</p>
+                    {cost.url && (
+                      <p className="text-xs text-slate-600 mt-2">
+                        Πηγή: <a href={cost.url} target="_blank" rel="noreferrer" className="text-slate-500 hover:text-slate-400 underline">Numbeo</a>
+                        {costOfLiving._meta?.updated && <span> · ενημ. {costOfLiving._meta.updated}</span>}
+                      </p>
+                    )}
                   </div>
                 )}
 
