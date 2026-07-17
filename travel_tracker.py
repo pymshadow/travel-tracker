@@ -19,6 +19,7 @@ Travel Price Tracker
 Εκτέλεση:  python travel_tracker.py
 """
 import csv
+import glob as glob_module
 import html
 import json
 import math
@@ -782,7 +783,19 @@ def main():
     # Process surprise pools before looping
     for t in trips:
         if "surprise_pool" in t:
-            choice = random.choice(t["surprise_pool"])
+            # Απόκλεισε την πόλη του προηγούμενου τρεξίματος ώστε η Έκπληξη
+            # να αλλάζει εγγυημένα κάθε μέρα (η τυχαία επιλογή μπορούσε να
+            # ξαναφέρει την ίδια — 1 στις 5).
+            prev_to = None
+            prev_files = sorted(glob_module.glob(os.path.join(SNAPSHOT_DIR, "*.json")))
+            if prev_files:
+                try:
+                    with open(prev_files[-1], encoding="utf-8") as pf:
+                        prev_to = (json.load(pf).get(t["id"]) or {}).get("to")
+                except Exception:
+                    pass
+            pool = [c for c in t["surprise_pool"] if c["to"] != prev_to] or t["surprise_pool"]
+            choice = random.choice(pool)
             t["to"] = choice["to"]
             t["city"] = choice["city"]
             t["name"] = f"Έκπληξη: {choice['name']}"

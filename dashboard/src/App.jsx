@@ -76,6 +76,11 @@ function App() {
             const cityCode = data?.to || trip.to
             const cost = costOfLiving[cityCode]
             const nights = (data?.depart_str && data?.return_str) ? nightsOf(data.depart_str, data.return_str) : 0
+            const hasFlights = Boolean(flightMin)
+            const outCount = data?.flights_out?.length || 0
+            const retCount = data?.flights_ret?.length || 0
+            const missingLeg = !outCount && !retCount ? 'ούτε αναχώρηση ούτε επιστροφή'
+              : !outCount ? 'πτήση ΑΝΑΧΩΡΗΣΗΣ' : 'πτήση ΕΠΙΣΤΡΟΦΗΣ'
             
             return (
               <section key={trip.id} className="glass-card rounded-3xl p-6 md:p-10 overflow-hidden relative hover:border-slate-600/50 transition-colors">
@@ -99,6 +104,17 @@ function App() {
                   <span className="text-slate-500">&bull;</span>
                   <span>{adults} Άτομα</span>
                 </div>
+
+                {!hasFlights && data?.depart_str && (
+                  <div className="bg-rose-900/30 border-2 border-rose-500/50 text-rose-200 p-5 rounded-2xl mb-8">
+                    <div className="font-bold text-base mb-1">⚠️ ΔΕΝ ΒΡΕΘΗΚΑΝ ΠΤΗΣΕΙΣ ΕΝΤΟΣ ΚΑΝΟΝΩΝ</div>
+                    <p className="text-sm text-rose-300/90">
+                      Σε κανένα από τα σετ ημερομηνιών δεν υπάρχει έγκυρος συνδυασμός
+                      (απευθείας, αναχώρηση έως 13:00 & επιστροφή από 16:30) — λείπει {missingLeg}.
+                      Οι τιμές διαμονής παρακάτω είναι μόνο ενημερωτικές· <strong>το ταξίδι δεν βγαίνει</strong> με τους τρέχοντες κανόνες.
+                    </p>
+                  </div>
+                )}
 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-8">
                   <div className="bg-slate-800/40 p-5 rounded-2xl border border-slate-700/50 hover:border-slate-600/60 transition-colors shadow-inner">
@@ -143,7 +159,7 @@ function App() {
                   </div>
                 )}
 
-                {data?.flights_out && (
+                {hasFlights && data?.flights_out && (
                   <div className="mb-8">
                     <h3 className="text-lg font-bold text-white mb-4">Top Αναχωρήσεις <span className="text-slate-500 text-sm font-normal">(κανόνας: έως 13:00)</span></h3>
                     <div className="overflow-x-auto"><table className="w-full text-left text-sm"><tbody className="text-slate-300">
@@ -159,7 +175,7 @@ function App() {
                   </div>
                 )}
                 
-                {data?.flights_ret && (
+                {hasFlights && data?.flights_ret && (
                   <div className="mb-8">
                     <h3 className="text-lg font-bold text-white mb-4">Top Επιστροφές <span className="text-slate-500 text-sm font-normal">(κανόνας: από 16:30)</span></h3>
                     <div className="overflow-x-auto"><table className="w-full text-left text-sm"><tbody className="text-slate-300">
