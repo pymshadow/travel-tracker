@@ -75,14 +75,23 @@ function App() {
             const bookingMin = data?.booking_min
             const cityCode = data?.to || trip.to
             const cost = costOfLiving[cityCode]
+            const nights = (data?.depart_str && data?.return_str) ? nightsOf(data.depart_str, data.return_str) : 0
+            // Κανόνες ωρών πτήσεων: χαλαρώνουν στα ταξίδια 6+ νυχτών
+            const outLimit = nights >= 6 ? '17:00' : '13:00'
+            const retLimit = nights >= 6 ? '08:00' : '16:30'
             
             return (
               <section key={trip.id} className="glass-card rounded-3xl p-6 md:p-10 overflow-hidden relative hover:border-slate-600/50 transition-colors">
                 <div className="absolute -top-6 -right-6 p-4 opacity-5 text-9xl pointer-events-none">🏢</div>
                 <div className="flex justify-between items-start mb-3">
                   <h2 className="text-3xl md:text-4xl font-extrabold text-white">{data?.name || trip.name || trip.id}</h2>
-                  <div className="bg-slate-800 text-blue-300 px-3 py-1 rounded-full text-xs uppercase tracking-widest border border-slate-700/50 mt-2">
-                    {data?.depart_str ? `${data.depart_str} / ${data.return_str}` : 'N/A'}
+                  <div className="text-right mt-2">
+                    <div className="bg-slate-800 text-blue-300 px-3 py-1 rounded-full text-xs uppercase tracking-widest border border-slate-700/50">
+                      {data?.depart_str ? `${fmtGr(data.depart_str)} – ${fmtGr(data.return_str)} ${data.return_str.split('-')[0]}` : 'N/A'}
+                    </div>
+                    {nights > 0 && (
+                      <div className="text-emerald-400 text-xs font-bold mt-1.5 tracking-wide">🌙 {nights} διανυκτερεύσεις</div>
+                    )}
                   </div>
                 </div>
                 
@@ -139,7 +148,7 @@ function App() {
 
                 {data?.flights_out && (
                   <div className="mb-8">
-                    <h3 className="text-lg font-bold text-white mb-4">Top Αναχωρήσεις (Έως 13:00)</h3>
+                    <h3 className="text-lg font-bold text-white mb-4">Top Αναχωρήσεις <span className="text-slate-500 text-sm font-normal">(κανόνας: έως {outLimit}{nights >= 6 ? ' — χαλαρωμένο λόγω 6+ νυχτών' : ''})</span></h3>
                     <div className="overflow-x-auto"><table className="w-full text-left text-sm"><tbody className="text-slate-300">
                       {data.flights_out.slice(0,3).map((f, i) => (
                         <tr key={i} className="border-b border-slate-800/50">
@@ -155,7 +164,7 @@ function App() {
                 
                 {data?.flights_ret && (
                   <div className="mb-8">
-                    <h3 className="text-lg font-bold text-white mb-4">Top Επιστροφές (Από 16:30+)</h3>
+                    <h3 className="text-lg font-bold text-white mb-4">Top Επιστροφές <span className="text-slate-500 text-sm font-normal">(κανόνας: από {retLimit}{nights >= 6 ? ' — χαλαρωμένο λόγω 6+ νυχτών' : ''})</span></h3>
                     <div className="overflow-x-auto"><table className="w-full text-left text-sm"><tbody className="text-slate-300">
                       {data.flights_ret.slice(0,3).map((f, i) => (
                         <tr key={i} className="border-b border-slate-800/50">

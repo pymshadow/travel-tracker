@@ -202,6 +202,7 @@ def _fetch_flight_leg(direction, dep_date, frm, to, adults, nights=0):
                 continue
 
         ah, am = hm(f.flights[-1].arrival.time)
+        legs = f.flights
         options.append({
             "price": f.price,
             "airlines": f.airlines,
