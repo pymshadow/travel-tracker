@@ -20,7 +20,7 @@
 ```bash
 python travel_tracker.py
 ```
-Αυτό θα ενημερώσει τον φάκελο `snapshots/` και το αρχείο `history.csv`. Στη συνέχεια θα πρέπει να αντιγράψετε το τελευταίο snapshot στο `dashboard/public/snapshot.json`.
+Αυτό ενημερώνει τον φάκελο `snapshots/`, το `history.csv`, και αντιγράφει αυτόματα το snapshot στο `dashboard/public/snapshot.json`.
 
 ### 2. Frontend (Dashboard)
 ```bash
