@@ -252,7 +252,7 @@ function App() {
                   {topDeals.map((d) => {
                     const isToday = d.found === new Date().toISOString().slice(0, 10)
                     const n = nightsOf(d.depart, d.return)
-                    const cost = COST_OF_LIVING[d.to]
+                    const cost = costOfLiving[d.to]
                     const adults = d.adults || 2
                     return (
                       <tr key={d.to} className="border-b border-slate-800/50 hover:bg-slate-800/30 transition-colors">
