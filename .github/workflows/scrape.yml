@@ -11,6 +11,16 @@ jobs:
 
     permissions:
       contents: write # Needed to commit snapshots
+      pages: write    # Needed to deploy to GitHub Pages
+      id-token: write # Needed by actions/deploy-pages
+
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    concurrency:
+      group: github-pages
+      cancel-in-progress: false
 
     steps:
     - name: Checkout code
@@ -53,13 +63,16 @@ jobs:
         git pull --rebase origin main
         git push
 
-    - name: Deploy to Netlify
-      env:
-        NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
-        NETLIFY_SITE_ID: c7d2b081-f0e0-4b0c-8f57-bfc4fa8e50b6
-      run: |
-        if [ -z "$NETLIFY_AUTH_TOKEN" ]; then
-          echo "::warning::Το secret NETLIFY_AUTH_TOKEN δεν έχει οριστεί (Settings → Secrets and variables → Actions). Παράλειψη CLI deploy — αν το site είναι συνδεδεμένο με το GitHub repo στο Netlify, θα γίνει deploy αυτόματα από το push."
-          exit 0
-        fi
-        npx netlify-cli deploy --prod --dir=dashboard/dist
+    - name: Setup Pages
+      uses: actions/configure-pages@v5
+      with:
+        enablement: true
+
+    - name: Upload Pages artifact
+      uses: actions/upload-pages-artifact@v3
+      with:
+        path: dashboard/dist
+
+    - name: Deploy to GitHub Pages
+      id: deployment
+      uses: actions/deploy-pages@v4

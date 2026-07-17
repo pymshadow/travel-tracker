@@ -27,8 +27,8 @@ function App() {
     try {
       // Σε περιβάλλον παραγωγής θα διαβάζει τα αρχεία που ανέβηκαν στο public/
       const [tripsRes, snapRes] = await Promise.all([
-        axios.get('/trips.json?v=' + new Date().getTime()),
-        axios.get('/snapshot.json?v=' + new Date().getTime()).catch(() => ({ data: {} }))
+        axios.get(import.meta.env.BASE_URL + 'trips.json?v=' + new Date().getTime()),
+        axios.get(import.meta.env.BASE_URL + 'snapshot.json?v=' + new Date().getTime()).catch(() => ({ data: {} }))
       ])
       
       const trips = tripsRes.data.trips || []
