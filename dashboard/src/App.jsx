@@ -251,17 +251,25 @@ function App() {
                 <tbody className="text-slate-300">
                   {topDeals.map((d) => {
                     const isToday = d.found === new Date().toISOString().slice(0, 10)
+                    const n = nightsOf(d.depart, d.return)
+                    const cost = COST_OF_LIVING[d.to]
+                    const adults = d.adults || 2
                     return (
                       <tr key={d.to} className="border-b border-slate-800/50 hover:bg-slate-800/30 transition-colors">
                         <td className="py-4 font-bold text-white text-base">{d.city}</td>
                         <td className="py-4 text-slate-400 whitespace-nowrap">
-                          {fmtGr(d.depart)} – {fmtGr(d.return)} <span className="text-slate-600">· {nightsOf(d.depart, d.return)}🌙</span>
+                          {fmtGr(d.depart)} – {fmtGr(d.return)} <span className="text-slate-600">· {n}🌙</span>
                         </td>
                         <td className="py-4">{d.flight_min}€</td>
                         <td className="py-4">{d.booking_min}€</td>
                         <td className="py-4">
                           <span className="font-extrabold text-amber-400 text-base">{d.total}€</span>
                           <span className="text-slate-500 text-xs"> (~{d.per_person}€/άτομο)</span>
+                          {cost && n > 0 && (
+                            <div className="text-emerald-400 text-xs mt-1 font-semibold" title={`Πτήσεις + Ξενοδοχείο + ${n} ημέρες "Κανονικά" έξοδα (${cost.mid * adults * n}€)`}>
+                              Πλήρες: {d.total + (cost.mid * adults * n)}€
+                            </div>
+                          )}
                         </td>
                         <td className="py-4">
                           {isToday
