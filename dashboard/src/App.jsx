@@ -152,9 +152,22 @@ function App() {
                       <span className="px-3 py-1 bg-blue-900/40 text-blue-400 rounded-full text-sm font-bold border border-blue-800/50">Κανονικά: {cost.mid * adults}€</span>
                       <span className="px-3 py-1 bg-purple-900/40 text-purple-400 rounded-full text-sm font-bold border border-purple-800/50">Άνετα: {cost.high * adults}€+</span>
                     </div>
-                    <p className="text-sm text-slate-400">{cost.desc}</p>
+                    <p className="text-sm text-slate-400 mb-2">{cost.desc}</p>
+                    
+                    {(flightMin && bookingMin && nights > 0) && (
+                      <div className="mt-4 pt-4 border-t border-slate-700/50 flex flex-col md:flex-row justify-between items-start md:items-center bg-slate-900/50 p-4 rounded-xl border border-slate-700/30">
+                         <div className="text-sm font-medium text-slate-300 mb-2 md:mb-0">
+                            <strong className="text-base text-blue-300">Πλήρες Ενδεικτικό Budget Ταξιδιού</strong><br/>
+                            <span className="text-xs text-slate-500">(Πτήσεις + Ξενοδοχείο + {nights} ημέρες "Κανονικά" έξοδα διαβίωσης)</span>
+                         </div>
+                         <div className="text-2xl md:text-3xl font-extrabold text-emerald-400">
+                            {flightMin + bookingMin + (cost.mid * adults * nights)}€
+                         </div>
+                      </div>
+                    )}
+
                     {cost.url && (
-                      <p className="text-xs text-slate-600 mt-2">
+                      <p className="text-xs text-slate-600 mt-4">
                         Πηγή: <a href={cost.url} target="_blank" rel="noreferrer" className="text-slate-500 hover:text-slate-400 underline">Numbeo</a>
                         {costOfLiving._meta?.updated && <span> · ενημ. {costOfLiving._meta.updated}</span>}
                       </p>
