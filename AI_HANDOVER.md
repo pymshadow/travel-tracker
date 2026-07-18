@@ -75,6 +75,9 @@ Per-person/day values (low/mid/high, **excluding accommodation**) derived from N
 - **CI/CD:** `.github/workflows/scrape.yml`, `.github/workflows/deploy-pages.yml`
 - **Caches (committed, speed up CI):** `geocache.json`, `stops_cache/`
 
+## 4b. Incident log
+- **2026-07-18:** Daily Action failed at the "Commit new snapshot" step (`git pull --rebase origin main` conflicted because other sessions had pushed commits touching the same auto-generated files). Scrape + build had succeeded, but the failed commit step skipped the deploy, so the site kept showing the previous day's data (surprise city stuck on Berlin — it was NOT a surprise-logic bug; the redraw/exclusion works and correctly picks a new city daily). Fix: the commit step now does `git pull --no-rebase -X ours --no-edit origin main` (fresh scrape always wins conflicts on generated files) inside a 5× retry loop. If the daily run ever fails again, recover by running `python travel_tracker.py` locally and pushing the data files.
+
 ## 5. Known fragilities (check here first when something breaks)
 - Google Flights parsing depends on English `aria-label`s (`hl=en` is forced) and the phrase "From X euros".
 - Booking parsing depends on the `data-capla-store-data="apollo"` script tag; the deprecated-but-working search hash fallback lives inside pyairbnb-era history — current code uses Playwright only.
