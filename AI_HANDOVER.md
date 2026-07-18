@@ -1,58 +1,82 @@
 # AI Handover Document
 
-This document is intended for future AI assistants to quickly understand the architecture, state, and rules of the **Travel Price Tracker** project.
+This document is intended for future AI assistants to quickly understand the architecture, state, rules, and **user preferences** of the **Travel Price Tracker** project. Last full update: **2026-07-17**.
+
+## 0. The user, in brief
+
+- Greek speaker (writes in Greeklish). Answer in Greek.
+- Wants: 2 fixed cities + 1 daily "surprise" city, tracked daily, with strict quality rules (below).
+- Budget target: **≤ 125€/person** for flights (round trip total). Shown as a target, not a hard filter.
+- **Does NOT want:** promo videos or social-media uploads (pipeline was deleted 2026-07-17 — don't rebuild it or suggest it), the 6-nights hour relaxation (removed — don't reintroduce), morning returns ("προτιμώ να χάσω το ταξίδι παρά να γυρίσω πρωί").
 
 ## 1. Project Architecture
 
-The project consists of two main parts:
 1. **The Scraper (Backend):** `travel_tracker.py`
-   - Uses Playwright to scrape live flight data and booking.com listings.
-   - Reads configuration from `trips.json`.
-   - Iterates over defined destinations and `date_pairs`.
-   - For trips with a `surprise_pool`, it randomly selects one destination from the pool before processing.
-   - Saves the cheapest result per destination as a JSON object into the `snapshots/` directory.
+   - **Flights:** live Google Flights page via Playwright headless Chromium (SOCS consent cookie on `.google.com` bypasses the EU consent wall; results parsed from `[aria-label*='euros']` elements). Fallback: static-HTML fetch via `primp` + `fast_flights.parser`. Two one-way searches per trip; prices are **totals for all passengers**, EUR.
+   - **Hotels:** Booking.com via Playwright (`--disable-blink-features=AutomationControlled` + webdriver-undefined init script — plain HTTP gets bot-challenged with a tiny 202 page). Results parsed from the `script[data-capla-store-data="apollo"]` JSON blob; two searches merged: entire apartments (`privacy_type=3`) OR hotels with breakfast (`ht_id=204;mealplan=1`). Prices are **stay totals incl. taxes**.
+   - Transit-distance fallback: Overpass API (2 mirrors) → stops cached in `stops_cache/`. City bounding boxes via Nominatim → `geocache.json`.
+   - Outputs: `snapshots/<date>.json` (merged with same-day file), `history.csv`, `top_deals.json`, `report.html` (legacy standalone report), and copies of snapshot/trips/cost_of_living/top_deals into `dashboard/public/`.
 
-2. **The Dashboard (Frontend):** `/dashboard/`
-   - A React (Vite) application styled with TailwindCSS.
-   - Fetches `/trips.json` and `/snapshot.json` dynamically from the `public/` directory upon load.
-   - Matches the data and renders the destination cards.
-   - Contains a hardcoded `COST_OF_LIVING` dictionary in `App.jsx` which provides daily cost estimates (Low/Mid/High) for the supported cities.
+2. **The Dashboard (Frontend):** `/dashboard/` — React (Vite, `base: '/travel-tracker/'`) + TailwindCSS.
+   - Fetches `trips.json`, `snapshot.json`, `cost_of_living.json`, `top_deals.json` from `public/` (via `import.meta.env.BASE_URL`).
+   - Per-trip cards: dates + 🌙 nights, cheapest/best flights, cheapest rule-compliant stay, total, daily cost of living (per-person values × adults, source-linked to Numbeo), top-3 tables with booking links.
+   - **Red warning banner** when a trip has no rule-compliant flights in any date pair (tells the user "το ταξίδι δεν βγαίνει"; flight tables hidden).
+   - **🏆 Top Προσφορές** section at the bottom (see 2d).
 
 ## 2. Key Mechanisms
 
-### Dynamic Date Scanning
-Instead of scanning a single fixed date per trip, `travel_tracker.py` checks all `date_pairs` defined in `trips.json` for a specific trip. It calculates `total = flight_min + booking_min` for each date pair and only retains the date pair with the absolute lowest `total` cost.
+### 2a. Dynamic Date Scanning
+Each trip has `date_pairs` in `trips.json`. All pairs are scanned; only the pair with the lowest `flight_min + booking_min` is kept (its dates go to `depart_str`/`return_str`). Pairs missing either component score `inf` and can't win.
 
-### Surprise City Logic
-In `trips.json`, there is a trip entry with ID `surprise-europe`. It contains a `surprise_pool` array. When `travel_tracker.py` runs, it randomly picks one dictionary from this pool and assigns its `to`, `city`, and `name` attributes to the trip before execution.
+### 2b. Surprise City (`surprise-europe` trip)
+- Pool in `trips.json` (`surprise_pool`). Each run draws a city that is **guaranteed different from the previous run's** (previous read from the latest `snapshots/*.json`).
+- **Redraw on failure:** if the drawn city has no rule-compliant flights in ANY date pair, the next pool city is tried (shuffled order), until one works. While probing, Booking is skipped for flightless pairs to save time.
+- History note: Budapest effectively never passes (direct ATH-BUD is Wizz Air only → excluded by the low-cost rule). User was offered a relaxation and hasn't asked for it.
 
-### Flight-hour rules (STRICT — user decision 2026-07-17)
-Hard filters at fetch time, for ALL trips regardless of duration: outbound departures must be **≤ 13:00**, return departures must be **≥ 16:30**. The former "6+ nights relaxation" (departure up to 17:00, return from 08:00) was removed at the user's explicit request — do NOT reintroduce it. `_score_leg` then ranks the surviving options by price + per-hour preferences (earlier departure / later return) + per-stop penalty − small Aegean/Olympic bonus.
+### 2c. Flight rules (STRICT — user decision 2026-07-17)
+Hard filters at fetch time, ALL trips, regardless of duration:
+- Direct flights only (`stops > 0` dropped).
+- Outbound departure **≤ 13:00**; return departure **≥ 16:30**. The former "6+ nights relaxation" was explicitly removed — **do NOT reintroduce it**.
+- Low-cost carriers (Ryanair/Wizz/easyJet/Volotea/Vueling/Pegasus/Transavia/Air Malta) excluded for trips of **4+ nights**.
+`_score_leg` ranks survivors: price + 3€/h after 06:00 (outbound) or before 22:00 (return) + 20€/stop − 15€ Aegean/Olympic bonus. ⭐ = best score; the absolute cheapest is also tracked. `RULES` dict at the top of `travel_tracker.py` holds all weights incl. `max_flight_pp_eur: 125` (per-person target, display-only).
+
+### 2d. Booking rules
+≤ 5 km from centre · rating ≥ 8/10 · entire apartments OR hotels with breakfast · ≤ 800 m from metro/bus (Booking's own `publicTransportDistanceDescription` first, OSM stops fallback) · name blacklist: student/hostel/dorm/capsule.
+
+### 2e. Top Deals (`update_top_deals()` in travel_tracker.py)
+Keeps the best **complete** deal (flights + stay) per city in `top_deals.json` (root = master, copied to `dashboard/public/`). Replacement policy: cheaper total wins; entries older than 7 days get refreshed by newer data; entries older than 14 days are dropped. This is how good surprise-city deals survive the daily rotation. Rendered as the "🏆 Top Προσφορές" table.
+
+### 2f. Cost of Living (`dashboard/public/cost_of_living.json`)
+Per-person/day values (low/mid/high, **excluding accommodation**) derived from Numbeo prices (meal cheap/mid-range, transit ticket, coffee, beer) on 2026-07-17. UI multiplies by `adults` and links to the Numbeo city page. To add a city: add one JSON entry (key = airport code). To refresh: re-derive from Numbeo (`_meta.formula` documents the approach).
 
 ## 3. Automation and Deployment
-- **Hosting: GitHub Pages** at https://pymshadow.github.io/travel-tracker/ (migrated from Netlify on 2026-07-17 after the Netlify team ran out of credits). The repo was made public for this (GitHub Free requires public repos for Pages). Deployment method: push `dashboard/dist/` to the `gh-pages` branch via `peaceiris/actions-gh-pages@v4` with the default `GITHUB_TOKEN` — do NOT use `actions/configure-pages` with `enablement: true`, it fails (GITHUB_TOKEN cannot enable Pages).
-- **GitHub Actions (`.github/workflows/scrape.yml`):** Runs daily at 08:00 UTC (10:00/11:00 AM Greece time).
-  - Runs the Python scraper.
-  - Builds the React app (Node 20, `npm ci`; Vite `base: '/travel-tracker/'`).
-  - Commits the new JSON data, does `git pull --rebase` and pushes to GitHub.
-  - Deploys `dashboard/dist/` to the `gh-pages` branch.
-- **`.github/workflows/deploy-pages.yml`:** Builds + deploys on pushes touching `dashboard/**` (needed because pushes made with `GITHUB_TOKEN` by scrape.yml don't trigger other workflows) and via manual dispatch.
-- **Netlify is no longer used.** The old Netlify token that was hardcoded in workflow history is revoked. A `NETLIFY_AUTH_TOKEN` repo secret may still exist — unused, safe to delete.
-- **Security:** Never commit tokens; `.gitignore` blocks `.env` and `cookies.txt`. The repo is public — treat everything committed as world-readable.
-- **Local Windows scheduled task** "Travel Price Tracker" is **Disabled** (was double-scraping alongside the Action). Re-enable with `Enable-ScheduledTask -TaskName "Travel Price Tracker"` only if the Action is turned off.
+- **Hosting: GitHub Pages** at https://pymshadow.github.io/travel-tracker/ (repo `pymshadow/travel-tracker`, **public**). Deploy = push `dashboard/dist/` to the `gh-pages` branch via `peaceiris/actions-gh-pages@v4` with the default `GITHUB_TOKEN`. Do NOT use `actions/configure-pages` with `enablement: true` — it fails (GITHUB_TOKEN cannot enable Pages).
+- **`.github/workflows/scrape.yml`:** daily at 08:00 UTC (10:00/11:00 Greece). Scrapes → builds (Node 20, `npm ci`) → commits data files (`git pull --rebase` first) → deploys to `gh-pages`.
+- **`.github/workflows/deploy-pages.yml`:** builds + deploys on pushes touching `dashboard/**` and via manual dispatch (needed because `GITHUB_TOKEN` pushes don't trigger other workflows).
+- **Netlify is no longer used** (team ran out of credits, 2026-07-17). The leaked-then-revoked token saga is over; a stale `NETLIFY_AUTH_TOKEN` repo secret may exist — unused, safe to delete.
+- **Security:** repo is public — everything committed is world-readable. `.gitignore` blocks `.env`, `cookies.txt`, `videos/`, `__pycache__/`. Never commit tokens.
+- **Local Windows scheduled task** "Travel Price Tracker" is **Disabled** (the Action replaced it). Re-enable only if the Action is turned off.
+- Scraping runs on GitHub datacenter IPs — if Google/Booking start bot-blocking there (empty results in Action logs but fine locally), consider a self-hosted runner on the user's PC.
 
 ## 3b. History semantics
-- `history.csv` rows are keyed by `hist_id`: equal to the trip id, except for surprise trips where it is `<trip_id>-<airport code>` (e.g. `surprise-europe-prg`) so price history is per-city. Snapshots carry `hist_id` for the report's sparklines. Rows written before 2026-07-17 under plain `surprise-europe` are legacy/mixed and ignored.
-- Snapshot writes merge with the existing same-day file, so `--single <trip_id>` no longer wipes other trips' data.
-- The report shows the dates of the *cheapest* date pair (stored in `depart_str`/`return_str`), not the last one scanned.
+- `history.csv` rows are keyed by `hist_id`: the trip id, except surprise trips → `<trip_id>-<airport code>` (e.g. `surprise-europe-prg`) so price history is per-city. Snapshots carry `hist_id`. Rows before 2026-07-17 under plain `surprise-europe` are legacy/mixed — ignore.
+- Snapshot writes **merge** with the existing same-day file, so `--single <trip_id>` doesn't wipe other trips.
+- CLI: `python travel_tracker.py [--single <trip_id>] [--file <trips.json>]`.
 
 ## 3c. Rollback
 - Git: branch `backup-pre-fixes` / tag `backup-2026-07-17` (pushed to origin).
-- Full folder zip (incl. untracked files): `D:\Travel_backup_20260717_0246.zip`.
+- Full folder zip (incl. files now deleted, e.g. the video pipeline): `D:\Travel_backup_20260717_0246.zip`.
 
 ## 4. Where to find things
-- **Scraper Engine:** `travel_tracker.py`
-- **Current Trip Config:** `trips.json`
-- **UI Rendering:** `dashboard/src/App.jsx`
-- **History Data:** `history.csv`
-- **Deployment Config:** `.github/workflows/scrape.yml`
+- **Scraper Engine + all rules:** `travel_tracker.py` (`RULES` dict at top)
+- **Trip Config:** `trips.json`
+- **UI:** `dashboard/src/App.jsx` · **Vite config (base path):** `dashboard/vite.config.js`
+- **Data:** `history.csv`, `snapshots/`, `top_deals.json`, `dashboard/public/*.json`
+- **CI/CD:** `.github/workflows/scrape.yml`, `.github/workflows/deploy-pages.yml`
+- **Caches (committed, speed up CI):** `geocache.json`, `stops_cache/`
+
+## 5. Known fragilities (check here first when something breaks)
+- Google Flights parsing depends on English `aria-label`s (`hl=en` is forced) and the phrase "From X euros".
+- Booking parsing depends on the `data-capla-store-data="apollo"` script tag; the deprecated-but-working search hash fallback lives inside pyairbnb-era history — current code uses Playwright only.
+- pyairbnb was removed from requirements (Airbnb era is over; Booking.com is the accommodation source).
+- Overpass mirrors time out occasionally — harmless (Booking's own transit data covers most listings; failures only reduce the OSM fallback).

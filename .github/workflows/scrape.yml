@@ -54,8 +54,17 @@ jobs:
         git config --global user.email "github-actions[bot]@users.noreply.github.com"
         git add dashboard/public/snapshot.json dashboard/public/trips.json dashboard/public/top_deals.json top_deals.json snapshots/*.json history.csv
         git commit -m "Auto-update: Daily travel snapshot" || exit 0
-        git pull --rebase origin main
-        git push
+        # Ανθεκτικό push: αν κάποιος άλλος (άνθρωπος/AI) έχει κάνει commit στο
+        # μεταξύ, κάνε merge κρατώντας ΤΑ ΔΙΚΑ ΜΑΣ φρέσκα δεδομένα στα conflicts
+        # (τα auto-generated αρχεία = πάντα η τελευταία σάρωση). Retry x5.
+        for i in 1 2 3 4 5; do
+          git pull --no-rebase -X ours --no-edit origin main || true
+          git push origin main && exit 0
+          echo "push attempt $i failed, retrying..."
+          sleep 5
+        done
+        echo "::error::Δεν κατάφερα να κάνω push μετά από 5 προσπάθειες"
+        exit 1
 
     - name: Deploy to GitHub Pages (gh-pages branch)
       uses: peaceiris/actions-gh-pages@v4
