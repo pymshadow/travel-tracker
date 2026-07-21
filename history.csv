@@ -178,3 +178,12 @@ date,trip_id,metric,value
 2026-07-20,surprise-europe-prg,flight_min,388
 2026-07-20,surprise-europe-prg,flight_best,388
 2026-07-20,surprise-europe-prg,booking_min,-13.0
+2026-07-21,madrid-jan,flight_min,299
+2026-07-21,madrid-jan,flight_best,299
+2026-07-21,madrid-jan,booking_min,298.0
+2026-07-21,vienna-jan,flight_min,321
+2026-07-21,vienna-jan,flight_best,321
+2026-07-21,vienna-jan,booking_min,218.0
+2026-07-21,surprise-europe-mxp,flight_min,242
+2026-07-21,surprise-europe-mxp,flight_best,242
+2026-07-21,surprise-europe-mxp,booking_min,270.0
