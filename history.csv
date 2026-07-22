@@ -187,3 +187,12 @@ date,trip_id,metric,value
 2026-07-21,surprise-europe-mxp,flight_min,242
 2026-07-21,surprise-europe-mxp,flight_best,242
 2026-07-21,surprise-europe-mxp,booking_min,270.0
+2026-07-22,madrid-jan,flight_min,299
+2026-07-22,madrid-jan,flight_best,299
+2026-07-22,madrid-jan,booking_min,349.0
+2026-07-22,vienna-jan,flight_min,321
+2026-07-22,vienna-jan,flight_best,321
+2026-07-22,vienna-jan,booking_min,202.0
+2026-07-22,surprise-europe-ber,flight_min,293
+2026-07-22,surprise-europe-ber,flight_best,293
+2026-07-22,surprise-europe-ber,booking_min,417.0
