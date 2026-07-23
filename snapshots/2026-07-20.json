@@ -1,0 +1,632 @@
+{
+ "madrid-jan": {
+  "flights_out": [
+   {
+    "price": 157,
+    "airlines": [
+     "Iberia"
+    ],
+    "stops": 0,
+    "dep_hour": 7.25,
+    "depart": "07:15",
+    "arrive": "10:10",
+    "via": "ATH → MAD",
+    "score": 160.8
+   },
+   {
+    "price": 201,
+    "airlines": [
+     "Aegean"
+    ],
+    "stops": 0,
+    "dep_hour": 9.25,
+    "depart": "09:15",
+    "arrive": "12:05",
+    "via": "ATH → MAD",
+    "score": 195.8
+   },
+   {
+    "price": 249,
+    "airlines": [
+     "SKY express"
+    ],
+    "stops": 0,
+    "dep_hour": 10.5,
+    "depart": "10:30",
+    "arrive": "13:20",
+    "via": "ATH → MAD",
+    "score": 262.5
+   }
+  ],
+  "flights_ret": [
+   {
+    "price": 142,
+    "airlines": [
+     "Iberia"
+    ],
+    "stops": 0,
+    "dep_hour": 20.0,
+    "depart": "20:00",
+    "arrive": "00:35",
+    "via": "MAD → ATH",
+    "score": 148.0
+   },
+   {
+    "price": 186,
+    "airlines": [
+     "Aegean"
+    ],
+    "stops": 0,
+    "dep_hour": 18.25,
+    "depart": "18:15",
+    "arrive": "22:45",
+    "via": "MAD → ATH",
+    "score": 182.2
+   }
+  ],
+  "flights_out_url": "https://www.google.com/travel/flights?tfs=GhoSCjIwMjctMDEtMTdqBRIDQVRIcgUSA01BREICAQFIAZgBAg%3D%3D&hl=en&curr=EUR",
+  "flights_ret_url": "https://www.google.com/travel/flights?tfs=GhoSCjIwMjctMDEtMjJqBRIDTUFEcgUSA0FUSEICAQFIAZgBAg%3D%3D&hl=en&curr=EUR",
+  "flight_min": 299,
+  "flight_best": 299,
+  "booking": [
+   {
+    "name": "Genesis-Loft San Enrique 20",
+    "kind": "apartment",
+    "total": 374.0,
+    "rating": 9.4,
+    "reviews": 24,
+    "center_m": null,
+    "transit_m": 163,
+    "transit_desc": "~163 μ από στάση (OSM)",
+    "lat": 40.4559155,
+    "lon": -3.6999386,
+    "url": "https://www.booking.com/hotel/es/genesis-loft-san-enrique-20.en-gb.html?checkin=2027-01-17&checkout=2027-01-22&group_adults=2&selected_currency=EUR"
+   },
+   {
+    "name": "Genesis-Loft San Enrique 14",
+    "kind": "apartment",
+    "total": 405.0,
+    "rating": 9.6,
+    "reviews": 34,
+    "center_m": null,
+    "transit_m": 115,
+    "transit_desc": "~115 μ από στάση (OSM)",
+    "lat": 40.4560562,
+    "lon": -3.7007826,
+    "url": "https://www.booking.com/hotel/es/genesis-loft-san-enrique-14.en-gb.html?checkin=2027-01-17&checkout=2027-01-22&group_adults=2&selected_currency=EUR"
+   },
+   {
+    "name": "DH Estudios Lopez de Hoyos",
+    "kind": "apartment",
+    "total": 407.0,
+    "rating": 8.1,
+    "reviews": 584,
+    "center_m": null,
+    "transit_m": 127,
+    "transit_desc": "~127 μ από στάση (OSM)",
+    "lat": 40.443174,
+    "lon": -3.673324,
+    "url": "https://www.booking.com/hotel/es/dh-estudios-lopez-de-hoyos.en-gb.html?checkin=2027-01-17&checkout=2027-01-22&group_adults=2&selected_currency=EUR"
+   },
+   {
+    "name": "Dobo Madrid MA24",
+    "kind": "apartment",
+    "total": 415.0,
+    "rating": 8.7,
+    "reviews": 317,
+    "center_m": null,
+    "transit_m": 142,
+    "transit_desc": "~142 μ από στάση (OSM)",
+    "lat": 40.3917622,
+    "lon": -3.7234913,
+    "url": "https://www.booking.com/hotel/es/global-home-marquesa.en-gb.html?checkin=2027-01-17&checkout=2027-01-22&group_adults=2&selected_currency=EUR"
+   },
+   {
+    "name": "Dobo Madrid San Diego",
+    "kind": "apartment",
+    "total": 436.0,
+    "rating": 8.1,
+    "reviews": 617,
+    "center_m": null,
+    "transit_m": 72,
+    "transit_desc": "~72 μ από στάση (OSM)",
+    "lat": 40.3911811,
+    "lon": -3.6670178,
+    "url": "https://www.booking.com/hotel/es/dobohomes-eg13.en-gb.html?checkin=2027-01-17&checkout=2027-01-22&group_adults=2&selected_currency=EUR"
+   },
+   {
+    "name": "Dobo Madrid Portugal",
+    "kind": "apartment",
+    "total": 442.0,
+    "rating": 8.6,
+    "reviews": 70,
+    "center_m": null,
+    "transit_m": 93,
+    "transit_desc": "~93 μ από στάση (OSM)",
+    "lat": 40.414053,
+    "lon": -3.7299743,
+    "url": "https://www.booking.com/hotel/es/dobo-madrid-portugal.en-gb.html?checkin=2027-01-17&checkout=2027-01-22&group_adults=2&selected_currency=EUR"
+   },
+   {
+    "name": "GuestReady - Modern Studio near Downtown",
+    "kind": "apartment",
+    "total": 445.0,
+    "rating": 8.8,
+    "reviews": 61,
+    "center_m": null,
+    "transit_m": 356,
+    "transit_desc": "~356 μ από στάση (OSM)",
+    "lat": 40.3811452,
+    "lon": -3.7161596,
+    "url": "https://www.booking.com/hotel/es/estudio-nuevo-y-listo-para-entrar.en-gb.html?checkin=2027-01-17&checkout=2027-01-22&group_adults=2&selected_currency=EUR"
+   },
+   {
+    "name": "ººººCH Residential Area Modern City Views WiFi ACºººº",
+    "kind": "apartment",
+    "total": 457.0,
+    "rating": 8.1,
+    "reviews": 18,
+    "center_m": null,
+    "transit_m": 27,
+    "transit_desc": "~27 μ από στάση (OSM)",
+    "lat": 40.386487122638,
+    "lon": -3.6862166,
+    "url": "https://www.booking.com/hotel/es/china-4.en-gb.html?checkin=2027-01-17&checkout=2027-01-22&group_adults=2&selected_currency=EUR"
+   },
+   {
+    "name": "ºººCH Residential Area Modern City Views WiFi ACººº",
+    "kind": "apartment",
+    "total": 461.0,
+    "rating": 9.2,
+    "reviews": 27,
+    "center_m": null,
+    "transit_m": 20,
+    "transit_desc": "~20 μ από στάση (OSM)",
+    "lat": 40.3864380902638,
+    "lon": -3.68616295581971,
+    "url": "https://www.booking.com/hotel/es/china-3.en-gb.html?checkin=2027-01-17&checkout=2027-01-22&group_adults=2&selected_currency=EUR"
+   },
+   {
+    "name": "ABC Apartments Vistalegre I",
+    "kind": "apartment",
+    "total": 462.0,
+    "rating": 9,
+    "reviews": 60,
+    "center_m": null,
+    "transit_m": 123,
+    "transit_desc": "~123 μ από στάση (OSM)",
+    "lat": 40.391526,
+    "lon": -3.7398611,
+    "url": "https://www.booking.com/hotel/es/abc-apartments-madrid-iii.en-gb.html?checkin=2027-01-17&checkout=2027-01-22&group_adults=2&selected_currency=EUR"
+   },
+   {
+    "name": "ABC Apartments Madrid",
+    "kind": "apartment",
+    "total": 462.0,
+    "rating": 9.2,
+    "reviews": 66,
+    "center_m": null,
+    "transit_m": 47,
+    "transit_desc": "~47 μ από στάση (OSM)",
+    "lat": 40.398748,
+    "lon": -3.667808,
+    "url": "https://www.booking.com/hotel/es/loft-cabrejas.en-gb.html?checkin=2027-01-17&checkout=2027-01-22&group_adults=2&selected_currency=EUR"
+   },
+   {
+    "name": "ABC Apartments Vistalegre II",
+    "kind": "apartment",
+    "total": 462.0,
+    "rating": 9.5,
+    "reviews": 34,
+    "center_m": null,
+    "transit_m": 122,
+    "transit_desc": "~122 μ από στάση (OSM)",
+    "lat": 40.3914057256834,
+    "lon": -3.73983805939,
+    "url": "https://www.booking.com/hotel/es/abc-apartments-vistalegre-ii.en-gb.html?checkin=2027-01-17&checkout=2027-01-22&group_adults=2&selected_currency=EUR"
+   }
+  ],
+  "booking_min": 374.0,
+  "depart_str": "2027-01-17",
+  "return_str": "2027-01-22",
+  "name": "Μαδρίτη",
+  "to": "MAD",
+  "hist_id": "madrid-jan"
+ },
+ "vienna-jan": {
+  "flights_out": [
+   {
+    "price": 151,
+    "airlines": [
+     "Austrian"
+    ],
+    "stops": 0,
+    "dep_hour": 8.0,
+    "depart": "08:00",
+    "arrive": "09:15",
+    "via": "ATH → VIE",
+    "score": 157.0
+   }
+  ],
+  "flights_ret": [
+   {
+    "price": 170,
+    "airlines": [
+     "Aegean"
+    ],
+    "stops": 0,
+    "dep_hour": 18.5,
+    "depart": "18:30",
+    "arrive": "21:35",
+    "via": "VIE → ATH",
+    "score": 165.5
+   }
+  ],
+  "flights_out_url": "https://www.google.com/travel/flights?tfs=GhoSCjIwMjctMDEtMTdqBRIDQVRIcgUSA1ZJRUICAQFIAZgBAg%3D%3D&hl=en&curr=EUR",
+  "flights_ret_url": "https://www.google.com/travel/flights?tfs=GhoSCjIwMjctMDEtMjJqBRIDVklFcgUSA0FUSEICAQFIAZgBAg%3D%3D&hl=en&curr=EUR",
+  "flight_min": 321,
+  "flight_best": 321,
+  "booking": [
+   {
+    "name": "Next to Schönbrunn I 10 min to U4 I Free WiFi",
+    "kind": "apartment",
+    "total": 199.0,
+    "rating": 8.2,
+    "reviews": 47,
+    "center_m": null,
+    "transit_m": 50,
+    "transit_desc": "~50 μ από στάση (OSM)",
+    "lat": 48.1802572130378,
+    "lon": 16.3228156187349,
+    "url": "https://www.booking.com/hotel/at/next-to-schonbrunn-i-10-min-to-u4-i-free-wifi.en-gb.html?checkin=2027-01-17&checkout=2027-01-22&group_adults=2&selected_currency=EUR"
+   },
+   {
+    "name": "Meidling Apartments I Self Check In I 1 Min to U6",
+    "kind": "apartment",
+    "total": 216.0,
+    "rating": 8.4,
+    "reviews": 11,
+    "center_m": null,
+    "transit_m": 28,
+    "transit_desc": "~28 μ από στάση (OSM)",
+    "lat": 48.18110530380244,
+    "lon": 16.332808613613867,
+    "url": "https://www.booking.com/hotel/at/neue-property.en-gb.html?checkin=2027-01-17&checkout=2027-01-22&group_adults=2&selected_currency=EUR"
+   },
+   {
+    "name": "Cozy Studio with AC - 15 min to Center",
+    "kind": "apartment",
+    "total": 218.0,
+    "rating": 9.3,
+    "reviews": 11,
+    "center_m": null,
+    "transit_m": 259,
+    "transit_desc": "~259 μ από στάση (OSM)",
+    "lat": 48.22021832098718,
+    "lon": 16.334825421823105,
+    "url": "https://www.booking.com/hotel/at/new-property-placeholder.en-gb.html?checkin=2027-01-17&checkout=2027-01-22&group_adults=2&selected_currency=EUR"
+   },
+   {
+    "name": "Apartment Dahlia Vienna",
+    "kind": "apartment",
+    "total": 230.0,
+    "rating": 8.2,
+    "reviews": 292,
+    "center_m": null,
+    "transit_m": 40,
+    "transit_desc": "~40 μ από στάση (OSM)",
+    "lat": 48.22460027932684,
+    "lon": 16.354532092809677,
+    "url": "https://www.booking.com/hotel/at/apartment-dahlia-austria.en-gb.html?checkin=2027-01-17&checkout=2027-01-22&group_adults=2&selected_currency=EUR"
+   },
+   {
+    "name": "4 Min to Metro I 12 Min to Inner City I Top Wifi",
+    "kind": "apartment",
+    "total": 237.0,
+    "rating": 9.1,
+    "reviews": 439,
+    "center_m": null,
+    "transit_m": 33,
+    "transit_desc": "~33 μ από στάση (OSM)",
+    "lat": 48.185398096243276,
+    "lon": 16.41512429329836,
+    "url": "https://www.booking.com/hotel/at/4-min-to-metro-i-12-min-to-inner-city-i-top-wifi.en-gb.html?checkin=2027-01-17&checkout=2027-01-22&group_adults=2&selected_currency=EUR"
+   },
+   {
+    "name": "Strauss Cozy City Apartment - 15 Min ins Zentrum",
+    "kind": "apartment",
+    "total": 259.0,
+    "rating": 9,
+    "reviews": 1,
+    "center_m": null,
+    "transit_m": 116,
+    "transit_desc": "~116 μ από στάση (OSM)",
+    "lat": 48.1742239,
+    "lon": 16.3740405,
+    "url": "https://www.booking.com/hotel/at/strauss-cozy-city-apartment-15-min-ins-zentrum.en-gb.html?checkin=2027-01-17&checkout=2027-01-22&group_adults=2&selected_currency=EUR"
+   },
+   {
+    "name": "Vienna Charming Central Apartment",
+    "kind": "apartment",
+    "total": 259.0,
+    "rating": 8.3,
+    "reviews": 20,
+    "center_m": null,
+    "transit_m": 150,
+    "transit_desc": "~150 μ από στάση (OSM)",
+    "lat": 48.1875105,
+    "lon": 16.3494089,
+    "url": "https://www.booking.com/hotel/at/vienna-charming-central-apartment.en-gb.html?checkin=2027-01-17&checkout=2027-01-22&group_adults=2&selected_currency=EUR"
+   },
+   {
+    "name": "Vibrant Design Apartments - Full Kitchen - Wi-Fi - 18 Mins to City Centre",
+    "kind": "apartment",
+    "total": 261.0,
+    "rating": 8.3,
+    "reviews": 48,
+    "center_m": null,
+    "transit_m": 37,
+    "transit_desc": "~37 μ από στάση (OSM)",
+    "lat": 48.222904242718,
+    "lon": 16.315744544775,
+    "url": "https://www.booking.com/hotel/at/stilvolles-cotton-candy-pink-3zimmer-apartment.en-gb.html?checkin=2027-01-17&checkout=2027-01-22&group_adults=2&selected_currency=EUR"
+   },
+   {
+    "name": "easy-flat Rokitanskygasse - Apartments near Tram 43 to City Center",
+    "kind": "apartment",
+    "total": 271.0,
+    "rating": 9.1,
+    "reviews": 293,
+    "center_m": null,
+    "transit_m": 215,
+    "transit_desc": "~215 μ από στάση (OSM)",
+    "lat": 48.2208372,
+    "lon": 16.3285802,
+    "url": "https://www.booking.com/hotel/at/easy-flat-hernals.en-gb.html?checkin=2027-01-17&checkout=2027-01-22&group_adults=2&selected_currency=EUR"
+   },
+   {
+    "name": "Vienna Shopping Center 6a Apartment",
+    "kind": "apartment",
+    "total": 272.0,
+    "rating": 8.3,
+    "reviews": 211,
+    "center_m": null,
+    "transit_m": 83,
+    "transit_desc": "~83 μ από στάση (OSM)",
+    "lat": 48.2035003,
+    "lon": 16.334850199999998,
+    "url": "https://www.booking.com/hotel/at/vienna-shopping-center-apartment-6a.en-gb.html?checkin=2027-01-17&checkout=2027-01-22&group_adults=2&selected_currency=EUR"
+   },
+   {
+    "name": "Danube Island Apartment 3",
+    "kind": "apartment",
+    "total": 272.0,
+    "rating": 8.1,
+    "reviews": 137,
+    "center_m": null,
+    "transit_m": 46,
+    "transit_desc": "~46 μ από στάση (OSM)",
+    "lat": 48.234629894039,
+    "lon": 16.421805900165,
+    "url": "https://www.booking.com/hotel/at/danube-island-apartment-3.en-gb.html?checkin=2027-01-17&checkout=2027-01-22&group_adults=2&selected_currency=EUR"
+   },
+   {
+    "name": "West Living by Lorenz",
+    "kind": "apartment",
+    "total": 274.0,
+    "rating": 10,
+    "reviews": 2,
+    "center_m": null,
+    "transit_m": 176,
+    "transit_desc": "~176 μ από στάση (OSM)",
+    "lat": 48.199212,
+    "lon": 16.3360886,
+    "url": "https://www.booking.com/hotel/at/west-living-by-lorenz.en-gb.html?checkin=2027-01-17&checkout=2027-01-22&group_adults=2&selected_currency=EUR"
+   }
+  ],
+  "booking_min": 199.0,
+  "depart_str": "2027-01-17",
+  "return_str": "2027-01-22",
+  "name": "Βιέννη",
+  "to": "VIE",
+  "hist_id": "vienna-jan"
+ },
+ "surprise-europe": {
+  "flights_out": [
+   {
+    "price": 159,
+    "airlines": [
+     "SKY express"
+    ],
+    "stops": 0,
+    "dep_hour": 10.58,
+    "depart": "10:35",
+    "arrive": "12:15",
+    "via": "ATH → PRG",
+    "score": 172.7
+   }
+  ],
+  "flights_ret": [
+   {
+    "price": 229,
+    "airlines": [
+     "Aegean"
+    ],
+    "stops": 0,
+    "dep_hour": 19.83,
+    "depart": "19:50",
+    "arrive": "23:15",
+    "via": "PRG → ATH",
+    "score": 220.5
+   }
+  ],
+  "flights_out_url": "https://www.google.com/travel/flights?tfs=GhoSCjIwMjctMDEtMTdqBRIDQVRIcgUSA1BSR0ICAQFIAZgBAg%3D%3D&hl=en&curr=EUR",
+  "flights_ret_url": "https://www.google.com/travel/flights?tfs=GhoSCjIwMjctMDEtMjJqBRIDUFJHcgUSA0FUSEICAQFIAZgBAg%3D%3D&hl=en&curr=EUR",
+  "flight_min": 388,
+  "flight_best": 388,
+  "booking": [
+   {
+    "name": "Prime Chief Suite",
+    "kind": "apartment",
+    "total": -13.0,
+    "rating": 8.5,
+    "reviews": 12,
+    "center_m": null,
+    "transit_m": 59,
+    "transit_desc": "~59 μ από στάση (OSM)",
+    "lat": 50.1031005,
+    "lon": 14.4501688,
+    "url": "https://www.booking.com/hotel/cz/prime-chief-suite.en-gb.html?checkin=2027-01-17&checkout=2027-01-22&group_adults=2&selected_currency=EUR"
+   },
+   {
+    "name": "Central Station Studios",
+    "kind": "apartment",
+    "total": 161.0,
+    "rating": 8.7,
+    "reviews": 591,
+    "center_m": null,
+    "transit_m": 197,
+    "transit_desc": "~197 μ από στάση (OSM)",
+    "lat": 50.0858307,
+    "lon": 14.440382199999931,
+    "url": "https://www.booking.com/hotel/cz/daily-rentals-prague-pragha.en-gb.html?checkin=2027-01-17&checkout=2027-01-22&group_adults=2&selected_currency=EUR"
+   },
+   {
+    "name": "Central Studios",
+    "kind": "apartment",
+    "total": 161.0,
+    "rating": 8.5,
+    "reviews": 329,
+    "center_m": null,
+    "transit_m": 263,
+    "transit_desc": "~263 μ από στάση (OSM)",
+    "lat": 50.084985,
+    "lon": 14.449348999999984,
+    "url": "https://www.booking.com/hotel/cz/central-station-studios.en-gb.html?checkin=2027-01-17&checkout=2027-01-22&group_adults=2&selected_currency=EUR"
+   },
+   {
+    "name": "Rašínovo nábřeží - Riverside Residence",
+    "kind": "apartment",
+    "total": 184.0,
+    "rating": 8.8,
+    "reviews": 2600,
+    "center_m": null,
+    "transit_m": 57,
+    "transit_desc": "~57 μ από στάση (OSM)",
+    "lat": 50.0713956,
+    "lon": 14.4142097,
+    "url": "https://www.booking.com/hotel/cz/rasinovo-nabrezi-riverside-residence.en-gb.html?checkin=2027-01-17&checkout=2027-01-22&group_adults=2&selected_currency=EUR"
+   },
+   {
+    "name": "TurnKey I Main Bus Station Apartments",
+    "kind": "apartment",
+    "total": 193.0,
+    "rating": 9.1,
+    "reviews": 155,
+    "center_m": null,
+    "transit_m": 182,
+    "transit_desc": "~182 μ από στάση (OSM)",
+    "lat": 50.0917539,
+    "lon": 14.4425186,
+    "url": "https://www.booking.com/hotel/cz/turnkey-apartment-train-station.en-gb.html?checkin=2027-01-17&checkout=2027-01-22&group_adults=2&selected_currency=EUR"
+   },
+   {
+    "name": "TurnKey I Karlín Square Apartments",
+    "kind": "apartment",
+    "total": 195.0,
+    "rating": 9.1,
+    "reviews": 298,
+    "center_m": null,
+    "transit_m": 74,
+    "transit_desc": "~74 μ από στάση (OSM)",
+    "lat": 50.0923013,
+    "lon": 14.4444657,
+    "url": "https://www.booking.com/hotel/cz/turnkey-i-karlin-square-apartments.en-gb.html?checkin=2027-01-17&checkout=2027-01-22&group_adults=2&selected_currency=EUR"
+   },
+   {
+    "name": "Flat in a calm neighbourhood 2",
+    "kind": "apartment",
+    "total": 196.0,
+    "rating": 9,
+    "reviews": 1,
+    "center_m": null,
+    "transit_m": 261,
+    "transit_desc": "~261 μ από στάση (OSM)",
+    "lat": 50.08712999999999,
+    "lon": 14.4644688,
+    "url": "https://www.booking.com/hotel/cz/flat-in-a-calm-neighbourhood-2.en-gb.html?checkin=2027-01-17&checkout=2027-01-22&group_adults=2&selected_currency=EUR"
+   },
+   {
+    "name": "Residence Tabor",
+    "kind": "hotel_breakfast",
+    "total": 197.0,
+    "rating": 8.4,
+    "reviews": 2248,
+    "center_m": null,
+    "transit_m": 19,
+    "transit_desc": "~19 μ από στάση (OSM)",
+    "lat": 50.08368357649202,
+    "lon": 14.453737735748291,
+    "url": "https://www.booking.com/hotel/cz/residence-tabor.en-gb.html?checkin=2027-01-17&checkout=2027-01-22&group_adults=2&selected_currency=EUR"
+   },
+   {
+    "name": "Centre Prague Retreat Residence",
+    "kind": "apartment",
+    "total": 200.0,
+    "rating": 8.4,
+    "reviews": 1198,
+    "center_m": null,
+    "transit_m": 92,
+    "transit_desc": "~92 μ από στάση (OSM)",
+    "lat": 50.0718477,
+    "lon": 14.418572,
+    "url": "https://www.booking.com/hotel/cz/centre-prague-retreat-residence.en-gb.html?checkin=2027-01-17&checkout=2027-01-22&group_adults=2&selected_currency=EUR"
+   },
+   {
+    "name": "TurnKey I National Museum Apartments",
+    "kind": "apartment",
+    "total": 205.0,
+    "rating": 8.7,
+    "reviews": 413,
+    "center_m": null,
+    "transit_m": 122,
+    "transit_desc": "~122 μ από στάση (OSM)",
+    "lat": 50.07756249579,
+    "lon": 14.429947538437,
+    "url": "https://www.booking.com/hotel/cz/turnkey-national-museum-apartments.en-gb.html?checkin=2027-01-17&checkout=2027-01-22&group_adults=2&selected_currency=EUR"
+   },
+   {
+    "name": "TurnKey I Letná Park Apartments",
+    "kind": "apartment",
+    "total": 205.0,
+    "rating": 8.9,
+    "reviews": 390,
+    "center_m": null,
+    "transit_m": 126,
+    "transit_desc": "~126 μ από στάση (OSM)",
+    "lat": 50.1011258,
+    "lon": 14.4240308,
+    "url": "https://www.booking.com/hotel/cz/turnkey-ovenia-apartments.en-gb.html?checkin=2027-01-17&checkout=2027-01-22&group_adults=2&selected_currency=EUR"
+   },
+   {
+    "name": "Wenceslas Square Residence",
+    "kind": "apartment",
+    "total": 208.0,
+    "rating": 8.5,
+    "reviews": 672,
+    "center_m": null,
+    "transit_m": 190,
+    "transit_desc": "~190 μ από στάση (OSM)",
+    "lat": 50.079238,
+    "lon": 14.4269395,
+    "url": "https://www.booking.com/hotel/cz/wenceslas-square-residence.en-gb.html?checkin=2027-01-17&checkout=2027-01-22&group_adults=2&selected_currency=EUR"
+   }
+  ],
+  "booking_min": -13.0,
+  "depart_str": "2027-01-17",
+  "return_str": "2027-01-22",
+  "name": "Έκπληξη: Πράγα",
+  "to": "PRG",
+  "hist_id": "surprise-europe-prg"
+ }
+}
