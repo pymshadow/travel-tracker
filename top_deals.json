@@ -1,0 +1,50 @@
+{
+ "BUD": {
+  "city": "Βουδαπέστη",
+  "to": "BUD",
+  "depart": "2026-11-06",
+  "return": "2026-11-08",
+  "flight_min": 140,
+  "booking_min": 106,
+  "total": 246,
+  "adults": 2,
+  "per_person": 123,
+  "found": "2026-07-23",
+  "flights_out_url": "https://www.google.com/travel/flights?tfs=GhoSCjIwMjYtMTEtMDZqBRIDQVRIcgUSA0JVREICAQFIAZgBAg%3D%3D&hl=en&curr=EUR",
+  "flights_ret_url": "https://www.google.com/travel/flights?tfs=GhoSCjIwMjYtMTEtMDhqBRIDQlVEcgUSA0FUSEICAQFIAZgBAg%3D%3D&hl=en&curr=EUR",
+  "booking_url": "https://www.booking.com/hotel/hu/city-comfort-apartment.en-gb.html?checkin=2026-11-06&checkout=2026-11-08&group_adults=2&selected_currency=EUR",
+  "booking_name": "City Comfort Apartment near Keleti Station"
+ },
+ "MXP": {
+  "city": "Μιλάνο",
+  "to": "MXP",
+  "depart": "2026-11-13",
+  "return": "2026-11-15",
+  "flight_min": 146,
+  "booking_min": 198,
+  "total": 344,
+  "adults": 2,
+  "per_person": 172,
+  "found": "2026-07-23",
+  "flights_out_url": "https://www.google.com/travel/flights?tfs=GhoSCjIwMjYtMTEtMTNqBRIDQVRIcgUSA01YUEICAQFIAZgBAg%3D%3D&hl=en&curr=EUR",
+  "flights_ret_url": "https://www.google.com/travel/flights?tfs=GhoSCjIwMjYtMTEtMTVqBRIDTVhQcgUSA0FUSEICAQFIAZgBAg%3D%3D&hl=en&curr=EUR",
+  "booking_url": "https://www.booking.com/hotel/it/blue-house-milano.en-gb.html?checkin=2026-11-13&checkout=2026-11-15&group_adults=2&selected_currency=EUR",
+  "booking_name": "BLUE House"
+ },
+ "FCO": {
+  "city": "Ρώμη",
+  "to": "FCO",
+  "depart": "2026-11-06",
+  "return": "2026-11-08",
+  "flight_min": 322,
+  "booking_min": 164,
+  "total": 486,
+  "adults": 2,
+  "per_person": 243,
+  "found": "2026-07-23",
+  "flights_out_url": "https://www.google.com/travel/flights?tfs=GhoSCjIwMjYtMTEtMDZqBRIDQVRIcgUSA0ZDT0ICAQFIAZgBAg%3D%3D&hl=en&curr=EUR",
+  "flights_ret_url": "https://www.google.com/travel/flights?tfs=GhoSCjIwMjYtMTEtMDhqBRIDRkNPcgUSA0FUSEICAQFIAZgBAg%3D%3D&hl=en&curr=EUR",
+  "booking_url": "https://www.booking.com/hotel/it/cataldo-suites-roma.en-gb.html?checkin=2026-11-06&checkout=2026-11-08&group_adults=2&selected_currency=EUR",
+  "booking_name": "Cataldo Suites Roma"
+ }
+}
