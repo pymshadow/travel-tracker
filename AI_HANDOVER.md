@@ -33,11 +33,12 @@ Each trip has `date_pairs` in `trips.json`. All pairs are scanned; only the pair
 - **Redraw on failure:** if the drawn city has no rule-compliant flights in ANY date pair, the next pool city is tried (shuffled order), until one works. While probing, Booking is skipped for flightless pairs to save time.
 - History note: Budapest effectively never passes (direct ATH-BUD is Wizz Air only → excluded by the low-cost rule). User was offered a relaxation and hasn't asked for it.
 
-### 2c. Flight rules (STRICT — user decision 2026-07-17)
+### 2c. Flight rules (STRICT with an auto-relax fallback)
 Hard filters at fetch time, ALL trips, regardless of duration:
 - Direct flights only (`stops > 0` dropped).
-- Outbound departure **≤ 13:00**; return departure **≥ 16:30**. The former "6+ nights relaxation" was explicitly removed — **do NOT reintroduce it**.
-- Low-cost carriers (Ryanair/Wizz/easyJet/Volotea/Vueling/Pegasus/Transavia/Air Malta) excluded for trips of **4+ nights**.
+- Outbound departure **≤ 13:00** (`RULES["out_max"]`); return departure **≥ 16:30** (`RULES["ret_min"]`). The old "6+ nights relaxation" was removed — don't reintroduce that specific one.
+- **Auto-relax fallback (user request 2026-07-23):** if a leg finds NO flights under the strict times, that leg is re-fetched with relaxed limits `RULES["out_max_relaxed"]`="15:00" / `RULES["ret_min_relaxed"]`="14:00" (still cuts dawn/very-late flights). Relaxation is **per-leg** (only the empty leg loosens; the other stays strict). Flagged in the snapshot as `out_relaxed`/`ret_relaxed` and shown in the UI with an amber "εκτός κανόνα ωρών" badge + note in the leg header. Example: Budapest weekends have only 06:10 (dropped) and 16:05 (kept via relax) direct returns.
+- Low-cost carriers (Ryanair/Wizz/easyJet/Volotea/Vueling/Pegasus/Transavia/Air Malta) excluded for trips of **4+ nights** only — so 2-night weekends (e.g. Budapest) DO allow Wizz/Ryanair.
 `_score_leg` ranks survivors: price + 3€/h after 06:00 (outbound) or before 22:00 (return) + 20€/stop − 15€ Aegean/Olympic bonus. ⭐ = best score; the absolute cheapest is also tracked. `RULES` dict at the top of `travel_tracker.py` holds all weights incl. `max_flight_pp_eur: 125` (per-person target, display-only).
 
 ### 2d. Booking rules
@@ -77,6 +78,12 @@ Per-person/day values (low/mid/high, **excluding accommodation**) derived from N
 
 ## 4b. Incident log
 - **2026-07-18:** Daily Action failed at the "Commit new snapshot" step (`git pull --rebase origin main` conflicted because other sessions had pushed commits touching the same auto-generated files). Scrape + build had succeeded, but the failed commit step skipped the deploy, so the site kept showing the previous day's data (surprise city stuck on Berlin — it was NOT a surprise-logic bug; the redraw/exclusion works and correctly picks a new city daily). Fix: the commit step now does `git pull --no-rebase -X ours --no-edit origin main` (fresh scrape always wins conflicts on generated files) inside a 5× retry loop. If the daily run ever fails again, recover by running `python travel_tracker.py` locally and pushing the data files.
+
+## 4c. Current trips (2026-07-23)
+Only **Madrid** (Jan 2027, 5-6 nights, 3 date_pairs) and **Budapest** (Nov 2026, 2-night Fri-Sun weekends, 4 date_pairs). Vienna + the surprise-europe pool were removed at the user's request. Budapest's cheapest weekend is Nov 6-8 (~246€ total for 2). If re-adding a surprise trip, the pool logic (2b) still exists in code.
+
+## 4d. Deploy gotcha (learned 2026-07-23)
+A **merge commit** pushed to main does NOT reliably trigger `deploy-pages.yml` (GitHub path-filter behaviour on merge commits), so the live site can lag behind main. Two reliable ways to force a deploy: (a) a normal non-merge commit touching `dashboard/**`, or (b) manual: `cd dashboard && npm run build`, copy `dist/*` to a temp dir, add a `.nojekyll`, `git init -b gh-pages`, commit, and `git push -f <repo-url> gh-pages`. Method (b) is what recovered the site on 07-23. The daily Action deploys fine on its own (non-merge commits).
 
 ## 5. Known fragilities (check here first when something breaks)
 - Google Flights parsing depends on English `aria-label`s (`hl=en` is forced) and the phrase "From X euros".
