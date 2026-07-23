@@ -174,3 +174,4 @@ date,trip_id,metric,value
 2026-07-23,rome-nov,flight_best,322
 2026-07-23,rome-nov,booking_min,164.0
 2026-07-23,madrid-jan,booking_min,440.0
+2026-07-23,madrid-jan,booking_min,405.0
