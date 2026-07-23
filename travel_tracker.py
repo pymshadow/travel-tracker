@@ -57,6 +57,14 @@ RULES = {
     "eur_per_stop": 20,                 # ποινή ανά στάση
     "aegean_bonus_eur": 15,             # μπόνους Aegean/Olympic
     "max_flight_pp_eur": 125,           # στόχος: μέγιστο κόστος εισιτηρίων ανά άτομο (σύνολο 2 σκελών)
+    # Ώρες πτήσεων — αυστηρά όρια (προτιμώμενα)
+    "out_max": "13:00",                 # αναχώρηση: το αργότερο
+    "ret_min": "16:30",                 # επιστροφή: το νωρίτερο
+    # Ελαφρώς χαλαρωμένα όρια — χρησιμοποιούνται ΜΟΝΟ ως fallback όταν το
+    # αυστηρό δεν βρίσκει καμία πτήση σε ένα σκέλος (π.χ. προορισμοί με λίγες
+    # απευθείας πτήσεις). Κόβουν ακόμα τις πολύ κακές ώρες (χαράματα).
+    "out_max_relaxed": "15:00",
+    "ret_min_relaxed": "14:00",
 }
 
 
@@ -112,7 +120,8 @@ def _parse_live_label(label, frm, to):
     }
 
 
-def _fetch_flight_leg_live(page, direction, dep_date, frm, to, adults, nights=0):
+def _fetch_flight_leg_live(page, direction, dep_date, frm, to, adults, nights=0,
+                           out_max="13:00", ret_min="16:30"):
     """Αναζητά τη 1η σελίδα live από Google Flights (πλήρη αποτελέσματα)."""
     _, url = _flight_query_url(dep_date, frm, to, adults)
     page.goto(url, wait_until="domcontentloaded", timeout=60000)
@@ -135,11 +144,11 @@ def _fetch_flight_leg_live(page, direction, dep_date, frm, to, adults, nights=0)
             if any(any(lc in a.lower() for lc in lowcost) for a in o["airlines"]):
                 continue
 
-        # Αυστηροί κανόνες ωρών (απόφαση χρήστη 2026-07-17): ισχύουν για ΟΛΑ
-        # τα ταξίδια, ανεξαρτήτως διάρκειας — καμία χαλάρωση για 6+ νύχτες.
-        if direction == "out" and o["depart"] > "13:00":
+        # Κανόνες ωρών (τα όρια δίνονται από τον caller: αυστηρά ή, αν το
+        # αυστηρό δεν βρει τίποτα, ελαφρώς χαλαρωμένα ως fallback).
+        if direction == "out" and o["depart"] > out_max:
             continue
-        if direction == "ret" and o["depart"] < "16:30":
+        if direction == "ret" and o["depart"] < ret_min:
             continue
 
         key = (o["price"], o["depart"], tuple(o["airlines"]))
@@ -149,7 +158,8 @@ def _fetch_flight_leg_live(page, direction, dep_date, frm, to, adults, nights=0)
     return options, url
 
 
-def _fetch_flight_leg(direction, dep_date, frm, to, adults, nights=0):
+def _fetch_flight_leg(direction, dep_date, frm, to, adults, nights=0,
+                      out_max="13:00", ret_min="16:30"):
     """Fallback scraping με fast_flights."""
     from primp import Client
     from fast_flights import FlightQuery, Passengers, create_query
@@ -195,9 +205,9 @@ def _fetch_flight_leg(direction, dep_date, frm, to, adults, nights=0):
         
         dh, dm = hm(f.flights[0].departure.time)
         dep_str = f"{dh:02d}:{dm:02d}"
-        if direction == "out" and dep_str > "13:00":
+        if direction == "out" and dep_str > out_max:
             continue
-        if direction == "ret" and dep_str < "16:30":
+        if direction == "ret" and dep_str < ret_min:
             continue
 
         ah, am = hm(f.flights[-1].arrival.time)
@@ -258,17 +268,35 @@ def fetch_flights(trip, playwright):
                           "domain": ".google.com", "path": "/"}])
         page = ctx.new_page()
         for direction, d, frm, to in legs:
-            try:
-                options, search_url = _fetch_flight_leg_live(page, direction, d, frm, to, adults, nights)
-            except Exception:
-                options = []
-            if not options:  # fallback στο στατικό HTML
-                options, search_url = _fetch_flight_leg(direction, d, frm, to, adults, nights)
+            def fetch(out_max, ret_min):
+                try:
+                    opts, url = _fetch_flight_leg_live(page, direction, d, frm, to, adults,
+                                                       nights, out_max, ret_min)
+                except Exception:
+                    opts = []
+                    url = ""
+                if not opts:  # fallback στο στατικό HTML
+                    opts, url = _fetch_flight_leg(direction, d, frm, to, adults,
+                                                  nights, out_max, ret_min)
+                return opts, url
+
+            # 1) αυστηρά όρια
+            options, search_url = fetch(RULES["out_max"], RULES["ret_min"])
+            relaxed = False
+            # 2) αν άδειο, ξαναδοκίμασε με ελαφρώς χαλαρωμένα (fallback)
+            if not options:
+                options, search_url = fetch(RULES["out_max_relaxed"], RULES["ret_min_relaxed"])
+                relaxed = bool(options)
+                if relaxed:
+                    print(f"  ↺ {direction}: καμία πτήση στις αυστηρές ώρες — χαλάρωση "
+                          f"({RULES['out_max_relaxed'] if direction=='out' else RULES['ret_min_relaxed']})")
             for o in options:
                 o["score"] = _score_leg(o, direction, nights)
+                o["relaxed"] = relaxed
             options.sort(key=lambda o: o["score"])
             result[direction] = options
             result[direction + "_url"] = search_url
+            result[direction + "_relaxed"] = relaxed
             time.sleep(2)
     finally:
         browser.close()
@@ -880,6 +908,8 @@ def main():
                 snap["flights_ret"] = fl.get("ret", [])[:8]
                 snap["flights_out_url"] = fl.get("out_url", "")
                 snap["flights_ret_url"] = fl.get("ret_url", "")
+                snap["out_relaxed"] = fl.get("out_relaxed", False)
+                snap["ret_relaxed"] = fl.get("ret_relaxed", False)
                 out, ret = fl.get("out", []), fl.get("ret", [])
                 has_return = bool(trip.get("return"))
                 if out and (not has_return or ret):

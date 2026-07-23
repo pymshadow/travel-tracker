@@ -182,7 +182,7 @@ function App() {
 
                 {hasFlights && data?.flights_out && (
                   <div className="mb-8">
-                    <h3 className="text-lg font-bold text-white mb-4">Top Αναχωρήσεις <span className="text-slate-500 text-sm font-normal">(κανόνας: έως 13:00)</span></h3>
+                    <h3 className="text-lg font-bold text-white mb-4">Top Αναχωρήσεις <span className="text-slate-500 text-sm font-normal">(κανόνας: έως 13:00{data?.out_relaxed ? ' — χαλαρωμένο, δεν βρέθηκε πτήση στις αυστηρές ώρες' : ''})</span>{data?.out_relaxed && <span className="ml-2 text-[10px] uppercase font-bold px-2 py-0.5 rounded-full bg-amber-500/20 text-amber-300 border border-amber-500/30">εκτός κανόνα ωρών</span>}</h3>
                     <div className="overflow-x-auto"><table className="w-full text-left text-sm"><tbody className="text-slate-300">
                       {data.flights_out.slice(0,3).map((f, i) => (
                         <tr key={i} className="border-b border-slate-800/50">
@@ -198,7 +198,7 @@ function App() {
                 
                 {hasFlights && data?.flights_ret && (
                   <div className="mb-8">
-                    <h3 className="text-lg font-bold text-white mb-4">Top Επιστροφές <span className="text-slate-500 text-sm font-normal">(κανόνας: από 16:30)</span></h3>
+                    <h3 className="text-lg font-bold text-white mb-4">Top Επιστροφές <span className="text-slate-500 text-sm font-normal">(κανόνας: από 16:30{data?.ret_relaxed ? ' — χαλαρωμένο, δεν βρέθηκε πτήση στις αυστηρές ώρες' : ''})</span>{data?.ret_relaxed && <span className="ml-2 text-[10px] uppercase font-bold px-2 py-0.5 rounded-full bg-amber-500/20 text-amber-300 border border-amber-500/30">εκτός κανόνα ωρών</span>}</h3>
                     <div className="overflow-x-auto"><table className="w-full text-left text-sm"><tbody className="text-slate-300">
                       {data.flights_ret.slice(0,3).map((f, i) => (
                         <tr key={i} className="border-b border-slate-800/50">
