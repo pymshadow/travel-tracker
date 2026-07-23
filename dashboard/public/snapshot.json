@@ -1,87 +1,7 @@
 {
  "madrid-jan": {
-  "flights_out": [
-   {
-    "price": 157,
-    "airlines": [
-     "Iberia"
-    ],
-    "stops": 0,
-    "dep_hour": 7.25,
-    "depart": "07:15",
-    "arrive": "10:10",
-    "via": "ATH → MAD",
-    "score": 160.8
-   },
-   {
-    "price": 201,
-    "airlines": [
-     "Aegean"
-    ],
-    "stops": 0,
-    "dep_hour": 9.25,
-    "depart": "09:15",
-    "arrive": "12:05",
-    "via": "ATH → MAD",
-    "score": 195.8
-   },
-   {
-    "price": 249,
-    "airlines": [
-     "SKY express"
-    ],
-    "stops": 0,
-    "dep_hour": 10.5,
-    "depart": "10:30",
-    "arrive": "13:20",
-    "via": "ATH → MAD",
-    "score": 262.5
-   }
-  ],
-  "flights_ret": [
-   {
-    "price": 142,
-    "airlines": [
-     "Iberia"
-    ],
-    "stops": 0,
-    "dep_hour": 20.0,
-    "depart": "20:00",
-    "arrive": "00:35",
-    "via": "MAD → ATH",
-    "score": 148.0
-   },
-   {
-    "price": 186,
-    "airlines": [
-     "Aegean"
-    ],
-    "stops": 0,
-    "dep_hour": 18.25,
-    "depart": "18:15",
-    "arrive": "22:45",
-    "via": "MAD → ATH",
-    "score": 182.2
-   }
-  ],
-  "flights_out_url": "https://www.google.com/travel/flights?tfs=GhoSCjIwMjctMDEtMTdqBRIDQVRIcgUSA01BREICAQFIAZgBAg%3D%3D&hl=en&curr=EUR",
-  "flights_ret_url": "https://www.google.com/travel/flights?tfs=GhoSCjIwMjctMDEtMjJqBRIDTUFEcgUSA0FUSEICAQFIAZgBAg%3D%3D&hl=en&curr=EUR",
-  "flight_min": 299,
-  "flight_best": 299,
+  "skip_flights": true,
   "booking": [
-   {
-    "name": "Genesis-Loft San Enrique 20",
-    "kind": "apartment",
-    "total": 405.0,
-    "rating": 9.4,
-    "reviews": 25,
-    "center_m": 4400.0,
-    "transit_m": 300.0,
-    "transit_desc": "Estrecho station is within 300 metres",
-    "lat": 40.4559155,
-    "lon": -3.6999386,
-    "url": "https://www.booking.com/hotel/es/genesis-loft-san-enrique-20.en-gb.html?checkin=2027-01-17&checkout=2027-01-22&group_adults=2&selected_currency=EUR"
-   },
    {
     "name": "Genesis-Loft San Enrique 14",
     "kind": "apartment",
@@ -94,6 +14,19 @@
     "lat": 40.4560562,
     "lon": -3.7007826,
     "url": "https://www.booking.com/hotel/es/genesis-loft-san-enrique-14.en-gb.html?checkin=2027-01-17&checkout=2027-01-22&group_adults=2&selected_currency=EUR"
+   },
+   {
+    "name": "Genesis-Loft San Enrique 20",
+    "kind": "apartment",
+    "total": 444.0,
+    "rating": 9.4,
+    "reviews": 25,
+    "center_m": 4400.0,
+    "transit_m": 300.0,
+    "transit_desc": "Estrecho station is within 300 metres",
+    "lat": 40.4559155,
+    "lon": -3.6999386,
+    "url": "https://www.booking.com/hotel/es/genesis-loft-san-enrique-20.en-gb.html?checkin=2027-01-17&checkout=2027-01-22&group_adults=2&selected_currency=EUR"
    },
    {
     "name": "DH Estudios Lopez de Hoyos",
@@ -226,7 +159,7 @@
     "url": "https://www.booking.com/hotel/es/china-4.en-gb.html?checkin=2027-01-17&checkout=2027-01-22&group_adults=2&selected_currency=EUR"
    }
   ],
-  "booking_min": 405.0,
+  "booking_min": 440.0,
   "depart_str": "2027-01-17",
   "return_str": "2027-01-22",
   "name": "Μαδρίτη",

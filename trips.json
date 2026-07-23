@@ -4,6 +4,8 @@
       "id": "madrid-jan",
       "name": "Μαδρίτη",
       "enabled": true,
+      "skip_flights": true,
+      "_note": "Τα εισιτήρια έχουν ήδη κλειστεί — παρακολουθούμε μόνο διαμονή",
       "from": "ATH",
       "to": "MAD",
       "city": "Madrid",

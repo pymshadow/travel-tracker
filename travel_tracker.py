@@ -806,6 +806,8 @@ def update_top_deals(snapshot, trips_file, public_dir):
 
     today = date.today()
     for tid, snap in snapshot.items():
+        if snap.get("skip_flights"):
+            continue  # εισιτήρια ήδη κλεισμένα — δεν συγκρίνεται με πλήρη ταξίδια
         if not snap.get("flight_min") or not snap.get("booking_min"):
             continue  # μόνο ολοκληρωμένα deals (και πτήση και διαμονή)
         adults = adults_by_id.get(tid, 2)
@@ -902,33 +904,38 @@ def main():
             hist = []
             print(f"\n=== {trip.get('name', tid)} ({trip['from']}→{trip['to']}, {trip['depart']}) ===")
 
-            try:
-                fl = fetch_flights(trip, pw)
-                snap["flights_out"] = fl.get("out", [])[:8]
-                snap["flights_ret"] = fl.get("ret", [])[:8]
-                snap["flights_out_url"] = fl.get("out_url", "")
-                snap["flights_ret_url"] = fl.get("ret_url", "")
-                snap["out_relaxed"] = fl.get("out_relaxed", False)
-                snap["ret_relaxed"] = fl.get("ret_relaxed", False)
-                out, ret = fl.get("out", []), fl.get("ret", [])
-                has_return = bool(trip.get("return"))
-                if out and (not has_return or ret):
-                    cheapest = min(o["price"] for o in out) + (min(o["price"] for o in ret) if ret else 0)
-                    best = out[0]["price"] + (ret[0]["price"] if ret else 0)
-                    snap["flight_min"] = cheapest
-                    snap["flight_best"] = best
-                    hist.append([TODAY, hid, "flight_min", cheapest])
-                    hist.append([TODAY, hid, "flight_best", best])
-                    pp = cheapest / trip.get("adults", 1)
-                    target = RULES["max_flight_pp_eur"]
-                    mark = "✅ εντός στόχου" if pp <= target else f"πάνω από στόχο κατά {pp - target:.0f}€"
-                    print(f"  Πτήσεις: {pp:.0f}€/άτομο ({mark} {target}€) | φθηνότερο σύνολο {cheapest}€ | καλύτερη επιλογή ⭐ {best}€ "
-                          f"(αναχ. {out[0]['depart']} {','.join(out[0]['airlines'])}"
-                          + (f" / επιστρ. {ret[0]['depart']} {','.join(ret[0]['airlines'])}" if ret else "") + ")")
-            except Exception as e:
-                snap["error"] = f"Πτήσεις: {e}"
-                print(f"  ⚠️ Σφάλμα πτήσεων: {e}")
-                traceback.print_exc()
+            if trip.get("skip_flights"):
+                # Τα εισιτήρια έχουν ήδη κλειστεί — παρακολουθούμε μόνο διαμονή
+                snap["skip_flights"] = True
+                print("  ✈ Εισιτήρια ήδη κλεισμένα — παράλειψη αναζήτησης πτήσεων")
+            else:
+                try:
+                    fl = fetch_flights(trip, pw)
+                    snap["flights_out"] = fl.get("out", [])[:8]
+                    snap["flights_ret"] = fl.get("ret", [])[:8]
+                    snap["flights_out_url"] = fl.get("out_url", "")
+                    snap["flights_ret_url"] = fl.get("ret_url", "")
+                    snap["out_relaxed"] = fl.get("out_relaxed", False)
+                    snap["ret_relaxed"] = fl.get("ret_relaxed", False)
+                    out, ret = fl.get("out", []), fl.get("ret", [])
+                    has_return = bool(trip.get("return"))
+                    if out and (not has_return or ret):
+                        cheapest = min(o["price"] for o in out) + (min(o["price"] for o in ret) if ret else 0)
+                        best = out[0]["price"] + (ret[0]["price"] if ret else 0)
+                        snap["flight_min"] = cheapest
+                        snap["flight_best"] = best
+                        hist.append([TODAY, hid, "flight_min", cheapest])
+                        hist.append([TODAY, hid, "flight_best", best])
+                        pp = cheapest / trip.get("adults", 1)
+                        target = RULES["max_flight_pp_eur"]
+                        mark = "✅ εντός στόχου" if pp <= target else f"πάνω από στόχο κατά {pp - target:.0f}€"
+                        print(f"  Πτήσεις: {pp:.0f}€/άτομο ({mark} {target}€) | φθηνότερο σύνολο {cheapest}€ | καλύτερη επιλογή ⭐ {best}€ "
+                              f"(αναχ. {out[0]['depart']} {','.join(out[0]['airlines'])}"
+                              + (f" / επιστρ. {ret[0]['depart']} {','.join(ret[0]['airlines'])}" if ret else "") + ")")
+                except Exception as e:
+                    snap["error"] = f"Πτήσεις: {e}"
+                    print(f"  ⚠️ Σφάλμα πτήσεων: {e}")
+                    traceback.print_exc()
 
             if skip_booking_if_no_flights and "flight_min" not in snap:
                 print("  (χωρίς έγκυρες πτήσεις — παράλειψη Booking για εξοικονόμηση χρόνου)")
@@ -950,7 +957,11 @@ def main():
 
             fmin = snap.get("flight_min", float('inf'))
             bmin = snap.get("booking_min", float('inf'))
-            total = fmin + bmin if fmin != float('inf') and bmin != float('inf') else float('inf')
+            if trip.get("skip_flights"):
+                # Εισιτήρια κλεισμένα: το φθηνότερο pair κρίνεται μόνο από τη διαμονή
+                total = bmin
+            else:
+                total = fmin + bmin if fmin != float('inf') and bmin != float('inf') else float('inf')
 
             # Keep this snap if it's the cheapest, or if we don't have a best yet
             if total < best_total or best_snap is None:

@@ -79,9 +79,13 @@ function App() {
             const cityCode = data?.to || trip.to
             const cost = costOfLiving[cityCode]
             const nights = (data?.depart_str && data?.return_str) ? nightsOf(data.depart_str, data.return_str) : 0
-            const fullBudget = (flightMin && bookingMin && cost && nights > 0) ? flightMin + bookingMin + (cost.mid * adults * nights) : null
+            // Ταξίδι με ήδη κλεισμένα εισιτήρια: παρακολουθούμε μόνο διαμονή
+            const flightsBooked = Boolean(data?.skip_flights || trip.skip_flights)
+            const fullBudget = flightsBooked
+              ? ((bookingMin && cost && nights > 0) ? bookingMin + (cost.mid * adults * nights) : null)
+              : ((flightMin && bookingMin && cost && nights > 0) ? flightMin + bookingMin + (cost.mid * adults * nights) : null)
             const isSuperDeal = fullBudget && fullBudget <= 1200
-            
+
             const hasFlights = Boolean(flightMin)
             const outCount = data?.flights_out?.length || 0
             const retCount = data?.flights_ret?.length || 0
@@ -111,7 +115,17 @@ function App() {
                   <span>{adults} Άτομα</span>
                 </div>
 
-                {!hasFlights && data?.depart_str && (
+                {flightsBooked && (
+                  <div className="bg-emerald-900/25 border border-emerald-500/40 text-emerald-200 p-4 rounded-2xl mb-8 flex items-center gap-3">
+                    <span className="text-2xl">🎫</span>
+                    <div>
+                      <div className="font-bold text-sm">ΤΑ ΕΙΣΙΤΗΡΙΑ ΕΧΟΥΝ ΗΔΗ ΚΛΕΙΣΤΕΙ</div>
+                      <p className="text-xs text-emerald-300/80">Παρακολουθείται μόνο η διαμονή για αυτόν τον προορισμό.</p>
+                    </div>
+                  </div>
+                )}
+
+                {!flightsBooked && !hasFlights && data?.depart_str && (
                   <div className="bg-rose-900/30 border-2 border-rose-500/50 text-rose-200 p-5 rounded-2xl mb-8">
                     <div className="font-bold text-base mb-1">⚠️ ΔΕΝ ΒΡΕΘΗΚΑΝ ΠΤΗΣΕΙΣ ΕΝΤΟΣ ΚΑΝΟΝΩΝ</div>
                     <p className="text-sm text-rose-300/90">
@@ -122,12 +136,14 @@ function App() {
                   </div>
                 )}
 
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-8">
+                <div className={`grid grid-cols-1 gap-5 mb-8 ${flightsBooked ? 'md:grid-cols-2' : 'md:grid-cols-3'}`}>
+                  {!flightsBooked && (
                   <div className="bg-slate-800/40 p-5 rounded-2xl border border-slate-700/50 hover:border-slate-600/60 transition-colors shadow-inner">
                     <div className="text-slate-400 text-xs uppercase tracking-wider font-semibold mb-2">Φθηνοτερη Πτηση (Καλοι Κανόνες)</div>
                     <div className="text-4xl font-extrabold text-white">{flightMin ? `${flightMin}€` : '-'}</div>
                     {data?.error && data.error.includes("Πτήσεις") && <div className="text-red-400 text-xs mt-2">{data.error.split("|")[0]}</div>}
                   </div>
+                  )}
                   <div className="bg-slate-800/40 p-5 rounded-2xl border border-slate-700/50 hover:border-slate-600/60 transition-colors shadow-inner">
                     <div className="text-slate-400 text-xs uppercase tracking-wider font-semibold mb-2">Φθηνοτερη Διαμονη (Με Δωρεάν Ακύρωση)</div>
                     <div className="text-4xl font-extrabold text-white">{bookingMin ? `${bookingMin}€` : '-'}</div>
@@ -135,11 +151,17 @@ function App() {
                   </div>
                   <div className="bg-blue-900/40 p-5 rounded-2xl border border-blue-700/50 hover:border-blue-500/60 transition-colors shadow-inner relative overflow-hidden">
                     <div className="absolute top-0 right-0 p-3 opacity-10 text-5xl">💶</div>
-                    <div className="text-blue-300 text-xs uppercase tracking-wider font-semibold mb-2">ΣΥΝΟΛΙΚΟ ΚΟΣΤΟΣ (ΑΠΟ)</div>
-                    <div className="text-4xl font-extrabold text-white">
-                      {(flightMin && bookingMin) ? `${flightMin + bookingMin}€` : '-'}
+                    <div className="text-blue-300 text-xs uppercase tracking-wider font-semibold mb-2">
+                      {flightsBooked ? 'ΚΟΣΤΟΣ ΔΙΑΜΟΝΗΣ (ΑΠΟ)' : 'ΣΥΝΟΛΙΚΟ ΚΟΣΤΟΣ (ΑΠΟ)'}
                     </div>
-                    <div className="text-blue-400/80 text-xs mt-2 font-medium">Για όλα τα άτομα ({adults})</div>
+                    <div className="text-4xl font-extrabold text-white">
+                      {flightsBooked
+                        ? (bookingMin ? `${bookingMin}€` : '-')
+                        : ((flightMin && bookingMin) ? `${flightMin + bookingMin}€` : '-')}
+                    </div>
+                    <div className="text-blue-400/80 text-xs mt-2 font-medium">
+                      Για όλα τα άτομα ({adults}){flightsBooked ? ' · χωρίς εισιτήρια' : ''}
+                    </div>
                   </div>
                 </div>
 
@@ -163,7 +185,7 @@ function App() {
                             <strong className="text-base text-blue-300">Πλήρες Ενδεικτικό Budget Ταξιδιού</strong>
                             {isSuperDeal && <span className="ml-3 inline-flex animate-pulse items-center px-2.5 py-0.5 rounded-full text-xs font-bold bg-amber-500 text-amber-950">🔥 SUPER DEAL</span>}
                             <br/>
-                            <span className="text-xs text-slate-500">(Πτήσεις + Ξενοδοχείο + {nights} ημέρες "Κανονικά" έξοδα διαβίωσης)</span>
+                            <span className="text-xs text-slate-500">({flightsBooked ? 'Ξενοδοχείο' : 'Πτήσεις + Ξενοδοχείο'} + {nights} ημέρες "Κανονικά" έξοδα διαβίωσης{flightsBooked ? ' — χωρίς τα ήδη κλεισμένα εισιτήρια' : ''})</span>
                          </div>
                          <div className={`text-2xl md:text-3xl font-extrabold ${isSuperDeal ? 'text-amber-400 animate-pulse' : 'text-emerald-400'}`}>
                             {fullBudget}€
