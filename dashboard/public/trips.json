@@ -28,6 +28,36 @@
         {"depart": "2026-11-27", "return": "2026-11-29"}
       ],
       "adults": 2
+    },
+    {
+      "id": "milan-nov",
+      "name": "Μιλάνο",
+      "enabled": true,
+      "from": "ATH",
+      "to": "MXP",
+      "city": "Milan",
+      "date_pairs": [
+        {"depart": "2026-11-06", "return": "2026-11-08"},
+        {"depart": "2026-11-13", "return": "2026-11-15"},
+        {"depart": "2026-11-20", "return": "2026-11-22"},
+        {"depart": "2026-11-27", "return": "2026-11-29"}
+      ],
+      "adults": 2
+    },
+    {
+      "id": "rome-nov",
+      "name": "Ρώμη",
+      "enabled": true,
+      "from": "ATH",
+      "to": "FCO",
+      "city": "Rome",
+      "date_pairs": [
+        {"depart": "2026-11-06", "return": "2026-11-08"},
+        {"depart": "2026-11-13", "return": "2026-11-15"},
+        {"depart": "2026-11-20", "return": "2026-11-22"},
+        {"depart": "2026-11-27", "return": "2026-11-29"}
+      ],
+      "adults": 2
     }
   ]
 }
