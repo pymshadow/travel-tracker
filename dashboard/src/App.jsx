@@ -242,6 +242,14 @@ function App() {
                         <tr key={i} className="border-b border-slate-800/50">
                           <td className="py-3 font-bold text-white">{b.total}€</td>
                           <td className="py-3 truncate max-w-[200px]" title={b.name}>{b.name}</td>
+                          <td className="py-3">
+                            <span className={`px-2 py-0.5 rounded text-[10px] uppercase font-bold border whitespace-nowrap ${
+                              b.kind === 'apartment' ? 'bg-indigo-500/20 text-indigo-300 border-indigo-500/30'
+                              : b.kind === 'hotel_breakfast' ? 'bg-teal-500/20 text-teal-300 border-teal-500/30'
+                              : 'bg-sky-500/20 text-sky-300 border-sky-500/30'}`}>
+                              {b.kind === 'apartment' ? 'Διαμέρισμα' : b.kind === 'hotel_breakfast' ? 'Ξενοδ. + πρωινό' : 'Ξενοδ. ιδ. μπάνιο'}
+                            </span>
+                          </td>
                           <td className="py-3 text-amber-400 text-xs">{b.rating}★</td>
                           <td className="py-3 text-right"><a href={b.url} target="_blank" rel="noreferrer" className="text-blue-400 hover:text-blue-300 text-xs">Κράτηση</a></td>
                         </tr>

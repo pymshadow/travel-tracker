@@ -51,6 +51,9 @@ RULES = {
     "max_transit_m": 800,        # απόσταση από μετρό/στάση
     # καταλύματα των οποίων το όνομα περιέχει κάποια από αυτές τις λέξεις αποκλείονται
     "name_blacklist": ["student", "hostel", "dorm", "capsule"],
+    # ≤ τόσες νύχτες = "σύντομο ταξίδι": επιτρέπονται και απλά ξενοδοχεία με
+    # ιδιωτικό μπάνιο (όχι μόνο διαμερίσματα / ξενοδοχεία με πρωινό)
+    "short_trip_nights": 3,
     # πτήσεις: score = τιμή + ποινές - μπόνους (σε "ευρώ")
     "eur_per_hour_late_departure": 3,   # ποινή ανά ώρα μετά τις 06:00 (αναχώρηση)
     "eur_per_hour_early_return": 3,     # ποινή ανά ώρα πριν τις 22:00 (επιστροφή)
@@ -489,15 +492,33 @@ def _passes_rules(p, stops):
 
 
 def fetch_booking(trip, playwright):
-    """Δύο αναζητήσεις (διαμερίσματα / ξενοδοχεία με πρωινό), φίλτρο κανόνων, merge."""
+    """Αναζητήσεις Booking ανά τύπο καταλύματος, φίλτρο κανόνων, merge.
+
+    Σύντομα ταξίδια (≤ RULES["short_trip_nights"] νύχτες): επιτρέπονται και
+    απλά ξενοδοχεία με ιδιωτικό μπάνιο — για 2-3 βράδια δεν χρειάζεται
+    ολόκληρο διαμέρισμα και οι τιμές (ειδικά Ιταλία) πέφτουν αισθητά.
+    Μεγάλα ταξίδια: μόνο ολόκληρα διαμερίσματα ή ξενοδοχεία με πρωινό.
+    """
     checkout = trip.get("checkout") or trip.get("return")
     if not checkout:
         return []
 
+    checkin = trip.get("checkin") or trip["depart"]
+    try:
+        from datetime import date as _d
+        a = _d(*[int(x) for x in checkin.split("-")])
+        b = _d(*[int(x) for x in checkout.split("-")])
+        nights = (b - a).days
+    except Exception:
+        nights = 99
+
     searches = [
-        ("apartment", ["privacy_type=3"]),                # ολόκληρα σπίτια/διαμερίσματα
-        ("hotel_breakfast", ["ht_id=204", "mealplan=1"]),  # ξενοδοχεία με πρωινό
+        ("apartment", ["privacy_type=3"]),                 # ολόκληρα σπίτια/διαμερίσματα
+        ("hotel_breakfast", ["ht_id=204", "mealplan=1"]),   # ξενοδοχεία με πρωινό
     ]
+    if nights <= RULES["short_trip_nights"]:
+        # ξενοδοχεία με ιδιωτικό μπάνιο (roomfacility=38)
+        searches.append(("hotel_private_bath", ["ht_id=204", "roomfacility=38"]))
     UA = ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
           "(KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36")
 
