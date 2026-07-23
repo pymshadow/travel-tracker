@@ -42,7 +42,15 @@ Hard filters at fetch time, ALL trips, regardless of duration:
 `_score_leg` ranks survivors: price + 3€/h after 06:00 (outbound) or before 22:00 (return) + 20€/stop − 15€ Aegean/Olympic bonus. ⭐ = best score; the absolute cheapest is also tracked. `RULES` dict at the top of `travel_tracker.py` holds all weights incl. `max_flight_pp_eur: 125` (per-person target, display-only).
 
 ### 2d. Booking rules
-≤ 5 km from centre · rating ≥ 8/10 · entire apartments OR hotels with breakfast · ≤ 800 m from metro/bus (Booking's own `publicTransportDistanceDescription` first, OSM stops fallback) · name blacklist: student/hostel/dorm/capsule.
+≤ 5 km from centre · rating ≥ 8/10 · ≤ 800 m from metro/bus (Booking's own `publicTransportDistanceDescription` first, OSM stops fallback) · name blacklist: student/hostel/dorm/capsule.
+
+Property types searched (merged, cheapest wins per property):
+- Always: entire apartments (`privacy_type=3`) + hotels with breakfast (`ht_id=204;mealplan=1`).
+- **Short trips only** (≤ `RULES["short_trip_nights"]` = 3 nights, user request 2026-07-23): also plain hotels with a **private bathroom** (`ht_id=204;roomfacility=38`) — for 2-3 nights an entire apartment isn't needed and Italian prices drop noticeably. Long trips keep requiring apartments/breakfast-hotels. Verified working: `roomfacility=38` is the correct Booking filter (`hotelfacility=38` returns nothing).
+- Each result carries `kind` = `apartment` | `hotel_breakfast` | `hotel_private_bath`, shown as a coloured tag in the dashboard.
+
+### 2d-bis. Trips with tickets already bought
+Set `"skip_flights": true` on a trip (see Madrid). Then: flights are never scraped (faster runs), the cheapest date pair is chosen by accommodation cost alone, the snapshot carries `skip_flights`, the dashboard shows a green "🎫 ΤΑ ΕΙΣΙΤΗΡΙΑ ΕΧΟΥΝ ΗΔΗ ΚΛΕΙΣΤΕΙ" banner (hiding flight cards/tables and the red no-flights warning), the full budget excludes tickets, and the trip is excluded from Top Deals (not comparable with complete trips). Lock `date_pairs` to the single booked pair.
 
 ### 2e. Top Deals (`update_top_deals()` in travel_tracker.py)
 Keeps the best **complete** deal (flights + stay) per city in `top_deals.json` (root = master, copied to `dashboard/public/`). Replacement policy: cheaper total wins; entries older than 7 days get refreshed by newer data; entries older than 14 days are dropped. This is how good surprise-city deals survive the daily rotation. Rendered as the "🏆 Top Προσφορές" table.
@@ -80,7 +88,9 @@ Per-person/day values (low/mid/high, **excluding accommodation**) derived from N
 - **2026-07-18:** Daily Action failed at the "Commit new snapshot" step (`git pull --rebase origin main` conflicted because other sessions had pushed commits touching the same auto-generated files). Scrape + build had succeeded, but the failed commit step skipped the deploy, so the site kept showing the previous day's data (surprise city stuck on Berlin — it was NOT a surprise-logic bug; the redraw/exclusion works and correctly picks a new city daily). Fix: the commit step now does `git pull --no-rebase -X ours --no-edit origin main` (fresh scrape always wins conflicts on generated files) inside a 5× retry loop. If the daily run ever fails again, recover by running `python travel_tracker.py` locally and pushing the data files.
 
 ## 4c. Current trips (2026-07-23)
-Only **Madrid** (Jan 2027, 5-6 nights, 3 date_pairs) and **Budapest** (Nov 2026, 2-night Fri-Sun weekends, 4 date_pairs). Vienna + the surprise-europe pool were removed at the user's request. Budapest's cheapest weekend is Nov 6-8 (~246€ total for 2). If re-adding a surprise trip, the pool logic (2b) still exists in code.
+- **Madrid** — Jan 17-22 2027, **tickets already booked** (`skip_flights: true`, single locked date_pair): accommodation only, ~405€.
+- **Budapest / Milan / Rome** — Nov 2026, 2-night Fri→Sun weekends, 4 date_pairs each (Nov 6-8, 13-15, 20-22, 27-29). Current bests: Budapest 246€, Milan 344€, Rome ~486-525€ (total for 2, flights+stay).
+Vienna + the surprise-europe pool were removed earlier at the user's request; the pool logic (2b) still exists in code if re-added.
 
 ## 4d. Deploy gotcha (learned 2026-07-23)
 A **merge commit** pushed to main does NOT reliably trigger `deploy-pages.yml` (GitHub path-filter behaviour on merge commits), so the live site can lag behind main. Two reliable ways to force a deploy: (a) a normal non-merge commit touching `dashboard/**`, or (b) manual: `cd dashboard && npm run build`, copy `dist/*` to a temp dir, add a `.nojekyll`, `git init -b gh-pages`, commit, and `git push -f <repo-url> gh-pages`. Method (b) is what recovered the site on 07-23. The daily Action deploys fine on its own (non-merge commits).
