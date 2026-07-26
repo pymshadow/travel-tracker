@@ -224,12 +224,14 @@
     "children": [
      3
     ],
-    "rooms": 2
+    "rooms": 2,
+    "scanned": "2026-07-27",
+    "auto": false
    },
    "couple": {
     "flights_out": [
      {
-      "price": 64,
+      "price": 60,
       "airlines": [
        "Wizz Air"
       ],
@@ -238,11 +240,11 @@
       "depart": "10:00",
       "arrive": "11:10",
       "via": "ATH → BUD",
-      "score": 76.0,
+      "score": 72.0,
       "relaxed": false
      },
      {
-      "price": 72,
+      "price": 84,
       "airlines": [
        "Ryanair"
       ],
@@ -251,13 +253,13 @@
       "depart": "12:45",
       "arrive": "13:50",
       "via": "ATH → BUD",
-      "score": 92.2,
+      "score": 104.2,
       "relaxed": false
      }
     ],
     "flights_ret": [
      {
-      "price": 77,
+      "price": 133,
       "airlines": [
        "Ryanair"
       ],
@@ -266,16 +268,16 @@
       "depart": "16:05",
       "arrive": "19:05",
       "via": "BUD → ATH",
-      "score": 94.8,
+      "score": 150.8,
       "relaxed": true
      }
     ],
-    "flights_out_url": "https://www.google.com/travel/flights?tfs=GhoSCjIwMjYtMTEtMDZqBRIDQVRIcgUSA0JVREICAQFIAZgBAg%3D%3D&hl=en&curr=EUR",
-    "flights_ret_url": "https://www.google.com/travel/flights?tfs=GhoSCjIwMjYtMTEtMDhqBRIDQlVEcgUSA0FUSEICAQFIAZgBAg%3D%3D&hl=en&curr=EUR",
+    "flights_out_url": "https://www.google.com/travel/flights?tfs=GhoSCjIwMjYtMTEtMjBqBRIDQVRIcgUSA0JVREICAQFIAZgBAg%3D%3D&hl=en&curr=EUR",
+    "flights_ret_url": "https://www.google.com/travel/flights?tfs=GhoSCjIwMjYtMTEtMjJqBRIDQlVEcgUSA0FUSEICAQFIAZgBAg%3D%3D&hl=en&curr=EUR",
     "out_relaxed": false,
     "ret_relaxed": true,
-    "flight_min": 141,
-    "flight_best": 141,
+    "flight_min": 193,
+    "flight_best": 193,
     "booking": [
      {
       "name": "Little Pest Nest",
@@ -288,12 +290,12 @@
       "transit_desc": "Rákóczi tér station is within 150 metres",
       "lat": 47.4929074,
       "lon": 19.0693948,
-      "url": "https://www.booking.com/hotel/hu/little-pest-nest.en-gb.html?checkin=2026-11-06&checkout=2026-11-08&group_adults=2&group_children=0&no_rooms=1&selected_currency=EUR"
+      "url": "https://www.booking.com/hotel/hu/little-pest-nest.en-gb.html?checkin=2026-11-20&checkout=2026-11-22&group_adults=2&group_children=0&no_rooms=1&selected_currency=EUR"
      },
      {
       "name": "Brody Str 13 Studios",
       "kind": "apartment",
-      "total": 88.0,
+      "total": 81.0,
       "rating": 8.2,
       "reviews": 229,
       "center_m": 900.0,
@@ -301,7 +303,7 @@
       "transit_desc": "Kálvin tér station is within 450 metres",
       "lat": 47.4925689,
       "lon": 19.0659529,
-      "url": "https://www.booking.com/hotel/hu/brody-studios.en-gb.html?checkin=2026-11-06&checkout=2026-11-08&group_adults=2&group_children=0&no_rooms=1&selected_currency=EUR"
+      "url": "https://www.booking.com/hotel/hu/brody-studios.en-gb.html?checkin=2026-11-20&checkout=2026-11-22&group_adults=2&group_children=0&no_rooms=1&selected_currency=EUR"
      },
      {
       "name": "Little Americas Hillside Apartments",
@@ -314,7 +316,7 @@
       "transit_desc": "~106 μ από στάση (OSM)",
       "lat": 47.51335367162152,
       "lon": 19.03517351712719,
-      "url": "https://www.booking.com/hotel/hu/little-americas-hillside.en-gb.html?checkin=2026-11-06&checkout=2026-11-08&group_adults=2&group_children=0&no_rooms=1&selected_currency=EUR"
+      "url": "https://www.booking.com/hotel/hu/little-americas-hillside.en-gb.html?checkin=2026-11-20&checkout=2026-11-22&group_adults=2&group_children=0&no_rooms=1&selected_currency=EUR"
      },
      {
       "name": "Cozy studio in central Budapest near ruined bars",
@@ -327,20 +329,7 @@
       "transit_desc": "Vörösmarty utca station is within 500 metres",
       "lat": 47.503815859314,
       "lon": 19.070293365607,
-      "url": "https://www.booking.com/hotel/hu/cozy-studio-in-central-budapest-near-ruined-bars.en-gb.html?checkin=2026-11-06&checkout=2026-11-08&group_adults=2&group_children=0&no_rooms=1&selected_currency=EUR"
-     },
-     {
-      "name": "V12 Apartments",
-      "kind": "apartment",
-      "total": 92.0,
-      "rating": 8.2,
-      "reviews": 155,
-      "center_m": 1700.0,
-      "transit_m": 250.0,
-      "transit_desc": "Nyugati pályaudvar station is within 250 metres",
-      "lat": 47.5128591,
-      "lon": 19.0569511,
-      "url": "https://www.booking.com/hotel/hu/v12-apartments-budapest.en-gb.html?checkin=2026-11-06&checkout=2026-11-08&group_adults=2&group_children=0&no_rooms=1&selected_currency=EUR"
+      "url": "https://www.booking.com/hotel/hu/cozy-studio-in-central-budapest-near-ruined-bars.en-gb.html?checkin=2026-11-20&checkout=2026-11-22&group_adults=2&group_children=0&no_rooms=1&selected_currency=EUR"
      },
      {
       "name": "Budapest Studio Apartman",
@@ -353,33 +342,7 @@
       "transit_desc": "II. János Pál pápa tér station is within 400 metres",
       "lat": 47.4938873389924,
       "lon": 19.0813717148888,
-      "url": "https://www.booking.com/hotel/hu/budapest-studio-apartman.en-gb.html?checkin=2026-11-06&checkout=2026-11-08&group_adults=2&group_children=0&no_rooms=1&selected_currency=EUR"
-     },
-     {
-      "name": "City Comfort Apartment near Keleti Station",
-      "kind": "apartment",
-      "total": 106.0,
-      "rating": 8.6,
-      "reviews": 113,
-      "center_m": 2400.0,
-      "transit_m": 106,
-      "transit_desc": "~106 μ από στάση (OSM)",
-      "lat": 47.5028545,
-      "lon": 19.0862971,
-      "url": "https://www.booking.com/hotel/hu/city-comfort-apartment.en-gb.html?checkin=2026-11-06&checkout=2026-11-08&group_adults=2&group_children=0&no_rooms=1&selected_currency=EUR"
-     },
-     {
-      "name": "Retro Apartment",
-      "kind": "apartment",
-      "total": 108.0,
-      "rating": 9.2,
-      "reviews": 386,
-      "center_m": 1600.0,
-      "transit_m": 47,
-      "transit_desc": "~47 μ από στάση (OSM)",
-      "lat": 47.496380017615984,
-      "lon": 19.034871022684456,
-      "url": "https://www.booking.com/hotel/hu/retro-apartment-budapest.en-gb.html?checkin=2026-11-06&checkout=2026-11-08&group_adults=2&group_children=0&no_rooms=1&selected_currency=EUR"
+      "url": "https://www.booking.com/hotel/hu/budapest-studio-apartman.en-gb.html?checkin=2026-11-20&checkout=2026-11-22&group_adults=2&group_children=0&no_rooms=1&selected_currency=EUR"
      },
      {
       "name": "Onyx apartment with Free private garage + AC",
@@ -392,33 +355,7 @@
       "transit_desc": "Rákóczi tér station is within 300 metres",
       "lat": 47.4933354,
       "lon": 19.0746688,
-      "url": "https://www.booking.com/hotel/hu/onyx-apartment-with-free-private-garage-ac.en-gb.html?checkin=2026-11-06&checkout=2026-11-08&group_adults=2&group_children=0&no_rooms=1&selected_currency=EUR"
-     },
-     {
-      "name": "Joe Apartman Budapest",
-      "kind": "apartment",
-      "total": 110.0,
-      "rating": 9.3,
-      "reviews": 245,
-      "center_m": 2300.0,
-      "transit_m": 155,
-      "transit_desc": "~155 μ από στάση (OSM)",
-      "lat": 47.50447199267547,
-      "lon": 19.08416513509451,
-      "url": "https://www.booking.com/hotel/hu/joe-apartman.en-gb.html?checkin=2026-11-06&checkout=2026-11-08&group_adults=2&group_children=0&no_rooms=1&selected_currency=EUR"
-     },
-     {
-      "name": "GrigorasNCo Studio Apartments",
-      "kind": "apartment",
-      "total": 114.0,
-      "rating": 8.8,
-      "reviews": 725,
-      "center_m": 250.0,
-      "transit_m": 350.0,
-      "transit_desc": "Astoria station is within 350 metres",
-      "lat": 47.497441760596,
-      "lon": 19.058915164275,
-      "url": "https://www.booking.com/hotel/hu/grigorasnco-studio-apartments.en-gb.html?checkin=2026-11-06&checkout=2026-11-08&group_adults=2&group_children=0&no_rooms=1&selected_currency=EUR"
+      "url": "https://www.booking.com/hotel/hu/onyx-apartment-with-free-private-garage-ac.en-gb.html?checkin=2026-11-20&checkout=2026-11-22&group_adults=2&group_children=0&no_rooms=1&selected_currency=EUR"
      },
      {
       "name": "CrystalHome",
@@ -431,17 +368,84 @@
       "transit_desc": "Blaha Lujza tér station is within 150 metres",
       "lat": 47.4980556,
       "lon": 19.0688889,
-      "url": "https://www.booking.com/hotel/hu/crystalhome.en-gb.html?checkin=2026-11-06&checkout=2026-11-08&group_adults=2&group_children=0&no_rooms=1&selected_currency=EUR"
+      "url": "https://www.booking.com/hotel/hu/crystalhome.en-gb.html?checkin=2026-11-20&checkout=2026-11-22&group_adults=2&group_children=0&no_rooms=1&selected_currency=EUR"
+     },
+     {
+      "name": "Deniz Guesthouse",
+      "kind": "apartment",
+      "total": 116.0,
+      "rating": 8.1,
+      "reviews": 538,
+      "center_m": 1200.0,
+      "transit_m": 300.0,
+      "transit_desc": "Blaha Lujza tér station is within 300 metres",
+      "lat": 47.49888,
+      "lon": 19.071184,
+      "url": "https://www.booking.com/hotel/hu/deniz-pension-budapest123456.en-gb.html?checkin=2026-11-20&checkout=2026-11-22&group_adults=2&group_children=0&no_rooms=1&selected_currency=EUR"
+     },
+     {
+      "name": "Riverside City",
+      "kind": "apartment",
+      "total": 118.0,
+      "rating": 8.9,
+      "reviews": 438,
+      "center_m": 1000.0,
+      "transit_m": 400.0,
+      "transit_desc": "Fővám tér station is within 400 metres",
+      "lat": 47.488534,
+      "lon": 19.05470630000002,
+      "url": "https://www.booking.com/hotel/hu/riverside-city.en-gb.html?checkin=2026-11-20&checkout=2026-11-22&group_adults=2&group_children=0&no_rooms=1&selected_currency=EUR"
+     },
+     {
+      "name": "City Comfort Apartment near Keleti Station",
+      "kind": "apartment",
+      "total": 119.0,
+      "rating": 8.6,
+      "reviews": 113,
+      "center_m": 2400.0,
+      "transit_m": 106,
+      "transit_desc": "~106 μ από στάση (OSM)",
+      "lat": 47.5028545,
+      "lon": 19.0862971,
+      "url": "https://www.booking.com/hotel/hu/city-comfort-apartment.en-gb.html?checkin=2026-11-20&checkout=2026-11-22&group_adults=2&group_children=0&no_rooms=1&selected_currency=EUR"
+     },
+     {
+      "name": "Casa del Hodos 2",
+      "kind": "apartment",
+      "total": 120.0,
+      "rating": 8.5,
+      "reviews": 22,
+      "center_m": 2200.0,
+      "transit_m": 186,
+      "transit_desc": "~186 μ από στάση (OSM)",
+      "lat": 47.4906709,
+      "lon": 19.0829018,
+      "url": "https://www.booking.com/hotel/hu/casa-del-hodos-2.en-gb.html?checkin=2026-11-20&checkout=2026-11-22&group_adults=2&group_children=0&no_rooms=1&selected_currency=EUR"
+     },
+     {
+      "name": "Downtown Apartment",
+      "kind": "apartment",
+      "total": 120.0,
+      "rating": 8.8,
+      "reviews": 36,
+      "center_m": 2800.0,
+      "transit_m": 21,
+      "transit_desc": "~21 μ από στάση (OSM)",
+      "lat": 47.489292335919004,
+      "lon": 19.090479722537,
+      "url": "https://www.booking.com/hotel/hu/downtown-apartment-budapest4.en-gb.html?checkin=2026-11-20&checkout=2026-11-22&group_adults=2&group_children=0&no_rooms=1&selected_currency=EUR"
      }
     ],
     "booking_min": 72.0,
-    "depart_str": "2026-11-06",
-    "return_str": "2026-11-08",
+    "depart_str": "2026-11-20",
+    "return_str": "2026-11-22",
     "name": "Βουδαπέστη",
     "to": "BUD",
     "hist_id": "budapest-nov-couple",
     "party": "couple",
     "party_label": "1 ζευγάρι",
+    "scanned": "2026-07-27",
+    "auto": true,
     "adults": 2,
     "children": [],
     "rooms": 1
@@ -679,7 +683,9 @@
     "children": [
      3
     ],
-    "rooms": 3
+    "rooms": 3,
+    "scanned": "2026-07-27",
+    "auto": false
    }
   }
  },
@@ -932,7 +938,9 @@
     "party_label": "1 ζευγάρι",
     "adults": 2,
     "children": [],
-    "rooms": 1
+    "rooms": 1,
+    "scanned": "2026-07-27",
+    "auto": true
    },
    "family": {
     "flights_out": [
@@ -1154,7 +1162,9 @@
     "children": [
      3
     ],
-    "rooms": 2
+    "rooms": 2,
+    "scanned": "2026-07-27",
+    "auto": false
    },
    "six": {
     "flights_out": [
@@ -1363,7 +1373,9 @@
     "children": [
      3
     ],
-    "rooms": 3
+    "rooms": 3,
+    "scanned": "2026-07-27",
+    "auto": false
    }
   }
  },
@@ -1616,7 +1628,9 @@
     "party_label": "1 ζευγάρι",
     "adults": 2,
     "children": [],
-    "rooms": 1
+    "rooms": 1,
+    "scanned": "2026-07-27",
+    "auto": true
    },
    "family": {
     "flights_out": [
@@ -1877,7 +1891,9 @@
     "children": [
      3
     ],
-    "rooms": 2
+    "rooms": 2,
+    "scanned": "2026-07-27",
+    "auto": false
    },
    "six": {
     "flights_out": [
@@ -2151,7 +2167,9 @@
     "children": [
      3
     ],
-    "rooms": 3
+    "rooms": 3,
+    "scanned": "2026-07-27",
+    "auto": false
    }
   }
  }

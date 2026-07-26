@@ -911,7 +911,9 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--file", default=TRIPS_FILE, help="JSON file with trips")
     parser.add_argument("--single", help="Run only for this trip ID")
-    parser.add_argument("--party", help="Run only for this party config id (couple/family/six)")
+    parser.add_argument("--party", help="Συνθέσεις προς εκτέλεση: id (π.χ. family), "
+                                        "λίστα (family,six) ή 'all'. Χωρίς αυτό τρέχουν "
+                                        "μόνο οι auto=true.")
     args = parser.parse_args()
     
     if not os.path.exists(args.file):
@@ -926,11 +928,21 @@ def main():
     party_configs = cfg.get("party_configs") or [
         {"id": "couple", "label": "1 ζευγάρι", "short": "2 άτομα", "adults": 2, "children": []}
     ]
-    if args.party:
-        party_configs = [p for p in party_configs if p["id"] == args.party]
+    if args.party and args.party != "all":
+        # ρητή επιλογή: τρέχει ακόμα κι αν είναι auto=false
+        wanted = [x.strip() for x in args.party.split(",")]
+        party_configs = [p for p in party_configs if p["id"] in wanted]
         if not party_configs:
             print(f"Άγνωστη σύνθεση: {args.party}")
             return 1
+    elif not args.party:
+        # καθημερινό/αυτόματο τρέξιμο: μόνο όσες είναι auto=true
+        party_configs = [p for p in party_configs if p.get("auto", True)]
+        skipped = [p["label"] for p in (cfg.get("party_configs") or [])
+                   if not p.get("auto", True)]
+        if skipped:
+            print(f"(χειροκίνητες συνθέσεις, δεν τρέχουν αυτόματα: {', '.join(skipped)}"
+                  f" — τρέξε με --party <id>)")
     
     if not trips:
         print(f"Κανένα ενεργό ταξίδι προς εκτέλεση.")
@@ -946,6 +958,18 @@ def main():
     if os.path.exists(today_snap_path):
         with open(today_snap_path, encoding="utf-8") as f:
             snapshot = json.load(f)
+    else:
+        # Νέα μέρα: ξεκίνα από το τελευταίο snapshot ώστε οι ΧΕΙΡΟΚΙΝΗΤΕΣ
+        # συνθέσεις (auto=false) να μη χαθούν από το dashboard — μένουν με την
+        # ημερομηνία σάρωσής τους μέχρι να ξανατρέξουν με --party.
+        prev = sorted(glob_module.glob(os.path.join(SNAPSHOT_DIR, "*.json")))
+        if prev:
+            try:
+                with open(prev[-1], encoding="utf-8") as f:
+                    snapshot = json.load(f)
+                print(f"(μεταφορά προηγούμενων δεδομένων από {os.path.basename(prev[-1])})")
+            except Exception:
+                snapshot = {}
 
     from playwright.sync_api import sync_playwright
     import random
@@ -1101,6 +1125,8 @@ def main():
                 best_snap["hist_id"] = hid
                 best_snap["party"] = pid
                 best_snap["party_label"] = party["label"]
+                best_snap["scanned"] = TODAY   # πότε τραβήχτηκαν αυτές οι τιμές
+                best_snap["auto"] = party.get("auto", True)
                 best_snap["adults"] = party["adults"]
                 best_snap["children"] = trip["children"]
                 best_snap["rooms"] = trip["rooms"]

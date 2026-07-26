@@ -85,14 +85,36 @@ function App() {
                   party === p.id
                     ? 'bg-blue-600 text-white border-blue-400 shadow-lg shadow-blue-900/40 scale-105'
                     : 'bg-slate-800/60 text-slate-300 border-slate-700/50 hover:border-slate-500'}`}>
-                {p.label}
+                {p.label}{p.auto === false && <span className="ml-1.5 opacity-60" title="Χειροκίνητη ενημέρωση">✋</span>}
                 <span className="block text-[10px] font-medium opacity-70 mt-0.5">
-                  {p.short} · {p.nights} βράδια
+                  {p.short} · {p.nights} βράδια{p.auto === false ? ' · κατά παραγγελία' : ' · καθημερινά'}
                 </span>
               </button>
             ))}
           </div>
         )}
+
+        {(() => {
+          // Ειδοποίηση παλαιότητας: οι χειροκίνητες συνθέσεις δεν ανανεώνονται καθημερινά
+          const cfg = parties.find(p => p.id === party)
+          if (!cfg || cfg.auto !== false) return null
+          const dates = tripsData
+            .map(({ entry }) => (entry.parties || {})[party]?.scanned)
+            .filter(Boolean).sort()
+          if (!dates.length) return null
+          const newest = dates[dates.length - 1]
+          const days = Math.round((new Date().setHours(0,0,0,0) - new Date(newest)) / 86400000)
+          return (
+            <div className={`rounded-2xl px-5 py-3 mb-8 text-sm border ${
+              days >= 3 ? 'bg-amber-900/25 border-amber-500/40 text-amber-200'
+                        : 'bg-slate-800/60 border-slate-700/50 text-slate-300'}`}>
+              ✋ <strong>Χειροκίνητη σύνθεση</strong> — οι τιμές είναι από {fmtGr(newest)}
+              {days > 0 && ` (πριν ${days} ${days === 1 ? 'μέρα' : 'μέρες'})`}
+              {days >= 3 && ' · ίσως έχουν αλλάξει, ζήτησε νέο σκανάρισμα'}
+              . Καθημερινά ανανεώνεται μόνο το «1 ζευγάρι».
+            </div>
+          )
+        })()}
 
         <div className="space-y-10">
           {tripsData.map(({ trip, entry }) => {

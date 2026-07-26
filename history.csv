@@ -213,3 +213,6 @@ date,trip_id,metric,value
 2026-07-27,rome-nov-six,flight_min,971
 2026-07-27,rome-nov-six,flight_best,971
 2026-07-27,rome-nov-six,booking_min,359.0
+2026-07-27,budapest-nov-couple,flight_min,193
+2026-07-27,budapest-nov-couple,flight_best,193
+2026-07-27,budapest-nov-couple,booking_min,72.0
