@@ -3,7 +3,7 @@
   "party_configs": [
     {"id": "couple",  "label": "1 ζευγάρι",              "short": "2 άτομα",   "adults": 2, "children": [],  "nights": 2},
     {"id": "family",  "label": "2 ζευγάρια + παιδί 3½",  "short": "4 + παιδί", "adults": 4, "children": [3], "nights": 3},
-    {"id": "six",     "label": "3 ζευγάρια",             "short": "6 άτομα",   "adults": 6, "children": [],  "nights": 3}
+    {"id": "six",     "label": "3 ζευγάρια + παιδί 3½",  "short": "6 + παιδί", "adults": 6, "children": [3], "nights": 3}
   ],
   "trips": [
     {
