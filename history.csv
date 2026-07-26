@@ -184,3 +184,5 @@ date,trip_id,metric,value
 2026-07-23,budapest-nov,flight_min,140
 2026-07-23,budapest-nov,flight_best,140
 2026-07-23,budapest-nov,booking_min,106.0
+2026-07-27,budapest-nov-family,flight_min,341
+2026-07-27,budapest-nov-family,flight_best,341

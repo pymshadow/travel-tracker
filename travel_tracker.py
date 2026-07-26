@@ -78,13 +78,13 @@ UA = ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
 SOCS_COOKIE = "CAISHAgBEhJnd3NfMjAyMzA4MTAtMF9SQzIaAmVsIAEaBgiA_LyaBg"
 
 
-def _flight_query_url(dep_date, frm, to, adults):
+def _flight_query_url(dep_date, frm, to, adults, children=0):
     from fast_flights import FlightQuery, Passengers, create_query
     q = create_query(
         flights=[FlightQuery(date=dep_date, from_airport=frm, to_airport=to)],
         trip="one-way",
         seat="economy",
-        passengers=Passengers(adults=adults),
+        passengers=Passengers(adults=adults, children=children),
         currency="EUR",
     )
     params = q.params()
@@ -124,9 +124,9 @@ def _parse_live_label(label, frm, to):
 
 
 def _fetch_flight_leg_live(page, direction, dep_date, frm, to, adults, nights=0,
-                           out_max="13:00", ret_min="16:30"):
+                           out_max="13:00", ret_min="16:30", children=0):
     """Αναζητά τη 1η σελίδα live από Google Flights (πλήρη αποτελέσματα)."""
-    _, url = _flight_query_url(dep_date, frm, to, adults)
+    _, url = _flight_query_url(dep_date, frm, to, adults, children)
     page.goto(url, wait_until="domcontentloaded", timeout=60000)
     try:
         page.wait_for_selector("[aria-label*='euros']", timeout=25000)
@@ -162,7 +162,7 @@ def _fetch_flight_leg_live(page, direction, dep_date, frm, to, adults, nights=0,
 
 
 def _fetch_flight_leg(direction, dep_date, frm, to, adults, nights=0,
-                      out_max="13:00", ret_min="16:30"):
+                      out_max="13:00", ret_min="16:30", children=0):
     """Fallback scraping με fast_flights."""
     from primp import Client
     from fast_flights import FlightQuery, Passengers, create_query
@@ -172,7 +172,7 @@ def _fetch_flight_leg(direction, dep_date, frm, to, adults, nights=0,
         flights=[FlightQuery(date=dep_date, from_airport=frm, to_airport=to)],
         trip="one-way",
         seat="economy",
-        passengers=Passengers(adults=adults),
+        passengers=Passengers(adults=adults, children=children),
         currency="EUR",
     )
     last_err = None
@@ -248,6 +248,7 @@ def fetch_flights(trip, playwright):
     τίποτα, fallback στο στατικό HTML.
     """
     adults = trip.get("adults", 1)
+    children = len(trip.get("children") or [])
     nights = 0
     if trip.get("return"):
         from datetime import date as _d
@@ -274,13 +275,13 @@ def fetch_flights(trip, playwright):
             def fetch(out_max, ret_min):
                 try:
                     opts, url = _fetch_flight_leg_live(page, direction, d, frm, to, adults,
-                                                       nights, out_max, ret_min)
+                                                       nights, out_max, ret_min, children)
                 except Exception:
                     opts = []
                     url = ""
                 if not opts:  # fallback στο στατικό HTML
                     opts, url = _fetch_flight_leg(direction, d, frm, to, adults,
-                                                  nights, out_max, ret_min)
+                                                  nights, out_max, ret_min, children)
                 return opts, url
 
             # 1) αυστηρά όρια
@@ -394,7 +395,9 @@ def _booking_search_url(trip, extra_nflt):
     from datetime import datetime as _dt
     checkin = trip.get("checkin") or trip["depart"]
     checkout = trip.get("checkout") or trip.get("return")
-    
+
+    # αντίγραφο: αλλιώς το "fc=2" συσσωρευόταν στη λίστα του caller σε κάθε κλήση
+    extra_nflt = list(extra_nflt)
     try:
         checkin_date = _dt.strptime(checkin, "%Y-%m-%d")
         days_away = (checkin_date - _dt.now()).days
@@ -403,6 +406,10 @@ def _booking_search_url(trip, extra_nflt):
     except Exception:
         pass
 
+    adults = trip.get("adults", 1)
+    children = trip.get("children") or []          # λίστα ηλικιών, π.χ. [3]
+    rooms = trip.get("rooms") or max(1, (adults + 1) // 2)  # 1 δωμάτιο ανά ζευγάρι
+
     nflt = [f"review_score={int(RULES['min_rating'] * 10)}",
             f"distance={RULES['max_center_m']}",
             "roomfacility=38"] + extra_nflt
@@ -410,14 +417,18 @@ def _booking_search_url(trip, extra_nflt):
         "ss": trip.get("city") or trip["to"],
         "checkin": checkin,
         "checkout": checkout,
-        "group_adults": str(trip.get("adults", 1)),
-        "no_rooms": "1",
-        "group_children": "0",
+        "group_adults": str(adults),
+        "no_rooms": str(rooms),
+        "group_children": str(len(children)),
         "selected_currency": "EUR",
         "order": "price",
         "nflt": ";".join(nflt),
     }
-    return "https://www.booking.com/searchresults.en-gb.html?" + urlencode(params)
+    url = "https://www.booking.com/searchresults.en-gb.html?" + urlencode(params)
+    # Οι ηλικίες παιδιών θέλουν επαναλαμβανόμενη παράμετρο age=…
+    for a in children:
+        url += "&age=" + str(a)
+    return url
 
 
 def _extract_booking_results(page):
@@ -454,9 +465,15 @@ def _parse_booking_property(r, trip, kind):
     checkout = trip.get("checkout") or trip.get("return")
     cc = (bp.get("location") or {}).get("countryCode", "")
     page_name = bp.get("pageName", "")
+    children = trip.get("children") or []
+    rooms = trip.get("rooms") or max(1, (trip.get("adults", 1) + 1) // 2)
     url = (f"https://www.booking.com/hotel/{cc}/{page_name}.en-gb.html?"
            + urlencode({"checkin": checkin, "checkout": checkout,
-                        "group_adults": trip.get("adults", 1), "selected_currency": "EUR"}))
+                        "group_adults": trip.get("adults", 1),
+                        "group_children": len(children), "no_rooms": rooms,
+                        "selected_currency": "EUR"}))
+    for a in children:
+        url += "&age=" + str(a)
     return {
         "name": ((r.get("displayName") or {}).get("text")) or page_name,
         "kind": kind,  # apartment | hotel_breakfast
@@ -533,9 +550,16 @@ def fetch_booking(trip, playwright):
         page = ctx.new_page()
         page.goto("https://www.booking.com/", wait_until="domcontentloaded", timeout=60000)
         page.wait_for_timeout(3000)
+        blocked = 0
         for kind, nflt in searches:
             page.goto(_booking_search_url(trip, nflt),
                       wait_until="domcontentloaded", timeout=60000)
+            # Soft-block: το Booking ανακατευθύνει στην αρχική αντί για αποτελέσματα
+            if "searchresults" not in page.url:
+                blocked += 1
+                print(f"  ⛔ Booking rate-limit: ανακατεύθυνση στην αρχική ({kind})")
+                time.sleep(5)
+                continue
             try:
                 page.wait_for_selector('[data-testid="property-card"]', timeout=30000)
             except Exception:
@@ -557,6 +581,12 @@ def fetch_booking(trip, playwright):
     except Exception as e:
         print(f"  (προειδοποίηση: αποτυχία λήψης στάσεων OSM: {e})")
         stops = []
+
+    if blocked == len(searches) and not results:
+        # Όλες οι αναζητήσεις μπλοκαρίστηκαν — αυτό ΔΕΝ σημαίνει "δεν υπάρχουν
+        # καταλύματα"· το σφάλμα ανεβαίνει για να μη γραφτεί λάθος τιμή.
+        raise RuntimeError("Booking rate-limit (redirect στην αρχική) — δοκίμασε αργότερα "
+                           "ή άλλαξε IP/VPN")
 
     passing = [p for p in results.values() if _passes_rules(p, stops)]
     passing.sort(key=lambda x: x["total"])
@@ -640,6 +670,11 @@ def _flight_table(options, title, url=""):
     return "".join(rows)
 
 def build_report(trips, snapshot, hist):
+    # Το standalone report είναι legacy (κύρια διεπαφή = React dashboard).
+    # Με τη δομή πολλαπλών παρεών δείχνει τη σύνθεση "couple" ως αντιπροσωπευτική.
+    snapshot = {tid: (v.get("parties", {}).get("couple")
+                      or next(iter((v.get("parties") or {}).values()), v))
+                for tid, v in snapshot.items()}
     parts = ["""<!DOCTYPE html>
 <html lang="el" class="dark">
 <head>
@@ -818,51 +853,54 @@ def update_top_deals(snapshot, trips_file, public_dir):
         except Exception:
             deals = {}
 
-    adults_by_id = {}
-    try:
-        with open(trips_file, encoding="utf-8") as f:
-            adults_by_id = {t["id"]: t.get("adults", 2) for t in json.load(f)["trips"]}
-    except Exception:
-        pass
-
     today = date.today()
-    for tid, snap in snapshot.items():
-        if snap.get("skip_flights"):
-            continue  # εισιτήρια ήδη κλεισμένα — δεν συγκρίνεται με πλήρη ταξίδια
-        if not snap.get("flight_min") or not snap.get("booking_min"):
-            continue  # μόνο ολοκληρωμένα deals (και πτήση και διαμονή)
-        adults = adults_by_id.get(tid, 2)
-        total = round(snap["flight_min"] + snap["booking_min"])
-        city_key = snap.get("to") or tid
-        entry = {
-            "city": (snap.get("name") or tid).replace("Έκπληξη: ", ""),
-            "to": city_key,
-            "depart": snap.get("depart_str"),
-            "return": snap.get("return_str"),
-            "flight_min": round(snap["flight_min"]),
-            "booking_min": round(snap["booking_min"]),
-            "total": total,
-            "adults": adults,
-            "per_person": round(total / adults),
-            "found": TODAY,
-            "flights_out_url": snap.get("flights_out_url", ""),
-            "flights_ret_url": snap.get("flights_ret_url", ""),
-            "booking_url": ((snap.get("booking") or [{}])[0]).get("url", ""),
-            "booking_name": ((snap.get("booking") or [{}])[0]).get("name", ""),
-        }
-        old = deals.get(city_key)
-        if (old is None or total <= old.get("total", 1e9)
-                or date.fromisoformat(old.get("found", "2000-01-01")) < today - timedelta(days=7)):
-            deals[city_key] = entry
+    # Νέα δομή snapshot: {trip_id: {"parties": {party_id: snap}}}
+    # Τα deals κλειδώνονται ανά (πόλη, σύνθεση παρέας).
+    for tid, entry_snap in snapshot.items():
+        parties = entry_snap.get("parties") or {}
+        for pid, snap in parties.items():
+            if snap.get("skip_flights"):
+                continue  # εισιτήρια ήδη κλεισμένα — δεν συγκρίνεται με πλήρη ταξίδια
+            if not snap.get("flight_min") or not snap.get("booking_min"):
+                continue  # μόνο ολοκληρωμένα deals (και πτήση και διαμονή)
+            adults = snap.get("adults", 2)
+            kids = len(snap.get("children") or [])
+            people = adults + kids
+            total = round(snap["flight_min"] + snap["booking_min"])
+            city_key = f"{snap.get('to') or tid}|{pid}"
+            entry = {
+                "city": (snap.get("name") or tid).replace("Έκπληξη: ", ""),
+                "to": snap.get("to") or tid,
+                "party": pid,
+                "party_label": snap.get("party_label", pid),
+                "depart": snap.get("depart_str"),
+                "return": snap.get("return_str"),
+                "flight_min": round(snap["flight_min"]),
+                "booking_min": round(snap["booking_min"]),
+                "total": total,
+                "adults": adults,
+                "people": people,
+                "per_person": round(total / people) if people else total,
+                "found": TODAY,
+                "flights_out_url": snap.get("flights_out_url", ""),
+                "flights_ret_url": snap.get("flights_ret_url", ""),
+                "booking_url": ((snap.get("booking") or [{}])[0]).get("url", ""),
+                "booking_name": ((snap.get("booking") or [{}])[0]).get("name", ""),
+            }
+            old = deals.get(city_key)
+            if (old is None or total <= old.get("total", 1e9)
+                    or date.fromisoformat(old.get("found", "2000-01-01")) < today - timedelta(days=7)):
+                deals[city_key] = entry
 
-    # πέτα ό,τι είναι πάνω από 14 ημερών — οι τιμές έχουν πια αλλάξει σίγουρα
+    # πέτα ό,τι είναι πάνω από 14 ημερών ή από παλιά δομή (χωρίς party)
     deals = {k: v for k, v in deals.items()
-             if date.fromisoformat(v.get("found", "2000-01-01")) >= today - timedelta(days=14)}
+             if v.get("party")
+             and date.fromisoformat(v.get("found", "2000-01-01")) >= today - timedelta(days=14)}
 
     with open(TOP_DEALS_FILE, "w", encoding="utf-8") as f:
         json.dump(deals, f, ensure_ascii=False, indent=1)
     shutil.copy2(TOP_DEALS_FILE, os.path.join(public_dir, "top_deals.json"))
-    print(f"🏆 Top προσφορές: {len(deals)} πόλεις στη λίστα")
+    print(f"🏆 Top προσφορές: {len(deals)} συνδυασμοί (πόλη × παρέα) στη λίστα")
     return deals
 
 
@@ -873,15 +911,26 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--file", default=TRIPS_FILE, help="JSON file with trips")
     parser.add_argument("--single", help="Run only for this trip ID")
+    parser.add_argument("--party", help="Run only for this party config id (couple/family/six)")
     args = parser.parse_args()
     
     if not os.path.exists(args.file):
         print(f"Δεν βρέθηκε το {args.file}")
         return 1
     with open(args.file, encoding="utf-8") as f:
-        trips = [t for t in json.load(f)["trips"] if t.get("enabled", True)]
+        cfg = json.load(f)
+        trips = [t for t in cfg["trips"] if t.get("enabled", True)]
         if args.single:
             trips = [t for t in trips if t["id"] == args.single]
+    # Συνθέσεις παρέας: κάθε ταξίδι υπολογίζεται για καθεμία ξεχωριστά
+    party_configs = cfg.get("party_configs") or [
+        {"id": "couple", "label": "1 ζευγάρι", "short": "2 άτομα", "adults": 2, "children": []}
+    ]
+    if args.party:
+        party_configs = [p for p in party_configs if p["id"] == args.party]
+        if not party_configs:
+            print(f"Άγνωστη σύνθεση: {args.party}")
+            return 1
     
     if not trips:
         print(f"Κανένα ενεργό ταξίδι προς εκτέλεση.")
@@ -1000,6 +1049,28 @@ def main():
         return best_snap, best_hist
 
     for trip in trips:
+      for party in party_configs:
+        # Εφαρμογή της σύνθεσης παρέας πάνω στο ταξίδι
+        trip = dict(trip)
+        trip["adults"] = party["adults"]
+        trip["children"] = party.get("children") or []
+        trip["rooms"] = party.get("rooms") or max(1, (party["adults"] + 1) // 2)
+        pid = party["id"]
+        # Διανυκτερεύσεις ανά σύνθεση: η επιστροφή υπολογίζεται από την
+        # αναχώρηση (π.χ. ζευγάρι 2 βράδια, μεγάλες παρέες 3 βράδια).
+        pnights = party.get("nights")
+        if pnights and trip.get("date_pairs"):
+            from datetime import date as _dd, timedelta as _td
+            trip["date_pairs"] = [
+                {"depart": p["depart"],
+                 "return": (_dd(*[int(x) for x in p["depart"].split("-")])
+                            + _td(days=pnights)).isoformat()}
+                for p in trip["date_pairs"]]
+        print(f"\n{'#'*66}\n### {trip.get('name')} — {party['label']} "
+              f"({party['adults']} ενήλικες"
+              + (f" + {len(trip['children'])} παιδί" if trip["children"] else "")
+              + f", {trip['rooms']} δωμάτια)\n{'#'*66}")
+
         with sync_playwright() as pw:
             tid = trip["id"]
 
@@ -1010,12 +1081,12 @@ def main():
                 random.shuffle(candidates)
                 if not candidates:
                     candidates = list(trip["surprise_pool"])
-                best_snap, best_hist, hid = None, [], tid
+                best_snap, best_hist, hid = None, [], f"{tid}-{pid}"
                 for i, choice in enumerate(candidates):
                     trip["to"] = choice["to"]
                     trip["city"] = choice["city"]
                     trip["name"] = f"Έκπληξη: {choice['name']}"
-                    hid = f"{tid}-{choice['to'].lower()}"
+                    hid = f"{tid}-{choice['to'].lower()}-{pid}"
                     best_snap, best_hist = process_trip(trip, pw, hid,
                                                         skip_booking_if_no_flights=True)
                     if best_snap and best_snap.get("flight_min"):
@@ -1023,16 +1094,29 @@ def main():
                     if i < len(candidates) - 1:
                         print(f"\n🔁 Η Έκπληξη «{choice['name']}» δεν έχει πτήσεις εντός κανόνων — ξανακλήρωση…")
             else:
-                hid = trip.get("_hist_id", tid)
+                hid = f"{trip.get('_hist_id', tid)}-{pid}"
                 best_snap, best_hist = process_trip(trip, pw, hid)
 
             if best_snap:
                 best_snap["hist_id"] = hid
+                best_snap["party"] = pid
+                best_snap["party_label"] = party["label"]
+                best_snap["adults"] = party["adults"]
+                best_snap["children"] = trip["children"]
+                best_snap["rooms"] = trip["rooms"]
                 # Το report πρέπει να δείχνει τις ημερομηνίες του φθηνότερου
                 # συνδυασμού, όχι του τελευταίου που δοκιμάστηκε.
                 trip["depart"] = best_snap.get("depart_str", trip.get("depart"))
                 trip["return"] = best_snap.get("return_str", trip.get("return"))
-                snapshot[tid] = best_snap
+                # Δομή: snapshot[trip_id]["parties"][party_id] = αποτελέσματα
+                entry = snapshot.setdefault(tid, {})
+                if "parties" not in entry:
+                    entry = {"name": trip.get("name", tid), "to": trip.get("to"),
+                             "city": trip.get("city"), "parties": {}}
+                    snapshot[tid] = entry
+                entry["name"] = trip.get("name", tid)
+                entry["to"] = trip.get("to")
+                entry["parties"][pid] = best_snap
                 history_rows.extend(best_hist)
 
     append_history(history_rows)
