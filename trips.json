@@ -1,9 +1,9 @@
 {
-  "_οδηγίες": "party_configs: συνθέσεις παρέας. nights = διανυκτερεύσεις (η επιστροφή υπολογίζεται αυτόματα από την αναχώρηση). children = λίστα ηλικιών.",
+  "_οδηγίες": "party_configs: συνθέσεις παρέας. nights = διανυκτερεύσεις (η επιστροφή υπολογίζεται αυτόματα από την αναχώρηση). children = λίστα ηλικιών. auto=true → τρέχει στο καθημερινό αυτόματο σκανάρισμα· auto=false → μόνο χειροκίνητα με --party <id>.",
   "party_configs": [
-    {"id": "couple",  "label": "1 ζευγάρι",              "short": "2 άτομα",   "adults": 2, "children": [],  "nights": 2},
-    {"id": "family",  "label": "2 ζευγάρια + παιδί 3½",  "short": "4 + παιδί", "adults": 4, "children": [3], "nights": 3},
-    {"id": "six",     "label": "3 ζευγάρια + παιδί 3½",  "short": "6 + παιδί", "adults": 6, "children": [3], "nights": 3}
+    {"id": "couple",  "label": "1 ζευγάρι",              "short": "2 άτομα",   "adults": 2, "children": [],  "nights": 2, "auto": true},
+    {"id": "family",  "label": "2 ζευγάρια + παιδί 3½",  "short": "4 + παιδί", "adults": 4, "children": [3], "nights": 3, "auto": false},
+    {"id": "six",     "label": "3 ζευγάρια + παιδί 3½",  "short": "6 + παιδί", "adults": 6, "children": [3], "nights": 3, "auto": false}
   ],
   "trips": [
     {
