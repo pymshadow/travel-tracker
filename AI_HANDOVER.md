@@ -87,10 +87,31 @@ Per-person/day values (low/mid/high, **excluding accommodation**) derived from N
 ## 4b. Incident log
 - **2026-07-18:** Daily Action failed at the "Commit new snapshot" step (`git pull --rebase origin main` conflicted because other sessions had pushed commits touching the same auto-generated files). Scrape + build had succeeded, but the failed commit step skipped the deploy, so the site kept showing the previous day's data (surprise city stuck on Berlin — it was NOT a surprise-logic bug; the redraw/exclusion works and correctly picks a new city daily). Fix: the commit step now does `git pull --no-rebase -X ours --no-edit origin main` (fresh scrape always wins conflicts on generated files) inside a 5× retry loop. If the daily run ever fails again, recover by running `python travel_tracker.py` locally and pushing the data files.
 
-## 4c. Current trips (2026-07-23)
-- **Madrid** — Jan 17-22 2027, **tickets already booked** (`skip_flights: true`, single locked date_pair): accommodation only, ~405€.
-- **Budapest / Milan / Rome** — Nov 2026, 2-night Fri→Sun weekends, 4 date_pairs each (Nov 6-8, 13-15, 20-22, 27-29). Current bests: Budapest 246€, Milan 344€, Rome ~486-525€ (total for 2, flights+stay).
-Vienna + the surprise-europe pool were removed earlier at the user's request; the pool logic (2b) still exists in code if re-added.
+## 2g. Multi-party support (added 2026-07-27)
+`trips.json` has a top-level **`party_configs`** array; every trip is scanned once per config. Each config: `{id, label, short, adults, children:[ages], nights}`. Current: `couple` (2 adults, 2 nights), `family` (4 adults + child age 3, 3 nights), `six` (6 adults + child age 3, 3 nights).
+- **Nights per party**: `date_pairs` in a trip only supply the DEPARTURE dates; the return is recomputed as `depart + party.nights`. So one trip config serves parties with different trip lengths.
+- **Rooms**: `party.rooms` or default `ceil(adults/2)` (1 room per couple). Passed to Booking as `no_rooms`; children as `group_children` + repeated `&age=N` params (must be appended after urlencode).
+- **Flights**: children go to `Passengers(adults=…, children=…)` — Google prices child fares correctly, so don't multiply adult fares.
+- **Snapshot shape changed**: `snapshot[trip_id] = {name, to, parties: {party_id: {…usual fields…, party, party_label, adults, children, rooms}}}`. Anything reading snapshots must go through `.parties[pid]` (the legacy standalone `report.html` picks `couple` as representative).
+- **`top_deals.json`** is keyed `"<AIRPORT>|<party_id>"` and each entry carries `party`, `party_label`, `people`. The dashboard filters deals by the selected party.
+- **Dashboard**: party selector buttons at the top drive everything. A child counts as 0.5 person for cost-of-living; per-person figures divide by `adults + children`.
+- CLI: `--party <id>` runs a single config (with `--single <trip_id>` for one city).
+
+## 2h. Booking rate-limit (learned the hard way 2026-07-27)
+Too many searches in a short window makes Booking **silently redirect searchresults → homepage** (HTTP 200, no captcha, no error). Previously this looked identical to "no properties matched the rules" and produced misleading empty data. `fetch_booking` now checks `"searchresults" not in page.url`, prints `⛔ Booking rate-limit`, and **raises** if every search was blocked, so no bogus values get recorded. Recovery: wait ~1h or switch VPN/IP (verified: a new VPN exit IP works immediately). GitHub Actions runs from different IPs and is unaffected by local blocking.
+
+**Load note**: 3 parties × 3 cities × 4 date_pairs × 3 accommodation searches = 108 Booking page loads per full run (~35-45 min). If the daily Action starts getting rate-limited, reduce `date_pairs` for the big parties or alternate parties per day.
+
+## 4c. Current trips (2026-07-27)
+**Budapest / Milan / Rome**, November 2026, departures on the 4 Fridays (Nov 6, 13, 20, 27); return computed per party (couple 2 nights → Sun, family/six 3 nights → Mon). Best totals (flights + stay) at last scan:
+
+| | couple (2) | family (5) | six (7) |
+|---|---|---|---|
+| Budapest | 213€ (~106/άτ) | 673€ (~135/άτ) | 951€ (~136/άτ) |
+| Milan | 266€ (~133/άτ) | 644€ (~129/άτ) | 852€ (~122/άτ) |
+| Rome | 476€ (~238/άτ) | 976€ (~195/άτ) | 1330€ (~190/άτ) |
+
+Madrid was **removed entirely** on 2026-07-27 (trip booked, no longer tracked) — the `skip_flights` mechanism (2d-bis) survives in code for future use. Vienna + the surprise-europe pool were removed earlier; pool logic (2b) still exists if re-added.
 
 ## 4d. Deploy gotcha (learned 2026-07-23)
 A **merge commit** pushed to main does NOT reliably trigger `deploy-pages.yml` (GitHub path-filter behaviour on merge commits), so the live site can lag behind main. Two reliable ways to force a deploy: (a) a normal non-merge commit touching `dashboard/**`, or (b) manual: `cd dashboard && npm run build`, copy `dist/*` to a temp dir, add a `.nojekyll`, `git init -b gh-pages`, commit, and `git push -f <repo-url> gh-pages`. Method (b) is what recovered the site on 07-23. The daily Action deploys fine on its own (non-merge commits).
