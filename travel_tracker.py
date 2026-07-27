@@ -904,6 +904,101 @@ def update_top_deals(snapshot, trips_file, public_dir):
     return deals
 
 
+# ------------------------------------------------------------ ειδοποίηση ---
+
+DASHBOARD_URL = "https://pymshadow.github.io/travel-tracker/"
+
+
+def notify_best_deal(snapshot, parties_run):
+    """Στέλνει Telegram ειδοποίηση με το φθηνότερο σύνολο (πτήσεις+διαμονή) της ημέρας.
+
+    Συγκρίνει με τη χθεσινή τιμή του ίδιου συνδυασμού (πόλη+παρέα) ώστε το
+    μήνυμα να λέει αν έπεσε ή ανέβηκε. Δεν σταματά ποτέ το script αν αποτύχει.
+    """
+    try:
+        candidates = []
+        for tid, entry in snapshot.items():
+            for pid, s in (entry.get("parties") or {}).items():
+                if pid not in parties_run or s.get("scanned") != TODAY:
+                    continue  # μόνο ό,τι σαρώθηκε τώρα
+                f, b = s.get("flight_min"), s.get("booking_min")
+                if not f or not b:
+                    continue
+                people = s.get("adults", 0) + len(s.get("children") or [])
+                candidates.append({
+                    "total": round(f + b), "flight": round(f), "stay": round(b),
+                    "city": (entry.get("name") or tid).replace("Έκπληξη: ", ""),
+                    "depart": s.get("depart_str"), "return": s.get("return_str"),
+                    "people": people, "party_label": s.get("party_label", pid),
+                    "pp": round((f + b) / people) if people else round(f + b),
+                    "key": f"{tid}|{pid}",
+                })
+        if not candidates:
+            return
+        best = min(candidates, key=lambda x: x["total"])
+
+        # Χθεσινή τιμή του ίδιου συνδυασμού για σύγκριση
+        prev_total = None
+        files = sorted(glob_module.glob(os.path.join(SNAPSHOT_DIR, "*.json")))
+        for path in reversed(files):
+            if os.path.basename(path) == f"{TODAY}.json":
+                continue
+            try:
+                with open(path, encoding="utf-8") as f_:
+                    old = json.load(f_)
+                tid, pid = best["key"].split("|")
+                s = ((old.get(tid) or {}).get("parties") or {}).get(pid) or {}
+                if s.get("flight_min") and s.get("booking_min"):
+                    prev_total = round(s["flight_min"] + s["booking_min"])
+                    break
+            except Exception:
+                continue
+
+        if prev_total is None:
+            trend = ""
+        elif best["total"] < prev_total:
+            trend = f"\n📉 Έπεσε {prev_total - best['total']}€ από την προηγούμενη μέτρηση ({prev_total}€)"
+        elif best["total"] > prev_total:
+            trend = f"\n📈 Ανέβηκε {best['total'] - prev_total}€ (ήταν {prev_total}€)"
+        else:
+            trend = "\n➡️ Ίδια τιμή με την προηγούμενη μέτρηση"
+
+        dep, ret = best["depart"], best["return"]
+        nights = ""
+        try:
+            a = date.fromisoformat(dep)
+            b_ = date.fromisoformat(ret)
+            nights = f" · {(b_ - a).days} βράδια"
+        except Exception:
+            pass
+
+        title = f"{best['city']} {best['total']}€ ({best['pp']}€/άτομο)"
+        message = (
+            f"🏆 Φθηνότερο σύνολο σήμερα\n\n"
+            f"📍 {best['city']}\n"
+            f"📅 {dep} → {ret}{nights}\n"
+            f"👥 {best['party_label']} ({best['people']} άτομα)\n\n"
+            f"✈️ Πτήσεις: {best['flight']}€\n"
+            f"🏨 Διαμονή: {best['stay']}€\n"
+            f"💶 Σύνολο: {best['total']}€  (~{best['pp']}€/άτομο)"
+            f"{trend}"
+        )
+        # Άλλες πόλεις για σύγκριση
+        others = [c for c in sorted(candidates, key=lambda x: x["total"])
+                  if c["key"] != best["key"]][:3]
+        if others:
+            message += "\n\nΥπόλοιπα:\n" + "\n".join(
+                f"• {c['city']} {c['total']}€ ({c['pp']}€/άτ)" for c in others)
+
+        sys.path.insert(0, r"D:\claude\notify")
+        from notify import notify
+        notify(message, title=title, source="travel-tracker", url=DASHBOARD_URL)
+        print(f"📲 Ειδοποίηση Telegram: {title}")
+    except Exception as e:
+        # Η ειδοποίηση δεν πρέπει ΠΟΤΕ να ρίξει το σκανάρισμα
+        print(f"  (προειδοποίηση: αποτυχία αποστολής ειδοποίησης: {e})")
+
+
 # ------------------------------------------------------------------- main ---
 
 def main():
@@ -914,6 +1009,8 @@ def main():
     parser.add_argument("--party", help="Συνθέσεις προς εκτέλεση: id (π.χ. family), "
                                         "λίστα (family,six) ή 'all'. Χωρίς αυτό τρέχουν "
                                         "μόνο οι auto=true.")
+    parser.add_argument("--no-notify", action="store_true",
+                        help="Χωρίς ειδοποίηση Telegram στο τέλος")
     args = parser.parse_args()
     
     if not os.path.exists(args.file):
@@ -1161,6 +1258,9 @@ def main():
 
     build_report(trips, snapshot, load_history())
     print(f"\n✅ Report: {REPORT_FILE}")
+
+    if not args.no_notify:
+        notify_best_deal(snapshot, {p["id"] for p in party_configs})
     return 0
 
 

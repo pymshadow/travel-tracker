@@ -11,3 +11,7 @@ temp_trips.json
 
 # Local Netlify folder
 .netlify
+
+# Κατάσταση ειδοποιήσεων (τοπικό, εκτός git)
+.notify_state.json
+notify.log
