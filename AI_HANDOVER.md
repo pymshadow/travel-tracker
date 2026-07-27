@@ -99,6 +99,14 @@ Per-person/day values (low/mid/high, **excluding accommodation**) derived from N
 - **Dashboard**: party selector buttons at the top drive everything. A child counts as 0.5 person for cost-of-living; per-person figures divide by `adults + children`.
 - CLI: `--party <id>` runs a single config (with `--single <trip_id>` for one city).
 
+## 2i. Telegram notification (added 2026-07-27)
+Daily push with the cheapest total (flights + stay) of the day.
+- **`notify_best_deal(snapshot, parties)`** in `travel_tracker.py` builds and sends the message (city, dates, nights, party, flights/stay/total, €/person, trend vs the previous snapshot of the same city+party, plus the other cities). Runs at the end of every **local** scan unless `--no-notify`. Wrapped in try/except — a notification failure must never break a scan.
+- **`notify_daily.py`** is the piece that actually covers the daily run: the scan happens on GitHub Actions, which has no access to the local notifier or token, so this script runs **locally**, fetches the already-published `snapshot.json` from GitHub Pages, and notifies. Dedup state in `.notify_state.json` (git-ignored) — one message per day unless `--force`.
+- Scheduled task **"Travel Deal Notification"**, daily 12:00, `StartWhenAvailable` → `run_notify.bat`. (Runs after the 10-11am Action; if the PC is off it fires when it next wakes.)
+- Notification plumbing lives in `D:\claude\notify\` (Telegram bot). **Never read or copy the token** — always call `notify()` / `notify.ps1`. See the `notify-phone` skill.
+- If PC-independent notifications are ever wanted, the alternative is Telegram secrets in GitHub Actions — the user must add those themselves (we must not read the token).
+
 ## 2h. Booking rate-limit (learned the hard way 2026-07-27)
 Too many searches in a short window makes Booking **silently redirect searchresults → homepage** (HTTP 200, no captcha, no error). Previously this looked identical to "no properties matched the rules" and produced misleading empty data. `fetch_booking` now checks `"searchresults" not in page.url`, prints `⛔ Booking rate-limit`, and **raises** if every search was blocked, so no bogus values get recorded. Recovery: wait ~1h or switch VPN/IP (verified: a new VPN exit IP works immediately). GitHub Actions runs from different IPs and is unaffected by local blocking.
 
