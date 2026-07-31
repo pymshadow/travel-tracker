@@ -716,20 +716,28 @@ def build_report(trips, snapshot, hist):
     for trip in trips:
         tid = trip["id"]
         snap = snapshot.get(tid, {})
-        ret_text = f" &mdash; επιστροφή {trip['return']}" if trip.get("return") else ""
-        adults = trip.get("adults", 1)
-        
+        # Το trip εδώ είναι το ΑΡΧΙΚΟ αντικείμενο από trips.json — ο βρόχος
+        # πολλαπλών παρεών στο main() δουλεύει πάνω σε dict(trip) (αντίγραφο),
+        # οπότε depart/return/adults ΔΕΝ υπάρχουν ποτέ εδώ πάνω· έρχονται
+        # από το snap (το αποτέλεσμα του φθηνότερου συνδυασμού που βρέθηκε).
+        frm = trip.get("from", "?")
+        to = trip.get("to") or snap.get("to", "?")
+        depart = trip.get("depart") or snap.get("depart_str") or "?"
+        ret = trip.get("return") or snap.get("return_str")
+        ret_text = f" &mdash; επιστροφή {ret}" if ret else ""
+        adults = trip.get("adults") or snap.get("adults", 1)
+
         parts.append(f"""
             <section class="glass-card rounded-3xl p-6 md:p-10 overflow-hidden relative">
                 <div class="absolute -top-6 -right-6 p-4 opacity-5 text-9xl pointer-events-none">✈️</div>
                 <h2 class="text-3xl md:text-4xl font-extrabold text-white mb-3">{html.escape(trip.get('name', tid))}</h2>
                 <div class="text-slate-400 mb-8 font-medium flex flex-wrap items-center gap-3">
-                    <span class="bg-slate-800 text-blue-300 px-3 py-1 rounded-full text-xs uppercase tracking-widest border border-slate-700/50">{trip['from']} &rarr; {trip['to']}</span>
-                    <span>Αναχώρηση {trip['depart']}{ret_text}</span>
+                    <span class="bg-slate-800 text-blue-300 px-3 py-1 rounded-full text-xs uppercase tracking-widest border border-slate-700/50">{frm} &rarr; {to}</span>
+                    <span>Αναχώρηση {depart}{ret_text}</span>
                     <span class="text-slate-500">&bull;</span>
                     <span>{adults} άτομα</span>
                 </div>
-                
+
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-5 mb-8">""")
         
         for metric, label in [("flight_min", "Φθηνότερες Πτήσεις"),
@@ -781,9 +789,9 @@ def build_report(trips, snapshot, hist):
         if snap.get("error"):
             parts.append(f'<div class="bg-rose-900/20 border border-rose-500/30 text-rose-300 p-4 rounded-xl mb-8 text-sm">{html.escape(snap["error"])}</div>')
 
-        parts.append(_flight_table(snap.get("flights_out", []), f"Πτήσεις αναχώρησης ({trip['depart']})", snap.get("flights_out_url", "")))
-        if trip.get("return"):
-            parts.append(_flight_table(snap.get("flights_ret", []), f"Πτήσεις επιστροφής ({trip['return']})", snap.get("flights_ret_url", "")))
+        parts.append(_flight_table(snap.get("flights_out", []), f"Πτήσεις αναχώρησης ({depart})", snap.get("flights_out_url", "")))
+        if ret:
+            parts.append(_flight_table(snap.get("flights_ret", []), f"Πτήσεις επιστροφής ({ret})", snap.get("flights_ret_url", "")))
 
         if snap.get("booking"):
             parts.append("""
@@ -1254,10 +1262,23 @@ def main():
     if os.path.exists(args.file):
         shutil.copy2(args.file, os.path.join(public_dir, "trips.json"))
 
-    update_top_deals(snapshot, args.file, public_dir)
+    # Τα κρίσιμα αρχεία (snapshot/history/dashboard) έχουν ήδη γραφτεί πιο πάνω.
+    # update_top_deals/build_report είναι δευτερεύοντα (legacy report + top
+    # deals) — ένα μελλοντικό bug εκεί δεν πρέπει ΠΟΤΕ να ρίξει όλο το daily
+    # run και να εμποδίσει το commit/deploy των φρέσκων τιμών (ό,τι έγινε
+    # 27-30/7/2026 με ένα KeyError στο build_report).
+    try:
+        update_top_deals(snapshot, args.file, public_dir)
+    except Exception as e:
+        print(f"  ⚠️ Σφάλμα update_top_deals (αγνοείται): {e}")
+        traceback.print_exc()
 
-    build_report(trips, snapshot, load_history())
-    print(f"\n✅ Report: {REPORT_FILE}")
+    try:
+        build_report(trips, snapshot, load_history())
+        print(f"\n✅ Report: {REPORT_FILE}")
+    except Exception as e:
+        print(f"  ⚠️ Σφάλμα build_report (αγνοείται): {e}")
+        traceback.print_exc()
 
     if not args.no_notify:
         notify_best_deal(snapshot, {p["id"] for p in party_configs})
