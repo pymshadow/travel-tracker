@@ -405,3 +405,12 @@ date,trip_id,metric,value
 2026-08-15,rome-nov-couple,flight_min,342
 2026-08-15,rome-nov-couple,flight_best,342
 2026-08-15,rome-nov-couple,booking_min,119.0
+2026-08-16,budapest-nov-couple,flight_min,187
+2026-08-16,budapest-nov-couple,flight_best,187
+2026-08-16,budapest-nov-couple,booking_min,92.0
+2026-08-16,milan-nov-couple,flight_min,127
+2026-08-16,milan-nov-couple,flight_best,127
+2026-08-16,milan-nov-couple,booking_min,145.0
+2026-08-16,rome-nov-couple,flight_min,342
+2026-08-16,rome-nov-couple,flight_best,342
+2026-08-16,rome-nov-couple,booking_min,127.0
