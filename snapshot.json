@@ -272,7 +272,7 @@
     ],
     "flights_ret": [
      {
-      "price": 172,
+      "price": 176,
       "airlines": [
        "Ryanair"
       ],
@@ -281,7 +281,7 @@
       "depart": "16:05",
       "arrive": "19:05",
       "via": "BUD → ATH",
-      "score": 189.8,
+      "score": 193.8,
       "relaxed": true
      }
     ],
@@ -289,8 +289,8 @@
     "flights_ret_url": "https://www.google.com/travel/flights?tfs=GhoSCjIwMjYtMTEtMDhqBRIDQlVEcgUSA0FUSEICAQFIAZgBAg%3D%3D&hl=en&curr=EUR",
     "out_relaxed": false,
     "ret_relaxed": true,
-    "flight_min": 272,
-    "flight_best": 272,
+    "flight_min": 276,
+    "flight_best": 276,
     "booking": [
      {
       "name": "Joe Apartman Budapest",
@@ -321,7 +321,7 @@
      {
       "name": "Riverside City",
       "kind": "apartment",
-      "total": 98.0,
+      "total": 96.0,
       "rating": 8.9,
       "reviews": 439,
       "center_m": null,
@@ -335,8 +335,8 @@
       "name": "CrystalHome",
       "kind": "apartment",
       "total": 99.0,
-      "rating": 8.7,
-      "reviews": 92,
+      "rating": 8.6,
+      "reviews": 93,
       "center_m": null,
       "transit_m": 60,
       "transit_desc": "~60 μ από στάση (OSM)",
@@ -386,9 +386,9 @@
      {
       "name": "TL Hotel Budapest",
       "kind": "hotel_private_bath",
-      "total": 107.0,
+      "total": 104.0,
       "rating": 8,
-      "reviews": 3121,
+      "reviews": 3117,
       "center_m": null,
       "transit_m": 136,
       "transit_desc": "~136 μ από στάση (OSM)",
@@ -399,7 +399,7 @@
      {
       "name": "Authentic Akacfa Apartment",
       "kind": "apartment",
-      "total": 109.0,
+      "total": 108.0,
       "rating": 9.3,
       "reviews": 337,
       "center_m": null,
@@ -436,17 +436,17 @@
       "url": "https://www.booking.com/hotel/hu/a-c-corvin-cozy-and-peaceful-apartment.en-gb.html?checkin=2026-11-06&checkout=2026-11-08&group_adults=2&group_children=0&no_rooms=1&selected_currency=EUR"
      },
      {
-      "name": "Onyx apartment with Free private garage + AC",
+      "name": "Little Americas Hillside Apartments",
       "kind": "apartment",
       "total": 111.0,
-      "rating": 9.2,
-      "reviews": 165,
+      "rating": 8.9,
+      "reviews": 333,
       "center_m": null,
-      "transit_m": 169,
-      "transit_desc": "~169 μ από στάση (OSM)",
-      "lat": 47.4933354,
-      "lon": 19.0746688,
-      "url": "https://www.booking.com/hotel/hu/onyx-apartment-with-free-private-garage-ac.en-gb.html?checkin=2026-11-06&checkout=2026-11-08&group_adults=2&group_children=0&no_rooms=1&selected_currency=EUR"
+      "transit_m": 106,
+      "transit_desc": "~106 μ από στάση (OSM)",
+      "lat": 47.51335367162152,
+      "lon": 19.03517351712719,
+      "url": "https://www.booking.com/hotel/hu/little-americas-hillside.en-gb.html?checkin=2026-11-06&checkout=2026-11-08&group_adults=2&group_children=0&no_rooms=1&selected_currency=EUR"
      }
     ],
     "booking_min": 92.0,
@@ -457,7 +457,7 @@
     "hist_id": "budapest-nov-couple",
     "party": "couple",
     "party_label": "1 ζευγάρι",
-    "scanned": "2026-09-14",
+    "scanned": "2026-09-15",
     "auto": true,
     "adults": 2,
     "children": [],
@@ -738,7 +738,7 @@
     ],
     "flights_ret": [
      {
-      "price": 52,
+      "price": 62,
       "airlines": [
        "easyJet"
       ],
@@ -747,11 +747,11 @@
       "depart": "17:45",
       "arrive": "21:15",
       "via": "MXP → ATH",
-      "score": 64.8,
+      "score": 74.8,
       "relaxed": false
      },
      {
-      "price": 259,
+      "price": 229,
       "airlines": [
        "SKY express"
       ],
@@ -760,7 +760,7 @@
       "depart": "19:35",
       "arrive": "23:00",
       "via": "MXP → ATH",
-      "score": 266.3,
+      "score": 236.3,
       "relaxed": false
      },
      {
@@ -781,15 +781,15 @@
     "flights_ret_url": "https://www.google.com/travel/flights?tfs=GhoSCjIwMjYtMTEtMTVqBRIDTVhQcgUSA0FUSEICAQFIAZgBAg%3D%3D&hl=en&curr=EUR",
     "out_relaxed": false,
     "ret_relaxed": false,
-    "flight_min": 179,
-    "flight_best": 179,
+    "flight_min": 189,
+    "flight_best": 189,
     "booking": [
      {
       "name": "Hotel Emmy",
       "kind": "hotel_private_bath",
       "total": 111.0,
       "rating": 8.4,
-      "reviews": 1411,
+      "reviews": 1412,
       "center_m": null,
       "transit_m": 150,
       "transit_desc": "~150 μ από στάση (OSM)",
@@ -824,6 +824,19 @@
       "url": "https://www.booking.com/hotel/it/delightful-two-room-apartment-in-the-portello-area-for-two-people.en-gb.html?checkin=2026-11-13&checkout=2026-11-15&group_adults=2&group_children=0&no_rooms=1&selected_currency=EUR"
      },
      {
+      "name": "Hotel Fioralba",
+      "kind": "hotel_private_bath",
+      "total": 139.0,
+      "rating": 8.7,
+      "reviews": 776,
+      "center_m": null,
+      "transit_m": 141,
+      "transit_desc": "~141 μ από στάση (OSM)",
+      "lat": 45.463782,
+      "lon": 9.138739,
+      "url": "https://www.booking.com/hotel/it/fioralba.en-gb.html?checkin=2026-11-13&checkout=2026-11-15&group_adults=2&group_children=0&no_rooms=1&selected_currency=EUR"
+     },
+     {
       "name": "Mini suite di design",
       "kind": "apartment",
       "total": 141.0,
@@ -854,7 +867,7 @@
       "kind": "hotel_private_bath",
       "total": 145.0,
       "rating": 8,
-      "reviews": 3156,
+      "reviews": 3152,
       "center_m": null,
       "transit_m": 83,
       "transit_desc": "~83 μ από στάση (OSM)",
@@ -887,19 +900,6 @@
       "lat": 45.4653578,
       "lon": 9.1330484,
       "url": "https://www.booking.com/hotel/it/lust-studio-gulli.en-gb.html?checkin=2026-11-13&checkout=2026-11-15&group_adults=2&group_children=0&no_rooms=1&selected_currency=EUR"
-     },
-     {
-      "name": "Mira Studio - Metro 2 passi - Duomo & Linate Direct - AC",
-      "kind": "apartment",
-      "total": 147.0,
-      "rating": 9.1,
-      "reviews": 108,
-      "center_m": null,
-      "transit_m": 27,
-      "transit_desc": "~27 μ από στάση (OSM)",
-      "lat": 45.4544126,
-      "lon": 9.1527353,
-      "url": "https://www.booking.com/hotel/it/cozy-studio-50-meters-from-the-metro.en-gb.html?checkin=2026-11-13&checkout=2026-11-15&group_adults=2&group_children=0&no_rooms=1&selected_currency=EUR"
      },
      {
       "name": "Apartaments Sarca",
@@ -949,7 +949,7 @@
     "hist_id": "milan-nov-couple",
     "party": "couple",
     "party_label": "1 ζευγάρι",
-    "scanned": "2026-09-14",
+    "scanned": "2026-09-15",
     "auto": true,
     "adults": 2,
     "children": [],
@@ -1503,7 +1503,7 @@
      {
       "name": "I Colli di Monteverde",
       "kind": "apartment",
-      "total": 112.0,
+      "total": 113.0,
       "rating": 9.2,
       "reviews": 18,
       "center_m": null,
@@ -1516,7 +1516,7 @@
      {
       "name": "Alloggio brancaleone",
       "kind": "apartment",
-      "total": 113.0,
+      "total": 114.0,
       "rating": 8.9,
       "reviews": 15,
       "center_m": null,
@@ -1529,7 +1529,7 @@
      {
       "name": "Da Geo Balduina 225",
       "kind": "apartment",
-      "total": 129.0,
+      "total": 119.0,
       "rating": 8.8,
       "reviews": 46,
       "center_m": null,
@@ -1540,22 +1540,48 @@
       "url": "https://www.booking.com/hotel/it/balduina-225.en-gb.html?checkin=2026-11-13&checkout=2026-11-15&group_adults=2&group_children=0&no_rooms=1&selected_currency=EUR"
      },
      {
-      "name": "Raeli Hotel Floridia",
+      "name": "Hotel Infinito - Gruppo BLAM HOTELS",
+      "kind": "hotel_private_bath",
+      "total": 128.0,
+      "rating": 8.3,
+      "reviews": 1581,
+      "center_m": null,
+      "transit_m": 74,
+      "transit_desc": "~74 μ από στάση (OSM)",
+      "lat": 41.8913799135313,
+      "lon": 12.51093864440918,
+      "url": "https://www.booking.com/hotel/it/prestige-portamaggiore.en-gb.html?checkin=2026-11-13&checkout=2026-11-15&group_adults=2&group_children=0&no_rooms=1&selected_currency=EUR"
+     },
+     {
+      "name": "Romoli Hotel",
       "kind": "hotel_private_bath",
       "total": 135.0,
       "rating": 8.2,
-      "reviews": 1690,
+      "reviews": 1885,
       "center_m": null,
-      "transit_m": 145,
-      "transit_desc": "~145 μ από στάση (OSM)",
-      "lat": 41.90581743042448,
-      "lon": 12.500446513295174,
-      "url": "https://www.booking.com/hotel/it/floridia.en-gb.html?checkin=2026-11-13&checkout=2026-11-15&group_adults=2&group_children=0&no_rooms=1&selected_currency=EUR"
+      "transit_m": 84,
+      "transit_desc": "~84 μ από στάση (OSM)",
+      "lat": 41.869603047160346,
+      "lon": 12.514700408992212,
+      "url": "https://www.booking.com/hotel/it/romoli.en-gb.html?checkin=2026-11-13&checkout=2026-11-15&group_adults=2&group_children=0&no_rooms=1&selected_currency=EUR"
+     },
+     {
+      "name": "Hotel Parker - Gruppo BLAM HOTELS",
+      "kind": "hotel_private_bath",
+      "total": 136.0,
+      "rating": 8.6,
+      "reviews": 3089,
+      "center_m": null,
+      "transit_m": 96,
+      "transit_desc": "~96 μ από στάση (OSM)",
+      "lat": 41.893045353274836,
+      "lon": 12.512644529342651,
+      "url": "https://www.booking.com/hotel/it/parker-roma.en-gb.html?checkin=2026-11-13&checkout=2026-11-15&group_adults=2&group_children=0&no_rooms=1&selected_currency=EUR"
      },
      {
       "name": "Edi's House",
       "kind": "apartment",
-      "total": 139.0,
+      "total": 140.0,
       "rating": 9,
       "reviews": 102,
       "center_m": null,
@@ -1566,9 +1592,48 @@
       "url": "https://www.booking.com/hotel/it/edis-house-roma.en-gb.html?checkin=2026-11-13&checkout=2026-11-15&group_adults=2&group_children=0&no_rooms=1&selected_currency=EUR"
      },
      {
+      "name": "c-hotels Club House Roma",
+      "kind": "hotel_private_bath",
+      "total": 141.0,
+      "rating": 9,
+      "reviews": 4469,
+      "center_m": null,
+      "transit_m": 131,
+      "transit_desc": "~131 μ από στάση (OSM)",
+      "lat": 41.90431426113583,
+      "lon": 12.426728010177612,
+      "url": "https://www.booking.com/hotel/it/club-house-roma.en-gb.html?checkin=2026-11-13&checkout=2026-11-15&group_adults=2&group_children=0&no_rooms=1&selected_currency=EUR"
+     },
+     {
+      "name": "Hotel Pyramid",
+      "kind": "hotel_private_bath",
+      "total": 141.0,
+      "rating": 8.3,
+      "reviews": 823,
+      "center_m": null,
+      "transit_m": 57,
+      "transit_desc": "~57 μ από στάση (OSM)",
+      "lat": 41.87211139268862,
+      "lon": 12.47979149222374,
+      "url": "https://www.booking.com/hotel/it/hotelpyramidroma.en-gb.html?checkin=2026-11-13&checkout=2026-11-15&group_adults=2&group_children=0&no_rooms=1&selected_currency=EUR"
+     },
+     {
+      "name": "Hotel Espana - Gruppo BLAM HOTELS",
+      "kind": "hotel_private_bath",
+      "total": 141.0,
+      "rating": 8.1,
+      "reviews": 1563,
+      "center_m": null,
+      "transit_m": 84,
+      "transit_desc": "~84 μ από στάση (OSM)",
+      "lat": 41.891704611189496,
+      "lon": 12.510431706905365,
+      "url": "https://www.booking.com/hotel/it/espana.en-gb.html?checkin=2026-11-13&checkout=2026-11-15&group_adults=2&group_children=0&no_rooms=1&selected_currency=EUR"
+     },
+     {
       "name": "Loft Villa Blanc",
       "kind": "apartment",
-      "total": 141.0,
+      "total": 142.0,
       "rating": 8.4,
       "reviews": 66,
       "center_m": null,
@@ -1579,61 +1644,9 @@
       "url": "https://www.booking.com/hotel/it/loft-villa-blanc.en-gb.html?checkin=2026-11-13&checkout=2026-11-15&group_adults=2&group_children=0&no_rooms=1&selected_currency=EUR"
      },
      {
-      "name": "Green house",
-      "kind": "apartment",
-      "total": 141.0,
-      "rating": 8.3,
-      "reviews": 60,
-      "center_m": null,
-      "transit_m": 69,
-      "transit_desc": "~69 μ από στάση (OSM)",
-      "lat": 41.8902628,
-      "lon": 12.535791,
-      "url": "https://www.booking.com/hotel/it/green-house-roma3.en-gb.html?checkin=2026-11-13&checkout=2026-11-15&group_adults=2&group_children=0&no_rooms=1&selected_currency=EUR"
-     },
-     {
-      "name": "Hotel Villa San Lorenzo Maria",
-      "kind": "hotel_private_bath",
-      "total": 145.0,
-      "rating": 8.2,
-      "reviews": 2160,
-      "center_m": null,
-      "transit_m": 76,
-      "transit_desc": "~76 μ από στάση (OSM)",
-      "lat": 41.89546321015323,
-      "lon": 12.517123818397522,
-      "url": "https://www.booking.com/hotel/it/villa-san-lorenzo-maria.en-gb.html?checkin=2026-11-13&checkout=2026-11-15&group_adults=2&group_children=0&no_rooms=1&selected_currency=EUR"
-     },
-     {
-      "name": "Dafne room Nido perfetto per coppie a Roma",
-      "kind": "apartment",
-      "total": 147.0,
-      "rating": 8.4,
-      "reviews": 52,
-      "center_m": null,
-      "transit_m": 66,
-      "transit_desc": "~66 μ από στάση (OSM)",
-      "lat": 41.9004302,
-      "lon": 12.5362192,
-      "url": "https://www.booking.com/hotel/it/charming-nest-for-couples-in-rome.en-gb.html?checkin=2026-11-13&checkout=2026-11-15&group_adults=2&group_children=0&no_rooms=1&selected_currency=EUR"
-     },
-     {
-      "name": "Casa Rita 15 minuti dal centro",
-      "kind": "apartment",
-      "total": 147.0,
-      "rating": 9.3,
-      "reviews": 6,
-      "center_m": null,
-      "transit_m": 112,
-      "transit_desc": "~112 μ από στάση (OSM)",
-      "lat": 41.8693688,
-      "lon": 12.4629305,
-      "url": "https://www.booking.com/hotel/it/casa-rita-roma2.en-gb.html?checkin=2026-11-13&checkout=2026-11-15&group_adults=2&group_children=0&no_rooms=1&selected_currency=EUR"
-     },
-     {
       "name": "Hotel Delle Muse",
       "kind": "hotel_breakfast",
-      "total": 148.0,
+      "total": 142.0,
       "rating": 8.4,
       "reviews": 1411,
       "center_m": null,
@@ -1642,22 +1655,9 @@
       "lat": 41.93021502560122,
       "lon": 12.492715045809746,
       "url": "https://www.booking.com/hotel/it/dellemuse.en-gb.html?checkin=2026-11-13&checkout=2026-11-15&group_adults=2&group_children=0&no_rooms=1&selected_currency=EUR"
-     },
-     {
-      "name": "c-hotels Club House Roma",
-      "kind": "hotel_private_bath",
-      "total": 148.0,
-      "rating": 9,
-      "reviews": 4470,
-      "center_m": null,
-      "transit_m": 131,
-      "transit_desc": "~131 μ από στάση (OSM)",
-      "lat": 41.90431426113583,
-      "lon": 12.426728010177612,
-      "url": "https://www.booking.com/hotel/it/club-house-roma.en-gb.html?checkin=2026-11-13&checkout=2026-11-15&group_adults=2&group_children=0&no_rooms=1&selected_currency=EUR"
      }
     ],
-    "booking_min": 112.0,
+    "booking_min": 113.0,
     "depart_str": "2026-11-13",
     "return_str": "2026-11-15",
     "name": "Ρώμη",
@@ -1665,7 +1665,7 @@
     "hist_id": "rome-nov-couple",
     "party": "couple",
     "party_label": "1 ζευγάρι",
-    "scanned": "2026-09-14",
+    "scanned": "2026-09-15",
     "auto": true,
     "adults": 2,
     "children": [],
