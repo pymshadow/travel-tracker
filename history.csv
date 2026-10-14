@@ -921,3 +921,12 @@ date,trip_id,metric,value
 2026-10-13,milan-nov-couple,flight_best,270
 2026-10-13,rome-nov-couple,flight_min,554
 2026-10-13,rome-nov-couple,flight_best,554
+2026-10-14,budapest-nov-couple,flight_min,201
+2026-10-14,budapest-nov-couple,flight_best,201
+2026-10-14,budapest-nov-couple,booking_min,89.0
+2026-10-14,milan-nov-couple,flight_min,283
+2026-10-14,milan-nov-couple,flight_best,283
+2026-10-14,milan-nov-couple,booking_min,140.0
+2026-10-14,rome-nov-couple,flight_min,462
+2026-10-14,rome-nov-couple,flight_best,462
+2026-10-14,rome-nov-couple,booking_min,137.0
