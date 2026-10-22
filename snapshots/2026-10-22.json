@@ -1,0 +1,2176 @@
+{
+ "budapest-nov": {
+  "name": "Βουδαπέστη",
+  "to": "BUD",
+  "city": "Budapest",
+  "parties": {
+   "family": {
+    "flights_out": [
+     {
+      "price": 160,
+      "airlines": [
+       "Wizz Air"
+      ],
+      "stops": 0,
+      "dep_hour": 10.08,
+      "depart": "10:05",
+      "arrive": "11:15",
+      "via": "ATH → BUD",
+      "score": 172.2,
+      "relaxed": false
+     },
+     {
+      "price": 210,
+      "airlines": [
+       "Ryanair"
+      ],
+      "stops": 0,
+      "dep_hour": 12.75,
+      "depart": "12:45",
+      "arrive": "13:50",
+      "via": "ATH → BUD",
+      "score": 230.2,
+      "relaxed": false
+     }
+    ],
+    "flights_ret": [
+     {
+      "price": 352,
+      "airlines": [
+       "Ryanair"
+      ],
+      "stops": 0,
+      "dep_hour": 15.5,
+      "depart": "15:30",
+      "arrive": "18:30",
+      "via": "BUD → ATH",
+      "score": 371.5,
+      "relaxed": true
+     },
+     {
+      "price": 529,
+      "airlines": [
+       "Aegean"
+      ],
+      "stops": 0,
+      "dep_hour": 14.0,
+      "depart": "14:00",
+      "arrive": "17:00",
+      "via": "BUD → ATH",
+      "score": 538.0,
+      "relaxed": true
+     }
+    ],
+    "flights_out_url": "https://www.google.com/travel/flights?tfs=GhoSCjIwMjYtMTEtMDZqBRIDQVRIcgUSA0JVREIFAQEBAQJIAZgBAg%3D%3D&hl=en&curr=EUR",
+    "flights_ret_url": "https://www.google.com/travel/flights?tfs=GhoSCjIwMjYtMTEtMDlqBRIDQlVEcgUSA0FUSEIFAQEBAQJIAZgBAg%3D%3D&hl=en&curr=EUR",
+    "out_relaxed": false,
+    "ret_relaxed": true,
+    "flight_min": 512,
+    "flight_best": 512,
+    "booking": [
+     {
+      "name": "Art-club apartment with Air condition",
+      "kind": "apartment",
+      "total": 245.0,
+      "rating": 8.4,
+      "reviews": 158,
+      "center_m": 1100.0,
+      "transit_m": 450.0,
+      "transit_desc": "Oktogon station is within 450 metres",
+      "lat": 47.5032176,
+      "lon": 19.0676962,
+      "url": "https://www.booking.com/hotel/hu/art-club-apartment.en-gb.html?checkin=2026-11-06&checkout=2026-11-09&group_adults=4&group_children=1&no_rooms=2&selected_currency=EUR&age=3"
+     },
+     {
+      "name": "2 bedroom flat in Damjanich str., Hirsch",
+      "kind": "apartment",
+      "total": 247.0,
+      "rating": 8.1,
+      "reviews": 91,
+      "center_m": 2000.0,
+      "transit_m": 28,
+      "transit_desc": "~28 μ από στάση (OSM)",
+      "lat": 47.5076969,
+      "lon": 19.0778728,
+      "url": "https://www.booking.com/hotel/hu/2-bedroom-flat-in-damjanich-str-hirsch.en-gb.html?checkin=2026-11-06&checkout=2026-11-09&group_adults=4&group_children=1&no_rooms=2&selected_currency=EUR&age=3"
+     },
+     {
+      "name": "Sunny 2BR with balcony at Szövetség street",
+      "kind": "apartment",
+      "total": 251.0,
+      "rating": 8.1,
+      "reviews": 22,
+      "center_m": 1400.0,
+      "transit_m": 84,
+      "transit_desc": "~84 μ από στάση (OSM)",
+      "lat": 47.501076499999996,
+      "lon": 19.0733787,
+      "url": "https://www.booking.com/hotel/hu/sunny-2br-with-balcony-at-szovetseg-street.en-gb.html?checkin=2026-11-06&checkout=2026-11-09&group_adults=4&group_children=1&no_rooms=2&selected_currency=EUR&age=3"
+     },
+     {
+      "name": "Little Americas Ring Apartments",
+      "kind": "apartment",
+      "total": 251.0,
+      "rating": 8.2,
+      "reviews": 707,
+      "center_m": 900.0,
+      "transit_m": 500.0,
+      "transit_desc": "Oktogon station is within 500 metres",
+      "lat": 47.50147962173315,
+      "lon": 19.066676254439926,
+      "url": "https://www.booking.com/hotel/hu/little-americas-ring.en-gb.html?checkin=2026-11-06&checkout=2026-11-09&group_adults=4&group_children=1&no_rooms=2&selected_currency=EUR&age=3"
+     },
+     {
+      "name": "Rebecca Apartment next to Synagogue",
+      "kind": "apartment",
+      "total": 253.0,
+      "rating": 8.9,
+      "reviews": 118,
+      "center_m": 100.0,
+      "transit_m": 350.0,
+      "transit_desc": "Deák Ferenc tér station is within 350 metres",
+      "lat": 47.49690724617514,
+      "lon": 19.057108573610662,
+      "url": "https://www.booking.com/hotel/hu/rebecca-apartment-next-to-synagogue.en-gb.html?checkin=2026-11-06&checkout=2026-11-09&group_adults=4&group_children=1&no_rooms=2&selected_currency=EUR&age=3"
+     },
+     {
+      "name": "Ferenc Boulevard Prestige Living Apartment and Studio",
+      "kind": "apartment",
+      "total": 254.0,
+      "rating": 8.6,
+      "reviews": 16,
+      "center_m": 1900.0,
+      "transit_m": 350.0,
+      "transit_desc": "Corvin-negyed station is within 350 metres",
+      "lat": 47.483098,
+      "lon": 19.0690085,
+      "url": "https://www.booking.com/hotel/hu/ferenc-boulevard-prestige-living-apartment-and-studio.en-gb.html?checkin=2026-11-06&checkout=2026-11-09&group_adults=4&group_children=1&no_rooms=2&selected_currency=EUR&age=3"
+     },
+     {
+      "name": "Corvina Apartment Budapest with FREE Private Parking",
+      "kind": "apartment",
+      "total": 254.0,
+      "rating": 8.6,
+      "reviews": 217,
+      "center_m": 1800.0,
+      "transit_m": 129,
+      "transit_desc": "~129 μ από στάση (OSM)",
+      "lat": 47.482523816951,
+      "lon": 19.066488890807,
+      "url": "https://www.booking.com/hotel/hu/corvina-apartment-budapest.en-gb.html?checkin=2026-11-06&checkout=2026-11-09&group_adults=4&group_children=1&no_rooms=2&selected_currency=EUR&age=3"
+     },
+     {
+      "name": "Diana Apartment On Váci Utca",
+      "kind": "apartment",
+      "total": 258.0,
+      "rating": 9.1,
+      "reviews": 118,
+      "center_m": 1100.0,
+      "transit_m": 250.0,
+      "transit_desc": "Fővám tér station is within 250 metres",
+      "lat": 47.48800694765353,
+      "lon": 19.057531748502242,
+      "url": "https://www.booking.com/hotel/hu/diana-apartment.en-gb.html?checkin=2026-11-06&checkout=2026-11-09&group_adults=4&group_children=1&no_rooms=2&selected_currency=EUR&age=3"
+     },
+     {
+      "name": "Urban Harmony Studios & Apartment on Akacfa Street",
+      "kind": "apartment",
+      "total": 268.0,
+      "rating": 10,
+      "reviews": 1,
+      "center_m": 1000.0,
+      "transit_m": 100.0,
+      "transit_desc": "Blaha Lujza tér station is within 100 metres",
+      "lat": 47.4974125,
+      "lon": 19.0689353,
+      "url": "https://www.booking.com/hotel/hu/urban-harmony-studios-amp-apartment-on-akacfa-street.en-gb.html?checkin=2026-11-06&checkout=2026-11-09&group_adults=4&group_children=1&no_rooms=2&selected_currency=EUR&age=3"
+     },
+     {
+      "name": "No. 11 Apartment with 2 bathrooms next to railway station",
+      "kind": "apartment",
+      "total": 268.0,
+      "rating": 8.8,
+      "reviews": 180,
+      "center_m": 1400.0,
+      "transit_m": 450.0,
+      "transit_desc": "II. János Pál pápa tér station is within 450 metres",
+      "lat": 47.499413763685,
+      "lon": 19.074279131004,
+      "url": "https://www.booking.com/hotel/hu/no-eleven-apartment.en-gb.html?checkin=2026-11-06&checkout=2026-11-09&group_adults=4&group_children=1&no_rooms=2&selected_currency=EUR&age=3"
+     },
+     {
+      "name": "Astoria Centrum Studio Apartment",
+      "kind": "apartment",
+      "total": 270.0,
+      "rating": 9.5,
+      "reviews": 120,
+      "center_m": 450.0,
+      "transit_m": 200.0,
+      "transit_desc": "Astoria station is within 200 metres",
+      "lat": 47.49370617047883,
+      "lon": 19.058531090957217,
+      "url": "https://www.booking.com/hotel/hu/astoria-centrum-studio-apartment.en-gb.html?checkin=2026-11-06&checkout=2026-11-09&group_adults=4&group_children=1&no_rooms=2&selected_currency=EUR&age=3"
+     },
+     {
+      "name": "Center Royalty Apartment",
+      "kind": "apartment",
+      "total": 270.0,
+      "rating": 9,
+      "reviews": 155,
+      "center_m": 1200.0,
+      "transit_m": 158,
+      "transit_desc": "~158 μ από στάση (OSM)",
+      "lat": 47.5027559,
+      "lon": 19.0701201,
+      "url": "https://www.booking.com/hotel/hu/center-royalty-apartment.en-gb.html?checkin=2026-11-06&checkout=2026-11-09&group_adults=4&group_children=1&no_rooms=2&selected_currency=EUR&age=3"
+     }
+    ],
+    "booking_min": 245.0,
+    "depart_str": "2026-11-06",
+    "return_str": "2026-11-09",
+    "name": "Βουδαπέστη",
+    "to": "BUD",
+    "hist_id": "budapest-nov-family",
+    "party": "family",
+    "party_label": "2 ζευγάρια + παιδί 3½",
+    "scanned": "2026-08-01",
+    "auto": false,
+    "adults": 4,
+    "children": [
+     3
+    ],
+    "rooms": 2
+   },
+   "couple": {
+    "flights_out": [
+     {
+      "price": 132,
+      "airlines": [
+       "Wizz Air"
+      ],
+      "stops": 0,
+      "dep_hour": 9.92,
+      "depart": "09:55",
+      "arrive": "11:05",
+      "via": "ATH → BUD",
+      "score": 143.8,
+      "relaxed": false
+     },
+     {
+      "price": 152,
+      "airlines": [
+       "Ryanair"
+      ],
+      "stops": 0,
+      "dep_hour": 12.75,
+      "depart": "12:45",
+      "arrive": "13:50",
+      "via": "ATH → BUD",
+      "score": 172.2,
+      "relaxed": false
+     }
+    ],
+    "flights_ret": [
+     {
+      "price": 154,
+      "airlines": [
+       "Ryanair"
+      ],
+      "stops": 0,
+      "dep_hour": 16.08,
+      "depart": "16:05",
+      "arrive": "19:05",
+      "via": "BUD → ATH",
+      "score": 171.8,
+      "relaxed": true
+     }
+    ],
+    "flights_out_url": "https://www.google.com/travel/flights?tfs=GhoSCjIwMjYtMTEtMjdqBRIDQVRIcgUSA0JVREICAQFIAZgBAg%3D%3D&hl=en&curr=EUR",
+    "flights_ret_url": "https://www.google.com/travel/flights?tfs=GhoSCjIwMjYtMTEtMjlqBRIDQlVEcgUSA0FUSEICAQFIAZgBAg%3D%3D&hl=en&curr=EUR",
+    "out_relaxed": false,
+    "ret_relaxed": true,
+    "flight_min": 286,
+    "flight_best": 286,
+    "booking": [
+     {
+      "name": "Downtown Apartment",
+      "kind": "apartment",
+      "total": 114.0,
+      "rating": 8.4,
+      "reviews": 40,
+      "center_m": null,
+      "transit_m": 21,
+      "transit_desc": "~21 μ από στάση (OSM)",
+      "lat": 47.489292335919004,
+      "lon": 19.090479722537,
+      "url": "https://www.booking.com/hotel/hu/downtown-apartment-budapest4.en-gb.html?checkin=2026-11-27&checkout=2026-11-29&group_adults=2&group_children=0&no_rooms=1&selected_currency=EUR"
+     },
+     {
+      "name": "Emma Casa Apartmant FREE Private Parking with EV supply availability",
+      "kind": "apartment",
+      "total": 125.0,
+      "rating": 9.8,
+      "reviews": 41,
+      "center_m": null,
+      "transit_m": 210,
+      "transit_desc": "~210 μ από στάση (OSM)",
+      "lat": 47.51271,
+      "lon": 19.112661,
+      "url": "https://www.booking.com/hotel/hu/casa-emma-apartment.en-gb.html?checkin=2026-11-27&checkout=2026-11-29&group_adults=2&group_children=0&no_rooms=1&selected_currency=EUR"
+     },
+     {
+      "name": "Velez Ház",
+      "kind": "apartment",
+      "total": 130.0,
+      "rating": 8.5,
+      "reviews": 593,
+      "center_m": null,
+      "transit_m": 58,
+      "transit_desc": "~58 μ από στάση (OSM)",
+      "lat": 47.5025102,
+      "lon": 19.0820826,
+      "url": "https://www.booking.com/hotel/hu/aszu-apartment.en-gb.html?checkin=2026-11-27&checkout=2026-11-29&group_adults=2&group_children=0&no_rooms=1&selected_currency=EUR"
+     },
+     {
+      "name": "Turul Apartment Budapest",
+      "kind": "apartment",
+      "total": 142.0,
+      "rating": 8,
+      "reviews": 88,
+      "center_m": null,
+      "transit_m": 139,
+      "transit_desc": "~139 μ από στάση (OSM)",
+      "lat": 47.514336,
+      "lon": 19.051471,
+      "url": "https://www.booking.com/hotel/hu/zen-temple-apartment.en-gb.html?checkin=2026-11-27&checkout=2026-11-29&group_adults=2&group_children=0&no_rooms=1&selected_currency=EUR"
+     },
+     {
+      "name": "Steve's Little Flat",
+      "kind": "apartment",
+      "total": 148.0,
+      "rating": 8.3,
+      "reviews": 17,
+      "center_m": null,
+      "transit_m": 138,
+      "transit_desc": "~138 μ από στάση (OSM)",
+      "lat": 47.5181976,
+      "lon": 19.1061719,
+      "url": "https://www.booking.com/hotel/hu/steves-little-flat.en-gb.html?checkin=2026-11-27&checkout=2026-11-29&group_adults=2&group_children=0&no_rooms=1&selected_currency=EUR"
+     },
+     {
+      "name": "MEININGER Budapest Great Market Hall",
+      "kind": "hotel_breakfast",
+      "total": 148.0,
+      "rating": 8.5,
+      "reviews": 5643,
+      "center_m": null,
+      "transit_m": 179,
+      "transit_desc": "~179 μ από στάση (OSM)",
+      "lat": 47.48592071217145,
+      "lon": 19.060362882278433,
+      "url": "https://www.booking.com/hotel/hu/meininger-budapest-great-market-hall.en-gb.html?checkin=2026-11-27&checkout=2026-11-29&group_adults=2&group_children=0&no_rooms=1&selected_currency=EUR"
+     },
+     {
+      "name": "Cozy loft - Center on feet 15 min! Metro 3 min!",
+      "kind": "apartment",
+      "total": 150.0,
+      "rating": 8.2,
+      "reviews": 13,
+      "center_m": null,
+      "transit_m": 143,
+      "transit_desc": "~143 μ από στάση (OSM)",
+      "lat": 47.4938715,
+      "lon": 19.0800321,
+      "url": "https://www.booking.com/hotel/hu/heart-of-bp-budapest.en-gb.html?checkin=2026-11-27&checkout=2026-11-29&group_adults=2&group_children=0&no_rooms=1&selected_currency=EUR"
+     },
+     {
+      "name": "Buda Side Comfort",
+      "kind": "apartment",
+      "total": 151.0,
+      "rating": 9.5,
+      "reviews": 83,
+      "center_m": null,
+      "transit_m": 49,
+      "transit_desc": "~49 μ από στάση (OSM)",
+      "lat": 47.4647125238913,
+      "lon": 19.0340787330232,
+      "url": "https://www.booking.com/hotel/hu/buda-side-comfort.en-gb.html?checkin=2026-11-27&checkout=2026-11-29&group_adults=2&group_children=0&no_rooms=1&selected_currency=EUR"
+     },
+     {
+      "name": "Budapest11",
+      "kind": "apartment",
+      "total": 151.0,
+      "rating": 8.3,
+      "reviews": 23,
+      "center_m": null,
+      "transit_m": 162,
+      "transit_desc": "~162 μ από στάση (OSM)",
+      "lat": 47.45515911794799,
+      "lon": 19.035394757147213,
+      "url": "https://www.booking.com/hotel/hu/budapest11.en-gb.html?checkin=2026-11-27&checkout=2026-11-29&group_adults=2&group_children=0&no_rooms=1&selected_currency=EUR"
+     },
+     {
+      "name": "Cozy Apartment in Budapest",
+      "kind": "apartment",
+      "total": 155.0,
+      "rating": 9.3,
+      "reviews": 113,
+      "center_m": null,
+      "transit_m": 71,
+      "transit_desc": "~71 μ από στάση (OSM)",
+      "lat": 47.4986753,
+      "lon": 19.0788993,
+      "url": "https://www.booking.com/hotel/hu/cozy-apartment-in-budapest-budapest1.en-gb.html?checkin=2026-11-27&checkout=2026-11-29&group_adults=2&group_children=0&no_rooms=1&selected_currency=EUR"
+     },
+     {
+      "name": "Kati Cozy Apartman In The City Center",
+      "kind": "apartment",
+      "total": 155.0,
+      "rating": 8.7,
+      "reviews": 3,
+      "center_m": null,
+      "transit_m": 111,
+      "transit_desc": "~111 μ από στάση (OSM)",
+      "lat": 47.4944826,
+      "lon": 19.0790485,
+      "url": "https://www.booking.com/hotel/hu/kati-cozy-apartman-in-the-city-center.en-gb.html?checkin=2026-11-27&checkout=2026-11-29&group_adults=2&group_children=0&no_rooms=1&selected_currency=EUR"
+     },
+     {
+      "name": "SunBeam Studio - Downtown Budapest",
+      "kind": "apartment",
+      "total": 159.0,
+      "rating": 8.7,
+      "reviews": 20,
+      "center_m": null,
+      "transit_m": 149,
+      "transit_desc": "~149 μ από στάση (OSM)",
+      "lat": 47.487841,
+      "lon": 19.0723,
+      "url": "https://www.booking.com/hotel/hu/sunbeam-studio-downtown-budapest.en-gb.html?checkin=2026-11-27&checkout=2026-11-29&group_adults=2&group_children=0&no_rooms=1&selected_currency=EUR"
+     }
+    ],
+    "booking_min": 114.0,
+    "depart_str": "2026-11-27",
+    "return_str": "2026-11-29",
+    "name": "Βουδαπέστη",
+    "to": "BUD",
+    "hist_id": "budapest-nov-couple",
+    "party": "couple",
+    "party_label": "1 ζευγάρι",
+    "scanned": "2026-10-22",
+    "auto": true,
+    "adults": 2,
+    "children": [],
+    "rooms": 1
+   },
+   "six": {
+    "flights_out": [
+     {
+      "price": 252,
+      "airlines": [
+       "Wizz Air"
+      ],
+      "stops": 0,
+      "dep_hour": 10.08,
+      "depart": "10:05",
+      "arrive": "11:15",
+      "via": "ATH → BUD",
+      "score": 264.2,
+      "relaxed": false
+     },
+     {
+      "price": 294,
+      "airlines": [
+       "Ryanair"
+      ],
+      "stops": 0,
+      "dep_hour": 12.75,
+      "depart": "12:45",
+      "arrive": "13:50",
+      "via": "ATH → BUD",
+      "score": 314.2,
+      "relaxed": false
+     }
+    ],
+    "flights_ret": [
+     {
+      "price": 492,
+      "airlines": [
+       "Ryanair"
+      ],
+      "stops": 0,
+      "dep_hour": 15.5,
+      "depart": "15:30",
+      "arrive": "18:30",
+      "via": "BUD → ATH",
+      "score": 511.5,
+      "relaxed": true
+     },
+     {
+      "price": 745,
+      "airlines": [
+       "Aegean"
+      ],
+      "stops": 0,
+      "dep_hour": 14.0,
+      "depart": "14:00",
+      "arrive": "17:00",
+      "via": "BUD → ATH",
+      "score": 754.0,
+      "relaxed": true
+     }
+    ],
+    "flights_out_url": "https://www.google.com/travel/flights?tfs=GhoSCjIwMjYtMTEtMDZqBRIDQVRIcgUSA0JVREIHAQEBAQEBAkgBmAEC&hl=en&curr=EUR",
+    "flights_ret_url": "https://www.google.com/travel/flights?tfs=GhoSCjIwMjYtMTEtMDlqBRIDQlVEcgUSA0FUSEIHAQEBAQEBAkgBmAEC&hl=en&curr=EUR",
+    "out_relaxed": false,
+    "ret_relaxed": true,
+    "flight_min": 744,
+    "flight_best": 744,
+    "booking": [
+     {
+      "name": "Gentleman Apartment",
+      "kind": "apartment",
+      "total": 378.0,
+      "rating": 8.3,
+      "reviews": 37,
+      "center_m": 1000.0,
+      "transit_m": 250.0,
+      "transit_desc": "Blaha Lujza tér station is within 250 metres",
+      "lat": 47.4986444,
+      "lon": 19.0691096,
+      "url": "https://www.booking.com/hotel/hu/gentleman-apartment.en-gb.html?checkin=2026-11-06&checkout=2026-11-09&group_adults=6&group_children=1&no_rooms=3&selected_currency=EUR&age=3"
+     },
+     {
+      "name": "Apartman Relax",
+      "kind": "apartment",
+      "total": 380.0,
+      "rating": 8.2,
+      "reviews": 49,
+      "center_m": 2800.0,
+      "transit_m": 500.0,
+      "transit_desc": "Széll Kálmán tér station is within 500 metres",
+      "lat": 47.505087164891926,
+      "lon": 19.0205496859204,
+      "url": "https://www.booking.com/hotel/hu/csaba-apartment.en-gb.html?checkin=2026-11-06&checkout=2026-11-09&group_adults=6&group_children=1&no_rooms=3&selected_currency=EUR&age=3"
+     },
+     {
+      "name": "2 separate bedrooms and living room fully equipped with AC",
+      "kind": "apartment",
+      "total": 380.0,
+      "rating": 8.2,
+      "reviews": 51,
+      "center_m": 3000.0,
+      "transit_m": 200.0,
+      "transit_desc": "Dózsa György út station is within 200 metres",
+      "lat": 47.5245521,
+      "lon": 19.0609295,
+      "url": "https://www.booking.com/hotel/hu/big-base-apartment.en-gb.html?checkin=2026-11-06&checkout=2026-11-09&group_adults=6&group_children=1&no_rooms=3&selected_currency=EUR&age=3"
+     },
+     {
+      "name": "Millenaris Apartment",
+      "kind": "apartment",
+      "total": 385.0,
+      "rating": 9,
+      "reviews": 35,
+      "center_m": 2700.0,
+      "transit_m": 250.0,
+      "transit_desc": "Széll Kálmán tér station is within 250 metres",
+      "lat": 47.5096254,
+      "lon": 19.0254278,
+      "url": "https://www.booking.com/hotel/hu/millenaris-apartment.en-gb.html?checkin=2026-11-06&checkout=2026-11-09&group_adults=6&group_children=1&no_rooms=3&selected_currency=EUR&age=3"
+     },
+     {
+      "name": "BpR Corvin Cozy Apartments",
+      "kind": "apartment",
+      "total": 400.0,
+      "rating": 8,
+      "reviews": 177,
+      "center_m": 1800.0,
+      "transit_m": 250.0,
+      "transit_desc": "Corvin-negyed station is within 250 metres",
+      "lat": 47.486799,
+      "lon": 19.073665,
+      "url": "https://www.booking.com/hotel/hu/bpr-prater-cosy-apartment-39-s.en-gb.html?checkin=2026-11-06&checkout=2026-11-09&group_adults=6&group_children=1&no_rooms=3&selected_currency=EUR&age=3"
+     },
+     {
+      "name": "Little Americas Alaska Apartment",
+      "kind": "apartment",
+      "total": 401.0,
+      "rating": 9.2,
+      "reviews": 122,
+      "center_m": 2000.0,
+      "transit_m": 90,
+      "transit_desc": "~90 μ από στάση (OSM)",
+      "lat": 47.5148038,
+      "lon": 19.0505965,
+      "url": "https://www.booking.com/hotel/hu/little-alaska-apt.en-gb.html?checkin=2026-11-06&checkout=2026-11-09&group_adults=6&group_children=1&no_rooms=3&selected_currency=EUR&age=3"
+     },
+     {
+      "name": "CasaLara-Cozy Nest Near Buda Castle",
+      "kind": "apartment",
+      "total": 417.0,
+      "rating": 9.3,
+      "reviews": 63,
+      "center_m": 2100.0,
+      "transit_m": 55,
+      "transit_desc": "~55 μ από στάση (OSM)",
+      "lat": 47.50872005019378,
+      "lon": 19.03420454260413,
+      "url": "https://www.booking.com/hotel/hu/bronson-apartman.en-gb.html?checkin=2026-11-06&checkout=2026-11-09&group_adults=6&group_children=1&no_rooms=3&selected_currency=EUR&age=3"
+     },
+     {
+      "name": "GrigorasNCo Studio Apartments",
+      "kind": "apartment",
+      "total": 425.0,
+      "rating": 8.8,
+      "reviews": 729,
+      "center_m": 250.0,
+      "transit_m": 350.0,
+      "transit_desc": "Astoria station is within 350 metres",
+      "lat": 47.497441760596,
+      "lon": 19.058915164275,
+      "url": "https://www.booking.com/hotel/hu/grigorasnco-studio-apartments.en-gb.html?checkin=2026-11-06&checkout=2026-11-09&group_adults=6&group_children=1&no_rooms=3&selected_currency=EUR&age=3"
+     },
+     {
+      "name": "Bp SOHO GRAND Apartment",
+      "kind": "apartment",
+      "total": 431.0,
+      "rating": 8.7,
+      "reviews": 64,
+      "center_m": 1200.0,
+      "transit_m": 250.0,
+      "transit_desc": "Kálvin tér station is within 250 metres",
+      "lat": 47.4880945,
+      "lon": 19.0642742,
+      "url": "https://www.booking.com/hotel/hu/bp-soho-grand-apartment.en-gb.html?checkin=2026-11-06&checkout=2026-11-09&group_adults=6&group_children=1&no_rooms=3&selected_currency=EUR&age=3"
+     },
+     {
+      "name": "Fireplace Holidays",
+      "kind": "apartment",
+      "total": 434.0,
+      "rating": 8.9,
+      "reviews": 78,
+      "center_m": 1300.0,
+      "transit_m": 116,
+      "transit_desc": "~116 μ από στάση (OSM)",
+      "lat": 47.50103474913283,
+      "lon": 19.07187807969285,
+      "url": "https://www.booking.com/hotel/hu/fireplace-holidays.en-gb.html?checkin=2026-11-06&checkout=2026-11-09&group_adults=6&group_children=1&no_rooms=3&selected_currency=EUR&age=3"
+     },
+     {
+      "name": "City Comfort Apartment near Keleti Station",
+      "kind": "apartment",
+      "total": 446.0,
+      "rating": 8.6,
+      "reviews": 114,
+      "center_m": 2400.0,
+      "transit_m": 106,
+      "transit_desc": "~106 μ από στάση (OSM)",
+      "lat": 47.5028545,
+      "lon": 19.0862971,
+      "url": "https://www.booking.com/hotel/hu/city-comfort-apartment.en-gb.html?checkin=2026-11-06&checkout=2026-11-09&group_adults=6&group_children=1&no_rooms=3&selected_currency=EUR&age=3"
+     },
+     {
+      "name": "Little Americas Concert Hall Apartments",
+      "kind": "apartment",
+      "total": 460.0,
+      "rating": 8.1,
+      "reviews": 380,
+      "center_m": 1900.0,
+      "transit_m": 450.0,
+      "transit_desc": "Nyugati pályaudvar station is within 450 metres",
+      "lat": 47.514037,
+      "lon": 19.05355,
+      "url": "https://www.booking.com/hotel/hu/little-americas-concert-hall.en-gb.html?checkin=2026-11-06&checkout=2026-11-09&group_adults=6&group_children=1&no_rooms=3&selected_currency=EUR&age=3"
+     }
+    ],
+    "booking_min": 378.0,
+    "depart_str": "2026-11-06",
+    "return_str": "2026-11-09",
+    "name": "Βουδαπέστη",
+    "to": "BUD",
+    "hist_id": "budapest-nov-six",
+    "party": "six",
+    "party_label": "3 ζευγάρια + παιδί 3½",
+    "scanned": "2026-08-01",
+    "auto": false,
+    "adults": 6,
+    "children": [
+     3
+    ],
+    "rooms": 3
+   }
+  }
+ },
+ "milan-nov": {
+  "name": "Μιλάνο",
+  "to": "MXP",
+  "city": "Milan",
+  "parties": {
+   "couple": {
+    "flights_out": [
+     {
+      "price": 199,
+      "airlines": [
+       "easyJet"
+      ],
+      "stops": 0,
+      "dep_hour": 11.17,
+      "depart": "11:10",
+      "arrive": "12:50",
+      "via": "ATH → MXP",
+      "score": 214.5,
+      "relaxed": false
+     },
+     {
+      "price": 301,
+      "airlines": [
+       "Aegean"
+      ],
+      "stops": 0,
+      "dep_hour": 8.58,
+      "depart": "08:35",
+      "arrive": "10:10",
+      "via": "ATH → MXP",
+      "score": 293.7,
+      "relaxed": false
+     }
+    ],
+    "flights_ret": [
+     {
+      "price": 94,
+      "airlines": [
+       "easyJet"
+      ],
+      "stops": 0,
+      "dep_hour": 17.75,
+      "depart": "17:45",
+      "arrive": "21:15",
+      "via": "MXP → ATH",
+      "score": 106.8,
+      "relaxed": false
+     },
+     {
+      "price": 259,
+      "airlines": [
+       "SKY express"
+      ],
+      "stops": 0,
+      "dep_hour": 19.58,
+      "depart": "19:35",
+      "arrive": "23:00",
+      "via": "MXP → ATH",
+      "score": 266.3,
+      "relaxed": false
+     },
+     {
+      "price": 341,
+      "airlines": [
+       "Aegean"
+      ],
+      "stops": 0,
+      "dep_hour": 18.75,
+      "depart": "18:45",
+      "arrive": "22:15",
+      "via": "MXP → ATH",
+      "score": 335.8,
+      "relaxed": false
+     }
+    ],
+    "flights_out_url": "https://www.google.com/travel/flights?tfs=GhoSCjIwMjYtMTEtMTNqBRIDQVRIcgUSA01YUEICAQFIAZgBAg%3D%3D&hl=en&curr=EUR",
+    "flights_ret_url": "https://www.google.com/travel/flights?tfs=GhoSCjIwMjYtMTEtMTVqBRIDTVhQcgUSA0FUSEICAQFIAZgBAg%3D%3D&hl=en&curr=EUR",
+    "out_relaxed": false,
+    "ret_relaxed": false,
+    "flight_min": 293,
+    "flight_best": 293,
+    "booking": [
+     {
+      "name": "Renovated with two single beds",
+      "kind": "apartment",
+      "total": 98.0,
+      "rating": 9.4,
+      "reviews": 23,
+      "center_m": null,
+      "transit_m": 23,
+      "transit_desc": "~23 μ από στάση (OSM)",
+      "lat": 45.5004571,
+      "lon": 9.2212786,
+      "url": "https://www.booking.com/hotel/it/renovated-with-two-single-beds.en-gb.html?checkin=2026-11-13&checkout=2026-11-15&group_adults=2&group_children=0&no_rooms=1&selected_currency=EUR"
+     },
+     {
+      "name": "Xenia - Studio apt in Via Panicale 12",
+      "kind": "apartment",
+      "total": 147.0,
+      "rating": 8.3,
+      "reviews": 3,
+      "center_m": null,
+      "transit_m": 102,
+      "transit_desc": "~102 μ από στάση (OSM)",
+      "lat": 45.493786,
+      "lon": 9.1527394,
+      "url": "https://www.booking.com/hotel/it/xenia-studio-apt-in-via-panicale-12.en-gb.html?checkin=2026-11-13&checkout=2026-11-15&group_adults=2&group_children=0&no_rooms=1&selected_currency=EUR"
+     },
+     {
+      "name": "Mancinelli House",
+      "kind": "apartment",
+      "total": 156.0,
+      "rating": 8,
+      "reviews": 55,
+      "center_m": null,
+      "transit_m": 94,
+      "transit_desc": "~94 μ από στάση (OSM)",
+      "lat": 45.4918222,
+      "lon": 9.2276092,
+      "url": "https://www.booking.com/hotel/it/mancinelli-house.en-gb.html?checkin=2026-11-13&checkout=2026-11-15&group_adults=2&group_children=0&no_rooms=1&selected_currency=EUR"
+     },
+     {
+      "name": "Broglio Studios",
+      "kind": "apartment",
+      "total": 161.0,
+      "rating": 8.9,
+      "reviews": 162,
+      "center_m": null,
+      "transit_m": 58,
+      "transit_desc": "~58 μ από στάση (OSM)",
+      "lat": 45.5022634,
+      "lon": 9.1623372,
+      "url": "https://www.booking.com/hotel/it/bovisa-smart-stay-11.en-gb.html?checkin=2026-11-13&checkout=2026-11-15&group_adults=2&group_children=0&no_rooms=1&selected_currency=EUR"
+     },
+     {
+      "name": "Edolo Apartment",
+      "kind": "apartment",
+      "total": 164.0,
+      "rating": 8.8,
+      "reviews": 81,
+      "center_m": null,
+      "transit_m": 60,
+      "transit_desc": "~60 μ από στάση (OSM)",
+      "lat": 45.494154011274844,
+      "lon": 9.207164960678483,
+      "url": "https://www.booking.com/hotel/it/edolo-apartment.en-gb.html?checkin=2026-11-13&checkout=2026-11-15&group_adults=2&group_children=0&no_rooms=1&selected_currency=EUR"
+     },
+     {
+      "name": "Dimora Chic - A 5 Fermate Dal Duomo",
+      "kind": "apartment",
+      "total": 164.0,
+      "rating": 8.1,
+      "reviews": 110,
+      "center_m": null,
+      "transit_m": 115,
+      "transit_desc": "~115 μ από στάση (OSM)",
+      "lat": 45.44001672698108,
+      "lon": 9.21440982698364,
+      "url": "https://www.booking.com/hotel/it/suite-montenapoleone-appartamento-chic-a-5-fermate-dal-duomo.en-gb.html?checkin=2026-11-13&checkout=2026-11-15&group_adults=2&group_children=0&no_rooms=1&selected_currency=EUR"
+     },
+     {
+      "name": "Rifugio moderno per lavoratori e coppie - Metro Lambrate M2",
+      "kind": "apartment",
+      "total": 167.0,
+      "rating": 8.2,
+      "reviews": 16,
+      "center_m": null,
+      "transit_m": 98,
+      "transit_desc": "~98 μ από στάση (OSM)",
+      "lat": 45.484839,
+      "lon": 9.2327481,
+      "url": "https://www.booking.com/hotel/it/rifugio-moderno-per-lavoratori-e-coppie-metro-lambrate-m2.en-gb.html?checkin=2026-11-13&checkout=2026-11-15&group_adults=2&group_children=0&no_rooms=1&selected_currency=EUR"
+     },
+     {
+      "name": "Guest House Casa Rachele",
+      "kind": "apartment",
+      "total": 167.0,
+      "rating": 9,
+      "reviews": 67,
+      "center_m": null,
+      "transit_m": 97,
+      "transit_desc": "~97 μ από στάση (OSM)",
+      "lat": 45.5011871,
+      "lon": 9.186958,
+      "url": "https://www.booking.com/hotel/it/guest-house-casa-rachele.en-gb.html?checkin=2026-11-13&checkout=2026-11-15&group_adults=2&group_children=0&no_rooms=1&selected_currency=EUR"
+     },
+     {
+      "name": "Xenia Apartments - Cozy apartment near Porta Romana",
+      "kind": "apartment",
+      "total": 167.0,
+      "rating": 8.8,
+      "reviews": 33,
+      "center_m": null,
+      "transit_m": 23,
+      "transit_desc": "~23 μ από στάση (OSM)",
+      "lat": 45.4504058,
+      "lon": 9.221209,
+      "url": "https://www.booking.com/hotel/it/cozy-apartment-near-porta-romana-milano.en-gb.html?checkin=2026-11-13&checkout=2026-11-15&group_adults=2&group_children=0&no_rooms=1&selected_currency=EUR"
+     },
+     {
+      "name": "Xenia Milan - Studio apartment Viale Certosa 30",
+      "kind": "apartment",
+      "total": 167.0,
+      "rating": 8.2,
+      "reviews": 5,
+      "center_m": null,
+      "transit_m": 35,
+      "transit_desc": "~35 μ από στάση (OSM)",
+      "lat": 45.4904124,
+      "lon": 9.1514093,
+      "url": "https://www.booking.com/hotel/it/xenia-milan-studio-apartment-viale-certosa-30.en-gb.html?checkin=2026-11-13&checkout=2026-11-15&group_adults=2&group_children=0&no_rooms=1&selected_currency=EUR"
+     },
+     {
+      "name": "Niky Stadio San Siro",
+      "kind": "apartment",
+      "total": 169.0,
+      "rating": 9,
+      "reviews": 68,
+      "center_m": null,
+      "transit_m": 242,
+      "transit_desc": "~242 μ από στάση (OSM)",
+      "lat": 45.4700735,
+      "lon": 9.1396143,
+      "url": "https://www.booking.com/hotel/it/niky-stadio-san-siro.en-gb.html?checkin=2026-11-13&checkout=2026-11-15&group_adults=2&group_children=0&no_rooms=1&selected_currency=EUR"
+     },
+     {
+      "name": "Fiera City Life 1 Top Apartment",
+      "kind": "apartment",
+      "total": 169.0,
+      "rating": 8.7,
+      "reviews": 66,
+      "center_m": null,
+      "transit_m": 135,
+      "transit_desc": "~135 μ από στάση (OSM)",
+      "lat": 45.4611785,
+      "lon": 9.1523024,
+      "url": "https://www.booking.com/hotel/it/milan-washington-top-apartment.en-gb.html?checkin=2026-11-13&checkout=2026-11-15&group_adults=2&group_children=0&no_rooms=1&selected_currency=EUR"
+     }
+    ],
+    "booking_min": 98.0,
+    "depart_str": "2026-11-13",
+    "return_str": "2026-11-15",
+    "name": "Μιλάνο",
+    "to": "MXP",
+    "hist_id": "milan-nov-couple",
+    "party": "couple",
+    "party_label": "1 ζευγάρι",
+    "scanned": "2026-10-22",
+    "auto": true,
+    "adults": 2,
+    "children": [],
+    "rooms": 1
+   },
+   "family": {
+    "flights_out": [
+     {
+      "price": 168,
+      "airlines": [
+       "easyJet"
+      ],
+      "stops": 0,
+      "dep_hour": 11.08,
+      "depart": "11:05",
+      "arrive": "12:45",
+      "via": "ATH → MXP",
+      "score": 183.2,
+      "relaxed": false
+     },
+     {
+      "price": 753,
+      "airlines": [
+       "Aegean"
+      ],
+      "stops": 0,
+      "dep_hour": 8.58,
+      "depart": "08:35",
+      "arrive": "10:10",
+      "via": "ATH → MXP",
+      "score": 745.7,
+      "relaxed": false
+     }
+    ],
+    "flights_ret": [
+     {
+      "price": 120,
+      "airlines": [
+       "easyJet"
+      ],
+      "stops": 0,
+      "dep_hour": 16.5,
+      "depart": "16:30",
+      "arrive": "20:00",
+      "via": "MXP → ATH",
+      "score": 136.5,
+      "relaxed": false
+     }
+    ],
+    "flights_out_url": "https://www.google.com/travel/flights?tfs=GhoSCjIwMjYtMTEtMTNqBRIDQVRIcgUSA01YUEIFAQEBAQJIAZgBAg%3D%3D&hl=en&curr=EUR",
+    "flights_ret_url": "https://www.google.com/travel/flights?tfs=GhoSCjIwMjYtMTEtMTZqBRIDTVhQcgUSA0FUSEIFAQEBAQJIAZgBAg%3D%3D&hl=en&curr=EUR",
+    "out_relaxed": false,
+    "ret_relaxed": false,
+    "flight_min": 288,
+    "flight_best": 288,
+    "booking": [
+     {
+      "name": "LAB17 Ampio e luminoso appartamento per 7 a Milano",
+      "kind": "apartment",
+      "total": 484.0,
+      "rating": 9.5,
+      "reviews": 2,
+      "center_m": 5000.0,
+      "transit_m": 201,
+      "transit_desc": "~201 μ από στάση (OSM)",
+      "lat": 45.4603914,
+      "lon": 9.125334,
+      "url": "https://www.booking.com/hotel/it/lab17-ampio-e-luminoso-appartamento-per-6-a-milano.en-gb.html?checkin=2026-11-13&checkout=2026-11-16&group_adults=4&group_children=1&no_rooms=2&selected_currency=EUR&age=3"
+     },
+     {
+      "name": "Accogliente Appartamento a pochi passi dalla Metro, San Siro e con Aria Condizionata",
+      "kind": "apartment",
+      "total": 497.0,
+      "rating": 8.4,
+      "reviews": 28,
+      "center_m": 5000.0,
+      "transit_m": 118,
+      "transit_desc": "~118 μ από στάση (OSM)",
+      "lat": 45.4518394,
+      "lon": 9.1277446,
+      "url": "https://www.booking.com/hotel/it/san-siro-amp-metro-cozy-retreat-w-2-bedrooms-amp-ac.en-gb.html?checkin=2026-11-13&checkout=2026-11-16&group_adults=4&group_children=1&no_rooms=2&selected_currency=EUR&age=3"
+     },
+     {
+      "name": "M1 Loreto Holiday Home",
+      "kind": "apartment",
+      "total": 519.0,
+      "rating": 8,
+      "reviews": 74,
+      "center_m": 3600.0,
+      "transit_m": 81,
+      "transit_desc": "~81 μ από στάση (OSM)",
+      "lat": 45.4895565,
+      "lon": 9.2179968,
+      "url": "https://www.booking.com/hotel/it/m1-loreto-home.en-gb.html?checkin=2026-11-13&checkout=2026-11-16&group_adults=4&group_children=1&no_rooms=2&selected_currency=EUR&age=3"
+     },
+     {
+      "name": "BB Hotels Aparthotel Bicocca",
+      "kind": "apartment",
+      "total": 521.0,
+      "rating": 8.8,
+      "reviews": 2610,
+      "center_m": 4100.0,
+      "transit_m": 200.0,
+      "transit_desc": "Istria station is within 200 metres",
+      "lat": 45.500034770512784,
+      "lon": 9.198904176721157,
+      "url": "https://www.booking.com/hotel/it/bb-hotels-residenza-bicocca.en-gb.html?checkin=2026-11-13&checkout=2026-11-16&group_adults=4&group_children=1&no_rooms=2&selected_currency=EUR&age=3"
+     },
+     {
+      "name": "Puricelli Suite - 7Sundays",
+      "kind": "apartment",
+      "total": 540.0,
+      "rating": 8,
+      "reviews": 1,
+      "center_m": 4600.0,
+      "transit_m": 125,
+      "transit_desc": "~125 μ από στάση (OSM)",
+      "lat": 45.463359,
+      "lon": 9.1292385,
+      "url": "https://www.booking.com/hotel/it/puricelli-suite-7sundays.en-gb.html?checkin=2026-11-13&checkout=2026-11-16&group_adults=4&group_children=1&no_rooms=2&selected_currency=EUR&age=3"
+     },
+     {
+      "name": "White rabbit house",
+      "kind": "apartment",
+      "total": 548.0,
+      "rating": 8.3,
+      "reviews": 11,
+      "center_m": 3000.0,
+      "transit_m": 22,
+      "transit_desc": "~22 μ από στάση (OSM)",
+      "lat": 45.4557189,
+      "lon": 9.1527124,
+      "url": "https://www.booking.com/hotel/it/white-rabbit-house.en-gb.html?checkin=2026-11-13&checkout=2026-11-16&group_adults=4&group_children=1&no_rooms=2&selected_currency=EUR&age=3"
+     },
+     {
+      "name": "BandeNereSuite Attico",
+      "kind": "apartment",
+      "total": 548.0,
+      "rating": 8.7,
+      "reviews": 64,
+      "center_m": 4300.0,
+      "transit_m": 182,
+      "transit_desc": "~182 μ από στάση (OSM)",
+      "lat": 45.4615172,
+      "lon": 9.1335738,
+      "url": "https://www.booking.com/hotel/it/designsuitecarlone-san-siro-fiera-city-life.en-gb.html?checkin=2026-11-13&checkout=2026-11-16&group_adults=4&group_children=1&no_rooms=2&selected_currency=EUR&age=3"
+     },
+     {
+      "name": "BB Savona Milano Centro",
+      "kind": "apartment",
+      "total": 569.0,
+      "rating": 10,
+      "reviews": 1,
+      "center_m": 2400.0,
+      "transit_m": 107,
+      "transit_desc": "~107 μ από στάση (OSM)",
+      "lat": 45.4540641,
+      "lon": 9.1623385,
+      "url": "https://www.booking.com/hotel/it/bb-savona-milano-centro.en-gb.html?checkin=2026-11-13&checkout=2026-11-16&group_adults=4&group_children=1&no_rooms=2&selected_currency=EUR&age=3"
+     },
+     {
+      "name": "Appartamento Maciachini",
+      "kind": "apartment",
+      "total": 573.0,
+      "rating": 8.3,
+      "reviews": 97,
+      "center_m": 3800.0,
+      "transit_m": 72,
+      "transit_desc": "~72 μ από στάση (OSM)",
+      "lat": 45.4987565,
+      "lon": 9.1843561,
+      "url": "https://www.booking.com/hotel/it/appartamento-maciachini.en-gb.html?checkin=2026-11-13&checkout=2026-11-16&group_adults=4&group_children=1&no_rooms=2&selected_currency=EUR&age=3"
+     },
+     {
+      "name": "Certosa 60 - bilocale Portello",
+      "kind": "apartment",
+      "total": 580.0,
+      "rating": 9.8,
+      "reviews": 4,
+      "center_m": 4400.0,
+      "transit_m": 45,
+      "transit_desc": "~45 μ από στάση (OSM)",
+      "lat": 45.4916802,
+      "lon": 9.1486107,
+      "url": "https://www.booking.com/hotel/it/certosa-60-bilocale-portello.en-gb.html?checkin=2026-11-13&checkout=2026-11-16&group_adults=4&group_children=1&no_rooms=2&selected_currency=EUR&age=3"
+     },
+     {
+      "name": "BB Hotels Aparthotel Città Studi",
+      "kind": "apartment",
+      "total": 581.0,
+      "rating": 8.4,
+      "reviews": 2417,
+      "center_m": 3200.0,
+      "transit_m": 500.0,
+      "transit_desc": "Piola station is within 500 metres",
+      "lat": 45.476988470269,
+      "lon": 9.22521248459816,
+      "url": "https://www.booking.com/hotel/it/bb-hotels-residenza-giulia.en-gb.html?checkin=2026-11-13&checkout=2026-11-16&group_adults=4&group_children=1&no_rooms=2&selected_currency=EUR&age=3"
+     },
+     {
+      "name": "Residence Lepontina",
+      "kind": "hotel_private_bath",
+      "total": 586.0,
+      "rating": 8,
+      "reviews": 3465,
+      "center_m": 3200.0,
+      "transit_m": 148,
+      "transit_desc": "~148 μ από στάση (OSM)",
+      "lat": 45.493241476804776,
+      "lon": 9.183969497680664,
+      "url": "https://www.booking.com/hotel/it/residence-lepontina.en-gb.html?checkin=2026-11-13&checkout=2026-11-16&group_adults=4&group_children=1&no_rooms=2&selected_currency=EUR&age=3"
+     }
+    ],
+    "booking_min": 484.0,
+    "depart_str": "2026-11-13",
+    "return_str": "2026-11-16",
+    "name": "Μιλάνο",
+    "to": "MXP",
+    "hist_id": "milan-nov-family",
+    "party": "family",
+    "party_label": "2 ζευγάρια + παιδί 3½",
+    "scanned": "2026-08-01",
+    "auto": false,
+    "adults": 4,
+    "children": [
+     3
+    ],
+    "rooms": 2
+   },
+   "six": {
+    "flights_out": [
+     {
+      "price": 235,
+      "airlines": [
+       "easyJet"
+      ],
+      "stops": 0,
+      "dep_hour": 11.08,
+      "depart": "11:05",
+      "arrive": "12:45",
+      "via": "ATH → MXP",
+      "score": 250.2,
+      "relaxed": false
+     }
+    ],
+    "flights_ret": [
+     {
+      "price": 168,
+      "airlines": [
+       "easyJet"
+      ],
+      "stops": 0,
+      "dep_hour": 16.5,
+      "depart": "16:30",
+      "arrive": "20:00",
+      "via": "MXP → ATH",
+      "score": 184.5,
+      "relaxed": false
+     },
+     {
+      "price": 1013,
+      "airlines": [
+       "Aegean"
+      ],
+      "stops": 0,
+      "dep_hour": 18.75,
+      "depart": "18:45",
+      "arrive": "22:15",
+      "via": "MXP → ATH",
+      "score": 1007.8,
+      "relaxed": false
+     }
+    ],
+    "flights_out_url": "https://www.google.com/travel/flights?tfs=GhoSCjIwMjYtMTEtMTNqBRIDQVRIcgUSA01YUEIHAQEBAQEBAkgBmAEC&hl=en&curr=EUR",
+    "flights_ret_url": "https://www.google.com/travel/flights?tfs=GhoSCjIwMjYtMTEtMTZqBRIDTVhQcgUSA0FUSEIHAQEBAQEBAkgBmAEC&hl=en&curr=EUR",
+    "out_relaxed": false,
+    "ret_relaxed": false,
+    "flight_min": 403,
+    "flight_best": 403,
+    "booking": [
+     {
+      "name": "LAB17 Ampio e luminoso appartamento per 7 a Milano",
+      "kind": "apartment",
+      "total": 601.0,
+      "rating": 9.5,
+      "reviews": 2,
+      "center_m": 5000.0,
+      "transit_m": 201,
+      "transit_desc": "~201 μ από στάση (OSM)",
+      "lat": 45.4603914,
+      "lon": 9.125334,
+      "url": "https://www.booking.com/hotel/it/lab17-ampio-e-luminoso-appartamento-per-6-a-milano.en-gb.html?checkin=2026-11-13&checkout=2026-11-16&group_adults=6&group_children=1&no_rooms=3&selected_currency=EUR&age=3"
+     },
+     {
+      "name": "Alloggio ampio a 15 minuti dal centro",
+      "kind": "apartment",
+      "total": 731.0,
+      "rating": 10,
+      "reviews": 1,
+      "center_m": 4800.0,
+      "transit_m": 86,
+      "transit_desc": "~86 μ από στάση (OSM)",
+      "lat": 45.5071612,
+      "lon": 9.1795318,
+      "url": "https://www.booking.com/hotel/it/alloggio-ampio-a-15-minuti-dal-centro.en-gb.html?checkin=2026-11-13&checkout=2026-11-16&group_adults=6&group_children=1&no_rooms=3&selected_currency=EUR&age=3"
+     },
+     {
+      "name": "Brand new Apartment - 5 minutes from Istria Metro Station",
+      "kind": "apartment",
+      "total": 765.0,
+      "rating": 9,
+      "reviews": 7,
+      "center_m": 4400.0,
+      "transit_m": 300.0,
+      "transit_desc": "Istria station is within 300 metres",
+      "lat": 45.503483140933,
+      "lon": 9.195342092065,
+      "url": "https://www.booking.com/hotel/it/istria-holiday.en-gb.html?checkin=2026-11-13&checkout=2026-11-16&group_adults=6&group_children=1&no_rooms=3&selected_currency=EUR&age=3"
+     },
+     {
+      "name": "Lovely & Spacious",
+      "kind": "apartment",
+      "total": 829.0,
+      "rating": 9.5,
+      "reviews": 2,
+      "center_m": 3500.0,
+      "transit_m": 97,
+      "transit_desc": "~97 μ από στάση (OSM)",
+      "lat": 45.4877668,
+      "lon": 9.2185546,
+      "url": "https://www.booking.com/hotel/it/welcometomilan.en-gb.html?checkin=2026-11-13&checkout=2026-11-16&group_adults=6&group_children=1&no_rooms=3&selected_currency=EUR&age=3"
+     },
+     {
+      "name": "[IHost Apartment] - Tobagi 8",
+      "kind": "apartment",
+      "total": 829.0,
+      "rating": 8,
+      "reviews": 2,
+      "center_m": 4300.0,
+      "transit_m": 14,
+      "transit_desc": "~14 μ από στάση (OSM)",
+      "lat": 45.4399817,
+      "lon": 9.1453492,
+      "url": "https://www.booking.com/hotel/it/ihost-apartment-tobagi-8.en-gb.html?checkin=2026-11-13&checkout=2026-11-16&group_adults=6&group_children=1&no_rooms=3&selected_currency=EUR&age=3"
+     },
+     {
+      "name": "Luxury Apartments Fioravanti",
+      "kind": "apartment",
+      "total": 833.0,
+      "rating": 8.6,
+      "reviews": 334,
+      "center_m": 2200.0,
+      "transit_m": 203,
+      "transit_desc": "~203 μ από στάση (OSM)",
+      "lat": 45.4821162182549,
+      "lon": 9.175304262790632,
+      "url": "https://www.booking.com/hotel/it/luxury-apartment-fioravanti.en-gb.html?checkin=2026-11-13&checkout=2026-11-16&group_adults=6&group_children=1&no_rooms=3&selected_currency=EUR&age=3"
+     },
+     {
+      "name": "I-Host Apartment - Montemartini 4",
+      "kind": "apartment",
+      "total": 843.0,
+      "rating": 10,
+      "reviews": 1,
+      "center_m": 4200.0,
+      "transit_m": 125,
+      "transit_desc": "~125 μ από στάση (OSM)",
+      "lat": 45.4365928,
+      "lon": 9.2260814,
+      "url": "https://www.booking.com/hotel/it/i-host-apartment-montemartini-4.en-gb.html?checkin=2026-11-13&checkout=2026-11-16&group_adults=6&group_children=1&no_rooms=3&selected_currency=EUR&age=3"
+     },
+     {
+      "name": "BB Hotels Aparthotel Bicocca",
+      "kind": "apartment",
+      "total": 865.0,
+      "rating": 8.8,
+      "reviews": 2610,
+      "center_m": 4100.0,
+      "transit_m": 200.0,
+      "transit_desc": "Istria station is within 200 metres",
+      "lat": 45.500034770512784,
+      "lon": 9.198904176721157,
+      "url": "https://www.booking.com/hotel/it/bb-hotels-residenza-bicocca.en-gb.html?checkin=2026-11-13&checkout=2026-11-16&group_adults=6&group_children=1&no_rooms=3&selected_currency=EUR&age=3"
+     },
+     {
+      "name": "Your Lovely Home Porta Venezia -7 guests",
+      "kind": "apartment",
+      "total": 875.0,
+      "rating": 8.2,
+      "reviews": 69,
+      "center_m": 2700.0,
+      "transit_m": 500.0,
+      "transit_desc": "Lima station is within 500 metres",
+      "lat": 45.478706,
+      "lon": 9.2167976,
+      "url": "https://www.booking.com/hotel/it/il-comfort-di-casa-tua-e-vai-ovunque-in-un-attimo.en-gb.html?checkin=2026-11-13&checkout=2026-11-16&group_adults=6&group_children=1&no_rooms=3&selected_currency=EUR&age=3"
+     },
+     {
+      "name": "Residence Lepontina",
+      "kind": "hotel_private_bath",
+      "total": 879.0,
+      "rating": 8,
+      "reviews": 3465,
+      "center_m": 3200.0,
+      "transit_m": 148,
+      "transit_desc": "~148 μ από στάση (OSM)",
+      "lat": 45.493241476804776,
+      "lon": 9.183969497680664,
+      "url": "https://www.booking.com/hotel/it/residence-lepontina.en-gb.html?checkin=2026-11-13&checkout=2026-11-16&group_adults=6&group_children=1&no_rooms=3&selected_currency=EUR&age=3"
+     },
+     {
+      "name": "Spacious & Lovely - 4 Queen Bed",
+      "kind": "apartment",
+      "total": 883.0,
+      "rating": 8.6,
+      "reviews": 66,
+      "center_m": 3500.0,
+      "transit_m": 97,
+      "transit_desc": "~97 μ από στάση (OSM)",
+      "lat": 45.4877668,
+      "lon": 9.2185546,
+      "url": "https://www.booking.com/hotel/it/il-comfort-di-casa-tua-loreto.en-gb.html?checkin=2026-11-13&checkout=2026-11-16&group_adults=6&group_children=1&no_rooms=3&selected_currency=EUR&age=3"
+     },
+     {
+      "name": "Porta Venezia - lovely&warm",
+      "kind": "apartment",
+      "total": 887.0,
+      "rating": 9.2,
+      "reviews": 5,
+      "center_m": 2700.0,
+      "transit_m": 500.0,
+      "transit_desc": "Lima station is within 500 metres",
+      "lat": 45.4786555,
+      "lon": 9.2167069,
+      "url": "https://www.booking.com/hotel/it/home-sweet-home-2.en-gb.html?checkin=2026-11-13&checkout=2026-11-16&group_adults=6&group_children=1&no_rooms=3&selected_currency=EUR&age=3"
+     }
+    ],
+    "booking_min": 601.0,
+    "depart_str": "2026-11-13",
+    "return_str": "2026-11-16",
+    "name": "Μιλάνο",
+    "to": "MXP",
+    "hist_id": "milan-nov-six",
+    "party": "six",
+    "party_label": "3 ζευγάρια + παιδί 3½",
+    "scanned": "2026-08-01",
+    "auto": false,
+    "adults": 6,
+    "children": [
+     3
+    ],
+    "rooms": 3
+   }
+  }
+ },
+ "rome-nov": {
+  "name": "Ρώμη",
+  "to": "FCO",
+  "city": "Rome",
+  "parties": {
+   "couple": {
+    "flights_out": [
+     {
+      "price": 265,
+      "airlines": [
+       "ITA"
+      ],
+      "stops": 0,
+      "dep_hour": 6.0,
+      "depart": "06:00",
+      "arrive": "07:10",
+      "via": "ATH → FCO",
+      "score": 265.0,
+      "relaxed": false
+     },
+     {
+      "price": 265,
+      "airlines": [
+       "ITA"
+      ],
+      "stops": 0,
+      "dep_hour": 12.75,
+      "depart": "12:45",
+      "arrive": "13:55",
+      "via": "ATH → FCO",
+      "score": 285.2,
+      "relaxed": false
+     },
+     {
+      "price": 335,
+      "airlines": [
+       "Aegean"
+      ],
+      "stops": 0,
+      "dep_hour": 8.58,
+      "depart": "08:35",
+      "arrive": "09:40",
+      "via": "ATH → FCO",
+      "score": 327.7,
+      "relaxed": false
+     }
+    ],
+    "flights_ret": [
+     {
+      "price": 199,
+      "airlines": [
+       "ITA"
+      ],
+      "stops": 0,
+      "dep_hour": 21.83,
+      "depart": "21:50",
+      "arrive": "00:50",
+      "via": "FCO → ATH",
+      "score": 199.5,
+      "relaxed": false
+     },
+     {
+      "price": 407,
+      "airlines": [
+       "Aegean"
+      ],
+      "stops": 0,
+      "dep_hour": 18.5,
+      "depart": "18:30",
+      "arrive": "21:30",
+      "via": "FCO → ATH",
+      "score": 402.5,
+      "relaxed": false
+     }
+    ],
+    "flights_out_url": "https://www.google.com/travel/flights?tfs=GhoSCjIwMjYtMTEtMjdqBRIDQVRIcgUSA0ZDT0ICAQFIAZgBAg%3D%3D&hl=en&curr=EUR",
+    "flights_ret_url": "https://www.google.com/travel/flights?tfs=GhoSCjIwMjYtMTEtMjlqBRIDRkNPcgUSA0FUSEICAQFIAZgBAg%3D%3D&hl=en&curr=EUR",
+    "out_relaxed": false,
+    "ret_relaxed": false,
+    "flight_min": 464,
+    "flight_best": 464,
+    "booking": [
+     {
+      "name": "Aparthotel Adagio Rome Vatican",
+      "kind": "hotel_private_bath",
+      "total": 127.0,
+      "rating": 8,
+      "reviews": 1107,
+      "center_m": null,
+      "transit_m": 26,
+      "transit_desc": "~26 μ από στάση (OSM)",
+      "lat": 41.9196836455549,
+      "lon": 12.4358569085598,
+      "url": "https://www.booking.com/hotel/it/residence-mallia.en-gb.html?checkin=2026-11-27&checkout=2026-11-29&group_adults=2&group_children=0&no_rooms=1&selected_currency=EUR"
+     },
+     {
+      "name": "Alloggio brancaleone",
+      "kind": "apartment",
+      "total": 135.0,
+      "rating": 8.1,
+      "reviews": 17,
+      "center_m": null,
+      "transit_m": 198,
+      "transit_desc": "~198 μ από στάση (OSM)",
+      "lat": 41.8902847,
+      "lon": 12.5308222,
+      "url": "https://www.booking.com/hotel/it/alloggio-brancaleone.en-gb.html?checkin=2026-11-27&checkout=2026-11-29&group_adults=2&group_children=0&no_rooms=1&selected_currency=EUR"
+     },
+     {
+      "name": "Dafne room Nido perfetto per coppie a Roma",
+      "kind": "apartment",
+      "total": 145.0,
+      "rating": 8.4,
+      "reviews": 53,
+      "center_m": null,
+      "transit_m": 66,
+      "transit_desc": "~66 μ από στάση (OSM)",
+      "lat": 41.9004302,
+      "lon": 12.5362192,
+      "url": "https://www.booking.com/hotel/it/charming-nest-for-couples-in-rome.en-gb.html?checkin=2026-11-27&checkout=2026-11-29&group_adults=2&group_children=0&no_rooms=1&selected_currency=EUR"
+     },
+     {
+      "name": "LoL Apartment",
+      "kind": "apartment",
+      "total": 147.0,
+      "rating": 9.4,
+      "reviews": 43,
+      "center_m": null,
+      "transit_m": 121,
+      "transit_desc": "~121 μ από στάση (OSM)",
+      "lat": 41.8775205,
+      "lon": 12.51697,
+      "url": "https://www.booking.com/hotel/it/lol-apartment-roma.en-gb.html?checkin=2026-11-27&checkout=2026-11-29&group_adults=2&group_children=0&no_rooms=1&selected_currency=EUR"
+     },
+     {
+      "name": "Romoli Hotel",
+      "kind": "hotel_breakfast",
+      "total": 148.0,
+      "rating": 8.2,
+      "reviews": 1836,
+      "center_m": null,
+      "transit_m": 84,
+      "transit_desc": "~84 μ από στάση (OSM)",
+      "lat": 41.869603047160346,
+      "lon": 12.514700408992212,
+      "url": "https://www.booking.com/hotel/it/romoli.en-gb.html?checkin=2026-11-27&checkout=2026-11-29&group_adults=2&group_children=0&no_rooms=1&selected_currency=EUR"
+     },
+     {
+      "name": "Foro Italico Apartment - Olympic Stadium 1 min walk",
+      "kind": "apartment",
+      "total": 150.0,
+      "rating": 9,
+      "reviews": 10,
+      "center_m": null,
+      "transit_m": 59,
+      "transit_desc": "~59 μ από στάση (OSM)",
+      "lat": 41.9247467,
+      "lon": 12.4580046,
+      "url": "https://www.booking.com/hotel/it/foro-italico-apartment-olympic-stadium-1-min-walk.en-gb.html?checkin=2026-11-27&checkout=2026-11-29&group_adults=2&group_children=0&no_rooms=1&selected_currency=EUR"
+     },
+     {
+      "name": "Youroom Monteverde - Rooms",
+      "kind": "apartment",
+      "total": 153.0,
+      "rating": 8.6,
+      "reviews": 416,
+      "center_m": null,
+      "transit_m": 55,
+      "transit_desc": "~55 μ από στάση (OSM)",
+      "lat": 41.8691743,
+      "lon": 12.4517856,
+      "url": "https://www.booking.com/hotel/it/youroom-monteverde-rooms.en-gb.html?checkin=2026-11-27&checkout=2026-11-29&group_adults=2&group_children=0&no_rooms=1&selected_currency=EUR"
+     },
+     {
+      "name": "Dafne Rooms a relaxing piece of paradise",
+      "kind": "apartment",
+      "total": 153.0,
+      "rating": 8.4,
+      "reviews": 56,
+      "center_m": null,
+      "transit_m": 10,
+      "transit_desc": "~10 μ από στάση (OSM)",
+      "lat": 41.9037573815214,
+      "lon": 12.5364558155237,
+      "url": "https://www.booking.com/hotel/it/dafne-rooms-a-relaxing-piece-of-paradise.en-gb.html?checkin=2026-11-27&checkout=2026-11-29&group_adults=2&group_children=0&no_rooms=1&selected_currency=EUR"
+     },
+     {
+      "name": "Loft Villa Blanc",
+      "kind": "apartment",
+      "total": 153.0,
+      "rating": 8.4,
+      "reviews": 67,
+      "center_m": null,
+      "transit_m": 73,
+      "transit_desc": "~73 μ από στάση (OSM)",
+      "lat": 41.924477561958,
+      "lon": 12.522471480566,
+      "url": "https://www.booking.com/hotel/it/loft-villa-blanc.en-gb.html?checkin=2026-11-27&checkout=2026-11-29&group_adults=2&group_children=0&no_rooms=1&selected_currency=EUR"
+     },
+     {
+      "name": "Italian Home",
+      "kind": "apartment",
+      "total": 155.0,
+      "rating": 9.5,
+      "reviews": 4,
+      "center_m": null,
+      "transit_m": 80,
+      "transit_desc": "~80 μ από στάση (OSM)",
+      "lat": 41.89699122963455,
+      "lon": 12.532982734069407,
+      "url": "https://www.booking.com/hotel/it/italian-home-roma.en-gb.html?checkin=2026-11-27&checkout=2026-11-29&group_adults=2&group_children=0&no_rooms=1&selected_currency=EUR"
+     },
+     {
+      "name": "Villa Gatta",
+      "kind": "apartment",
+      "total": 155.0,
+      "rating": 9.4,
+      "reviews": 136,
+      "center_m": null,
+      "transit_m": 184,
+      "transit_desc": "~184 μ από στάση (OSM)",
+      "lat": 41.8848927,
+      "lon": 12.53326,
+      "url": "https://www.booking.com/hotel/it/villa-gatta.en-gb.html?checkin=2026-11-27&checkout=2026-11-29&group_adults=2&group_children=0&no_rooms=1&selected_currency=EUR"
+     },
+     {
+      "name": "Titina LOFT",
+      "kind": "apartment",
+      "total": 156.0,
+      "rating": 9,
+      "reviews": 2,
+      "center_m": null,
+      "transit_m": 212,
+      "transit_desc": "~212 μ από στάση (OSM)",
+      "lat": 41.9131871,
+      "lon": 12.5282673,
+      "url": "https://www.booking.com/hotel/it/titina-loft.en-gb.html?checkin=2026-11-27&checkout=2026-11-29&group_adults=2&group_children=0&no_rooms=1&selected_currency=EUR"
+     }
+    ],
+    "booking_min": 127.0,
+    "depart_str": "2026-11-27",
+    "return_str": "2026-11-29",
+    "name": "Ρώμη",
+    "to": "FCO",
+    "hist_id": "rome-nov-couple",
+    "party": "couple",
+    "party_label": "1 ζευγάρι",
+    "scanned": "2026-10-22",
+    "auto": true,
+    "adults": 2,
+    "children": [],
+    "rooms": 1
+   },
+   "family": {
+    "flights_out": [
+     {
+      "price": 373,
+      "airlines": [
+       "ITA"
+      ],
+      "stops": 0,
+      "dep_hour": 6.0,
+      "depart": "06:00",
+      "arrive": "07:10",
+      "via": "ATH → FCO",
+      "score": 373.0,
+      "relaxed": false
+     },
+     {
+      "price": 373,
+      "airlines": [
+       "ITA"
+      ],
+      "stops": 0,
+      "dep_hour": 12.75,
+      "depart": "12:45",
+      "arrive": "13:55",
+      "via": "ATH → FCO",
+      "score": 393.2,
+      "relaxed": false
+     },
+     {
+      "price": 598,
+      "airlines": [
+       "Aegean"
+      ],
+      "stops": 0,
+      "dep_hour": 8.58,
+      "depart": "08:35",
+      "arrive": "09:40",
+      "via": "ATH → FCO",
+      "score": 590.7,
+      "relaxed": false
+     }
+    ],
+    "flights_ret": [
+     {
+      "price": 318,
+      "airlines": [
+       "ITA"
+      ],
+      "stops": 0,
+      "dep_hour": 21.83,
+      "depart": "21:50",
+      "arrive": "00:50",
+      "via": "FCO → ATH",
+      "score": 318.5,
+      "relaxed": false
+     },
+     {
+      "price": 508,
+      "airlines": [
+       "Aegean"
+      ],
+      "stops": 0,
+      "dep_hour": 18.5,
+      "depart": "18:30",
+      "arrive": "21:30",
+      "via": "FCO → ATH",
+      "score": 503.5,
+      "relaxed": false
+     }
+    ],
+    "flights_out_url": "https://www.google.com/travel/flights?tfs=GhoSCjIwMjYtMTEtMjdqBRIDQVRIcgUSA0ZDT0IFAQEBAQJIAZgBAg%3D%3D&hl=en&curr=EUR",
+    "flights_ret_url": "https://www.google.com/travel/flights?tfs=GhoSCjIwMjYtMTEtMzBqBRIDRkNPcgUSA0FUSEIFAQEBAQJIAZgBAg%3D%3D&hl=en&curr=EUR",
+    "out_relaxed": false,
+    "ret_relaxed": false,
+    "flight_min": 691,
+    "flight_best": 691,
+    "booking": [
+     {
+      "name": "FamilyBed Roma Monteverde-Vaticano",
+      "kind": "apartment",
+      "total": 400.0,
+      "rating": 8.4,
+      "reviews": 228,
+      "center_m": 3800.0,
+      "transit_m": 35,
+      "transit_desc": "~35 μ από στάση (OSM)",
+      "lat": 41.87024303590967,
+      "lon": 12.4528973576721,
+      "url": "https://www.booking.com/hotel/it/familybed.en-gb.html?checkin=2026-11-27&checkout=2026-11-30&group_adults=4&group_children=1&no_rooms=2&selected_currency=EUR&age=3"
+     },
+     {
+      "name": "Sophie's Choice 2",
+      "kind": "apartment",
+      "total": 413.0,
+      "rating": 8.5,
+      "reviews": 200,
+      "center_m": 3400.0,
+      "transit_m": 450.0,
+      "transit_desc": "Re di Roma station is within 450 metres",
+      "lat": 41.8823842,
+      "lon": 12.519764399999985,
+      "url": "https://www.booking.com/hotel/it/sophie-39-s-choice-2.en-gb.html?checkin=2026-11-27&checkout=2026-11-30&group_adults=4&group_children=1&no_rooms=2&selected_currency=EUR&age=3"
+     },
+     {
+      "name": "Bignami street",
+      "kind": "apartment",
+      "total": 432.0,
+      "rating": 8.9,
+      "reviews": 57,
+      "center_m": 3300.0,
+      "transit_m": 92,
+      "transit_desc": "~92 μ από στάση (OSM)",
+      "lat": 41.873828728192,
+      "lon": 12.456023721387,
+      "url": "https://www.booking.com/hotel/it/bignami-street.en-gb.html?checkin=2026-11-27&checkout=2026-11-30&group_adults=4&group_children=1&no_rooms=2&selected_currency=EUR&age=3"
+     },
+     {
+      "name": "Nuovo appartamento stazione Tiburtina",
+      "kind": "apartment",
+      "total": 435.0,
+      "rating": 8.8,
+      "reviews": 18,
+      "center_m": 4500.0,
+      "transit_m": 49,
+      "transit_desc": "~49 μ από στάση (OSM)",
+      "lat": 41.9018143,
+      "lon": 12.5359986,
+      "url": "https://www.booking.com/hotel/it/nuovo-appartamento-stazione-tiburtina-roma.en-gb.html?checkin=2026-11-27&checkout=2026-11-30&group_adults=4&group_children=1&no_rooms=2&selected_currency=EUR&age=3"
+     },
+     {
+      "name": "Green Apartmente S Camillo - 2 Bedroom Apartment with Garden and BBQ - by Holiday Homes Rome",
+      "kind": "apartment",
+      "total": 442.0,
+      "rating": 8.6,
+      "reviews": 101,
+      "center_m": 3800.0,
+      "transit_m": 36,
+      "transit_desc": "~36 μ από στάση (OSM)",
+      "lat": 41.8703401,
+      "lon": 12.452873,
+      "url": "https://www.booking.com/hotel/it/gianicolense-home.en-gb.html?checkin=2026-11-27&checkout=2026-11-30&group_adults=4&group_children=1&no_rooms=2&selected_currency=EUR&age=3"
+     },
+     {
+      "name": "Holiday apartment in Rome",
+      "kind": "apartment",
+      "total": 458.0,
+      "rating": 9,
+      "reviews": 26,
+      "center_m": 3800.0,
+      "transit_m": 93,
+      "transit_desc": "~93 μ από στάση (OSM)",
+      "lat": 41.8779598,
+      "lon": 12.4431101,
+      "url": "https://www.booking.com/hotel/it/holiday-apartment-in-rome.en-gb.html?checkin=2026-11-27&checkout=2026-11-30&group_adults=4&group_children=1&no_rooms=2&selected_currency=EUR&age=3"
+     },
+     {
+      "name": "Chroma Italy - Doctor House",
+      "kind": "apartment",
+      "total": 468.0,
+      "rating": 9,
+      "reviews": 58,
+      "center_m": 4700.0,
+      "transit_m": 250.0,
+      "transit_desc": "Basilica San Paolo station is within 250 metres",
+      "lat": 41.8540104,
+      "lon": 12.4784196,
+      "url": "https://www.booking.com/hotel/it/doctor-house-roma.en-gb.html?checkin=2026-11-27&checkout=2026-11-30&group_adults=4&group_children=1&no_rooms=2&selected_currency=EUR&age=3"
+     },
+     {
+      "name": "Appartamento per le tue vacanze a Roma Villa Pamphili",
+      "kind": "apartment",
+      "total": 472.0,
+      "rating": 8.9,
+      "reviews": 67,
+      "center_m": 3800.0,
+      "transit_m": 96,
+      "transit_desc": "~96 μ από στάση (OSM)",
+      "lat": 41.8779927,
+      "lon": 12.4431403,
+      "url": "https://www.booking.com/hotel/it/appartamento-per-le-tue-vacanze-a-villa-pamphili-roma.en-gb.html?checkin=2026-11-27&checkout=2026-11-30&group_adults=4&group_children=1&no_rooms=2&selected_currency=EUR&age=3"
+     },
+     {
+      "name": "Ma Belle Maison",
+      "kind": "apartment",
+      "total": 487.0,
+      "rating": 8.3,
+      "reviews": 245,
+      "center_m": 3400.0,
+      "transit_m": 300.0,
+      "transit_desc": "Valle Aurelia station is within 300 metres",
+      "lat": 41.90483854279049,
+      "lon": 12.443861961364746,
+      "url": "https://www.booking.com/hotel/it/l-39-isola-residenze.en-gb.html?checkin=2026-11-27&checkout=2026-11-30&group_adults=4&group_children=1&no_rooms=2&selected_currency=EUR&age=3"
+     },
+     {
+      "name": "Il Villino",
+      "kind": "apartment",
+      "total": 488.0,
+      "rating": 8.7,
+      "reviews": 39,
+      "center_m": 3400.0,
+      "transit_m": 350.0,
+      "transit_desc": "Lodi station is within 350 metres",
+      "lat": 41.8848679,
+      "lon": 12.521071899999999,
+      "url": "https://www.booking.com/hotel/it/il-villino-roma1.en-gb.html?checkin=2026-11-27&checkout=2026-11-30&group_adults=4&group_children=1&no_rooms=2&selected_currency=EUR&age=3"
+     },
+     {
+      "name": "Aura",
+      "kind": "apartment",
+      "total": 497.0,
+      "rating": 9.2,
+      "reviews": 5,
+      "center_m": 4400.0,
+      "transit_m": 250.0,
+      "transit_desc": "Cornelia station is within 250 metres",
+      "lat": 41.9001874,
+      "lon": 12.4293999,
+      "url": "https://www.booking.com/hotel/it/aura-roma.en-gb.html?checkin=2026-11-27&checkout=2026-11-30&group_adults=4&group_children=1&no_rooms=2&selected_currency=EUR&age=3"
+     },
+     {
+      "name": "Holiday Homes Rome - Gianicolense 168 Superior",
+      "kind": "apartment",
+      "total": 505.0,
+      "rating": 9.5,
+      "reviews": 4,
+      "center_m": 3800.0,
+      "transit_m": 62,
+      "transit_desc": "~62 μ από στάση (OSM)",
+      "lat": 41.8724686,
+      "lon": 12.4495638,
+      "url": "https://www.booking.com/hotel/it/holiday-homes-rome-gianicolense-168-superior.en-gb.html?checkin=2026-11-27&checkout=2026-11-30&group_adults=4&group_children=1&no_rooms=2&selected_currency=EUR&age=3"
+     }
+    ],
+    "booking_min": 400.0,
+    "depart_str": "2026-11-27",
+    "return_str": "2026-11-30",
+    "name": "Ρώμη",
+    "to": "FCO",
+    "hist_id": "rome-nov-family",
+    "party": "family",
+    "party_label": "2 ζευγάρια + παιδί 3½",
+    "scanned": "2026-08-01",
+    "auto": false,
+    "adults": 4,
+    "children": [
+     3
+    ],
+    "rooms": 2
+   },
+   "six": {
+    "flights_out": [
+     {
+      "price": 522,
+      "airlines": [
+       "ITA"
+      ],
+      "stops": 0,
+      "dep_hour": 12.75,
+      "depart": "12:45",
+      "arrive": "13:55",
+      "via": "ATH → FCO",
+      "score": 542.2,
+      "relaxed": false
+     },
+     {
+      "price": 571,
+      "airlines": [
+       "Aegean"
+      ],
+      "stops": 0,
+      "dep_hour": 8.58,
+      "depart": "08:35",
+      "arrive": "09:40",
+      "via": "ATH → FCO",
+      "score": 563.7,
+      "relaxed": false
+     },
+     {
+      "price": 648,
+      "airlines": [
+       "ITA"
+      ],
+      "stops": 0,
+      "dep_hour": 6.0,
+      "depart": "06:00",
+      "arrive": "07:10",
+      "via": "ATH → FCO",
+      "score": 648.0,
+      "relaxed": false
+     }
+    ],
+    "flights_ret": [
+     {
+      "price": 449,
+      "airlines": [
+       "ITA"
+      ],
+      "stops": 0,
+      "dep_hour": 15.58,
+      "depart": "15:35",
+      "arrive": "18:35",
+      "via": "FCO → ATH",
+      "score": 468.3,
+      "relaxed": true
+     },
+     {
+      "price": 666,
+      "airlines": [
+       "ITA"
+      ],
+      "stops": 0,
+      "dep_hour": 21.83,
+      "depart": "21:50",
+      "arrive": "00:50",
+      "via": "FCO → ATH",
+      "score": 666.5,
+      "relaxed": true
+     },
+     {
+      "price": 715,
+      "airlines": [
+       "Aegean"
+      ],
+      "stops": 0,
+      "dep_hour": 18.5,
+      "depart": "18:30",
+      "arrive": "21:30",
+      "via": "FCO → ATH",
+      "score": 710.5,
+      "relaxed": true
+     }
+    ],
+    "flights_out_url": "https://www.google.com/travel/flights?tfs=GhoSCjIwMjYtMTEtMjBqBRIDQVRIcgUSA0ZDT0IHAQEBAQEBAkgBmAEC&hl=en&curr=EUR",
+    "flights_ret_url": "https://www.google.com/travel/flights?tfs=GhoSCjIwMjYtMTEtMjNqBRIDRkNPcgUSA0FUSEIHAQEBAQEBAkgBmAEC&hl=en&curr=EUR",
+    "out_relaxed": false,
+    "ret_relaxed": true,
+    "flight_min": 971,
+    "flight_best": 971,
+    "booking": [
+     {
+      "name": "L'Angolo di Roma",
+      "kind": "apartment",
+      "total": 528.0,
+      "rating": 8.1,
+      "reviews": 62,
+      "center_m": 2300.0,
+      "transit_m": 97,
+      "transit_desc": "~97 μ από στάση (OSM)",
+      "lat": 41.9108774,
+      "lon": 12.5019087,
+      "url": "https://www.booking.com/hotel/it/angolo-di-roma-roma1.en-gb.html?checkin=2026-11-20&checkout=2026-11-23&group_adults=6&group_children=1&no_rooms=3&selected_currency=EUR&age=3"
+     },
+     {
+      "name": "Design Monteverde Flat Jenner 70",
+      "kind": "apartment",
+      "total": 591.0,
+      "rating": 9.1,
+      "reviews": 34,
+      "center_m": 4100.0,
+      "transit_m": 57,
+      "transit_desc": "~57 μ από στάση (OSM)",
+      "lat": 41.8716428564938,
+      "lon": 12.4448628238854,
+      "url": "https://www.booking.com/hotel/it/design-monteverde-flat-jenner-70.en-gb.html?checkin=2026-11-20&checkout=2026-11-23&group_adults=6&group_children=1&no_rooms=3&selected_currency=EUR&age=3"
+     },
+     {
+      "name": "Vatican City San Peter quiet and lovely apartment",
+      "kind": "apartment",
+      "total": 597.0,
+      "rating": 8.9,
+      "reviews": 150,
+      "center_m": 2900.0,
+      "transit_m": 182,
+      "transit_desc": "~182 μ από στάση (OSM)",
+      "lat": 41.8946101,
+      "lon": 12.4472962,
+      "url": "https://www.booking.com/hotel/it/vatican-quiet-and-lovely-appartment.en-gb.html?checkin=2026-11-20&checkout=2026-11-23&group_adults=6&group_children=1&no_rooms=3&selected_currency=EUR&age=3"
+     },
+     {
+      "name": "Trastevere Chic 2 Suite Home - Near Center & Station",
+      "kind": "apartment",
+      "total": 618.0,
+      "rating": 8,
+      "reviews": 1,
+      "center_m": 2900.0,
+      "transit_m": 141,
+      "transit_desc": "~141 μ από στάση (OSM)",
+      "lat": 41.8716898,
+      "lon": 12.470072,
+      "url": "https://www.booking.com/hotel/it/casa-di-marina-roma.en-gb.html?checkin=2026-11-20&checkout=2026-11-23&group_adults=6&group_children=1&no_rooms=3&selected_currency=EUR&age=3"
+     },
+     {
+      "name": "Domus Vatican View - San Pietro",
+      "kind": "apartment",
+      "total": 653.0,
+      "rating": 8.2,
+      "reviews": 27,
+      "center_m": 2700.0,
+      "transit_m": 157,
+      "transit_desc": "~157 μ από στάση (OSM)",
+      "lat": 41.894707,
+      "lon": 12.4502721,
+      "url": "https://www.booking.com/hotel/it/domus-vatican-view-san-pietro.en-gb.html?checkin=2026-11-20&checkout=2026-11-23&group_adults=6&group_children=1&no_rooms=3&selected_currency=EUR&age=3"
+     },
+     {
+      "name": "Optima mansio",
+      "kind": "apartment",
+      "total": 666.0,
+      "rating": 8.5,
+      "reviews": 85,
+      "center_m": 3100.0,
+      "transit_m": 150.0,
+      "transit_desc": "Re di Roma station is within 150 metres",
+      "lat": 41.880618,
+      "lon": 12.5132672,
+      "url": "https://www.booking.com/hotel/it/domus-nova-roma.en-gb.html?checkin=2026-11-20&checkout=2026-11-23&group_adults=6&group_children=1&no_rooms=3&selected_currency=EUR&age=3"
+     },
+     {
+      "name": "Aura",
+      "kind": "apartment",
+      "total": 668.0,
+      "rating": 9.2,
+      "reviews": 5,
+      "center_m": 4400.0,
+      "transit_m": 250.0,
+      "transit_desc": "Cornelia station is within 250 metres",
+      "lat": 41.9001874,
+      "lon": 12.4293999,
+      "url": "https://www.booking.com/hotel/it/aura-roma.en-gb.html?checkin=2026-11-20&checkout=2026-11-23&group_adults=6&group_children=1&no_rooms=3&selected_currency=EUR&age=3"
+     },
+     {
+      "name": "Ma Belle Maison",
+      "kind": "apartment",
+      "total": 673.0,
+      "rating": 8.3,
+      "reviews": 245,
+      "center_m": 3400.0,
+      "transit_m": 300.0,
+      "transit_desc": "Valle Aurelia station is within 300 metres",
+      "lat": 41.90483854279049,
+      "lon": 12.443861961364746,
+      "url": "https://www.booking.com/hotel/it/l-39-isola-residenze.en-gb.html?checkin=2026-11-20&checkout=2026-11-23&group_adults=6&group_children=1&no_rooms=3&selected_currency=EUR&age=3"
+     },
+     {
+      "name": "Your Happy Home",
+      "kind": "apartment",
+      "total": 677.0,
+      "rating": 8.3,
+      "reviews": 51,
+      "center_m": 3700.0,
+      "transit_m": 100.0,
+      "transit_desc": "Ponte Lungo station is within 100 metres",
+      "lat": 41.8773523,
+      "lon": 12.5191628,
+      "url": "https://www.booking.com/hotel/it/your-happy-home-roma.en-gb.html?checkin=2026-11-20&checkout=2026-11-23&group_adults=6&group_children=1&no_rooms=3&selected_currency=EUR&age=3"
+     },
+     {
+      "name": "Valle Aurelia Station House One by Dama",
+      "kind": "apartment",
+      "total": 679.0,
+      "rating": 8.1,
+      "reviews": 91,
+      "center_m": 3500.0,
+      "transit_m": 100.0,
+      "transit_desc": "Valle Aurelia station is within 100 metres",
+      "lat": 41.9019403,
+      "lon": 12.4414434,
+      "url": "https://www.booking.com/hotel/it/roma-hub-two.en-gb.html?checkin=2026-11-20&checkout=2026-11-23&group_adults=6&group_children=1&no_rooms=3&selected_currency=EUR&age=3"
+     },
+     {
+      "name": "Glory house Vatican Museum",
+      "kind": "apartment",
+      "total": 689.0,
+      "rating": 8.2,
+      "reviews": 238,
+      "center_m": 3300.0,
+      "transit_m": 350.0,
+      "transit_desc": "Valle Aurelia station is within 350 metres",
+      "lat": 41.9051094,
+      "lon": 12.444102,
+      "url": "https://www.booking.com/hotel/it/glory-house-vatican-museum.en-gb.html?checkin=2026-11-20&checkout=2026-11-23&group_adults=6&group_children=1&no_rooms=3&selected_currency=EUR&age=3"
+     },
+     {
+      "name": "Vatican Station",
+      "kind": "apartment",
+      "total": 698.0,
+      "rating": 9.4,
+      "reviews": 69,
+      "center_m": 3400.0,
+      "transit_m": 350.0,
+      "transit_desc": "Cipro station is within 350 metres",
+      "lat": 41.91019719463982,
+      "lon": 12.446033142441593,
+      "url": "https://www.booking.com/hotel/it/vatican-station-b-amp-b.en-gb.html?checkin=2026-11-20&checkout=2026-11-23&group_adults=6&group_children=1&no_rooms=3&selected_currency=EUR&age=3"
+     }
+    ],
+    "booking_min": 528.0,
+    "depart_str": "2026-11-20",
+    "return_str": "2026-11-23",
+    "name": "Ρώμη",
+    "to": "FCO",
+    "hist_id": "rome-nov-six",
+    "party": "six",
+    "party_label": "3 ζευγάρια + παιδί 3½",
+    "scanned": "2026-08-01",
+    "auto": false,
+    "adults": 6,
+    "children": [
+     3
+    ],
+    "rooms": 3
+   }
+  }
+ }
+}
