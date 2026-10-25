@@ -1,8 +1,10 @@
 name: Daily Travel Tracker
 
 on:
-  schedule:
-    - cron: '0 8 * * *' # 8:00 AM UTC -> 10:00/11:00 AM Greece
+  # Καθημερινό σκανάρισμα ΣΒΗΣΤΟ (25 Οκτ 2026): το ταξίδι του Νοεμβρίου δεν γίνεται.
+  # Για να ξαναανάψει, βγάλε το σχόλιο από τις 2 γραμμές:
+  # schedule:
+  #   - cron: '0 8 * * *' # 8:00 AM UTC -> 10:00/11:00 AM Greece
   workflow_dispatch: # Manual trigger
 
 jobs:
